@@ -56,6 +56,6 @@ def _parse_values(config):
 
 
 # Defining a global scope configuration variable which can be accessed from everywhere in the project.
-def compile_config(path='/home/abhijit/Jyotirmay/thesis/punet/settings.ini'):
+def compile_config(path='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'):
     settings = Settings(path)
     return settings

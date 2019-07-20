@@ -1,6 +1,6 @@
 """
 Convert to h5 utility.
-python utils/convert_h5.py -cfg='/home/abhijit/Jyotirmay/thesis/punet/settings.ini'
+python utils/convert_h5.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
 """
 
 import argparse
