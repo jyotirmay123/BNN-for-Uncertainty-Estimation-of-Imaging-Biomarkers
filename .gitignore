@@ -1,0 +1,4 @@
+datasets/KORA datasets/NAKO datasets/UKB
+experiments/KORA_hierarchical_only_quicknat_weighted_loss
+logs/KORA_hierarchical_only_quicknat_weighted_loss
+saved_models/KORA_hierarchical_only_quicknat_weighted_loss.pth.tar
