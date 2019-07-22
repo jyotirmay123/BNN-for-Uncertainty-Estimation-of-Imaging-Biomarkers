@@ -1,4 +1,6 @@
 datasets/**
+datasets/**/**
+datasets/**/**/**
 experiments/**
 logs/**
 saved_models/**

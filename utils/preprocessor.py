@@ -139,3 +139,31 @@ class PreProcess(ExtractSettings):
     def normalise_data(volume):
         volume = (volume - np.min(volume)) / (np.max(volume) - np.min(volume))
         return volume
+
+    @staticmethod
+    def estimate_weights_mfb(labels):
+        class_weights = np.zeros_like(labels)
+        unique, counts = np.unique(labels, return_counts=True)
+        median_freq = np.median(counts)
+        weights = np.zeros(len(unique))
+        for i, label in enumerate(unique):
+            class_weights += (median_freq // counts[i]) * np.array(labels == label)
+            weights[int(label)] = median_freq // counts[i]
+
+        grads = np.gradient(labels)
+        edge_weights = (grads[0] ** 2 + grads[1] ** 2) > 0
+        class_weights += 2 * edge_weights
+        return class_weights, weights
+
+    @staticmethod
+    def estimate_weights_per_slice(labels):
+        weights_per_slice = []
+        for slice_ in labels:
+            unique, counts = np.unique(slice_, return_counts=True)
+            median_freq = np.median(counts)
+            weights = np.zeros(3)
+            for i, label in enumerate(unique):
+                weights[int(label)] = median_freq // counts[i]
+            weights_per_slice.append(weights)
+
+        return np.array(weights_per_slice)

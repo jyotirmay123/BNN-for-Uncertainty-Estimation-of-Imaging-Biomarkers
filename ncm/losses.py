@@ -194,12 +194,15 @@ class CombinedLoss(_Loss):
         :return: scalar
         """
         # input_soft = F.softmax(input, dim=1)
+        target = target.type(torch.long)
+        w, cw = weight
         y_2 = torch.mean(self.dice_loss(input, target))
         if weight is None:
             y_1 = torch.mean(self.cross_entropy_loss.forward(input, target))
         else:
+            # y_2 = torch.sum(torch.mul(self.dice_loss(input, target), w))
             y_1 = torch.mean(
-                torch.mul(self.cross_entropy_loss.forward(input, target), weight))
+                torch.mul(self.cross_entropy_loss.forward(input, target), cw))
         return y_1 + y_2
 
 
@@ -288,36 +291,57 @@ class FocalLoss(nn.Module):
 #         KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 #         return KLD
 
-
 class KLDCECombinedLoss(nn.Module):
     """
     Combined loss of KL-Divergence and CrossEntropy.
     """
 
-    def __init__(self, beta_value=1):
+    def __init__(self, gamma_value=1, beta_value=1):
         super(KLDCECombinedLoss, self).__init__()
         self.cross_entropy_loss = CrossEntropyLoss2d()
         self.dice_loss = DiceLoss()
+        self.kldivLossFunc = KLDivLossFunc()
+        self.gamma_value = gamma_value
         self.beta_value = beta_value
 
-    def forward(self, inp, target):
-        """Forward pass
+    def forward(self, input, target, weight=None):
+        """
+        Forward pass
 
-           :param inp:
-           :type inp: tuple
-           :param target: shape = NxHxW
-           :type target: torch.tensor
-           :return: combined loss value
-           :rtype: torch.tensor
-         """
-        prior, posterior, y_p = inp
+        :param input: torch.tensor (NxCxHxW)
+        :param target: torch.tensor (NxHxW)
+        :param weight: torch.tensor (NxHxW)
+        :return: scalar
+        """
+        w, cw = weight
+        prior, posterior, y_p = input
         target = target.type(torch.long)
-        criterion = nn.KLDivLoss(reduction='batchmean')
-        KLDivLoss = criterion(F.log_softmax(posterior.type(torch.FloatTensor), dim=0),
-                              F.softmax(prior.type(torch.FloatTensor), dim=0)).cuda()
-        Dice = torch.mean(self.dice_loss(y_p, target))
-        cumulatived_loss = Dice + self.beta_value * KLDivLoss
-        return Dice, KLDivLoss, cumulatived_loss
+        kl_div_loss = 0
+
+        if weight is None:
+            dice_loss = torch.mean(self.dice_loss(y_p, target))
+            cross_entropy_loss = torch.mean(self.cross_entropy_loss.forward(y_p, target))
+        else:
+            # dice_loss = torch.mean(self.dice_loss(y_p, target))
+            # cross_entropy_loss = torch.mean(self.cross_entropy_loss.forward(y_p, target))
+            dice_loss = torch.sum(torch.mul(self.dice_loss(y_p, target), w))
+            cross_entropy_loss = torch.mean(
+                torch.mul(self.cross_entropy_loss.forward(y_p, target), cw))
+
+        if prior is not None and posterior is not None:
+            criterion = nn.KLDivLoss(reduction='batchmean')
+            if type(prior) is dict and type(posterior) is dict:
+                for i, j in zip(prior, posterior):
+                    if kl_div_loss == 0:
+                        kl_div_loss = criterion(F.log_softmax(posterior[j].type(torch.FloatTensor), dim=0),
+                                                F.softmax(prior[i].type(torch.FloatTensor), dim=0)).cuda()
+                    else:
+                        kl_div_loss += criterion(F.log_softmax(posterior[j].type(torch.FloatTensor), dim=0),
+                                                 F.softmax(prior[i].type(torch.FloatTensor), dim=0)).cuda()
+
+        cumulative_loss = self.gamma_value * dice_loss + 3 * cross_entropy_loss + self.beta_value * kl_div_loss
+
+        return dice_loss, cross_entropy_loss, kl_div_loss, cumulative_loss
 
 
 class KLDivLossFunc(nn.Module):
@@ -346,4 +370,3 @@ class KLDivLossFunc(nn.Module):
     def loss_to_normal(z_mu, z_var):
         kl_loss = 0.5 * torch.sum(torch.exp(z_var) + z_mu ** 2 - 1. - z_var)
         return kl_loss
-

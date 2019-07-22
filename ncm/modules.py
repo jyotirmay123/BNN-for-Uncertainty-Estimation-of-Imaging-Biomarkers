@@ -497,9 +497,8 @@ class ConcatBlock(nn.Module):
             modified_inp = another_input
 
         if len(modified_inp.shape) == 3:
-            modified_inp = modified_inp.unsqueeze(0) #.type(torch.FloatTensor)
+            modified_inp = modified_inp.unsqueeze(0)
 
-        # input = input.type(torch.FloatTensor)
         concat = torch.cat((input, modified_inp), dim=1)
 
-        return concat #.double().cuda()
+        return concat

@@ -21,9 +21,10 @@ class Solver(object):
                  device,
                  num_class,
                  optim=torch.optim.Adam,
+                 posterior_optim = torch.optim.Adam,
                  optim_args={},
-                 loss_func=additional_losses.KLDCECombinedLoss(),
-                 model_name='punet',
+                 loss_func=additional_losses.CombinedLoss(),
+                 model_name='hquicknat',
                  labels=None,
                  num_epochs=10,
                  log_nth=5,
@@ -34,7 +35,7 @@ class Solver(object):
                  log_dir='logs'):
 
         self.device = device
-        self.model = model
+        self.model, self.posterior_model = model
 
         self.model_name = model_name
         self.labels = labels
@@ -43,12 +44,13 @@ class Solver(object):
         # TODO: Fit the additional objective function into the architecture properly later
         if torch.cuda.is_available():
             self.loss_func = loss_func.cuda(device)
-            self.loss_func_kl_div = additional_losses.KLDivLossFunc().cuda(device)
+            self.posterior_loss = additional_losses.CombinedLoss().cuda(device)
         else:
             self.loss_func = loss_func
-            self.loss_func_kl_div = additional_losses.KLDivLossFunc()
+            self.posterior_loss = additional_losses.CombinedLoss()
 
-        self.optim = optim(model.parameters(), **optim_args)
+        self.optim = optim(self.model.parameters(), **optim_args)
+        self.posterior_optim = posterior_optim(self.posterior_model.parameters(), **optim_args)
         self.scheduler = lr_scheduler.StepLR(self.optim, step_size=lr_scheduler_step_size,
                                              gamma=lr_scheduler_gamma)
 
@@ -81,14 +83,17 @@ class Solver(object):
         - val_loader: val data in torch.utils.data.DataLoader
         """
         model, optim, scheduler = self.model, self.optim, self.scheduler
+        posterior_model, posterior_optim = self.posterior_model, self.posterior_optim
         dataloaders = {
             'train': train_loader,
             'val': val_loader
         }
-
+        warmup_posterior = True
+        run_warmup = 5
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
             model.cuda(self.device)
+            posterior_model.cuda(self.device)
 
         print('START TRAINING. : saved_models name = %s, device = %s' % (
             self.model_name, torch.cuda.get_device_name(self.device)))
@@ -97,63 +102,78 @@ class Solver(object):
             print("\n==== Epoch [ %d  /  %d ] START ====" % (epoch, self.num_epochs))
             for phase in ['train', 'val']:
                 print("<<<= Phase: %s =>>>" % phase)
-                loss_arr = []
-                dice_loss_arr = []
-                kldiv_loss_arr = []
+                loss_arr = [0]
+                ce_loss_arr = [0]
+                dice_loss_arr = [0]
+                kld_loss_arr = [0]
+                posterior_loss_arr = [0]
                 out_list = []
                 y_list = []
                 if phase == 'train':
                     model.train()
-                    scheduler.step()
+                    posterior_model.train()
+                    scheduler.step(epoch)
                 else:
                     model.eval()
                 for i_batch, sample_batched in enumerate(dataloaders[phase]):
                     X = sample_batched[0].type(torch.FloatTensor)
                     y = sample_batched[1].type(torch.FloatTensor)
-                    # w = sample_batched[2].type(torch.FloatTensor)
+                    w = sample_batched[2].type(torch.FloatTensor)
+                    cw = sample_batched[3].type(torch.FloatTensor)
 
                     if model.is_cuda:
                         X, y = X.cuda(self.device, non_blocking=True), y.cuda(self.device, non_blocking=True)
+                        w, cw = w.cuda(self.device, non_blocking=True), cw.cuda(self.device, non_blocking=True)
 
-                    # loss = self.loss_func(output, y, w)
-                    samples_generator = model.sample_generator(X, y)
-                    priors, posteriors = None, None
-                    # TODO: add sampling freequency instead of hard coded 10 as sampling freeq
-                    for i in range(12):
-                        priors, posteriors = next(samples_generator)
-                        if phase == 'train':
-                            kl_div_loss = self.loss_func_kl_div(priors, posteriors)
-                            kldiv_loss_arr.append(kl_div_loss.item())
-                            optim.zero_grad()
-                            kl_div_loss.backward(retain_graph=True)
-                            optim.step()
-                        else:
-                            break
                     if phase == 'train':
-                        output = model.forward(X, y)
+                        if warmup_posterior:
+                            for i in range(run_warmup):
+                                posterior_out = posterior_model(X, y)
+                                posterior_loss = self.posterior_loss.forward(posterior_out, y, (w, cw))
+                                posterior_optim.zero_grad()
+                                posterior_loss.backward(retain_graph=True)
+                                posterior_optim.step()
+                                posterior_loss_arr.append(posterior_loss.item())
+                                if posterior_loss.item() < 0.01:
+                                    run_warmup = 1
+
+                        posterior_model(X, y)
+                        model.is_training = True
+                        posterior_samples = posterior_model.get_samples()
+                        model.set_posterior_samples(posterior_samples)
+                        prior_samples = model.get_prior_samples()
+                        output = model(X)
                     else:
-                        output = model.forward(X)
+                        model.is_training = False
+                        output = model(X)
+                        prior_weights = model.get_prior_weights_for_posterior_samplings()
+                        prior_samples = model.get_prior_samples()
+                        posterior_samples = posterior_model.prepare_posterior_samples_from_prior_weights(prior_weights)
 
-                    intermediate_loss = self.loss_func((priors, posteriors, output), y)
+                    intermediate_loss = self.loss_func((prior_samples, posterior_samples, output), y, (w, cw))
 
-                    loss = intermediate_loss[-1]
                     dice_loss = intermediate_loss[0]
-                    kldiv_loss = intermediate_loss[1]
+                    ce_loss = intermediate_loss[1]
+                    kl_div_loss = intermediate_loss[2]
+                    loss = intermediate_loss[3]
 
                     if phase == 'train':
                         optim.zero_grad()
-                        loss.backward(retain_graph=True)
+                        loss.backward()
                         optim.step()
                         if i_batch % self.log_nth == 0:
-                            self.logWriter.dice_loss_per_iter(dice_loss.item(), i_batch, current_iteration)
-                            self.logWriter.kldiv_loss_per_iter(kldiv_loss.item(), i_batch, current_iteration)
                             self.logWriter.loss_per_iter(loss.item(), i_batch, current_iteration)
+                            self.logWriter.dice_loss_per_iter(dice_loss.item(), i_batch, current_iteration)
+                            self.logWriter.ce_loss_per_iter(ce_loss.item(), i_batch, current_iteration)
+                            self.logWriter.kldiv_loss_per_iter(kl_div_loss.item(), i_batch, current_iteration)
+                            self.logWriter.posterior_loss_per_iter(posterior_loss_arr[-1], i_batch, current_iteration)
                             # self.logWriter.graph(model, (X, y))
                         current_iteration += 1
 
                     loss_arr.append(loss.item())
+                    ce_loss_arr.append(ce_loss.item())
                     dice_loss_arr.append(dice_loss.item())
-                    kldiv_loss_arr.append(kldiv_loss.item())
+                    kld_loss_arr.append(kl_div_loss.item())
 
                     _, batch_output = torch.max(output, dim=1)
                     out_list.append(batch_output.cpu())
@@ -181,8 +201,10 @@ class Solver(object):
                 with torch.no_grad():
                     out_arr, y_arr = torch.cat(out_list), torch.cat(y_list)
                     self.logWriter.loss_per_epoch(loss_arr, phase, epoch)
+                    self.logWriter.ce_loss_per_epoch(ce_loss_arr, phase, epoch)
                     self.logWriter.dice_loss_per_epoch(dice_loss_arr, phase, epoch)
-                    self.logWriter.kldiv_loss_per_epoch(kldiv_loss_arr, phase, epoch)
+                    self.logWriter.kldiv_loss_per_epoch(kld_loss_arr, phase, epoch)
+                    self.logWriter.posterior_loss_per_epoch(posterior_loss_arr, phase, epoch)
                     index = np.random.choice(len(dataloaders[phase].dataset.X), 3, replace=False)
                     self.logWriter.image_per_epoch(model.predict(dataloaders[phase].dataset.X[index], self.device),
                                                    dataloaders[phase].dataset.y[index],

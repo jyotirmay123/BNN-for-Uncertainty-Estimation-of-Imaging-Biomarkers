@@ -28,9 +28,10 @@ class MultiInputResidualQuickNat(QuickNat):
                         'drop_out':0.2}
         """
         super(MultiInputResidualQuickNat, self).__init__(params)
-        params['num_channels'] = 1
+
         params['num_filters'] = 64
-        self.pr_encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
+        params['num_channels'] = 1
+        self.encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
 
         params['num_channels'] = 64
         self.encode2 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
@@ -66,78 +67,67 @@ class MultiInputResidualQuickNat(QuickNat):
 
         self.alternate_sample_pick = True
         self.is_training = True
-        self.no_of_samples = params['latent_variables']
         self.posterior_samples = {}
         self.prior_samples = {}
-        self.posteriors = {}
-
         self.prior_weights_for_posterior_samplings = {}
 
     def forward(self, inp, ground_truth=None):
 
-        pr_e1, pr_out1, pr_ind1 = self.pr_encode1.forward(inp)
-        pr_e2, pr_out2, pr_ind2 = self.encode2.forward(pr_e1)
-        pr_e3, pr_out3, pr_ind3 = self.encode3.forward(pr_e2)
-        pr_e4, pr_out4, pr_ind4 = self.encode4.forward(pr_e3)
+        e1, out1, ind1 = self.encode1.forward(inp)
+        e2, out2, ind2 = self.encode2.forward(e1)
+        e3, out3, ind3 = self.encode3.forward(e2)
+        e4, out4, ind4 = self.encode4.forward(e3)
 
-        pr_bn = self.bottleneck.forward(pr_e4)
+        bn = self.bottleneck.forward(e4)
 
-        pr_d4 = self.decode1.forward(pr_bn, pr_out4, pr_ind4)
-        # self.prior_weights_for_posterior_samplings['layer1'] = pr_bn
-        # pr_1_sample = self.prior_posterior_block(pr_bn, 1)
-        # self.prior_samples['layer1'] = pr_1_sample
-        # pr_concat_d4 = self.concat(pr_d4, pr_1_sample, self.posterior_samples['layer1'])
-        # pr_res_d4 = self.resBlock1.forward(pr_concat_d4, depth=2)
-        #
-        pr_d3 = self.decode2.forward(pr_d4, pr_out3, pr_ind3)
-        #
-        # self.prior_weights_for_posterior_samplings['layer2'] = pr_res_d4
-        # pr_2_sample = self.prior_posterior_block(pr_res_d4, 2)
-        # self.prior_samples['layer2'] = pr_2_sample
-        # pr_concat_d3 = self.concat(pr_d3, pr_2_sample, self.posterior_samples['layer2'])
-        # pr_res_d3 = self.resBlock2.forward(pr_concat_d3, depth=2)
-        #
-        pr_d2 = self.decode2.forward(pr_d3, pr_out2, pr_ind2)
-        #
-        # self.prior_weights_for_posterior_samplings['layer3'] = pr_res_d3
-        # pr_3_sample = self.prior_posterior_block(pr_res_d3, 3)
-        # self.prior_samples['layer3'] = pr_3_sample
-        # pr_concat_d2 = self.concat(pr_d2, pr_3_sample, self.posterior_samples['layer3'])
-        # pr_res_d2 = self.resBlock3.forward(pr_concat_d2, depth=2)
-        #
-        pr_d1 = self.decode2.forward(pr_d2, pr_out1, pr_ind1)
-        #
-        # self.prior_weights_for_posterior_samplings['layer4'] = pr_res_d2
-        # pr_4_sample = self.prior_posterior_block(pr_res_d2, 4)
-        #
-        # self.prior_samples['layer4'] = pr_4_sample
-        # pr_concat_d1 = self.concat(pr_d1, pr_4_sample, self.posterior_samples['layer4'])
-        # pr_res_d1 = self.resBlock4.forward(pr_concat_d1, depth=2)
-        #
-        classifier_input = pr_d1
-        #
+        d4 = self.decode1.forward(bn, out4, ind4)
+
+        self.prior_weights_for_posterior_samplings['layer1'] = bn
+        layer1_sample = self.prior_block(bn, 1)
+        self.prior_samples['layer1'] = layer1_sample
+        concat_d4 = self.concat(d4, layer1_sample, 'layer1')
+        res_d4 = self.resBlock1.forward(concat_d4, depth=3)
+
+        d3 = self.decode2.forward(res_d4, out3, ind3)
+
+        self.prior_weights_for_posterior_samplings['layer2'] = res_d4
+        layer2_sample = self.prior_block(res_d4, 2)
+        self.prior_samples['layer2'] = layer2_sample
+        concat_d3 = self.concat(d3, layer2_sample, 'layer2')
+        res_d3 = self.resBlock2.forward(concat_d3, depth=2)
+
+        d2 = self.decode2.forward(res_d3, out2, ind2)
+
+        self.prior_weights_for_posterior_samplings['layer3'] = res_d3
+        layer3_sample = self.prior_block(res_d3, 3)
+        self.prior_samples['layer3'] = layer3_sample
+        concat_d2 = self.concat(d2, layer3_sample, 'layer3')
+        res_d2 = self.resBlock3.forward(concat_d2, depth=2)
+
+        d1 = self.decode2.forward(res_d2, out1, ind1)
+
+        self.prior_weights_for_posterior_samplings['layer4'] = res_d2
+        layer4_sample = self.prior_block(res_d2, 4)
+        self.prior_samples['layer4'] = layer4_sample
+        concat_d1 = self.concat(d1, layer4_sample, 'layer4')
+        res_d1 = self.resBlock4.forward(concat_d1, depth=1)
+
         # self.alternate_sample_pick = not self.alternate_sample_pick
 
-        prob = self.classifier.forward(classifier_input)
+        prob = self.classifier.forward(res_d1)
 
         return prob
 
-    def concat(self, input_tensor, prior_sample, posterior_sample=None):
-        sample = posterior_sample if self.is_training and self.alternate_sample_pick else prior_sample
+    def concat(self, input_tensor, prior_sample, layer_key):
+
+        sample = self.posterior_samples[layer_key] if self.is_training and self.alternate_sample_pick else prior_sample
         sample = sample.unsqueeze(dim=2).unsqueeze(dim=2)
         expanded_inp = sample.expand(-1, sample.size(1), input_tensor.size(2), input_tensor.size(3))
 
         concated_tensor = torch.cat((input_tensor, expanded_inp), 1)
         return concated_tensor
 
-    def prepare_samples_from_prior_weights(self, prior_weights):
-        samples = {}
-        for i, k in enumerate(prior_weights):
-            weights = prior_weights[k]
-            samples[k] = self.prior_posterior_block(weights, i+1)
-        return samples
-
-    def prior_posterior_block(self, inp, depth):
+    def prior_block(self, inp, depth):
         inp = torch.mean(inp.view(inp.size(0), inp.size(1), -1), dim=2)
         if depth == 1:
             mu = self.fc_mu1(inp)
@@ -171,11 +161,11 @@ class MultiInputResidualQuickNat(QuickNat):
     def get_prior_samples(self):
         return self.prior_samples
 
-    def set_prior_samples(self, prior_samples):
-        self.prior_samples = prior_samples
-
     def set_posterior_samples(self, posterior_samples):
         self.posterior_samples = posterior_samples
+
+    def get_prior_weights_for_posterior_samplings(self):
+        return self.prior_weights_for_posterior_samplings
 
     def set_alternate_sample_pick(self, is_alternate_sample_pick_enabled):
         self.alternate_sample_pick = is_alternate_sample_pick_enabled
@@ -197,7 +187,6 @@ class MultiInputResidualQuickNat(QuickNat):
             self.enable_test_dropout()
 
         with torch.no_grad():
-            # self.set_alternate_sample_pick(True)  # Pick samples always from trained prior block while predicting.
             self.is_training = False
             out = self.forward(X)
 

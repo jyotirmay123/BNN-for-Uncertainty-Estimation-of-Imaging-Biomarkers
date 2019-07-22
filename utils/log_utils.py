@@ -58,6 +58,14 @@ class LogWriter(object):
         # print('[Iteration : ' + str(i_batch) + '] Loss -> ' + str(loss_value))
         self.writer['train'].add_scalar('kldiv_loss/per_iteration', loss_value, current_iteration)
 
+    def ce_loss_per_iter(self, loss_value, i_batch, current_iteration):
+        print('[Iteration : ' + str(i_batch) + '] CE_Loss -> ' + str(loss_value))
+        self.writer['train'].add_scalar('ce_loss/per_iteration', loss_value, current_iteration)
+
+    def posterior_loss_per_iter(self, loss_value, i_batch, current_iteration):
+        print('[Iteration : ' + str(i_batch) + '] posterior_Loss -> ' + str(loss_value))
+        self.writer['train'].add_scalar('posterior_loss/per_iteration', loss_value, current_iteration)
+
     def loss_per_epoch(self, loss_arr, phase, epoch):
         loss = np.mean(loss_arr)
         self.writer[phase].add_scalar('loss/per_epoch', loss, epoch)
@@ -72,6 +80,16 @@ class LogWriter(object):
         loss = np.mean(loss_arr)
         self.writer[phase].add_scalar('kldiv_loss/per_epoch', loss, epoch)
         print('epoch ' + phase + ' kldiv loss = ' + str(loss))
+
+    def posterior_loss_per_epoch(self, loss_arr, phase, epoch):
+        loss = np.mean(loss_arr)
+        self.writer[phase].add_scalar('posterior_loss/per_epoch', loss, epoch)
+        print('epoch ' + phase + ' posterior loss = ' + str(loss))
+
+    def ce_loss_per_epoch(self, loss_arr, phase, epoch):
+        loss = np.mean(loss_arr)
+        self.writer[phase].add_scalar('ce_loss/per_epoch', loss, epoch)
+        print('epoch ' + phase + ' ce loss = ' + str(loss))
 
     def cm_per_epoch(self, phase, output, correct_labels, epoch):
         print("Confusion Matrix...", end='', flush=True)

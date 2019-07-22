@@ -6,24 +6,33 @@ import nibabel as nb
 import torch.utils.data as data
 import re
 import glob
-from settings import Settings
 
 from utils.preprocessor import PreProcess
 
 
 class ImdbData(data.Dataset):
-    def __init__(self, X, y, w=None, transforms=None):
+    def __init__(self, X, y, w=None, cw=None, transforms=None):
         self.X = X if len(X.shape) == 4 else X[:, np.newaxis, :, :]
         self.y = y
         self.w = w
+        self.cw = cw
         self.transforms = transforms
 
     def __getitem__(self, index):
         img = torch.from_numpy(self.X[index])
         label = torch.from_numpy(self.y[index])
+
+        if self.cw is not None and self.w is not None:
+            weight = torch.from_numpy(self.w[index])
+            class_weight = torch.from_numpy(self.cw[index])
+            return img, label, weight, class_weight
         if self.w is not None:
             weight = torch.from_numpy(self.w[index])
             return img, label, weight
+        if self.cw is not None:
+            class_weight = torch.from_numpy(self.cw[index])
+            return img, label, class_weight
+
         return img, label
 
     def __len__(self):
@@ -35,17 +44,23 @@ class DataUtils(PreProcess):
         super().__init__(settings)
         self.h5_key_for_data = 'data'
         self.h5_key_for_label = 'label'
+        self.h5_key_for_weights = 'weights'
+        self.h5_key_for_class_weights = 'class_weights'
 
     def prepare_h5_file_dictionary(self):
         self.create_if_not(self.h5_data_dir)
         f = {
             'train': {
                 "data": os.path.join(self.h5_data_dir, self.h5_train_data_file),
-                "label": os.path.join(self.h5_data_dir, self.h5_train_label_file)
+                "label": os.path.join(self.h5_data_dir, self.h5_train_label_file),
+                "weights": os.path.join(self.h5_data_dir, self.h5_train_weights_file),
+                "class_weights": os.path.join(self.h5_data_dir, self.h5_train_class_weights_file)
             },
             'test': {
                 "data": os.path.join(self.h5_data_dir, self.h5_test_data_file),
-                "label": os.path.join(self.h5_data_dir, self.h5_test_label_file)
+                "label": os.path.join(self.h5_data_dir, self.h5_test_label_file),
+                "weights": os.path.join(self.h5_data_dir, self.h5_test_weights_file),
+                "class_weights": os.path.join(self.h5_data_dir, self.h5_test_class_weights_file)
             }
         }
         return f
@@ -54,41 +69,43 @@ class DataUtils(PreProcess):
         f = self.prepare_h5_file_dictionary()
         data_train = h5py.File(f['train']['data'], 'r')
         label_train = h5py.File(f['train']['label'], 'r')
+        weight_train = h5py.File(f['train']['weights'], 'r')
+        class_weight_train = h5py.File(f['train']['class_weights'], 'r')
 
         data_test = h5py.File(f['test']['data'], 'r')
         label_test = h5py.File(f['test']['label'], 'r')
+        weight_test = h5py.File(f['test']['weights'], 'r')
+        class_weight_test = h5py.File(f['test']['class_weights'], 'r')
 
-        return (
-            ImdbData(data_train[self.h5_key_for_data][()], label_train[self.h5_key_for_label][()]),
-            ImdbData(data_test[self.h5_key_for_data][()], label_test[self.h5_key_for_label][()]))
+        return (ImdbData(data_train[self.h5_key_for_data][()], label_train[self.h5_key_for_label][()],
+                         weight_train[self.h5_key_for_weights][()],
+                         class_weight_train[self.h5_key_for_class_weights][()]),
+                ImdbData(data_test[self.h5_key_for_data][()], label_test[self.h5_key_for_label][()],
+                         weight_train[self.h5_key_for_weights][()],
+                         class_weight_test[self.h5_key_for_class_weights][()]))
 
     def load_dataset(self, file_paths):
         print("Loading and preprocessing data...")
-        volume_list, labelmap_list = [], []
+        volume_list, labelmap_list, weights_list, class_weights_list = [], [], [], []
         for file_path in file_paths:
-            try:
-                volume, labelmap, header = self.load_and_preprocess(file_path)
+            volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
-                if self.is_h5_processing:
-                    volume_id = eval(self.h5_volume_name_extractor.format(file_path[0]))
-                    self.save_processed_nibabel_file(volume, header, volume_id)
-                    self.save_processed_nibabel_file(labelmap, header, volume_id, True)
+            if self.is_h5_processing:
+                volume_id = eval(self.h5_volume_name_extractor.format(file_path[0]))
+                self.save_processed_nibabel_file(volume, header, volume_id)
+                self.save_processed_nibabel_file(labelmap, header, volume_id, True)
 
-                volume_list.append(volume)
-                labelmap_list.append(labelmap)
-
-            except Exception as e:
-                print(e, file_path)
-                continue
-
-            finally:
-                print("#", end='', flush=True)
+            volume_list.append(volume)
+            labelmap_list.append(labelmap)
+            class_weights_list.append(class_weights)
+            weights_list.append(weights)
+            print("#", end='', flush=True)
 
         # Updating data_config_file as data_related to data_config has been pre-processed now.
         # Settings.update_system_status_values(self.dataset_config_path, 'DATA_CONFIG', 'is_pre_processed', 'True')
 
         print("100%", flush=True)
-        return volume_list, labelmap_list
+        return volume_list, labelmap_list, weights_list, class_weights_list
 
     def load_and_preprocess(self, file_path):
         # vol = file_path[0].split('/')[-2]
@@ -102,7 +119,8 @@ class DataUtils(PreProcess):
         if self.is_pre_processed:
             print('== loading pre-processed data ==')
             volume = self.normalise_data(volume)
-            return volume, labelmap, header
+            class_weights, weights = self.estimate_weights_mfb(labelmap)
+            return volume, labelmap, header, weights, class_weights
 
         print(' == Pre-processing raw data ==')
 
@@ -162,9 +180,12 @@ class DataUtils(PreProcess):
         # print('normalise and final', volume.shape, labelmap.shape)
         # self.save_nibabel(volume, header, '8normalise_and_final', vol)
         # self.save_nibabel(labelmap, header, '8normalise_and_final_label', vol)
-        print(volume.shape, labelmap.shape)
+        # print(volume.shape, labelmap.shape)
 
-        return volume, labelmap, header
+        class_weights, _ = self.estimate_weights_mfb(labelmap)
+        weights = self.estimate_weights_per_slice(labelmap)
+        print(volume.shape, labelmap.shape, class_weights.shape, weights.shape)
+        return volume, labelmap, header, weights, class_weights
 
     @staticmethod
     def load_data(file_path):
@@ -182,7 +203,7 @@ class DataUtils(PreProcess):
 
     def save_nibabel(self, volume, header, filename, vol):
         mgh = nb.MGHImage(volume, np.eye(4), header)
-        processed_dest_folder = '/home/abhijit/Jyotirmay/thesis/punet/processeddata/'+vol
+        processed_dest_folder = '/home/abhijit/Jyotirmay/thesis/hquicknat/processeddata/' + vol
         self.create_if_not(processed_dest_folder)
         dest_file = os.path.join(processed_dest_folder, filename + self.processed_extn)
         nb.save(mgh, dest_file)
@@ -204,7 +225,6 @@ class DataUtils(PreProcess):
 
     # TODO: Reconfigure this function. now, bit dependant on KORA set.
     def load_file_paths(self, load_from_txt_file=False, is_train_phase=False):
-
         if load_from_txt_file:
             volume_txt_file = self.train_volumes if is_train_phase else self.test_volumes
             with open(volume_txt_file) as file_handle:
@@ -215,21 +235,18 @@ class DataUtils(PreProcess):
         file_paths = []
 
         for vol in volumes_to_use:
-            try:
-                data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
-                label_file_path = self._label_file_path_.format(self.label_dir, vol)
+            data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
+            label_file_path = self._label_file_path_.format(self.label_dir, vol)
 
-                files = glob.glob(eval(data_file_path))
-                file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
-                file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
-                file = files[file_idx[0][0]]
-                file = [file]
+            files = glob.glob(eval(data_file_path))
+            file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
+            file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
+            file = files[file_idx[0][0]]
+            file = [file]
 
-                if len(file) is not 0:
-                    file_paths.append([file[0], eval(label_file_path)])
-                else:
-                    raise Exception('File not found!')
-            except Exception as e:
-                print(e)
-                continue
+            if len(file) is not 0:
+                file_paths.append([file[0], eval(label_file_path)])
+            else:
+                raise Exception('File not found!')
+
         return file_paths

@@ -4,7 +4,9 @@ import os
 import torch
 
 from utils.evaluator import Evaluator
-from model_parts.pu_net import ProbabilisticUNet
+# from quicknat import QuickNat
+from hnet_parts.multi_input_residual_quicknat import MultiInputResidualQuickNat as PriorQuickNat
+from hnet_parts.multi_input_residual_posterior_quickant import MultiInputResidualPosteriorQuickNat as PosteriorQuickNat
 from settings import compile_config
 from solver import Solver
 
@@ -46,18 +48,21 @@ class Executor(Evaluator):
                                                  num_workers=4, pin_memory=True)
 
         if train_params['use_pre_trained']:
-            quicknat_model = torch.load(train_params['pre_trained_path'])
+            prior_quicknat_model = torch.load(train_params['pre_trained_path'])
+            posterior_quicknat_model = torch.load(train_params['posterior_pre_trained_path'])
         else:
-            quicknat_model = ProbabilisticUNet(net_params)
+            prior_quicknat_model = PriorQuickNat(net_params)
+            posterior_quicknat_model = PosteriorQuickNat(net_params)
 
-        solver = Solver(quicknat_model,
+        solver = Solver((prior_quicknat_model, posterior_quicknat_model),
                         device=common_params['device'],
                         num_class=net_params['num_class'],
                         optim_args={"lr": train_params['learning_rate'],
                                     "betas": train_params['optim_betas'],
                                     "eps": train_params['optim_eps'],
                                     "weight_decay": train_params['optim_weight_decay']},
-                        loss_func=additional_losses.KLDCECombinedLoss(net_params['beta_value']),
+                        loss_func=additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
+                                                                      net_params['beta_value']),
                         model_name=common_params['model_name'],
                         exp_name=train_params['exp_name'],
                         labels=data_params['labels'],
@@ -70,9 +75,13 @@ class Executor(Evaluator):
                         exp_dir=common_params['exp_dir'])
 
         solver.train(train_loader, val_loader)
-        final_model_path = os.path.join(common_params['save_model_dir'], train_params['final_model_file'])
-        quicknat_model.save(final_model_path)
-        print("final model saved @ " + str(final_model_path))
+        prior_final_model_path = os.path.join(common_params['save_model_dir'], train_params['final_model_file'])
+        posterior_final_model_path = os.path.join(common_params['save_model_dir'],
+                                                  train_params['posterior_final_model_file'])
+        prior_quicknat_model.save(prior_final_model_path)
+        posterior_quicknat_model.save(posterior_final_model_path)
+
+        print("final models saved @ " + str(prior_final_model_path) + 'and \n' + str(posterior_final_model_path))
 
     def evaluate(self, eval_params, net_params, data_params, common_params, train_params):
 
