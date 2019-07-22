@@ -80,6 +80,8 @@ class Evaluator(DataUtils):
             volumes_to_use = file_handle.read().splitlines()
 
         model = torch.load(self.eval_model_path)
+        model.is_training = False
+        # model.enable_test_dropout()
 
         cuda_available = torch.cuda.is_available()
         if cuda_available:
@@ -94,7 +96,7 @@ class Evaluator(DataUtils):
         with torch.no_grad():
             for vol_idx, file_path in enumerate(file_paths):
                 print(file_path)
-                volume, labelmap, header = self.load_and_preprocess(file_path)
+                volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
                 volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
                 volume = torch.tensor(np.ascontiguousarray(volume)).type(torch.FloatTensor)
