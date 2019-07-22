@@ -235,18 +235,21 @@ class DataUtils(PreProcess):
         file_paths = []
 
         for vol in volumes_to_use:
-            data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
-            label_file_path = self._label_file_path_.format(self.label_dir, vol)
-
-            files = glob.glob(eval(data_file_path))
-            file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
-            file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
-            file = files[file_idx[0][0]]
-            file = [file]
-
-            if len(file) is not 0:
-                file_paths.append([file[0], eval(label_file_path)])
+            if self.is_pre_processed:
+                file_paths.append([os.path.join(self.processed_data_dir, vol+self.processed_extn), os.path.join(self.processed_label_dir, vol+self.processed_extn)])
             else:
-                raise Exception('File not found!')
+                data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
+                label_file_path = self._label_file_path_.format(self.label_dir, vol)
+
+                files = glob.glob(eval(data_file_path))
+                file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
+                file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
+                file = files[file_idx[0][0]]
+                file = [file]
+
+                if len(file) is not 0:
+                    file_paths.append([file[0], eval(label_file_path)])
+                else:
+                    raise Exception('File not found!')
 
         return file_paths

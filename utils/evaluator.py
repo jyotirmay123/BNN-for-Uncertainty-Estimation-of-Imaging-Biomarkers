@@ -80,8 +80,10 @@ class Evaluator(DataUtils):
             volumes_to_use = file_handle.read().splitlines()
 
         model = torch.load(self.eval_model_path)
-        model.is_training = False
-        # model.enable_test_dropout()
+        if self.model_name == 'quicknat':
+            model.enable_test_dropout()
+        else:
+            model.is_training = False
 
         cuda_available = torch.cuda.is_available()
         if cuda_available:
