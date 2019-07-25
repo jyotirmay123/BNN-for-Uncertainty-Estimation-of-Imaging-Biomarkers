@@ -2,6 +2,9 @@ import numpy as np
 import nibabel as nb
 import scipy.interpolate as si
 import operator
+import glob
+import nrrd
+import os
 from utils.extract_settings import ExtractSettings
 
 
@@ -19,6 +22,51 @@ class PreProcess(ExtractSettings):
         self.skip_Frame = 1
         self.volume_interpolation_method = 'linear'
         self.labelmap_interpolation_method = 'nearest'
+
+    @staticmethod
+    def nrrd_reader(file_path):
+        _nrrd = nrrd.read(file_path)
+        data = _nrrd[0]
+        header = _nrrd[1]
+        return data, header
+
+    def merge_annotations(self):
+        paths = glob.glob(self.annotations_root+'/*')
+        classes = self.labels[1:]  # Excluding background class.
+
+        for p in paths:
+            id_ = p.split('/')[-1]
+            print("# Manual annotations aggregator for volume: " + id_)
+            try:
+                annotations = glob.glob(p + '/**')
+                if len(annotations) > len(classes):
+                    print('skipped')
+                    self.excluded_volumes.append(id_)
+                    continue
+
+                data_ = {c.lower(): None for c in classes}
+
+                for a in annotations:
+                    data, header = PreProcess.nrrd_reader(a)
+
+                    if 'SPLEEN' in a.upper():
+                        data_['spleen'] = data
+                    elif 'LIVER' in a.upper():
+                        data_['liver'] = np.multiply(2, data)
+
+                if data_['spleen'] is None or data_['liver'] is None:
+                    self.excluded_volumes.append(id_)
+                    print('skipped')
+                    continue
+                print(data_['spleen'].shape, data_['liver'].shape)
+                merged_annotations = np.add(data_['spleen'], data_['liver'])
+                img = nb.Nifti1Image(merged_annotations, np.eye(4))
+                self.create_if_not(self.label_dir)
+                filename = os.path.join(self.label_dir, id_ + self.processed_extn)
+                nb.save(img, filename)
+            except Exception as e:
+                print(e)
+                self.excluded_volumes.append(id_)
 
     def reorient(self, volume, labelmap, header):
         target_orientation = self.target_orientation

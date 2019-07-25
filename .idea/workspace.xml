@@ -2,18 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f94a1f65-e7b8-47a0-aac0-0fbe4d29b6be" name="Default Changelist" comment="punet-ready">
-      <change afterPath="$PROJECT_DIR$/saved_good_models/quicknat_with_dropout_NONE_w_1.pth.tar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saved_good_models/quicknat_old.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/KORA/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/KORA/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/KORA/test_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/KORA/test_volumes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/KORA/train_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/KORA/train_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/NAKO/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/NAKO/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/NAKO/test_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/NAKO/test_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/NAKO/train_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/NAKO/train_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/UKB/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/UKB/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/UKB/test_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/UKB/test_volumes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/UKB/train_volumes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/UKB/train_volumes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py" beforeDir="false" afterPath="$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py" beforeDir="false" afterPath="$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kora_data_processing_full.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kora_data_processing_full.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manual_annotation_aggregator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/manual_annotation_aggregator.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ncm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/hnet_parts/hquicknat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ncm/bayesian_modules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ncm/losses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ncm/modules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/quicknat.py" beforeDir="false" afterPath="$PROJECT_DIR$/quicknat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/settings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/convert_h5.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/convert_h5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/data_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/extract_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/extract_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/log_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/log_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/preprocessor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +47,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="120">
+              <caret line="224" column="33" lean-forward="true" selection-start-line="224" selection-start-column="33" selection-end-line="224" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasets/KORA/config.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="41" lean-forward="true" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datasets/KORA/config_test.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/log_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="97" column="61" lean-forward="true" selection-start-line="79" selection-start-column="3" selection-end-line="97" selection-end-column="61" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/quicknat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="116" column="36" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="119" selection-start-line="119" selection-end-line="119" />
+              <folding>
+                <element signature="e#68#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hnet_parts/hquicknat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="53" column="68" lean-forward="true" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+              <folding>
+                <element signature="e#37#55#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,83 +136,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="-665">
+              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/UKB/train_volumes.txt">
+      <file pinned="true" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/ncm/losses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/UKB/test_volumes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/evaluator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/NAKO/config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/UKB/config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/optim/sgd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/optim/optimizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="29" />
+            <state relative-caret-position="225">
+              <caret line="330" column="29" lean-forward="true" selection-start-line="330" selection-start-column="29" selection-end-line="330" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -127,22 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>load_fil</find>
-      <find>alternate_sample_pick</find>
-      <find>mean</find>
-      <find>klDi</find>
-      <find>du.</find>
-      <find>final_exclusion_list</find>
-      <find>template_data</find>
-      <find>load_preprocessed_file_paths</find>
-      <find>targe</find>
-      <find>load_data</find>
-      <find>evaluate_dice_score</find>
-      <find>common_utils</find>
-      <find>num_clas</find>
-      <find>MC_sample</find>
-      <find>h5_</find>
-      <find>load_and_preprocess</find>
       <find>MC_sa</find>
       <find>exp_name</find>
       <find>pre_trained_path</find>
@@ -152,11 +171,27 @@
       <find>',</find>
       <find>posteriors</find>
       <find>pos_</find>
-      <find>pos_</find>
       <find>pr_</find>
       <find>model</find>
       <find>focal</find>
       <find>iter</find>
+      <find>load_dataset</find>
+      <find>IOU</find>
+      <find>IOU_score</find>
+      <find>dataset</find>
+      <find>iou_uncertainty</find>
+      <find>ground</find>
+      <find>gamma</find>
+      <find>value</find>
+      <find>poster</find>
+      <find>optim</find>
+      <find>optim.zer</find>
+      <find>image_per_epoch</find>
+      <find>out_list</find>
+      <find>KORA2460712</find>
+      <find>load_data</find>
+      <find>cuda()</find>
+      <find>dice_score_per_epoch</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -166,69 +201,72 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="quicknat" />
+        <entry key="$PROJECT_DIR$" value="hquicknat" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/model_parts/__init__.py" />
-        <option value="$PROJECT_DIR$/quicknat.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/model_parts/quicknat_pytorch.py" />
-        <option value="$PROJECT_DIR$/model_parts/punet.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/processedData/roguevols.txt" />
         <option value="$PROJECT_DIR$/processedData/zerofile.txt" />
         <option value="$PROJECT_DIR$/processedData/zero_sets_round2.txt" />
-        <option value="$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt" />
         <option value="$PROJECT_DIR$/model_parts/multi_input_quicknat.py" />
         <option value="$PROJECT_DIR$/model_parts/encoder_net.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/utils/__init__.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/utils/common_utils.py" />
-        <option value="$PROJECT_DIR$/utils/extract_settings.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/datasets/KORA/config_test.ini" />
         <option value="$PROJECT_DIR$/model_parts/pu_net.py" />
-        <option value="$PROJECT_DIR$/datasets/KORA/test_volumes.txt" />
         <option value="$PROJECT_DIR$/datasets/UKB/config_test.ini" />
         <option value="$PROJECT_DIR$/datasets/NAKO/config_test.ini" />
-        <option value="$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt" />
-        <option value="$PROJECT_DIR$/datasets/NAKO/train_volumes.txt" />
-        <option value="$PROJECT_DIR$/datasets/NAKO/test_volumes.txt" />
-        <option value="$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt" />
-        <option value="$PROJECT_DIR$/utils/convert_h5.py" />
-        <option value="$PROJECT_DIR$/utils/convert_h5.py" />
         <option value="$PROJECT_DIR$/ncm/modules.py" />
-        <option value="$PROJECT_DIR$/datasets/KORA/config.ini" />
-        <option value="$PROJECT_DIR$/utils/data_utils.py" />
-        <option value="$PROJECT_DIR$/utils/preprocessor.py" />
-        <option value="$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py" />
-        <option value="$PROJECT_DIR$/utils/log_utils.py" />
         <option value="$PROJECT_DIR$/ncm/losses.py" />
-        <option value="$PROJECT_DIR$/datasets/KORA/train_volumes.txt" />
-        <option value="$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py" />
-        <option value="$PROJECT_DIR$/solver.py" />
-        <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/datasets/NAKO/train_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/UKB/train_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt" />
+        <option value="$PROJECT_DIR$/utils/preprocessor.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/datasets/UKB/config.ini" />
-        <option value="$PROJECT_DIR$/datasets/NAKO/config.ini" />
-        <option value="$PROJECT_DIR$/settings.ini" />
-        <option value="$PROJECT_DIR$/datasets/UKB/train_volumes.txt" />
         <option value="$PROJECT_DIR$/datasets/UKB/test_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/NAKO/test_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/NAKO/config.ini" />
+        <option value="$PROJECT_DIR$/datasets/NAKO/report.txt" />
+        <option value="$PROJECT_DIR$/datasets/KORA/report.txt" />
+        <option value="$PROJECT_DIR$/datasets/UKB/report.txt" />
+        <option value="$PROJECT_DIR$/datasets/UKB/UKB_report.txt" />
         <option value="$PROJECT_DIR$/utils/evaluator.py" />
+        <option value="$PROJECT_DIR$/report.txt" />
+        <option value="$PROJECT_DIR$/utils/common_utils.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/utils/extract_settings.py" />
+        <option value="$PROJECT_DIR$/utils/convert_h5.py" />
+        <option value="$PROJECT_DIR$/utils/convert_h5.py" />
+        <option value="$PROJECT_DIR$/utils/data_utils.py" />
+        <option value="$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py" />
+        <option value="$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py" />
+        <option value="$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/KORA/test_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/KORA/train_volumes.txt" />
+        <option value="$PROJECT_DIR$/datasets/KORA/config.ini" />
+        <option value="$PROJECT_DIR$/utils/log_utils.py" />
+        <option value="$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/ncm/losses.py" />
+        <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/solver.py" />
+        <option value="$PROJECT_DIR$/hnet_parts/hquicknat.py" />
+        <option value="$PROJECT_DIR$/quicknat.py" />
+        <option value="$PROJECT_DIR$/settings.ini" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1987" />
-    <option name="y" value="24" />
+    <option name="x" value="1786" />
+    <option name="y" value="25" />
     <option name="width" value="1851" />
-    <option name="height" value="1056" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -257,55 +295,17 @@
             <path>
               <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="datasets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="KORA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="processed_data_" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="datasets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="NAKO" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="datasets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="UKB" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="experiments" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="experiments" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="punet" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hnet_parts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="experiments" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="punet" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="punet_predictions_KORA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="experiments" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="quicknat" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="saved_good_models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Jyotirmay/thesis/hquicknat" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="saved_models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="logs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="hquicknat" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -322,23 +322,25 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/saved_good_models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/datasets/KORA" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/datasets/KORA" />
       <recent name="$PROJECT_DIR$/saved_good_models" />
       <recent name="$PROJECT_DIR$/saved_models" />
       <recent name="$PROJECT_DIR$/datasets/UKB" />
       <recent name="$PROJECT_DIR$/datasets/NAKO" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/old_project_level_reports" />
+      <recent name="$PROJECT_DIR$/datasets/UKB/old_reports" />
+      <recent name="$PROJECT_DIR$/datasets/NAKO/old_reports" />
+      <recent name="$PROJECT_DIR$/datasets/KORA/old_reports" />
       <recent name="$PROJECT_DIR$/datasets" />
-      <recent name="$PROJECT_DIR$/processedData/KORA" />
-      <recent name="$PROJECT_DIR$/nn-common-modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -353,7 +355,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.eval">
+  <component name="RunManager" selected="Python.train">
     <configuration name="convertH5" type="PythonConfigurationType" factoryName="Python">
       <module name="hquicknat" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -449,7 +451,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263871000" />
+    <option name="totallyTimeSpent" value="349091000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -468,9 +470,9 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41200408" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39877924" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41182467" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985729" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.31943032" />
@@ -478,7 +480,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32972974" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30377167" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.30377167" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32948583" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -499,65 +501,11 @@
     </ignored-roots>
     <MESSAGE value="punet-ready" />
     <option name="LAST_COMMIT_MESSAGE" value="punet-ready" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/log_utils.py</url>
-          <line>175</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/convert_h5.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/convert_h5.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>254</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>245</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>208</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/data_utils.py</url>
-          <line>211</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/solver.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model_parts/pu_net.py</url>
           <line>34</line>
@@ -574,14 +522,14 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/solver.py</url>
-          <line>151</line>
-          <option name="timeStamp" value="91" />
+          <url>file://$PROJECT_DIR$/hnet_parts/hquicknat.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/solver.py</url>
-          <line>155</line>
-          <option name="timeStamp" value="93" />
+          <line>129</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -597,10 +545,10 @@
     <SUITE FILE_PATH="coverage/punet$convertH5.coverage" NAME="convertH5 Coverage Results" MODIFIED="1563196575585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/punet$train.coverage" NAME="train Coverage Results" MODIFIED="1563197069047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/punet$eval.coverage" NAME="eval Coverage Results" MODIFIED="1563204967838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/hquicknat$convertH5.coverage" NAME="convertH5 Coverage Results" MODIFIED="1563629994044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/hquicknat$train.coverage" NAME="train Coverage Results" MODIFIED="1563790253973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hquicknat$convertH5.coverage" NAME="convertH5 Coverage Results" MODIFIED="1564049648800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/hquicknat$train.coverage" NAME="train Coverage Results" MODIFIED="1564057256361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/punet$run.coverage" NAME="train Coverage Results" MODIFIED="1562168616923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/hquicknat$eval.coverage" NAME="eval Coverage Results" MODIFIED="1563796758334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/hquicknat$eval.coverage" NAME="eval Coverage Results" MODIFIED="1563890807837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -652,144 +600,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="e#69#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/extract_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="78" column="32" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/nn/functional.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="1262" selection-start-line="1262" selection-end-line="1262" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_parts/multi_input_quicknat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_parts/encoder_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_parts/pu_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/KORA/test_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/UKB/config_test.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/config_test.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/KORA/config_test.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/train_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="199" column="6" selection-start-line="160" selection-end-line="199" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/test_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ncm/.gitmodules" />
-    <entry file="file://$PROJECT_DIR$/ncm/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/saved_models/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/saved_good_models/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -807,91 +617,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/KORA/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/preprocessor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="186" column="79" selection-start-line="186" selection-start-column="79" selection-end-line="186" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/convert_h5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="57" column="83" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
-          <folding>
-            <element signature="e#120#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/nn/modules/module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="492" selection-start-line="492" selection-end-line="492" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/log_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ncm/losses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="342" selection-start-line="342" selection-end-line="342" />
-          <folding>
-            <element signature="e#552#564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/KORA/train_volumes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -909,53 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="114" column="15" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="15" />
-          <folding>
-            <element signature="e#37#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
-          <folding>
-            <element signature="e#37#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/quicknat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="151" column="54" selection-start-line="151" selection-start-column="54" selection-end-line="151" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/solver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/optim/sgd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -970,62 +652,341 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/nibabel/loadsave.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="270">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/datasets/UKB/filtered_volumes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state>
+          <caret selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/UKB/train_volumes.txt">
+    <entry file="file://$PROJECT_DIR$/datasets/NAKO/filtered_volumes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/UKB/test_volumes.txt">
+    <entry file="file://$PROJECT_DIR$/datasets/NAKO/train_volumes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.ini">
+    <entry file="file://$PROJECT_DIR$/utils/preprocessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="400">
+          <caret line="60" column="65" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/config.ini">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ncm/losses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="134" column="61" selection-start-line="134" selection-start-column="47" selection-end-line="134" selection-end-column="61" />
+          <folding>
+            <element signature="e#552#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/surface_distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="250" column="4" selection-start-line="250" selection-start-column="4" selection-end-line="250" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/datasets/UKB/config.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        <state relative-caret-position="191">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/UKB/train_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/UKB/test_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/NAKO/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/NAKO/test_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/NAKO/old_reports/NAKO_report.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/old_reports/KORA_report.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/UKB/report.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/UKB/old_reports/UKB_report.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="273" column="36" selection-start-line="273" selection-start-column="36" selection-end-line="273" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+        <state relative-caret-position="285">
+          <caret line="236" column="84" selection-start-line="236" selection-start-column="84" selection-end-line="236" selection-end-column="84" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_project_level_reports/report_2307.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1025" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/torch/autograd/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/utils/data_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/extract_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/test_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/filtered_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="143" column="11" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/train_volumes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/convert_h5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="61" column="82" selection-start-line="61" selection-start-column="82" selection-end-line="61" selection-end-column="82" />
+          <folding>
+            <element signature="e#120#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/data_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#68#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_quicknat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="e#68#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/punet/lib/python3.7/site-packages/ncm/losses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="330" column="29" lean-forward="true" selection-start-line="330" selection-start-column="29" selection-end-line="330" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/log_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="97" column="61" lean-forward="true" selection-start-line="79" selection-start-column="3" selection-end-line="97" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quicknat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="116" column="36" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hnet_parts/hquicknat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="53" column="68" lean-forward="true" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+          <folding>
+            <element signature="e#37#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="224" column="33" lean-forward="true" selection-start-line="224" selection-start-column="33" selection-end-line="224" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="41" lean-forward="true" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/KORA/config_test.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>

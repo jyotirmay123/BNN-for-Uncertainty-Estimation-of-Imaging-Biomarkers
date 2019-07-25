@@ -5,11 +5,13 @@ import torch.nn as nn
 from nn_common_modules import modules as sm
 from squeeze_and_excitation import squeeze_and_excitation as se
 
+
 class QuickNat(nn.Module):
     """
     A PyTorch implementation of QuickNAT
 
     """
+
     def __init__(self, params):
         """
 
@@ -40,12 +42,17 @@ class QuickNat(nn.Module):
         params['num_channels'] = 64
         self.classifier = sm.ClassifierBlock(params)
 
-    def forward(self, input):
+        self.is_training = True
+
+    def forward(self, input, gt=None):
         """
 
         :param input: X
         :return: probabiliy map
         """
+        if not self.is_training:
+            self.enable_test_dropout()
+
         e1, out1, ind1 = self.encode1.forward(input)
         e2, out2, ind2 = self.encode2.forward(e1)
         e3, out3, ind3 = self.encode3.forward(e2)
@@ -59,7 +66,10 @@ class QuickNat(nn.Module):
         d1 = self.decode3.forward(d2, out1, ind1)
         prob = self.classifier.forward(d1)
 
-        return prob
+        return None, None, prob
+
+    def set_is_training(self, is_training):
+        self.is_training = is_training
 
     def enable_test_dropout(self):
         """
@@ -90,7 +100,7 @@ class QuickNat(nn.Module):
         print('Saving saved_models... %s' % path)
         torch.save(self, path)
 
-    def predict(self, X, device=0, enable_dropout=False):
+    def predict(self, X, device=0, enable_dropout=True, forward_out=False):
         """
         Predicts the outout after the saved_models is trained.
         Inputs:
@@ -108,9 +118,13 @@ class QuickNat(nn.Module):
 
         with torch.no_grad():
             out = self.forward(X)
+            out = out[2]
 
-        max_val, idx = torch.max(out, 1)
-        idx = idx.data.cpu().numpy()
-        prediction = np.squeeze(idx)
-        del X, out, idx, max_val
-        return prediction
+        if forward_out:
+            return out
+        else:
+            max_val, idx = torch.max(out, 1)
+            idx = idx.data.cpu().numpy()
+            prediction = np.squeeze(idx)
+            del X, out, idx, max_val
+            return prediction

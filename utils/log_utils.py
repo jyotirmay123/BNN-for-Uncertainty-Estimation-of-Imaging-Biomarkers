@@ -13,6 +13,7 @@ import torch
 from torch.utils.tensorboard import SummaryWriter
 
 from utils.evaluator import Evaluator
+from utils.common_utils import CommonUtils
 
 plt.switch_backend('agg')
 plt.axis('scaled')
@@ -43,53 +44,58 @@ class LogWriter(object):
         file_handler = logging.FileHandler("{0}/{1}.log".format(os.path.join(log_dir_name, exp_name), "console_logs"))
         self.logger.addHandler(file_handler)
 
+        # self.utill_obj = CommonUtils()
+        # self.utill_obj.setup_whatsapp_notifier()
+
     def log(self, text, phase='train'):
         self.logger.info(text)
 
-    def loss_per_iter(self, loss_value, i_batch, current_iteration):
-        print('[Iteration : ' + str(i_batch) + '] Loss -> ' + str(loss_value))
-        self.writer['train'].add_scalar('loss/per_iteration', loss_value, current_iteration)
+    def loss_per_iter(self, loss_value, i_batch, current_iteration, loss_name='loss'):
+        print('[Iteration : ' + str(i_batch) + '] ' + loss_name + ' -> ' + str(loss_value))
+        self.writer['train'].add_scalar(f'{loss_name}/per_iteration', loss_value, current_iteration)
 
-    def dice_loss_per_iter(self, loss_value, i_batch, current_iteration):
-        # print('[Iteration : ' + str(i_batch) + '] Loss -> ' + str(loss_value))
-        self.writer['train'].add_scalar('dice_loss/per_iteration', loss_value, current_iteration)
+    # def dice_loss_per_iter(self, loss_value, i_batch, current_iteration):
+    #     print('[Iteration : ' + str(i_batch) + '] Dice loss -> ' + str(loss_value))
+    #     self.writer['train'].add_scalar('dice_loss/per_iteration', loss_value, current_iteration)
+    #
+    # def kldiv_loss_per_iter(self, loss_value, i_batch, current_iteration):
+    #     print('[Iteration : ' + str(i_batch) + '] KLDIV Loss -> ' + str(loss_value))
+    #     self.writer['train'].add_scalar('kldiv_loss/per_iteration', loss_value, current_iteration)
+    #
+    # def ce_loss_per_iter(self, loss_value, i_batch, current_iteration):
+    #     print('[Iteration : ' + str(i_batch) + '] CE_Loss -> ' + str(loss_value))
+    #     self.writer['train'].add_scalar('ce_loss/per_iteration', loss_value, current_iteration)
+    #
+    # def posterior_loss_per_iter(self, loss_value, i_batch, current_iteration):
+    #     print('[Iteration : ' + str(i_batch) + '] posterior_Loss -> ' + str(loss_value))
+    #     self.writer['train'].add_scalar('posterior_loss/per_iteration', loss_value, current_iteration)
 
-    def kldiv_loss_per_iter(self, loss_value, i_batch, current_iteration):
-        # print('[Iteration : ' + str(i_batch) + '] Loss -> ' + str(loss_value))
-        self.writer['train'].add_scalar('kldiv_loss/per_iteration', loss_value, current_iteration)
-
-    def ce_loss_per_iter(self, loss_value, i_batch, current_iteration):
-        print('[Iteration : ' + str(i_batch) + '] CE_Loss -> ' + str(loss_value))
-        self.writer['train'].add_scalar('ce_loss/per_iteration', loss_value, current_iteration)
-
-    def posterior_loss_per_iter(self, loss_value, i_batch, current_iteration):
-        print('[Iteration : ' + str(i_batch) + '] posterior_Loss -> ' + str(loss_value))
-        self.writer['train'].add_scalar('posterior_loss/per_iteration', loss_value, current_iteration)
-
-    def loss_per_epoch(self, loss_arr, phase, epoch):
+    def loss_per_epoch(self, loss_arr, phase, epoch, loss_name='loss'):
         loss = np.mean(loss_arr)
-        self.writer[phase].add_scalar('loss/per_epoch', loss, epoch)
-        print('epoch ' + phase + ' cumulative loss = ' + str(loss))
+        self.writer[phase].add_scalar(f'{loss_name}/per_epoch', loss, epoch)
+        msg = 'epoch ' + phase + ' ' + loss_name + ' = ' + str(loss)
+        print(msg)
+        # self.utill_obj.whatsapp_notifier(msg)
 
-    def dice_loss_per_epoch(self, loss_arr, phase, epoch):
-        loss = np.mean(loss_arr)
-        self.writer[phase].add_scalar('dice_loss/per_epoch', loss, epoch)
-        print('epoch ' + phase + ' dice loss = ' + str(loss))
-
-    def kldiv_loss_per_epoch(self, loss_arr, phase, epoch):
-        loss = np.mean(loss_arr)
-        self.writer[phase].add_scalar('kldiv_loss/per_epoch', loss, epoch)
-        print('epoch ' + phase + ' kldiv loss = ' + str(loss))
-
-    def posterior_loss_per_epoch(self, loss_arr, phase, epoch):
-        loss = np.mean(loss_arr)
-        self.writer[phase].add_scalar('posterior_loss/per_epoch', loss, epoch)
-        print('epoch ' + phase + ' posterior loss = ' + str(loss))
-
-    def ce_loss_per_epoch(self, loss_arr, phase, epoch):
-        loss = np.mean(loss_arr)
-        self.writer[phase].add_scalar('ce_loss/per_epoch', loss, epoch)
-        print('epoch ' + phase + ' ce loss = ' + str(loss))
+    # def dice_loss_per_epoch(self, loss_arr, phase, epoch):
+    #     loss = np.mean(loss_arr)
+    #     self.writer[phase].add_scalar('dice_loss/per_epoch', loss, epoch)
+    #     print('epoch ' + phase + ' dice loss = ' + str(loss))
+    #
+    # def kldiv_loss_per_epoch(self, loss_arr, phase, epoch):
+    #     loss = np.mean(loss_arr)
+    #     self.writer[phase].add_scalar('kldiv_loss/per_epoch', loss, epoch)
+    #     print('epoch ' + phase + ' kldiv loss = ' + str(loss))
+    #
+    # def posterior_loss_per_epoch(self, loss_arr, phase, epoch):
+    #     loss = np.mean(loss_arr)
+    #     self.writer[phase].add_scalar('posterior_loss/per_epoch', loss, epoch)
+    #     print('epoch ' + phase + ' posterior loss = ' + str(loss))
+    #
+    # def ce_loss_per_epoch(self, loss_arr, phase, epoch):
+    #     loss = np.mean(loss_arr)
+    #     self.writer[phase].add_scalar('ce_loss/per_epoch', loss, epoch)
+    #     print('epoch ' + phase + ' ce loss = ' + str(loss))
 
     def cm_per_epoch(self, phase, output, correct_labels, epoch):
         print("Confusion Matrix...", end='', flush=True)

@@ -1,13 +1,14 @@
-"""
-Contains commong functions useful throughout the application
-"""
 import os
 import torch
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 
 class CommonUtils(object):
     def __init__(self):
         super().__init__()
+        self.elem1 = None
 
     @staticmethod
     def create_if_not(path):
@@ -32,3 +33,18 @@ class CommonUtils(object):
         std = torch.exp(0.5 * logvar)
         eps = torch.randn_like(std)
         return mu + eps * std
+
+    def setup_whatsapp_notifier(self, driver_path='/home/abhijit/Jyotirmay/thesis/hquicknat/utils/chromedriver', receiver="Tum Madhu Mathematics"):
+        driver = webdriver.Chrome(driver_path)
+        driver.get('https://web.whatsapp.com')
+        input('click "enter" once whatsapp configured in selenium invoked browser!')
+        print("Success!!!")
+        spans = driver.find_elements_by_tag_name('span')
+        elem_lst = [x for x in spans if x.get_attribute('title') == 'Tum Madhu Mathematics']
+        elem = elem_lst[0]
+        elem.click()
+        self.elem1 = driver.find_element_by_class_name('_3u328')
+
+    def whatsapp_notifier(self, message):
+        self.elem1.send_keys(message + '\r', Keys.RETURN)
+        print('Notified in whatsapp')

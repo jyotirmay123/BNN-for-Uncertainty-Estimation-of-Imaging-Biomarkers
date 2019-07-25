@@ -13,12 +13,20 @@ class Evaluator(DataUtils):
     def __init__(self, settings):
         super().__init__(settings)
 
-    @staticmethod
-    def IOU_score(batch_outputs):
-        means = np.mean(batch_outputs, axis=0)
-        sigmas = np.var(batch_outputs, axis=0)
-        IOUScore = np.divide(means, sigmas, out=np.zeros_like(means), where=sigmas != 0)
-        return IOUScore
+    def intersection_overlap_per_structure(self, samples):
+        iou_s = []
+        for c in range(self.num_class):
+            if c == 0:
+                continue
+            inter = (samples[0] == c).astype('int')
+            union = (samples[0] == c).astype('int')
+            for s in range(1, self.mc_sample):
+                nxt = (samples[s] == c).astype('int')
+                inter = np.multiply(inter, nxt)
+                union = (np.add(union, nxt) > 0).astype('int')
+            s_inter, s_union = np.sum(inter), np.sum(union) + 0.0001
+            iou_s.append(np.divide(s_inter, s_union))
+        return iou_s
 
     @staticmethod
     def voxelwise_uncertainty(self, input):
@@ -69,6 +77,15 @@ class Evaluator(DataUtils):
 
         return surface_distance_perclass
 
+    def print_report(self, str, final=False):
+        if final:
+            report_file = os.path.join(self.base_dir, 'report.txt')
+        else:
+            report_file = os.path.join(self.data_dir_base, self.dataset+'_report.txt')
+        report_file_obj = open(report_file, 'a+')
+        print(str, end="\n", file=report_file_obj)
+        report_file_obj.close()
+
     def evaluate_dice_score(self, prediction_path, load_from_txt_file=True, device=0, logWriter=None,
                             is_train_phase=False):
         mode = 'train' if is_train_phase else 'eval'
@@ -80,10 +97,6 @@ class Evaluator(DataUtils):
             volumes_to_use = file_handle.read().splitlines()
 
         model = torch.load(self.eval_model_path)
-        if self.model_name == 'quicknat':
-            model.enable_test_dropout()
-        else:
-            model.is_training = False
 
         cuda_available = torch.cuda.is_available()
         if cuda_available:
@@ -93,11 +106,19 @@ class Evaluator(DataUtils):
         model.eval()
         volume_dice_score_list = []
         volume_surface_distance_list = []
+        iou_score_per_structure_list = []
+
         print("Evaluating now...")
         file_paths = self.load_file_paths(load_from_txt_file=load_from_txt_file, is_train_phase=is_train_phase)
+        self.print_report(
+            '########### Evaluating {0} dataset on {1} model ############## \n'.format(self.dataset, self.model_name))
+        self.print_report(
+            '########### Evaluating {0} dataset on {1} model ############## \n'.format(self.dataset, self.model_name),
+            final=True)
         with torch.no_grad():
             for vol_idx, file_path in enumerate(file_paths):
                 print(file_path)
+                self.print_report('# VOLUME:: ' + file_path[0].split('/')[-1].split('.')[0] + '\n')
                 volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
                 volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
@@ -106,6 +127,8 @@ class Evaluator(DataUtils):
 
                 volume_prediction = []
                 heat_map_arr = []
+                # batch_size = len(volume)
+                iou_uncertainty = np.zeros((self.mc_sample, volume.shape[0], volume.shape[2], volume.shape[3]))
                 for i in range(0, len(volume), batch_size):
                     batch_x = volume[i: i + batch_size]
                     # batch_y = labelmap[i:i + batch_size]
@@ -116,9 +139,15 @@ class Evaluator(DataUtils):
                     _, batch_output = torch.max(out, dim=1)
                     if self.is_uncertainity_check_enabled:
                         batch_uncertainty_outputs = []
-                        for _ in range(self.mc_sample):
-                            out = model.forward(batch_x)
+                        for mcs in range(self.mc_sample):
+                            if self.model_name == 'quicknat':
+                                out = model.predict(batch_x, device, True, True)
+                            else:
+                                model.is_training = False
+                                out = model.forward(batch_x)
                             out = F.softmax(out, dim=1)
+                            _, batch_class_map = torch.max(out, dim=1)
+                            iou_uncertainty[mcs, i: i + batch_size] = torch.squeeze(batch_class_map).cpu().numpy()
                             batch_output_ = (out.cpu().numpy()).astype('float32')
                             batch_output_ = np.squeeze(batch_output_)
                             batch_uncertainty_outputs.append(batch_output_)
@@ -136,6 +165,11 @@ class Evaluator(DataUtils):
 
                     volume_prediction.append(batch_output)
 
+                iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
+                self.print_report('# Intersection over overlap scores per structure per volume.')
+                self.print_report(f'Spleen: {iou_s[0]}   |    Liver: {iou_s[1]} \n')
+
+                iou_score_per_structure_list.append(iou_s)
                 self.create_if_not(prediction_path)
                 if self.is_uncertainity_check_enabled:
                     heat_map_arr = torch.cat(heat_map_arr, dim=0)
@@ -152,10 +186,19 @@ class Evaluator(DataUtils):
 
                 volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device), self.num_class,
                                                              mode=mode)
+                self.print_report('# Dice Score per structure per volume.')
+                self.print_report(f'Spleen: {volume_dice_score[1]}   |    Liver: {volume_dice_score[2]} \n')
 
                 volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
                                                                                    labelmap.cuda(device),
                                                                                    mode=mode)
+
+                self.print_report('# Surface distance scores per structure per volume.')
+
+                self.print_report(f'GT TO PRED SCORES:: Spleen: {volume_dice_surface_distance[1, 0]}   |   '
+                                  f'Liver: {volume_dice_surface_distance[2, 0]}')
+                self.print_report(f'PRED TO GT SCORES:: Spleen: {volume_dice_surface_distance[1, 1]}   |   '
+                                  f'Liver: {volume_dice_surface_distance[2, 1]} \n')
 
                 if logWriter:
                     logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],
@@ -163,20 +206,47 @@ class Evaluator(DataUtils):
 
                 volume_dice_score = volume_dice_score.cpu().numpy()
                 volume_dice_score_list.append(volume_dice_score)
+
                 print('\n', volume_dice_score, np.mean(volume_dice_score))
 
                 volume_surface_distance_list.append(volume_dice_surface_distance)
                 print('\n', volume_dice_surface_distance, np.mean(volume_dice_surface_distance[:, 0]),
                       np.mean(volume_dice_surface_distance[:, 1]))
+                self.print_report('------------------------------------------------------------------------------ \n\n')
 
             dice_score_arr = np.asarray(volume_dice_score_list)
             avg_dice_score = np.mean(dice_score_arr)
             class_dist = [dice_score_arr[:, c] for c in range(self.num_class)]
 
             surface_distance_arr = np.asarray(volume_surface_distance_list)
+            iou_score_per_structure_arr = np.asarray(iou_score_per_structure_list)
 
             if logWriter:
                 logWriter.plot_eval_box_plot('eval_dice_score_box_plot', class_dist, 'Box plot Dice Score')
             print("DONE")
+
+            self.print_report('# Mean intersection over overlap scores.', final=True)
+            self.print_report(f' OVERALL MEAN: {np.mean(iou_score_per_structure_arr)} | '
+                              f'SPLEEN: {np.mean(iou_score_per_structure_arr[:, 0])} | '
+                              f'LIVER: {np.mean(iou_score_per_structure_arr[:, 1])}',
+                              final=True)
+
+            self.print_report('# Mean Dice Score.', final=True)
+            self.print_report(f' OVERALL MEAN: {np.mean(dice_score_arr[:, 1:])} | '
+                              f'SPLEEN: {np.mean(dice_score_arr[:, 1])} | '
+                              f'LIVER: {np.mean(dice_score_arr[:, 2])}', final=True)
+
+            self.print_report('# Mean Surface distance scores.', final=True)
+            self.print_report(f' GT TO PRED SCORES:: OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 0])} | '
+                              f'SPLEEN: {np.mean(surface_distance_arr[:, 1, 0])} | '
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 0])}', final=True)
+            self.print_report(f' PRED TO GT SCORES:: OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 1])} | '
+                              f'SPLEEN: {np.mean(surface_distance_arr[:, 1, 1])} | '
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 1])}', final=True)
+
+            self.print_report('-------------------------------------------------------------------------\n', final=True)
+
+        self.print_report(
+            f'############### {self.model_name} on {self.dataset} report completed ################### \n')
 
         return avg_dice_score, class_dist, dice_score_arr, surface_distance_arr

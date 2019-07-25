@@ -4,12 +4,11 @@ import os
 import torch
 
 from utils.evaluator import Evaluator
-# from quicknat import QuickNat
-from hnet_parts.multi_input_residual_quicknat import MultiInputResidualQuickNat as PriorQuickNat
-from hnet_parts.multi_input_residual_posterior_quickant import MultiInputResidualPosteriorQuickNat as PosteriorQuickNat
+from hnet_parts.hquicknat import HQuicknat
+from quicknat import QuickNat
 from settings import compile_config
 from solver import Solver
-
+import torch.nn as nn
 from utils.log_utils import LogWriter
 import numpy as np
 import shutil
@@ -34,6 +33,11 @@ class Executor(Evaluator):
             except Exception as e:
                 print(e)
 
+    def init_weights(self, m):
+        if type(m) == nn.Linear or type(m) == nn.Conv2d:
+            torch.nn.init.orthogonal_(m.weight)
+            m.bias.data.fill_(0.01)
+
     def train(self, train_params, common_params, data_params, net_params):
         global settings
         print("Loading dataset")
@@ -48,13 +52,23 @@ class Executor(Evaluator):
                                                  num_workers=4, pin_memory=True)
 
         if train_params['use_pre_trained']:
-            prior_quicknat_model = torch.load(train_params['pre_trained_path'])
-            posterior_quicknat_model = torch.load(train_params['posterior_pre_trained_path'])
+            model = torch.load(train_params['pre_trained_path'])
         else:
-            prior_quicknat_model = PriorQuickNat(net_params)
-            posterior_quicknat_model = PosteriorQuickNat(net_params)
+            model = HQuicknat(net_params)
+            model.apply(self.init_weights)
 
-        solver = Solver((prior_quicknat_model, posterior_quicknat_model),
+        # if 'hquicknat' in common_params.model_name:
+        #     objective_func = additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
+        #                                                          net_params['beta_value'])
+        # elif 'quicknat' in common_params.model_name:
+        #     objective_func = additional_losses.CombinedLoss()
+        # elif 'punet' in common_params.model_name:
+        #     objective_func = additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
+        #                                                          net_params['beta_value'])
+        # else:
+        #     raise Exception('Cannot able to locate loss function for current {}'.format(common_params.model_name))
+
+        solver = Solver(model,
                         device=common_params['device'],
                         num_class=net_params['num_class'],
                         optim_args={"lr": train_params['learning_rate'],
@@ -75,13 +89,11 @@ class Executor(Evaluator):
                         exp_dir=common_params['exp_dir'])
 
         solver.train(train_loader, val_loader)
-        prior_final_model_path = os.path.join(common_params['save_model_dir'], train_params['final_model_file'])
-        posterior_final_model_path = os.path.join(common_params['save_model_dir'],
-                                                  train_params['posterior_final_model_file'])
-        prior_quicknat_model.save(prior_final_model_path)
-        posterior_quicknat_model.save(posterior_final_model_path)
+        final_model_path = os.path.join(common_params['save_model_dir'], train_params['final_model_file'])
 
-        print("final models saved @ " + str(prior_final_model_path) + 'and \n' + str(posterior_final_model_path))
+        model.save(final_model_path)
+
+        print("final models saved @ " + str(final_model_path))
 
     def evaluate(self, eval_params, net_params, data_params, common_params, train_params):
 

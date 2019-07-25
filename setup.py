@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='punet',
+    name='hquicknat',
     version='1.1.0',
     description='Probabilistic QuickNat',
     url='',

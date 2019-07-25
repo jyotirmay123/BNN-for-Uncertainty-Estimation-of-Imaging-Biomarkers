@@ -88,19 +88,25 @@ class DataUtils(PreProcess):
         print("Loading and preprocessing data...")
         volume_list, labelmap_list, weights_list, class_weights_list = [], [], [], []
         for file_path in file_paths:
-            volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
+            volume_id = eval(self.h5_volume_name_extractor.format(file_path[0]))
+            if volume_id in self.excluded_volumes:
+                continue
+            try:
+                volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
-            if self.is_h5_processing:
-                volume_id = eval(self.h5_volume_name_extractor.format(file_path[0]))
-                self.save_processed_nibabel_file(volume, header, volume_id)
-                self.save_processed_nibabel_file(labelmap, header, volume_id, True)
+                if self.is_h5_processing:
 
-            volume_list.append(volume)
-            labelmap_list.append(labelmap)
-            class_weights_list.append(class_weights)
-            weights_list.append(weights)
-            print("#", end='', flush=True)
+                    self.save_processed_nibabel_file(volume, header, volume_id)
+                    self.save_processed_nibabel_file(labelmap, header, volume_id, True)
 
+                volume_list.append(volume)
+                labelmap_list.append(labelmap)
+                class_weights_list.append(class_weights)
+                weights_list.append(weights)
+                print("#", end='', flush=True)
+            except Exception as e:
+                print(volume_id, e)
+                self.excluded_volumes.append(volume_id)
         # Updating data_config_file as data_related to data_config has been pre-processed now.
         # Settings.update_system_status_values(self.dataset_config_path, 'DATA_CONFIG', 'is_pre_processed', 'True')
 
@@ -235,21 +241,31 @@ class DataUtils(PreProcess):
         file_paths = []
 
         for vol in volumes_to_use:
-            if self.is_pre_processed:
-                file_paths.append([os.path.join(self.processed_data_dir, vol+self.processed_extn), os.path.join(self.processed_label_dir, vol+self.processed_extn)])
-            else:
-                data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
-                label_file_path = self._label_file_path_.format(self.label_dir, vol)
+            try:
+                if vol in self.excluded_volumes:
+                    print('== {} Volume in Excluded List =='.format(vol))
+                    continue
 
-                files = glob.glob(eval(data_file_path))
-                file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
-                file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
-                file = files[file_idx[0][0]]
-                file = [file]
-
-                if len(file) is not 0:
-                    file_paths.append([file[0], eval(label_file_path)])
+                if self.is_pre_processed:
+                    file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn),
+                                       os.path.join(self.processed_label_dir, vol + self.processed_extn)])
                 else:
-                    raise Exception('File not found!')
+                    data_file_path = self._data_file_path_.format(self.data_dir, vol, self.modality_map[str(self.modality)])
+                    label_file_path = self._label_file_path_.format(self.label_dir, vol)
+
+                    files = glob.glob(eval(data_file_path))
+                    file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
+                    file_idx = np.where(file_filtration_criterion == file_filtration_criterion.min())
+                    file = files[file_idx[0][0]]
+                    file = [file]
+
+                    if len(file) is not 0:
+                        file_paths.append([file[0], eval(label_file_path)])
+                    else:
+                        raise Exception('File not found!')
+            except Exception as e:
+                self.excluded_volumes.append(vol)
+                print(vol, e)
+                continue
 
         return file_paths

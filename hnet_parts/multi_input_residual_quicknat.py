@@ -1,5 +1,5 @@
 """Residual Quicknat architecture"""
-from quicknat import QuickNat
+#from quicknat import QuickNat
 import numpy as np
 import torch
 import torch.nn as nn
@@ -7,7 +7,7 @@ from nn_common_modules import modules as sm
 from squeeze_and_excitation import squeeze_and_excitation as se
 
 
-class MultiInputResidualQuickNat(QuickNat):
+class MultiInputResidualQuickNat(nn.Module):
     """
     A PyTorch implementation of QuickNAT
 
@@ -27,51 +27,55 @@ class MultiInputResidualQuickNat(QuickNat):
                         'se_block': False,
                         'drop_out':0.2}
         """
-        super(MultiInputResidualQuickNat, self).__init__(params)
+        super(MultiInputResidualQuickNat, self).__init__()
 
         params['num_filters'] = 64
         params['num_channels'] = 1
-        self.encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
 
         params['num_channels'] = 64
-        self.encode2 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.encode3 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.encode4 = sm.EncoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.bottleneck = sm.DenseBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode2 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode3 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode4 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.bottleneck = sm.DenseBlock(params, se_block_type=se.SELayer.CSSE)
 
-        self.resBlock1 = sm.FullyPreActivatedResBlock(params, 2)
-        self.resBlock2 = sm.FullyPreActivatedResBlock(params, 3)
+        self.resBlock1 = sm.FullyPreActivatedResBlock(params, 1)
+        self.resBlock2 = sm.FullyPreActivatedResBlock(params, 2)
         self.resBlock3 = sm.FullyPreActivatedResBlock(params, 4)
-        self.resBlock4 = sm.FullyPreActivatedResBlock(params, 5)
+        self.resBlock4 = sm.FullyPreActivatedResBlock(params, 8)
 
         params['num_channels'] = 128
-        self.decode1 = sm.DecoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.decode2 = sm.DecoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.decode3 = sm.DecoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.decode4 = sm.DecoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.decode1 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.decode2 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.decode3 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.decode4 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
 
         params['num_channels'] = 64
         self.classifier = sm.ClassifierBlock(params)
 
-        self.fc_mu1 = nn.Linear(64, 2)
-        self.fc_sigma1 = nn.Linear(64, 2)
+        self.fc_mu1 = nn.Linear(64, 1)
+        self.fc_sigma1 = nn.Linear(64, 1)
 
-        self.fc_mu2 = nn.Linear(64, 3)
-        self.fc_sigma2 = nn.Linear(64, 3)
+        self.fc_mu2 = nn.Linear(64, 2)
+        self.fc_sigma2 = nn.Linear(64, 2)
 
         self.fc_mu3 = nn.Linear(64, 4)
         self.fc_sigma3 = nn.Linear(64, 4)
 
-        self.fc_mu4 = nn.Linear(64, 5)
-        self.fc_sigma4 = nn.Linear(64, 5)
+        self.fc_mu4 = nn.Linear(64, 8)
+        self.fc_sigma4 = nn.Linear(64, 8)
 
         self.alternate_sample_pick = True
         self.is_training = True
         self.posterior_samples = {}
         self.prior_samples = {}
+        self.prior_klds = {}
         self.prior_weights_for_posterior_samplings = {}
 
-    def forward(self, inp, ground_truth=None):
+    def forward(self, inp, posterior_samples=None):
+        self.posterior_samples = {}
+        if posterior_samples is not None:
+            self.posterior_samples = posterior_samples
 
         e1, out1, ind1 = self.encode1.forward(inp)
         e2, out2, ind2 = self.encode2.forward(e1)
@@ -83,36 +87,41 @@ class MultiInputResidualQuickNat(QuickNat):
         d4 = self.decode1.forward(bn, out4, ind4)
 
         self.prior_weights_for_posterior_samplings['layer1'] = bn
-        layer1_sample = self.prior_block(bn, 1)
+        layer1_sample, kld_1 = self.prior_block(bn, 1)
         self.prior_samples['layer1'] = layer1_sample
+        self.prior_klds['layer1'] = kld_1
         concat_d4 = self.concat(d4, layer1_sample, 'layer1')
-        res_d4 = self.resBlock1.forward(concat_d4, depth=3)
+        res_d4 = self.resBlock1.forward(concat_d4, depth=4)
 
         d3 = self.decode2.forward(res_d4, out3, ind3)
 
         self.prior_weights_for_posterior_samplings['layer2'] = res_d4
-        layer2_sample = self.prior_block(res_d4, 2)
+        layer2_sample, kld_2 = self.prior_block(res_d4, 2)
         self.prior_samples['layer2'] = layer2_sample
+        self.prior_klds['layer2'] = kld_2
         concat_d3 = self.concat(d3, layer2_sample, 'layer2')
-        res_d3 = self.resBlock2.forward(concat_d3, depth=2)
+        res_d3 = self.resBlock2.forward(concat_d3, depth=3)
 
         d2 = self.decode2.forward(res_d3, out2, ind2)
 
         self.prior_weights_for_posterior_samplings['layer3'] = res_d3
-        layer3_sample = self.prior_block(res_d3, 3)
+        layer3_sample, kld_3 = self.prior_block(res_d3, 3)
         self.prior_samples['layer3'] = layer3_sample
+        self.prior_klds['layer3'] = kld_3
         concat_d2 = self.concat(d2, layer3_sample, 'layer3')
         res_d2 = self.resBlock3.forward(concat_d2, depth=2)
 
         d1 = self.decode2.forward(res_d2, out1, ind1)
 
         self.prior_weights_for_posterior_samplings['layer4'] = res_d2
-        layer4_sample = self.prior_block(res_d2, 4)
+        layer4_sample, kld_4 = self.prior_block(res_d2, 4)
         self.prior_samples['layer4'] = layer4_sample
+        self.prior_klds['layer4'] = kld_4
         concat_d1 = self.concat(d1, layer4_sample, 'layer4')
         res_d1 = self.resBlock4.forward(concat_d1, depth=1)
 
-        # self.alternate_sample_pick = not self.alternate_sample_pick
+        #if self.is_training:
+        #    self.alternate_sample_pick = not self.alternate_sample_pick
 
         prob = self.classifier.forward(res_d1)
 
@@ -145,7 +154,12 @@ class MultiInputResidualQuickNat(QuickNat):
             raise Exception(f'Depth cannnot be {depth}')
 
         sample = self.reparameterize(mu, sigma)
-        return sample
+        kld = self.calculate_kld(mu, sigma)
+        return sample, kld
+
+    def calculate_kld(self, mu, logvar):
+        #KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
+        return (mu, logvar)
 
     def reparameterize(self, mu, logvar):
         """

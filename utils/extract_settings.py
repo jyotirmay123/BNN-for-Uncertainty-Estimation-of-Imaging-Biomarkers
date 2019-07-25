@@ -1,10 +1,8 @@
 from utils.common_utils import CommonUtils
 
-
 class ExtractSettings(CommonUtils):
     def __init__(self, settings):
         super().__init__()
-
         self.settings = settings
 
         # COMMON PROJECT SETTING CONFIGURATIONS
@@ -36,6 +34,7 @@ class ExtractSettings(CommonUtils):
         self.sampling_frequency = _network_.sampling_frequency
         self.uncertainty_check = _network_.uncertainty_check
         self.beta_value = _network_.beta_value
+        self.gamma_value = _network_.gamma_value
 
         # TRAINING SETTING CONFIGURATIONS
         _training_ = self.settings.TRAINING
@@ -76,6 +75,7 @@ class ExtractSettings(CommonUtils):
         self.exp_name = _eval_.exp_name
         self.final_model_file = _eval_.final_model_file
         self.pre_trained_path = _eval_.pre_trained_path
+        self.dataset = _eval_.dataset
         self.dataset_config_path = _eval_.dataset_config_path
 
         # DATA CONFIGURATIONS FROM DATASET CONFIG
@@ -86,16 +86,22 @@ class ExtractSettings(CommonUtils):
         self.h5_data_dir = _data_.h5_data_dir
         self.h5_train_data_file = _data_.h5_train_data_file
         self.h5_train_label_file = _data_.h5_train_label_file
+        self.h5_train_weights_file = _data_.h5_train_weights_file
+        self.h5_train_class_weights_file = _data_.h5_train_class_weights_file
         self.h5_test_data_file = _data_.h5_test_data_file
         self.h5_test_label_file = _data_.h5_test_label_file
+        self.h5_test_weights_file = _data_.h5_test_weights_file
+        self.h5_test_class_weights_file = _data_.h5_test_class_weights_file
         self.h5_volume_name_extractor = _data_.h5_volume_name_extractor
         self.labels = _data_.labels
+        self.excluded_volumes = []  # _data_.excluded_volumes
 
         # DATA CONFIG FROM DATASET CONFIG
         _data_config_ = self.settings.DATA_CONFIG
         self.data_config_params = _data_config_
 
         self.data_dir = _data_config_.data_dir
+        self.annotations_root = _data_config_.annotations_root
         self.label_dir = _data_config_.label_dir
         self.train_volumes = _data_config_.train_volumes
         self.test_volumes = _data_config_.test_volumes

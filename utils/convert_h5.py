@@ -26,14 +26,23 @@ class ConvertH5(DataUtils):
         test_file_paths = [file_paths[i] for i in test_idx]
         return train_file_paths, test_file_paths
 
-    def _write_h5(self, data, label, f, mode):
+    def _write_h5(self, data, label, class_weights, weights, f, mode):
         no_slices, H, W = data[0].shape
         with h5py.File(f[mode][self.h5_key_for_data], "w") as data_handle:
             data_handle.create_dataset(self.h5_key_for_data, data=np.concatenate(data).reshape((-1, H, W)))
         with h5py.File(f[mode][self.h5_key_for_label], "w") as label_handle:
             label_handle.create_dataset(self.h5_key_for_label, data=np.concatenate(label).reshape((-1, H, W)))
+        with h5py.File(f[mode][self.h5_key_for_weights], "w") as weight_handle:
+            weight_handle.create_dataset(self.h5_key_for_weights, data=np.concatenate(weights))
+        with h5py.File(f[mode][self.h5_key_for_class_weights], "w") as class_weight_handle:
+            class_weight_handle.create_dataset(self.h5_key_for_class_weights,
+                                               data=np.concatenate(class_weights).reshape((-1, H, W)))
 
     def convert_h5(self):
+        if self.annotations_root is not None:
+            if self.is_pre_processed:
+                raise Exception('Manual annotations are not pre_processed, but is_pre_processed is True!!!')
+            self.merge_annotations()
         # Data splitting
         if self.data_split:
             train_file_paths, test_file_paths = self.apply_split()
@@ -50,15 +59,15 @@ class ConvertH5(DataUtils):
 
         # loading,pre-processing and writing train data
         print("===Train data===")
-        data_train, label_train = self.load_dataset(train_file_paths)
+        data_train, label_train, weights_train, class_weights_train = self.load_dataset(train_file_paths)
 
-        self._write_h5(data_train, label_train, f, mode='train')
+        self._write_h5(data_train, label_train, class_weights_train, weights_train, f, mode='train')
 
         # loading,pre-processing and writing test data
         print("===Test data===")
-        data_test, label_test = self.load_dataset(test_file_paths)
+        data_test, label_test, weights_test, class_weights_test = self.load_dataset(test_file_paths)
 
-        self._write_h5(data_test, label_test, f, mode='test')
+        self._write_h5(data_test, label_test, class_weights_test, weights_test, f, mode='test')
 
 
 if __name__ == "__main__":
