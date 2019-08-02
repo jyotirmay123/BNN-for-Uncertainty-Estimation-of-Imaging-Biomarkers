@@ -2,17 +2,21 @@ import argparse
 import os
 
 import torch
+import torch.nn.init as init
 
 from utils.evaluator import Evaluator
 from hnet_parts.hquicknat import HQuicknat
-from quicknat import QuickNat
+from quicknat_parts.quicknat import QuickNat
+from punet_parts.pu_net import ProbabilisticUNet
+from full_bayesian_quicknat_parts.full_bayesian_quicknat import FullBayesianQuickNat
+from full_bayesian_quicknat_parts.deep_bayesian import DeepBayesianQuickNat
 from settings import compile_config
 from solver import Solver
 import torch.nn as nn
 from utils.log_utils import LogWriter
 import numpy as np
 import shutil
-from ncm import losses as additional_losses
+from nn_common_modules import losses as additional_losses
 
 torch.set_default_tensor_type('torch.FloatTensor')
 
@@ -38,7 +42,18 @@ class Executor(Evaluator):
             torch.nn.init.orthogonal_(m.weight)
             m.bias.data.fill_(0.01)
 
-    def train(self, train_params, common_params, data_params, net_params):
+    def weights_init_orthogonal(self, m):
+        classname = m.__class__.__name__
+        print(classname)
+        if classname.find('Conv') != -1:
+            init.orthogonal(m.weight.data, gain=1)
+        elif classname.find('Linear') != -1:
+            init.orthogonal(m.weight.data, gain=1)
+        elif classname.find('BatchNorm2d') != -1:
+            init.normal(m.weight.data, 1.0, 0.02)
+            init.constant(m.bias.data, 0.0)
+
+    def train(self, train_params, common_params, data_params, net_params, utils=None):
         global settings
         print("Loading dataset")
         train_data, test_data = self.get_imdb_dataset()
@@ -51,22 +66,20 @@ class Executor(Evaluator):
         val_loader = torch.utils.data.DataLoader(test_data, batch_size=train_params['val_batch_size'], shuffle=False,
                                                  num_workers=4, pin_memory=True)
 
+        if 'HQUICKNAT' in common_params.model_name.upper():
+            Model = HQuicknat
+        elif 'QUICKNAT' in common_params.model_name.upper():
+            Model = DeepBayesianQuickNat
+        elif 'PUNET' in common_params.model_name.upper():
+            Model = ProbabilisticUNet
+        else:
+            raise Exception('Cannot able to locateModel for current {}'.format(common_params.model_name))
+
         if train_params['use_pre_trained']:
             model = torch.load(train_params['pre_trained_path'])
         else:
-            model = HQuicknat(net_params)
-            model.apply(self.init_weights)
-
-        # if 'hquicknat' in common_params.model_name:
-        #     objective_func = additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
-        #                                                          net_params['beta_value'])
-        # elif 'quicknat' in common_params.model_name:
-        #     objective_func = additional_losses.CombinedLoss()
-        # elif 'punet' in common_params.model_name:
-        #     objective_func = additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
-        #                                                          net_params['beta_value'])
-        # else:
-        #     raise Exception('Cannot able to locate loss function for current {}'.format(common_params.model_name))
+            model = Model(net_params)
+            #model.apply(self.init_weights)
 
         solver = Solver(model,
                         device=common_params['device'],
@@ -95,17 +108,18 @@ class Executor(Evaluator):
 
         print("final models saved @ " + str(final_model_path))
 
-    def evaluate(self, eval_params, net_params, data_params, common_params, train_params):
+    def evaluate(self, eval_params, net_params, data_params, common_params, train_params, utils=None):
 
         num_classes = net_params.num_class
         labels = data_params.labels
         device = common_params.device
         log_dir = common_params.log_dir
         exp_dir = common_params.exp_dir
+        our_dir = common_params.base_dir
         exp_name = train_params.exp_name
         save_predictions_dir = eval_params.save_predictions_dir
 
-        prediction_path = os.path.join(exp_dir, exp_name, save_predictions_dir)
+        prediction_path = os.path.join(our_dir, 'outs', exp_name, save_predictions_dir)
 
         logWriter = LogWriter(num_classes, log_dir, exp_name, labels=labels)
 

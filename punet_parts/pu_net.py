@@ -24,6 +24,10 @@ class ProbabilisticUNet(nn.Module):
         self.sample = None
         self.uncertainty_check = params['uncertainty_check']
         self.sampling_time = params['sampling_frequency']
+        self.is_training = True
+
+    def set_is_training(self, is_training):
+        self.is_training = is_training
 
     def forward(self, inp, ground_truth=None):
         """
@@ -32,11 +36,25 @@ class ProbabilisticUNet(nn.Module):
         :param ground_truth: y
         :return: generaed samples from prior and posterior encoder network and predicted segmentation map.
         """
+        # if not self.is_training:
+        #     self.quickNat.enable_test_dropout()
+
         if ground_truth is not None:  # Training Time
             y_out = self.quickNat.forward(inp, self.sample)
             return y_out
         else:  # Testing Time
             return next(self.y_out_generator(inp))
+
+    def enable_test_dropout(self):
+        """
+        Enables test time drop out for uncertainity
+        :return:
+        """
+        attr_dict = self.__dict__['_modules']
+        for i in range(1, 5):
+            encode_block, decode_block = attr_dict['encode' + str(i)], attr_dict['decode' + str(i)]
+            encode_block.drop_out = encode_block.drop_out.apply(nn.Module.train)
+            decode_block.drop_out = decode_block.drop_out.apply(nn.Module.train)
 
     def y_out_generator(self, inp):
         # # Prior Encoder network getting trained on input image only.
@@ -58,12 +76,10 @@ class ProbabilisticUNet(nn.Module):
 
         # QuickNAt trained on input image and samples from posterior network.
         for i in range(self.sampling_time):
-            prior_sample = self.priorNet.reparameterize(prior_mu, prior_sigma)
+            #prior_sample = self.priorNet.reparameterize(prior_mu, prior_sigma)
             posterior_sample = self.posteriorNet.reparameterize(posterior_mu, posterior_sigma)
-            if i == self.sampling_time-1:
-                self.sample = prior_sample if self.alternate_sample_pick else posterior_sample
-                self.alternate_sample_pick = not self.alternate_sample_pick
-            yield prior_sample, posterior_sample
+            self.sample = posterior_sample
+            yield {'mu_sigma': (prior_mu, prior_sigma)}, {'mu_sigma': (posterior_mu, posterior_sigma)}
 
     @staticmethod
     def gaussian(ins, is_training, mean, stddev):
@@ -94,12 +110,11 @@ class ProbabilisticUNet(nn.Module):
         elif type(X) is torch.Tensor and not X.is_cuda:
             X = X.type(torch.FloatTensor).cuda(device, non_blocking=True)
 
-        if enable_dropout:
-            pass
-            # self.enable_test_dropout()
-
         with torch.no_grad():
             out = self.forward(X)
+
+        if enable_dropout:
+            self.quickNat.enable_test_dropout()
 
         max_val, idx = torch.max(out, 1)
         idx = idx.data.cpu().numpy()

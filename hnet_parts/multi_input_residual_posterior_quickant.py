@@ -1,6 +1,4 @@
-"""Residual Quicknat architecture"""
-#from quicknat import QuickNat
-import numpy as np
+"""Multi Input Hierarchical Quicknat - Posterior Leg architecture"""
 import torch
 import torch.nn as nn
 from nn_common_modules import modules as sm
@@ -9,7 +7,7 @@ from squeeze_and_excitation import squeeze_and_excitation as se
 
 class MultiInputResidualPosteriorQuickNat(nn.Module):
     """
-    A PyTorch implementation of QuickNAT
+    A PyTorch implementation of Hierarchical Quicknat - Posterior
 
     """
 
@@ -147,6 +145,17 @@ class MultiInputResidualPosteriorQuickNat(nn.Module):
     def calculate_kld(self, mu, logvar):
         #KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
         return (mu, logvar)
+
+    def enable_test_dropout(self):
+        """
+        Enables test time drop out for uncertainity
+        :return:
+        """
+        attr_dict = self.__dict__['_modules']
+        for i in range(1, 5):
+            encode_block, decode_block = attr_dict['encode' + str(i)], attr_dict['decode' + str(i)]
+            encode_block.drop_out = encode_block.drop_out.apply(nn.Module.train)
+            decode_block.drop_out = decode_block.drop_out.apply(nn.Module.train)
 
     def reparameterize(self, mu, logvar):
         """

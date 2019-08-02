@@ -1,5 +1,4 @@
-"""Residual Quicknat architecture"""
-#from quicknat import QuickNat
+"""Multi Input Hierarchical Quicknat - Prior Leg architecture"""
 import numpy as np
 import torch
 import torch.nn as nn
@@ -9,7 +8,7 @@ from squeeze_and_excitation import squeeze_and_excitation as se
 
 class MultiInputResidualQuickNat(nn.Module):
     """
-    A PyTorch implementation of QuickNAT
+    A PyTorch implementation of Hierarchical Quicknat - Prior
 
     """
 
@@ -183,6 +182,17 @@ class MultiInputResidualQuickNat(nn.Module):
 
     def set_alternate_sample_pick(self, is_alternate_sample_pick_enabled):
         self.alternate_sample_pick = is_alternate_sample_pick_enabled
+
+    def enable_test_dropout(self):
+        """
+        Enables test time drop out for uncertainity
+        :return:
+        """
+        attr_dict = self.__dict__['_modules']
+        for i in range(1, 5):
+            encode_block, decode_block = attr_dict['encode' + str(i)], attr_dict['decode' + str(i)]
+            encode_block.drop_out = encode_block.drop_out.apply(nn.Module.train)
+            decode_block.drop_out = decode_block.drop_out.apply(nn.Module.train)
 
     def predict(self, X, device=0, enable_dropout=False):
         """

@@ -1,5 +1,5 @@
-from quicknat import QuickNat
-from ncm import modules as sm
+from quicknat_parts.quicknat import QuickNat
+from nn_common_modules import modules as sm
 import torch
 import torch.nn as nn
 
@@ -60,3 +60,14 @@ class MultiInputQuickNat(QuickNat):
         prob = self.classifier.forward(d1)
 
         return prob
+
+    def enable_test_dropout(self):
+        """
+        Enables test time drop out for uncertainity
+        :return:
+        """
+        attr_dict = self.__dict__['_modules']
+        for i in range(1, 5):
+            encode_block, decode_block = attr_dict['encode' + str(i)], attr_dict['decode' + str(i)]
+            encode_block.drop_out = encode_block.drop_out.apply(nn.Module.train)
+            decode_block.drop_out = decode_block.drop_out.apply(nn.Module.train)

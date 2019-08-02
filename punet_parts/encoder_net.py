@@ -1,4 +1,4 @@
-from ncm import modules as sm
+from nn_common_modules import modules as sm
 import torch.nn as nn
 import torch
 from squeeze_and_excitation import squeeze_and_excitation as se

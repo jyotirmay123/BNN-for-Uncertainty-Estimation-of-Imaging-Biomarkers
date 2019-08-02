@@ -3,7 +3,7 @@ import os
 
 import numpy as np
 import torch
-from ncm import losses as additional_losses
+from nn_common_modules import losses as additional_losses
 from torch.optim import lr_scheduler
 
 from utils.common_utils import CommonUtils
@@ -42,8 +42,10 @@ class Solver(object):
 
         if torch.cuda.is_available():
             self.loss_func = loss_func.cuda(device)
+            self.loss_func_kl_div = additional_losses.KLDivLossFunc().cuda(device)
         else:
             self.loss_func = loss_func
+            self.loss_func_kl_div = additional_losses.KLDivLossFunc()
 
         self.optim = optim(self.model.parameters(), **optim_args)
         self.scheduler = lr_scheduler.StepLR(self.optim, step_size=lr_scheduler_step_size,
@@ -69,6 +71,8 @@ class Solver(object):
             self.load_checkpoint()
 
         self.model_id = self.which_architecture()
+
+        print("Solver started with model: {0} and model_id: {1}".format(self.model_name, self.model_id))
 
     # TODO:Need to correct the CM and dice score calculation.
     def train(self, train_loader, val_loader):
@@ -120,6 +124,11 @@ class Solver(object):
                         X, y = X.cuda(self.device, non_blocking=True), y.cuda(self.device, non_blocking=True)
                         w, cw = w.cuda(self.device, non_blocking=True), cw.cuda(self.device, non_blocking=True)
 
+                    priors, posteriors = None, None
+                    if self.model_id == 1:
+                        samples_generator = model.sample_generator(X, y)
+                        priors, posteriors = next(samples_generator)
+
                     if phase == 'train':
                         model.set_is_training(True)
                         intermediate_output = model(X, y)
@@ -127,14 +136,16 @@ class Solver(object):
                         model.set_is_training(False)
                         intermediate_output = model(X)
 
-                    output = intermediate_output[2]
                     # None to calculate normal dice score, False to ignore cross_entropy. #setting for hquicknat,
                     # quicknat needs weighted CE and punet need to figure out
-                    if self.model_id == 0:    # Quicknat
-                        intermediate_loss = self.loss_func(intermediate_output, y, (None, cw))
-                    elif self.model_id == 1:  # Punet
+                    if self.model_id == 0:  # Quicknat
+                        output = intermediate_output[2]
                         intermediate_loss = self.loss_func(intermediate_output, y, (None, False))
-                    else:                     # Hquicknat
+                    elif self.model_id == 1:  # Punet
+                        output = intermediate_output
+                        intermediate_loss = self.loss_func((priors, posteriors, output), y, (None, False))
+                    else:  # Hquicknat
+                        output = intermediate_output[2]
                         intermediate_loss = self.loss_func(intermediate_output, y, (None, False))
 
                     dice_loss = intermediate_loss[0]
@@ -144,21 +155,19 @@ class Solver(object):
 
                     if phase == 'train':
                         optim.zero_grad()
+                        loss = loss.cuda()
                         loss.backward()
                         optim.step()
                         if i_batch % self.log_nth == 0:
                             self.logWriter.loss_per_iter(loss.item(), i_batch, current_iteration,
-                                                         loss_name='total_loss')
+                                                         loss_name='loss')
                             self.logWriter.loss_per_iter(dice_loss.item(), i_batch, current_iteration,
                                                          loss_name='dice_loss')
                             self.logWriter.loss_per_iter(ce_loss.item(), i_batch, current_iteration,
                                                          loss_name='ce_loss')
                             self.logWriter.loss_per_iter(kl_div_loss.item(), i_batch, current_iteration,
                                                          loss_name='kl_div_loss')
-                            #
-                            # self.logWriter.dice_loss_per_iter(dice_loss.item(), i_batch, current_iteration)
-                            # self.logWriter.ce_loss_per_iter(ce_loss.item(), i_batch, current_iteration)
-                            # self.logWriter.kldiv_loss_per_iter(kl_div_loss.item(), i_batch, current_iteration)
+
                             # self.logWriter.graph(model, (X, y))
                         current_iteration += 1
 
@@ -172,7 +181,7 @@ class Solver(object):
                     y_list.append(y.cpu())
 
                     del X, y, w, cw, intermediate_output, output, batch_output, loss, ce_loss, \
-                        dice_loss, kl_div_loss, intermediate_loss,
+                        dice_loss, kl_div_loss, intermediate_loss, priors, posteriors
                     torch.cuda.empty_cache()
 
                     if phase == 'val':
@@ -193,22 +202,20 @@ class Solver(object):
 
                 with torch.no_grad():
                     out_arr, y_arr = torch.cat(out_list), torch.cat(y_list)
-                    self.logWriter.loss_per_epoch(loss_arr, phase, epoch, loss_name='mean_total_loss')
-                    self.logWriter.loss_per_epoch(ce_loss_arr, phase, epoch, loss_name='mean_ce_loss')
-                    self.logWriter.loss_per_epoch(dice_loss_arr, phase, epoch, loss_name='mean_dice_loss')
-                    self.logWriter.loss_per_epoch(kld_loss_arr, phase, epoch, loss_name='mean_kld_loss')
-
-                    # self.logWriter.ce_loss_per_epoch(ce_loss_arr, phase, epoch)
-                    # self.logWriter.dice_loss_per_epoch(dice_loss_arr, phase, epoch)
-                    # self.logWriter.kldiv_loss_per_epoch(kld_loss_arr, phase, epoch)
+                    self.logWriter.loss_per_epoch(loss_arr, phase, epoch, loss_name='loss')
+                    self.logWriter.loss_per_epoch(ce_loss_arr, phase, epoch, loss_name='ce_loss')
+                    self.logWriter.loss_per_epoch(dice_loss_arr, phase, epoch, loss_name='dice_loss')
+                    self.logWriter.loss_per_epoch(kld_loss_arr, phase, epoch, loss_name='kl_div_loss')
 
                     index = np.random.choice(len(dataloaders[phase].dataset.X), 3, replace=False)
                     if phase == 'val':
                         self.logWriter.image_per_epoch(model.predict(dataloaders[phase].dataset.X[index], self.device),
+                                                       model.predict(dataloaders[phase].dataset.X[index], self.device),
                                                        dataloaders[phase].dataset.y[index],
                                                        dataloaders[phase].dataset.X[index], phase, epoch)
                     else:
-                        self.logWriter.image_per_epoch(out_arr[index], y_arr[index],
+                        # TODO: Dataloader image is not correct.
+                        self.logWriter.image_per_epoch(out_arr[index], out_arr[index], y_arr[index],
                                                        dataloaders[phase].dataset.X[index], phase, epoch)
                     self.logWriter.cm_per_epoch(phase, out_arr, y_arr, epoch)
                     ds_mean = self.logWriter.dice_score_per_epoch(phase, out_arr, y_arr, epoch)

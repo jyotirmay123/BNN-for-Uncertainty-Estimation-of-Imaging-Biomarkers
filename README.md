@@ -3,6 +3,8 @@
 - To install existing environment to jupyter kernel, follow below link:
 https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
+- conda create -n py36 python=3.6.2 anaconda
+
 # Project setup
 - Install project using **pip install -e .** or **pip install .** for smooth
 

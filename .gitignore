@@ -4,9 +4,11 @@ datasets/**/**/**
 experiments/**
 logs/**
 saved_models/**
-utils/__pycache__
+saved_good_models/**
 __pycache__
+utils/__pycache__
 hnet_parts/__pycache__
-model_parts/__pycache__
-ncm/__pycache__
+punet_parts/__pycache__
+reports/**
+outs/**
 .idea

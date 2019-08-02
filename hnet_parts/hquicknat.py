@@ -1,4 +1,4 @@
-"""Residual Quicknat architecture"""
+""" Hierarchical Quicknat architecture"""
 import numpy as np
 import torch
 import torch.nn as nn
@@ -8,7 +8,7 @@ from hnet_parts.multi_input_residual_posterior_quickant import MultiInputResidua
 
 class HQuicknat(nn.Module):
     """
-    A PyTorch implementation of QuickNAT
+    A PyTorch implementation of Hierarchical Quicknat
 
     """
 
@@ -38,6 +38,9 @@ class HQuicknat(nn.Module):
         self.priorNat.is_training = is_training
 
     def forward(self, inp, ground_truth=None):
+        # if not self.is_training:
+        #     self.priorNat.enable_test_dropout()
+
         if ground_truth is not None:
             self.posteriorNat.forward(inp, ground_truth)
             posterior_samples = self.posteriorNat.get_samples()
@@ -71,7 +74,7 @@ class HQuicknat(nn.Module):
         print('Saving saved_models... %s' % path)
         torch.save(self, path)
 
-    def predict(self, X, device=0):
+    def predict(self, X, device=0, enable_dropout=False):
         """
         Predicts the outout after the saved_models is trained.
         Inputs:
@@ -84,10 +87,13 @@ class HQuicknat(nn.Module):
         elif type(X) is torch.Tensor and not X.is_cuda:
             X = X.type(torch.FloatTensor).cuda(device, non_blocking=True)
 
+        if enable_dropout:
+            self.priorNat.enable_test_dropout()
+
         with torch.no_grad():
-            self.set_is_training(False)
-            intermediate_out = self.forward(X)
-            out = intermediate_out[2]
+            self.is_training = False
+            out = self.forward(X)
+            out = out[2]
 
         max_val, idx = torch.max(out, 1)
         idx = idx.data.cpu().numpy()

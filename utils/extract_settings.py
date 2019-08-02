@@ -1,9 +1,14 @@
 from utils.common_utils import CommonUtils
+import time
+
 
 class ExtractSettings(CommonUtils):
     def __init__(self, settings):
         super().__init__()
         self.settings = settings
+
+        self.ctime = str(time.time())
+        self.notifier = None
 
         # COMMON PROJECT SETTING CONFIGURATIONS
         _common_ = self.settings.COMMON

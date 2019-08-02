@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='hquicknat',
-    version='1.1.0',
-    description='Probabilistic QuickNat',
+    name='uncertainty-Project',
+    version='2.0.0',
+    description='Multi model, multi data projects',
     url='',
     author='Jyotirmay Senapati',
     author_email='senapati.jyotirmay@gmail.com',

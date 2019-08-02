@@ -54,48 +54,12 @@ class LogWriter(object):
         print('[Iteration : ' + str(i_batch) + '] ' + loss_name + ' -> ' + str(loss_value))
         self.writer['train'].add_scalar(f'{loss_name}/per_iteration', loss_value, current_iteration)
 
-    # def dice_loss_per_iter(self, loss_value, i_batch, current_iteration):
-    #     print('[Iteration : ' + str(i_batch) + '] Dice loss -> ' + str(loss_value))
-    #     self.writer['train'].add_scalar('dice_loss/per_iteration', loss_value, current_iteration)
-    #
-    # def kldiv_loss_per_iter(self, loss_value, i_batch, current_iteration):
-    #     print('[Iteration : ' + str(i_batch) + '] KLDIV Loss -> ' + str(loss_value))
-    #     self.writer['train'].add_scalar('kldiv_loss/per_iteration', loss_value, current_iteration)
-    #
-    # def ce_loss_per_iter(self, loss_value, i_batch, current_iteration):
-    #     print('[Iteration : ' + str(i_batch) + '] CE_Loss -> ' + str(loss_value))
-    #     self.writer['train'].add_scalar('ce_loss/per_iteration', loss_value, current_iteration)
-    #
-    # def posterior_loss_per_iter(self, loss_value, i_batch, current_iteration):
-    #     print('[Iteration : ' + str(i_batch) + '] posterior_Loss -> ' + str(loss_value))
-    #     self.writer['train'].add_scalar('posterior_loss/per_iteration', loss_value, current_iteration)
-
     def loss_per_epoch(self, loss_arr, phase, epoch, loss_name='loss'):
         loss = np.mean(loss_arr)
         self.writer[phase].add_scalar(f'{loss_name}/per_epoch', loss, epoch)
         msg = 'epoch ' + phase + ' ' + loss_name + ' = ' + str(loss)
         print(msg)
         # self.utill_obj.whatsapp_notifier(msg)
-
-    # def dice_loss_per_epoch(self, loss_arr, phase, epoch):
-    #     loss = np.mean(loss_arr)
-    #     self.writer[phase].add_scalar('dice_loss/per_epoch', loss, epoch)
-    #     print('epoch ' + phase + ' dice loss = ' + str(loss))
-    #
-    # def kldiv_loss_per_epoch(self, loss_arr, phase, epoch):
-    #     loss = np.mean(loss_arr)
-    #     self.writer[phase].add_scalar('kldiv_loss/per_epoch', loss, epoch)
-    #     print('epoch ' + phase + ' kldiv loss = ' + str(loss))
-    #
-    # def posterior_loss_per_epoch(self, loss_arr, phase, epoch):
-    #     loss = np.mean(loss_arr)
-    #     self.writer[phase].add_scalar('posterior_loss/per_epoch', loss, epoch)
-    #     print('epoch ' + phase + ' posterior loss = ' + str(loss))
-    #
-    # def ce_loss_per_epoch(self, loss_arr, phase, epoch):
-    #     loss = np.mean(loss_arr)
-    #     self.writer[phase].add_scalar('ce_loss/per_epoch', loss, epoch)
-    #     print('epoch ' + phase + ' ce loss = ' + str(loss))
 
     def cm_per_epoch(self, phase, output, correct_labels, epoch):
         print("Confusion Matrix...", end='', flush=True)
@@ -175,22 +139,31 @@ class LogWriter(object):
         self.writer['val'].add_figure('sample_prediction/' + phase, fig, 1)
         print('figure with caption:{} added...'.format(caption), end='', flush=True)
 
-    def image_per_epoch(self, prediction, ground_truth, input_image, phase, epoch):
+    def image_per_epoch(self, prediction1, prediction2, ground_truth, input_image, phase, epoch):
         print("Sample Images...", end='', flush=True)
-        ncols = 3
-        nrows = len(prediction)
+        # Support for multiple segmentation map visualisation for uncertainty.
+        if phase == 'val':
+            ncols = 4
+        else:
+            ncols = 3
+        nrows = len(prediction1)
         fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=(10, 20))
 
         for i in range(nrows):
-            ax[i][0].imshow(prediction[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-            ax[i][0].set_title("Predicted", fontsize=10, color="blue")
+            ax[i][0].imshow(np.squeeze(input_image[i]), cmap='gray', vmin=0, vmax=self.num_class - 1)
+            ax[i][0].set_title("Input Image", fontsize=10, color="blue")
             ax[i][0].axis('off')
             ax[i][1].imshow(ground_truth[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
             ax[i][1].set_title("Ground Truth", fontsize=10, color="blue")
             ax[i][1].axis('off')
-            ax[i][2].imshow(np.squeeze(input_image[i]), cmap='gray', vmin=0, vmax=self.num_class - 1)
-            ax[i][2].set_title("Input Image", fontsize=10, color="blue")
+            ax[i][2].imshow(prediction1[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
+            ax[i][2].set_title("Predicted", fontsize=10, color="blue")
             ax[i][2].axis('off')
+            if phase == 'val':
+                ax[i][3].imshow(prediction2[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
+                ax[i][3].set_title("Predicted_with_uncertainty", fontsize=10, color="blue")
+                ax[i][3].axis('off')
+
         fig.set_tight_layout(True)
         self.writer[phase].add_figure('sample_prediction/' + phase, fig, epoch)
         print('DONE', flush=True)
