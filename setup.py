@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='uncertainty-Project',
-    version='2.0.0',
-    description='Multi model, multi data projects',
+    name='diabetic_analysis',
+    version='3.0.0',
+    description='Multi data - multi project structure',
     url='',
     author='Jyotirmay Senapati',
     author_email='senapati.jyotirmay@gmail.com',

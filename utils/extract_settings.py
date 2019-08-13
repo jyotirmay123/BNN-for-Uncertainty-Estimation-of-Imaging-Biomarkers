@@ -6,7 +6,7 @@ class ExtractSettings(CommonUtils):
     def __init__(self, settings):
         super().__init__()
         self.settings = settings
-
+        print(settings.settings_dict)
         self.ctime = str(time.time())
         self.notifier = None
 
@@ -81,7 +81,7 @@ class ExtractSettings(CommonUtils):
         self.final_model_file = _eval_.final_model_file
         self.pre_trained_path = _eval_.pre_trained_path
         self.dataset = _eval_.dataset
-        self.dataset_config_path = _eval_.dataset_config_path
+        # self.dataset_config_path = _eval_.dataset_config_path
 
         # DATA CONFIGURATIONS FROM DATASET CONFIG
         _data_ = self.settings.DATA
@@ -114,6 +114,8 @@ class ExtractSettings(CommonUtils):
         self.data_split = _data_config_.data_split
         self.modality = _data_config_.modality
         self.is_pre_processed = _data_config_.is_pre_processed
+        self.multi_label_available = _data_config_.multi_label_available
+        self.no_of_masks_per_slice = _data_config_.no_of_masks_per_slice
         self.processed_data_dir = _data_config_.processed_data_dir
         self.processed_label_dir = _data_config_.processed_label_dir
         self.processed_extn = _data_config_.processed_extn

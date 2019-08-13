@@ -4,7 +4,9 @@ from utils.common_utils import CommonUtils
 
 settings_path = '/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
 
-models = ['"quicknat_v4"', '"punet_v4"', '"punet_v4_with_dropout"', '"hquicknat_v4"', '"hquicknat_v4_with_dropout"', '"full_bayesian_quicknat"']
+models_with_dropouts = ['"punet_v4_with_dropout"', '"hquicknat_v4_with_dropout"']
+
+models = ['"quicknat_v4"', '"punet_v4"', '"hquicknat_v4"', '"full_bayesian_quicknat"']
 datasets = ['"KORA"', '"NAKO"', '"UKB"']
 samples = [10, 50, 100]
 
@@ -15,9 +17,9 @@ for model in models:
     for dataset in datasets:
         for sample in samples:
             try:
-                Settings.update_system_status_values(settings_path, 'DEFAULT', 'exp_name', model)
-                Settings.update_system_status_values(settings_path, 'DEFAULT', 'dataset', dataset)
-                Settings.update_system_status_values(settings_path, 'EVAL', 'mc_sample', sample)
+                Settings.update_system_status_values(settings_path, 'DEFAULT', 'exp_name', str(model))
+                Settings.update_system_status_values(settings_path, 'DEFAULT', 'dataset', str(dataset))
+                Settings.update_system_status_values(settings_path, 'EVAL', 'mc_sample', str(sample))
 
                 settings = compile_config(settings_path)
                 executor = Executor(settings)

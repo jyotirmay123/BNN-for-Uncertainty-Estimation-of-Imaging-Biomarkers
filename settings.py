@@ -1,6 +1,24 @@
 import ast
 import configparser
+from configparser import ConfigParser
 from collections.abc import Mapping
+import json
+
+
+class ConfigParserWithUpdates(ConfigParser):
+    def __init__(self, pre_config_dict=None):
+        super().__init__()
+        if pre_config_dict is not None:
+            self.pre_config = pre_config_dict['COMMON']
+            for k in self.pre_config.keys():
+                if k in ['project_config_path', 'dataset_config_path']:
+                    continue
+                self.set('DEFAULT', k, "'" + str(self.pre_config[k]) + "'")
+
+            data_dir_base = "'" + self.pre_config['master_base_dir'] + "/dataset_groups/" + \
+                            self.pre_config['dataset_groups'] + "/" + self.pre_config['dataset'] + "'"
+
+            self.set('DEFAULT', 'data_dir_base', data_dir_base)
 
 
 class Settings(Mapping):
@@ -45,17 +63,21 @@ def _parse_values(config):
         config_parsed[section] = DotDict()
         for key, value in config[section].items():
             config_parsed[section][key] = ast.literal_eval(value)
-            if key == 'dataset_config_path':
-                data_config = configparser.ConfigParser()
+            if key in ['dataset_config_path', 'project_config_path']:
+                data_config = ConfigParserWithUpdates(config_parsed)
                 data_config.read(ast.literal_eval(value))
-                #  Calling thefunction recursively to read data directory settings from its config file.
                 data_settings_dict = _parse_values(data_config)
                 for data_section in data_config.sections():
                     config_parsed[data_section] = data_settings_dict[data_section]
+
     return config_parsed
 
 
 # Defining a global scope configuration variable which can be accessed from everywhere in the project.
-def compile_config(path='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'):
+def compile_config(path='/home/abhijit/Jyotirmay/thesis/hquicknat/master_setting.ini', save=False):
     settings = Settings(path)
+    if save:
+        with open('aggregated_settings.ini', 'w') as configfile:
+            configfile.write(json.dumps(settings.settings_dict, indent=4))
+
     return settings
