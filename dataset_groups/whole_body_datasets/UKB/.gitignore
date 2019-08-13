@@ -1,0 +1,6 @@
+h5_data_files/**
+manual_annotations/**
+merged_annotations/**
+old_reports/**
+processed_data/**
+__pycache__

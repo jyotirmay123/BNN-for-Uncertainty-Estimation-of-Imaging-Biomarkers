@@ -1,0 +1,981 @@
+########### Evaluating NAKO dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8283430317254703   |    Liver: 0.8995864123748111 
+
+# Dice Score per structure per volume.
+Spleen: 0.8838480710983276   |    Liver: 0.9524533152580261 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9036904771559122   |   Liver: 0.6691377989667511
+PRED TO GT SCORES:: Spleen: 0.9150660154730684   |   Liver: 0.6744240527132785 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.4238434351317048   |    Liver: 0.8978458355835226 
+
+# Dice Score per structure per volume.
+Spleen: 0.8195658326148987   |    Liver: 0.9511186480522156 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7305828611614709   |   Liver: 0.6899926014358494
+PRED TO GT SCORES:: Spleen: 0.6560674020863493   |   Liver: 0.6421804313018079 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8562079791968875   |    Liver: 0.9398760685934986 
+
+# Dice Score per structure per volume.
+Spleen: 0.7846459150314331   |    Liver: 0.9275476336479187 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.71728832001572   |   Liver: 0.5336537748570118
+PRED TO GT SCORES:: Spleen: 0.7701637888006401   |   Liver: 0.50927838560937 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8224460095949374   |    Liver: 0.9526361082928382 
+
+# Dice Score per structure per volume.
+Spleen: 0.7104657292366028   |    Liver: 0.9358474016189575 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.46619209325153793   |   Liver: 0.5717995910417362
+PRED TO GT SCORES:: Spleen: 0.6014440090096084   |   Liver: 0.5400696985435877 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9918343395766355   |    Liver: 0.9944028688442014 
+
+# Dice Score per structure per volume.
+Spleen: 0.8914628624916077   |    Liver: 0.950748860836029 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9258766934704281   |   Liver: 0.6860057003905657
+PRED TO GT SCORES:: Spleen: 0.9343511076916802   |   Liver: 0.6587980459513001 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9817786611352503   |    Liver: 0.9930265127452638 
+
+# Dice Score per structure per volume.
+Spleen: 0.752509593963623   |    Liver: 0.9497588276863098 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6224898967215291   |   Liver: 0.68623821205669
+PRED TO GT SCORES:: Spleen: 0.6837139762184771   |   Liver: 0.6204653521073895 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on quicknat_no_dropout_old model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999855595669   |    Liver: 0.9999999987422807 
+
+# Dice Score per structure per volume.
+Spleen: 0.8891898989677429   |    Liver: 0.9519912004470825 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9459710566195154   |   Liver: 0.6803845801570524
+PRED TO GT SCORES:: Spleen: 0.928030863739997   |   Liver: 0.6795800219948135 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.999999988554424   |    Liver: 0.9999999989607797 
+
+# Dice Score per structure per volume.
+Spleen: 0.6344478130340576   |    Liver: 0.9486694931983948 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5683353675351791   |   Liver: 0.6919080505151938
+PRED TO GT SCORES:: Spleen: 0.5880143048544434   |   Liver: 0.6020950599263645 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_no_dropout_old on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on quicknat_no_dropout_old model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999855595669   |    Liver: 0.9999999987422807 
+
+# Dice Score per structure per volume.
+Spleen: 0.8891898989677429   |    Liver: 0.9519912004470825 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9459710566195154   |   Liver: 0.6803845801570524
+PRED TO GT SCORES:: Spleen: 0.928030863739997   |   Liver: 0.6795800219948135 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.999999988554424   |    Liver: 0.9999999989607797 
+
+# Dice Score per structure per volume.
+Spleen: 0.6344478130340576   |    Liver: 0.9486694931983948 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5683353675351791   |   Liver: 0.6919080505151938
+PRED TO GT SCORES:: Spleen: 0.5880143048544434   |   Liver: 0.6020950599263645 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_no_dropout_old on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8895442200260193   |    Liver: 0.9407399853113314 
+
+# Dice Score per structure per volume.
+Spleen: 0.7874495387077332   |    Liver: 0.9266067743301392 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7236430960468915   |   Liver: 0.5298730261931552
+PRED TO GT SCORES:: Spleen: 0.777179921511381   |   Liver: 0.5043014136238029 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8316903243945888   |    Liver: 0.9512566958146715 
+
+# Dice Score per structure per volume.
+Spleen: 0.7121126651763916   |    Liver: 0.9360884428024292 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.4697162420513069   |   Liver: 0.5722168608374874
+PRED TO GT SCORES:: Spleen: 0.607557325340472   |   Liver: 0.5411888208640219 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.799841865860563   |    Liver: 0.8882483879458132 
+
+# Dice Score per structure per volume.
+Spleen: 0.8843240141868591   |    Liver: 0.9523838758468628 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9051624993896239   |   Liver: 0.6677553508936807
+PRED TO GT SCORES:: Spleen: 0.9182246059052848   |   Liver: 0.6722980236161145 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.38493322722957524   |    Liver: 0.8953488363217462 
+
+# Dice Score per structure per volume.
+Spleen: 0.814582884311676   |    Liver: 0.9509290456771851 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7146742913925326   |   Liver: 0.6926326850571781
+PRED TO GT SCORES:: Spleen: 0.7144172718518867   |   Liver: 0.6397834534962806 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.994163125723579   |    Liver: 0.9939605327130014 
+
+# Dice Score per structure per volume.
+Spleen: 0.8915991187095642   |    Liver: 0.9506908059120178 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9253341006908267   |   Liver: 0.6855407611866802
+PRED TO GT SCORES:: Spleen: 0.9342718259038805   |   Liver: 0.6589094587785262 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9816950770503589   |    Liver: 0.993262811562983 
+
+# Dice Score per structure per volume.
+Spleen: 0.7523682713508606   |    Liver: 0.9497948884963989 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6215878655142043   |   Liver: 0.6860758251131387
+PRED TO GT SCORES:: Spleen: 0.6840914899931201   |   Liver: 0.6203916126325034 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.869464270188138   |    Liver: 0.9446843735974464 
+
+# Dice Score per structure per volume.
+Spleen: 0.7844064831733704   |    Liver: 0.9271148443222046 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7149793043847779   |   Liver: 0.5304066805931895
+PRED TO GT SCORES:: Spleen: 0.7740946584891744   |   Liver: 0.506591830239005 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8031582739335451   |    Liver: 0.9516993467878135 
+
+# Dice Score per structure per volume.
+Spleen: 0.7044137120246887   |    Liver: 0.9355921745300293 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.45839657590347027   |   Liver: 0.5674275041872107
+PRED TO GT SCORES:: Spleen: 0.5884566005148133   |   Liver: 0.5368582155158206 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9953304976604334   |    Liver: 0.9948576278565344 
+
+# Dice Score per structure per volume.
+Spleen: 0.891311764717102   |    Liver: 0.9507260918617249 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9256730251923203   |   Liver: 0.6859385498914492
+PRED TO GT SCORES:: Spleen: 0.9342923590338743   |   Liver: 0.6590688040186006 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9812693286957996   |    Liver: 0.9930778959784575 
+
+# Dice Score per structure per volume.
+Spleen: 0.7524349689483643   |    Liver: 0.9496433734893799 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6225732721734378   |   Liver: 0.685104917275332
+PRED TO GT SCORES:: Spleen: 0.6842403221408202   |   Liver: 0.6190824358692726 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8215968651999883   |    Liver: 0.8927441432603606 
+
+# Dice Score per structure per volume.
+Spleen: 0.8846495747566223   |    Liver: 0.9529252648353577 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9077298075147318   |   Liver: 0.6710809008773773
+PRED TO GT SCORES:: Spleen: 0.9196424219427846   |   Liver: 0.6796705383746374 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.4733998309381318   |    Liver: 0.8960306756608629 
+
+# Dice Score per structure per volume.
+Spleen: 0.8178733587265015   |    Liver: 0.951012909412384 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7274000744890287   |   Liver: 0.6838568625582454
+PRED TO GT SCORES:: Spleen: 0.7066117079080991   |   Liver: 0.6419877172182684 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8707664728918632   |    Liver: 0.9457619747062539 
+
+# Dice Score per structure per volume.
+Spleen: 0.7863234877586365   |    Liver: 0.9275984168052673 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7232349902899462   |   Liver: 0.5327173372021671
+PRED TO GT SCORES:: Spleen: 0.7786140942629723   |   Liver: 0.5103146999646878 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8188029441668676   |    Liver: 0.9500886657530349 
+
+# Dice Score per structure per volume.
+Spleen: 0.7076224684715271   |    Liver: 0.9357556104660034 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.46538201344617214   |   Liver: 0.5703945295447087
+PRED TO GT SCORES:: Spleen: 0.5989951062928832   |   Liver: 0.5391921278774505 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4_with_dropout model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8332532336226186   |    Liver: 0.8150571114280831 
+
+# Dice Score per structure per volume.
+Spleen: 0.9039335250854492   |    Liver: 0.9036809206008911 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.96953382968545   |   Liver: 0.6318692673353278
+PRED TO GT SCORES:: Spleen: 0.9528620781224727   |   Liver: 0.48380020474910806 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6373524187164059   |    Liver: 0.8336959162442812 
+
+# Dice Score per structure per volume.
+Spleen: 0.9186312556266785   |    Liver: 0.9264841675758362 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9461644326194516   |   Liver: 0.6190239726277444
+PRED TO GT SCORES:: Spleen: 0.8682881146349763   |   Liver: 0.4878805650827355 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4_with_dropout on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on punet_v4_with_dropout model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8099558814120241   |    Liver: 0.877016875088965 
+
+# Dice Score per structure per volume.
+Spleen: 0.891463577747345   |    Liver: 0.9472460150718689 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9285163575183483   |   Liver: 0.6764392340411317
+PRED TO GT SCORES:: Spleen: 0.9236897365101991   |   Liver: 0.629474740073617 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6147033194352975   |    Liver: 0.8972465646219161 
+
+# Dice Score per structure per volume.
+Spleen: 0.9057195782661438   |    Liver: 0.9486689567565918 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9434862688015837   |   Liver: 0.6839501714925371
+PRED TO GT SCORES:: Spleen: 0.8593843226368113   |   Liver: 0.6213514917249948 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_with_dropout on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on full_bayesian_quicknat model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.526488657273907   |    Liver: 0.6974314402126823 
+
+# Dice Score per structure per volume.
+Spleen: 0.8597791194915771   |    Liver: 0.9183805584907532 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8980321573239795   |   Liver: 0.6029804909696477
+PRED TO GT SCORES:: Spleen: 0.8211089647252184   |   Liver: 0.5174509357131527 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.06162081375811768   |    Liver: 0.6447938214702107 
+
+# Dice Score per structure per volume.
+Spleen: 0.5667689442634583   |    Liver: 0.9178298711776733 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.44437900482979303   |   Liver: 0.5985473755740099
+PRED TO GT SCORES:: Spleen: 0.4530877523408016   |   Liver: 0.4534334669922887 
+
+------------------------------------------------------------------------------ 
+
+
+############### full_bayesian_quicknat on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on full_bayesian_quicknat_except_classifier model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6226972865283457   |    Liver: 0.686323904535099 
+
+# Dice Score per structure per volume.
+Spleen: 0.8743438124656677   |    Liver: 0.9024873375892639 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9078145704435411   |   Liver: 0.6029841837505949
+PRED TO GT SCORES:: Spleen: 0.9094170160668941   |   Liver: 0.4372951791308979 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.0   |    Liver: 0.6013454586813285 
+
+# Dice Score per structure per volume.
+Spleen: 0.07416432350873947   |    Liver: 0.860525906085968 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.10131868183874389   |   Liver: 0.5719816879100079
+PRED TO GT SCORES:: Spleen: 0.3090891200608387   |   Liver: 0.31014202647707756 
+
+------------------------------------------------------------------------------ 
+
+
+############### full_bayesian_quicknat_except_classifier on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on deep_bayesian_quicknat_all model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6508820722970976   |    Liver: 0.8084944604280024 
+
+# Dice Score per structure per volume.
+Spleen: 0.8741163611412048   |    Liver: 0.9273611903190613 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9035277697459736   |   Liver: 0.6455234832869979
+PRED TO GT SCORES:: Spleen: 0.8943373566263952   |   Liver: 0.561624125677357 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.37683000730992755   |    Liver: 0.7466689807328943 
+
+# Dice Score per structure per volume.
+Spleen: 0.7953717708587646   |    Liver: 0.924189031124115 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6888489770243432   |   Liver: 0.6285145563074473
+PRED TO GT SCORES:: Spleen: 0.7155860960592667   |   Liver: 0.5084570895450429 
+
+------------------------------------------------------------------------------ 
+
+
+############### deep_bayesian_quicknat_all on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 100008
+
+# Normalised Cross Correlation score: [0.8369654]
+# Generalised Entropy Distance score: 0.19158908933098606
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9896531479211141   |    Liver: 0.9940939287152214 
+
+# Dice Score per structure per volume.
+Spleen: 0.8915235996246338   |    Liver: 0.9507260918617249 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9256730251923205   |   Liver: 0.6860730070458503
+PRED TO GT SCORES:: Spleen: 0.9344200960661656   |   Liver: 0.6590813580296426 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Normalised Cross Correlation score: [0.77502337]
+# Generalised Entropy Distance score: 0.3252627103178306
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9807724378801836   |    Liver: 0.9935944010780565 
+
+# Dice Score per structure per volume.
+Spleen: 0.7526594996452332   |    Liver: 0.9496415853500366 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6222813767243405   |   Liver: 0.6857977936719769
+PRED TO GT SCORES:: Spleen: 0.6843142207843896   |   Liver: 0.6188528791642334 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8028144544822794   |    Liver: 0.9088686625545359  |  <-Mean: 0.8558415585184076 
+
+# Dice Score per structure per volume.
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9523632993512512   |    Liver: 0.9757293485995213  |  <-Mean: 0.9640463239753863 
+
+# Dice Score per structure per volume.
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9610460863204097   |    Liver: 0.9746877859545566  |  <-Mean: 0.9678669361374832 
+
+# Dice Score per structure per volume.
+Spleen: 0.7931869626045227   |    Liver: 0.9267756342887878  |  <-Mean: 0.8599812984466553 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.737365491058792   |   Liver: 0.5347284330472225  |  <-Mean: 0.7349571388842531
+PRED TO GT SCORES::  Spleen: 0.7858510971352614   |   Liver: 0.5051295391940163  |  <-Mean: 0.73895167477803
+  MEAN TO ABOVE  :: Spleen: 0.7616082940970267   |   Liver: 0.5199289861206193  |  MEAN: 0.7369544068311414 
+
+# Normalised Cross Correlation score: [0.01646953]
+# Generalised Entropy Distance score: 0.31000159094430957
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9558465855940131   |    Liver: 0.9803023243774913  |  <-Mean: 0.9680744549857523 
+
+# Dice Score per structure per volume.
+Spleen: 0.7829878330230713   |    Liver: 0.9266975522041321  |  <-Mean: 0.8548426628112793 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7208320818936749   |   Liver: 0.5306473988682165  |  <-Mean: 0.7278394391224543
+PRED TO GT SCORES::  Spleen: 0.771438799092113   |   Liver: 0.5025973279554027  |  <-Mean: 0.7330589863435667
+  MEAN TO ABOVE  :: Spleen: 0.7461354404928939   |   Liver: 0.5166223634118097  |  MEAN: 0.7304492127330106 
+
+# Normalised Cross Correlation score: [-0.00067364]
+# Generalised Entropy Distance score: 0.32002504581670144
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9326365795724466   |    Liver: 0.9806751174425322  |  <-Mean: 0.9566558485074894 
+
+# Dice Score per structure per volume.
+Spleen: 0.7104033827781677   |    Liver: 0.9357748031616211  |  <-Mean: 0.8230891227722168 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.47296367618607826   |   Liver: 0.572479205021883  |  <-Mean: 0.6557409573931109
+PRED TO GT SCORES::  Spleen: 0.6029873635453952   |   Liver: 0.5385519083922221  |  <-Mean: 0.6880518366654638
+  MEAN TO ABOVE  :: Spleen: 0.5379755198657368   |   Liver: 0.5555155567070525  |  MEAN: 0.6718963970292875 
+
+# Normalised Cross Correlation score: [0.11570954]
+# Generalised Entropy Distance score: 0.36463222462281264
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9622255303312244   |    Liver: 0.9783430420711974  |  <-Mean: 0.9702842862012109 
+
+# Dice Score per structure per volume.
+Spleen: 0.7862153053283691   |    Liver: 0.9259966015815735  |  <-Mean: 0.8561059236526489 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7196490587726664   |   Liver: 0.5290355065421561  |  <-Mean: 0.6243422826574112
+PRED TO GT SCORES::  Spleen: 0.7735843858924075   |   Liver: 0.4959530214511632  |  <-Mean: 0.6347687036717854
+  MEAN TO ABOVE  :: Spleen: 0.746616722332537   |   Liver: 0.5124942639966596  |  MEAN: 0.6295554931645982 
+
+# Normalised Cross Correlation score: [0.00200317]
+# Generalised Entropy Distance score: 0.3182619355942483
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9110330421572351   |    Liver: 0.9829372400467233  |  <-Mean: 0.9469851411019792 
+
+# Dice Score per structure per volume.
+Spleen: 0.706612765789032   |    Liver: 0.9351186156272888  |  <-Mean: 0.8208656907081604 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.46559155756980497   |   Liver: 0.5663372555625058  |  <-Mean: 0.5159644065661554
+PRED TO GT SCORES::  Spleen: 0.5952109502685802   |   Liver: 0.5318236942210549  |  <-Mean: 0.5635173222448175
+  MEAN TO ABOVE  :: Spleen: 0.5304012539191926   |   Liver: 0.5490804748917804  |  MEAN: 0.5397408644054865 
+
+# Normalised Cross Correlation score: [0.11768508]
+# Generalised Entropy Distance score: 0.36657178871456164
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9670046082949308   |    Liver: 0.9805108309085031  |  <-Mean: 0.973757719601717 
+
+# Dice Score per structure per volume.
+Spleen: 0.7909836173057556   |    Liver: 0.927361249923706  |  <-Mean: 0.8591724634170532 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7286832118023613   |   Liver: 0.5320016971546325  |  <-Mean: 0.6303424544784969
+PRED TO GT SCORES::  Spleen: 0.7839617428471101   |   Liver: 0.5082370836260014  |  <-Mean: 0.6460994132365557
+  MEAN TO ABOVE  :: Spleen: 0.7563224773247357   |   Liver: 0.520119390390317  |  MEAN: 0.6382209338575263 
+
+# Normalised Cross Correlation score: -0.005129765256889325
+# Generalised Entropy Distance score: 0.3121207514898624
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9264705882352942   |    Liver: 0.9814901721108407  |  <-Mean: 0.9539803801730674 
+
+# Dice Score per structure per volume.
+Spleen: 0.7079381942749023   |    Liver: 0.9355297684669495  |  <-Mean: 0.8217339515686035 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.46025373304985606   |   Liver: 0.5689451609992017  |  <-Mean: 0.5145994470245289
+PRED TO GT SCORES::  Spleen: 0.6001029302588488   |   Liver: 0.5372002857830223  |  <-Mean: 0.5686516080209355
+  MEAN TO ABOVE  :: Spleen: 0.5301783316543525   |   Liver: 0.5530727233911119  |  MEAN: 0.5416255275227322 
+
+# Normalised Cross Correlation score: 0.11916868640649614
+# Generalised Entropy Distance score: 0.3677478053290151
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9419966536530954   |    Liver: 0.9795253606328524  |  <-Mean: 0.960761007142974 
+
+# Dice Score per structure per volume.
+Spleen: 0.7827884554862976   |    Liver: 0.9277637004852295  |  <-Mean: 0.8552761077880859 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7128020455104634   |   Liver: 0.5301379746882414  |  <-Mean: 0.6214700100993524
+PRED TO GT SCORES::  Spleen: 0.7690570825850053   |   Liver: 0.5032234338277783  |  <-Mean: 0.6361402582063918
+  MEAN TO ABOVE  :: Spleen: 0.7409295640477344   |   Liver: 0.5166807042580099  |  MEAN: 0.6288051341528721 
+
+# Normalised Cross Correlation score: 0.020563466576004906
+# Generalised Entropy Distance score: 0.31538739552198214
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9195491643995336   |    Liver: 0.9801518568144928  |  <-Mean: 0.9498505106070132 
+
+# Dice Score per structure per volume.
+Spleen: 0.698121964931488   |    Liver: 0.9355934858322144  |  <-Mean: 0.8168576955795288 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.44081839993059924   |   Liver: 0.5706848134955284  |  <-Mean: 0.5057516067130639
+PRED TO GT SCORES::  Spleen: 0.5771636890272224   |   Liver: 0.5366985687933403  |  <-Mean: 0.5569311289102814
+  MEAN TO ABOVE  :: Spleen: 0.5089910444789107   |   Liver: 0.5536916911444343  |  MEAN: 0.5313413678116725 
+
+# Normalised Cross Correlation score: 0.12007482745517337
+# Generalised Entropy Distance score: 0.37227832059855936
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9507042253521126   |    Liver: 0.9759128150036888  |  <-Mean: 0.9633085201779007 
+
+# Dice Score per structure per volume.
+Spleen: 0.7832798361778259   |    Liver: 0.9268589019775391  |  <-Mean: 0.8550693988800049 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7130249582567719   |   Liver: 0.5314218482174835  |  <-Mean: 0.6222234032371277
+PRED TO GT SCORES::  Spleen: 0.7682077516081854   |   Liver: 0.5074103676025458  |  <-Mean: 0.6378090596053656
+  MEAN TO ABOVE  :: Spleen: 0.7406163549324787   |   Liver: 0.5194161079100146  |  MEAN: 0.6300162314212467 
+
+# Normalised Cross Correlation score: 0.005667225746992073
+# Generalised Entropy Distance score: 0.3163429471888344
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9211442551990213   |    Liver: 0.9822954756317197  |  <-Mean: 0.9517198654153705 
+
+# Dice Score per structure per volume.
+Spleen: 0.712998628616333   |    Liver: 0.9355119466781616  |  <-Mean: 0.8242552876472473 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.4801256501083533   |   Liver: 0.5688136263995126  |  <-Mean: 0.5244696382539329
+PRED TO GT SCORES::  Spleen: 0.6069166073929904   |   Liver: 0.5368898489743634  |  <-Mean: 0.5719032281836769
+  MEAN TO ABOVE  :: Spleen: 0.5435211287506718   |   Liver: 0.552851737686938  |  MEAN: 0.5481864332188049 
+
+# Normalised Cross Correlation score: 0.115593621600034
+# Generalised Entropy Distance score: 0.3614854862856619
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9518716577540107   |    Liver: 0.9755187900061945  |  <-Mean: 0.9636952238801026 
+
+# Dice Score per structure per volume.
+Spleen: 0.7878234386444092   |    Liver: 0.9263560771942139  |  <-Mean: 0.8570897579193115 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7242300503106582   |   Liver: 0.531096031606546  |  <-Mean: 0.6276630409586021
+PRED TO GT SCORES::  Spleen: 0.7775312006683203   |   Liver: 0.4991296583786107  |  <-Mean: 0.6383304295234655
+  MEAN TO ABOVE  :: Spleen: 0.7508806254894893   |   Liver: 0.5151128449925784  |  MEAN: 0.6329967352410338 
+
+# Normalised Cross Correlation score: 0.002070190120241811
+# Generalised Entropy Distance score: 0.31384580891963154
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9150080181114989   |    Liver: 0.983261816633365  |  <-Mean: 0.9491349173724319 
+
+# Dice Score per structure per volume.
+Spleen: 0.7105923891067505   |    Liver: 0.9358909130096436  |  <-Mean: 0.823241651058197 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.47150822464186326   |   Liver: 0.5735251439530548  |  <-Mean: 0.522516684297459
+PRED TO GT SCORES::  Spleen: 0.5942746286819341   |   Liver: 0.5415964462919063  |  <-Mean: 0.5679355374869202
+  MEAN TO ABOVE  :: Spleen: 0.5328914266618987   |   Liver: 0.5575607951224806  |  MEAN: 0.5452261108921896 
+
+# Normalised Cross Correlation score: 0.1119042633887855
+# Generalised Entropy Distance score: 0.3627949368930795
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9560036663611365   |    Liver: 0.9805501492149994  |  <-Mean: 0.968276907788068 
+
+# Dice Score per structure per volume.
+Spleen: 0.7909235954284668   |    Liver: 0.9271208047866821  |  <-Mean: 0.8590222001075745 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7305371829152159   |   Liver: 0.530030792615434  |  <-Mean: 0.6302839877653249
+PRED TO GT SCORES::  Spleen: 0.7799880855208586   |   Liver: 0.5081799704355102  |  <-Mean: 0.6440840279781844
+  MEAN TO ABOVE  :: Spleen: 0.7552626342180373   |   Liver: 0.519105381525472  |  MEAN: 0.6371840078717547 
+
+# Normalised Cross Correlation score: 
+ 0.006035599442576493
+# Generalised Entropy Distance score: 
+ 0.3111946058176843
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9541962462316445   |    Liver: 0.9842778313041955  |  <-Mean: 0.96923703876792 
+
+# Dice Score per structure per volume.
+Spleen: 0.7070728540420532   |    Liver: 0.9349515438079834  |  <-Mean: 0.8210121989250183 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.46489095617501836   |   Liver: 0.56683789543962  |  <-Mean: 0.5158644258073192
+PRED TO GT SCORES::  Spleen: 0.5843358512635191   |   Liver: 0.5324210906425538  |  <-Mean: 0.5583784709530364
+  MEAN TO ABOVE  :: Spleen: 0.5246134037192687   |   Liver: 0.549629493041087  |  MEAN: 0.5371214483801778 
+
+# Normalised Cross Correlation score: 
+ 0.0927284056419165
+# Generalised Entropy Distance score: 
+ 0.37340387904247696
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+
+########### Evaluating NAKO dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 100008
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9394275161588181   |    Liver: 0.9754466307033545  |  <-Mean: 0.9574370734310863 
+
+# Dice Score per structure per volume.
+Spleen: 0.786635160446167   |    Liver: 0.9270704388618469  |  <-Mean: 0.8568527698516846 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.720124251804664   |   Liver: 0.5284602269582482  |  <-Mean: 0.6242922393814561
+PRED TO GT SCORES::  Spleen: 0.7726460226522084   |   Liver: 0.505546722523224  |  <-Mean: 0.6390963725877161
+  MEAN TO ABOVE  :: Spleen: 0.7463851372284362   |   Liver: 0.5170034747407362  |  MEAN: 0.6316943059845861 
+
+# Normalised Cross Correlation score: 
+ 0.03124095017917437
+# Generalised Entropy Distance score: 
+ 0.31250439537074615
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 100020
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9265950366073975   |    Liver: 0.9819697747860959  |  <-Mean: 0.9542824056967467 
+
+# Dice Score per structure per volume.
+Spleen: 0.7109758853912354   |    Liver: 0.9352794885635376  |  <-Mean: 0.8231276869773865 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.47104164608211235   |   Liver: 0.5669120207345222  |  <-Mean: 0.5189768334083172
+PRED TO GT SCORES::  Spleen: 0.6047392121226232   |   Liver: 0.5338502519849274  |  <-Mean: 0.5692947320537753
+  MEAN TO ABOVE  :: Spleen: 0.5378904291023677   |   Liver: 0.5503811363597249  |  MEAN: 0.5441357827310462 
+
+# Normalised Cross Correlation score: 
+ 0.1035942472872799
+# Generalised Entropy Distance score: 
+ 0.365340042216999
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on NAKO report completed ################### 
+

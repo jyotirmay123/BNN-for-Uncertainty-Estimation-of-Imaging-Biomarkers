@@ -1,0 +1,12 @@
+h5_data_files/**
+h5_data_files_all/**
+h5_data_files_all_best/**
+h5_data_files_all_best_test/**
+manual_annotations/**
+merged_annotations/**
+old_reports/**
+processed_data/**
+processed_data_/**
+processed_data_all/**
+processed_data_all_best/**
+__pycache__

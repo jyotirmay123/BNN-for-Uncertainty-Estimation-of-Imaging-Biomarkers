@@ -1,0 +1,2801 @@
+########### Evaluating UKB dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.881246467810395   |    Liver: 0.8608000670146575 
+
+# Dice Score per structure per volume.
+Spleen: 0.9412291049957275   |    Liver: 0.9130915403366089 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9840546416340432   |   Liver: 0.5023589452859932
+PRED TO GT SCORES:: Spleen: 0.9366807927033349   |   Liver: 0.4862450554476929 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8824286279547424   |    Liver: 0.8880578850661894 
+
+# Dice Score per structure per volume.
+Spleen: 0.9072026610374451   |    Liver: 0.954953670501709 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.967726270164388   |   Liver: 0.7305475275952782
+PRED TO GT SCORES:: Spleen: 0.8796902805593636   |   Liver: 0.7190641657702782 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6728394943061817   |    Liver: 0.8396826056126131 
+
+# Dice Score per structure per volume.
+Spleen: 0.8566470146179199   |    Liver: 0.9112336039543152 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9249800176400274   |   Liver: 0.618189514609233
+PRED TO GT SCORES:: Spleen: 0.7208345979119287   |   Liver: 0.5691798134540624 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.04420265140763938   |    Liver: 0.8213923812043387 
+
+# Dice Score per structure per volume.
+Spleen: 0.4541085958480835   |    Liver: 0.9408881664276123 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6049465464679569   |   Liver: 0.696133787402534
+PRED TO GT SCORES:: Spleen: 0.3904696445299803   |   Liver: 0.6464821454597786 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8205887333114661   |    Liver: 0.8982176611874269 
+
+# Dice Score per structure per volume.
+Spleen: 0.8865782618522644   |    Liver: 0.9559606313705444 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9430968247251433   |   Liver: 0.7171836369458456
+PRED TO GT SCORES:: Spleen: 0.8969935748787247   |   Liver: 0.7201964604048687 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8084379627479864   |    Liver: 0.8627708352636868 
+
+# Dice Score per structure per volume.
+Spleen: 0.8716034293174744   |    Liver: 0.8485028147697449 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9338663501250125   |   Liver: 0.3654864690741119
+PRED TO GT SCORES:: Spleen: 0.7436178566768209   |   Liver: 0.4958896137098112 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9392170001713139   |    Liver: 0.9529944146008565 
+
+# Dice Score per structure per volume.
+Spleen: 0.9352968335151672   |    Liver: 0.87156081199646 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9384360401597596   |   Liver: 0.27743898568453623
+PRED TO GT SCORES:: Spleen: 0.9257351049445028   |   Liver: 0.2911750598588452 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9457058109475982   |    Liver: 0.9537214240119147 
+
+# Dice Score per structure per volume.
+Spleen: 0.9312099814414978   |    Liver: 0.9032137989997864 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9863163341659029   |   Liver: 0.4778478847282652
+PRED TO GT SCORES:: Spleen: 0.9702614299416458   |   Liver: 0.5254030173806868 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8546409557898145   |    Liver: 0.9498798996077678 
+
+# Dice Score per structure per volume.
+Spleen: 0.8097864389419556   |    Liver: 0.8877045512199402 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7560744499304332   |   Liver: 0.4203406472235854
+PRED TO GT SCORES:: Spleen: 0.7780287066696067   |   Liver: 0.42183753238305427 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.802755990198433   |    Liver: 0.9054731018528752 
+
+# Dice Score per structure per volume.
+Spleen: 0.7075262069702148   |    Liver: 0.8800600171089172 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6006982784135789   |   Liver: 0.39575030540455847
+PRED TO GT SCORES:: Spleen: 0.6829078199314367   |   Liver: 0.3807862736881367 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9111489554248063   |    Liver: 0.9480706291665996 
+
+# Dice Score per structure per volume.
+Spleen: 0.8739352822303772   |    Liver: 0.8823535442352295 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9008148904551566   |   Liver: 0.3974334322811061
+PRED TO GT SCORES:: Spleen: 0.9258357796966522   |   Liver: 0.414709006730403 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8712246300341904   |    Liver: 0.952377240504904 
+
+# Dice Score per structure per volume.
+Spleen: 0.8458026647567749   |    Liver: 0.7842810750007629 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8585244708482447   |   Liver: 0.16040548633007257
+PRED TO GT SCORES:: Spleen: 0.7303557562478983   |   Liver: 0.22953232648936342 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9940924104677438   |    Liver: 0.9934939855843161 
+
+# Dice Score per structure per volume.
+Spleen: 0.9414351582527161   |    Liver: 0.905442476272583 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9808443365000495   |   Liver: 0.515379930998948
+PRED TO GT SCORES:: Spleen: 0.9615210991097771   |   Liver: 0.4500230364742515 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9934251210342995   |    Liver: 0.9940601631952799 
+
+# Dice Score per structure per volume.
+Spleen: 0.907794713973999   |    Liver: 0.9537020325660706 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9678372969169529   |   Liver: 0.7227840854650297
+PRED TO GT SCORES:: Spleen: 0.8646182267016339   |   Liver: 0.7109743893088017 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9833366200488669   |    Liver: 0.9931369398418923 
+
+# Dice Score per structure per volume.
+Spleen: 0.8317746520042419   |    Liver: 0.9377363324165344 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9145871151057225   |   Liver: 0.646244309291822
+PRED TO GT SCORES:: Spleen: 0.6265319101835392   |   Liver: 0.5870083174171862 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9783812027845714   |    Liver: 0.9914755175719818 
+
+# Dice Score per structure per volume.
+Spleen: 0.6900632381439209   |    Liver: 0.9272712469100952 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7064724503421312   |   Liver: 0.691129890670164
+PRED TO GT SCORES:: Spleen: 0.6931269786402375   |   Liver: 0.5794807148623122 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9915611615117307   |    Liver: 0.9950769692211515 
+
+# Dice Score per structure per volume.
+Spleen: 0.8909287452697754   |    Liver: 0.9594133496284485 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9581380019528157   |   Liver: 0.7333600808232826
+PRED TO GT SCORES:: Spleen: 0.9228266608311437   |   Liver: 0.7253549379525348 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9906010820699336   |    Liver: 0.9933997828101432 
+
+# Dice Score per structure per volume.
+Spleen: 0.868533194065094   |    Liver: 0.8497949242591858 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9239845826046561   |   Liver: 0.37301991079737057
+PRED TO GT SCORES:: Spleen: 0.7026798736707838   |   Liver: 0.48380628936185927 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on quicknat_no_dropout_old model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999962662883   |    Liver: 0.9999999988703373 
+
+# Dice Score per structure per volume.
+Spleen: 0.9373133182525635   |    Liver: 0.9084529280662537 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9674348640983345   |   Liver: 0.4972878986648688
+PRED TO GT SCORES:: Spleen: 0.9594801428252369   |   Liver: 0.4527711305373958 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999876512721   |    Liver: 0.9999999984403026 
+
+# Dice Score per structure per volume.
+Spleen: 0.906911313533783   |    Liver: 0.9502767324447632 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9623295546305087   |   Liver: 0.726814513410945
+PRED TO GT SCORES:: Spleen: 0.8692694397369742   |   Liver: 0.6857539574955678 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999810749436   |    Liver: 0.9999999984077448 
+
+# Dice Score per structure per volume.
+Spleen: 0.8174672722816467   |    Liver: 0.9062904119491577 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8789257143046619   |   Liver: 0.5700666269216669
+PRED TO GT SCORES:: Spleen: 0.6648588384462734   |   Liver: 0.5242200461852039 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999746257301   |    Liver: 0.9999999984590255 
+
+# Dice Score per structure per volume.
+Spleen: 0.7074122428894043   |    Liver: 0.9433810114860535 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7323256271966153   |   Liver: 0.6912544040172718
+PRED TO GT SCORES:: Spleen: 0.5719651677955551   |   Liver: 0.6198297303483257 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999795918371   |    Liver: 0.9999999980117309 
+
+# Dice Score per structure per volume.
+Spleen: 0.9015645384788513   |    Liver: 0.9548024535179138 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9558119412555678   |   Liver: 0.7419662906955081
+PRED TO GT SCORES:: Spleen: 0.9519033081434284   |   Liver: 0.7070302275052299 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999891540132   |    Liver: 0.9999999983018613 
+
+# Dice Score per structure per volume.
+Spleen: 0.8590774536132812   |    Liver: 0.8141698241233826 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9144792014432424   |   Liver: 0.34096797128515227
+PRED TO GT SCORES:: Spleen: 0.6845567978201726   |   Liver: 0.37815198759202123 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_no_dropout_old on UKB report completed ################### 
+
+########### Evaluating UKB dataset on quicknat_no_dropout_old model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999962662883   |    Liver: 0.9999999988703373 
+
+########### Evaluating UKB dataset on quicknat_no_dropout_old model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999962662883   |    Liver: 0.9999999988703373 
+
+# Dice Score per structure per volume.
+Spleen: 0.9373133182525635   |    Liver: 0.9084529280662537 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9674348640983345   |   Liver: 0.4972878986648688
+PRED TO GT SCORES:: Spleen: 0.9594801428252369   |   Liver: 0.4527711305373958 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999876512721   |    Liver: 0.9999999984403026 
+
+# Dice Score per structure per volume.
+Spleen: 0.906911313533783   |    Liver: 0.9502767324447632 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9623295546305087   |   Liver: 0.726814513410945
+PRED TO GT SCORES:: Spleen: 0.8692694397369742   |   Liver: 0.6857539574955678 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999810749436   |    Liver: 0.9999999984077448 
+
+# Dice Score per structure per volume.
+Spleen: 0.8174672722816467   |    Liver: 0.9062904119491577 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8789257143046619   |   Liver: 0.5700666269216669
+PRED TO GT SCORES:: Spleen: 0.6648588384462734   |   Liver: 0.5242200461852039 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999746257301   |    Liver: 0.9999999984590255 
+
+# Dice Score per structure per volume.
+Spleen: 0.7074122428894043   |    Liver: 0.9433810114860535 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7323256271966153   |   Liver: 0.6912544040172718
+PRED TO GT SCORES:: Spleen: 0.5719651677955551   |   Liver: 0.6198297303483257 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999795918371   |    Liver: 0.9999999980117309 
+
+# Dice Score per structure per volume.
+Spleen: 0.9015645384788513   |    Liver: 0.9548024535179138 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9558119412555678   |   Liver: 0.7419662906955081
+PRED TO GT SCORES:: Spleen: 0.9519033081434284   |   Liver: 0.7070302275052299 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9999999891540132   |    Liver: 0.9999999983018613 
+
+# Dice Score per structure per volume.
+Spleen: 0.8590774536132812   |    Liver: 0.8141698241233826 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9144792014432424   |   Liver: 0.34096797128515227
+PRED TO GT SCORES:: Spleen: 0.6845567978201726   |   Liver: 0.37815198759202123 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_no_dropout_old on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9369399508544513   |    Liver: 0.9535512584381862 
+
+# Dice Score per structure per volume.
+Spleen: 0.9356762170791626   |    Liver: 0.8727957010269165 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9392738864909644   |   Liver: 0.28158104987612353
+PRED TO GT SCORES:: Spleen: 0.9254874695495757   |   Liver: 0.29481639455830366 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9438566660480087   |    Liver: 0.9574352749590156 
+
+# Dice Score per structure per volume.
+Spleen: 0.9303544163703918   |    Liver: 0.902790904045105 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9855357563921041   |   Liver: 0.4792343372776296
+PRED TO GT SCORES:: Spleen: 0.9697355894651973   |   Liver: 0.5246712733250267 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8727007044466947   |    Liver: 0.9485625259074151 
+
+# Dice Score per structure per volume.
+Spleen: 0.8117862939834595   |    Liver: 0.8879410028457642 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7582964390787197   |   Liver: 0.4199795892483384
+PRED TO GT SCORES:: Spleen: 0.779968589206835   |   Liver: 0.4224977220035496 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8209075953293464   |    Liver: 0.9066839526717329 
+
+# Dice Score per structure per volume.
+Spleen: 0.711251974105835   |    Liver: 0.8784863948822021 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5963481735382964   |   Liver: 0.3898674055214363
+PRED TO GT SCORES:: Spleen: 0.6794123451560936   |   Liver: 0.3775595558654096 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8988166892340813   |    Liver: 0.946566119343605 
+
+# Dice Score per structure per volume.
+Spleen: 0.8749544024467468   |    Liver: 0.8823164105415344 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9020805518321241   |   Liver: 0.39864842130600014
+PRED TO GT SCORES:: Spleen: 0.9272603655748578   |   Liver: 0.41537389391251484 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8700657764643275   |    Liver: 0.9526836551531198 
+
+# Dice Score per structure per volume.
+Spleen: 0.8478484153747559   |    Liver: 0.7847228646278381 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8530700450247308   |   Liver: 0.16045530658362575
+PRED TO GT SCORES:: Spleen: 0.7397905721938038   |   Liver: 0.23093985194051353 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8733976025942098   |    Liver: 0.8564644126765355 
+
+# Dice Score per structure per volume.
+Spleen: 0.9416179060935974   |    Liver: 0.912430465221405 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9827354887620091   |   Liver: 0.4990438888030553
+PRED TO GT SCORES:: Spleen: 0.9522971965463307   |   Liver: 0.48298364010300876 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8746338503264928   |    Liver: 0.8879693774577606 
+
+# Dice Score per structure per volume.
+Spleen: 0.9083104133605957   |    Liver: 0.9563456773757935 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9676311059198559   |   Liver: 0.7354944997759247
+PRED TO GT SCORES:: Spleen: 0.8898553560944185   |   Liver: 0.7389928594900299 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6759652887231623   |    Liver: 0.8377344631310819 
+
+# Dice Score per structure per volume.
+Spleen: 0.8525832295417786   |    Liver: 0.9105444550514221 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9242244996846402   |   Liver: 0.6115840275816447
+PRED TO GT SCORES:: Spleen: 0.6948394430097171   |   Liver: 0.5634145698444084 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.050395595968428   |    Liver: 0.8066289277422479 
+
+# Dice Score per structure per volume.
+Spleen: 0.5076452493667603   |    Liver: 0.9398609399795532 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6264580195530899   |   Liver: 0.6992901894871281
+PRED TO GT SCORES:: Spleen: 0.34369130494202993   |   Liver: 0.6471916697720063 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8269535927508627   |    Liver: 0.8976343496412841 
+
+# Dice Score per structure per volume.
+Spleen: 0.8900032043457031   |    Liver: 0.9569628238677979 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9467153358646381   |   Liver: 0.7207968050008929
+PRED TO GT SCORES:: Spleen: 0.9097783560285607   |   Liver: 0.7246897224978033 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8140333082884068   |    Liver: 0.8788024091197072 
+
+# Dice Score per structure per volume.
+Spleen: 0.8716476559638977   |    Liver: 0.8510160446166992 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9309636757546382   |   Liver: 0.3707794583035599
+PRED TO GT SCORES:: Spleen: 0.7443386089331243   |   Liver: 0.5029438663553766 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8533559507533455   |    Liver: 0.8638824594323844 
+
+# Dice Score per structure per volume.
+Spleen: 0.9421310424804688   |    Liver: 0.9128165245056152 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9827651210599999   |   Liver: 0.5045910013156093
+PRED TO GT SCORES:: Spleen: 0.9550245476180702   |   Liver: 0.4828542018106559 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8861305258026746   |    Liver: 0.8828065917392913 
+
+# Dice Score per structure per volume.
+Spleen: 0.9082494974136353   |    Liver: 0.954997718334198 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9674650785179397   |   Liver: 0.7378016124118942
+PRED TO GT SCORES:: Spleen: 0.890183402412481   |   Liver: 0.7169436094737297 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.7075324552808233   |    Liver: 0.8402003111027018 
+
+# Dice Score per structure per volume.
+Spleen: 0.8545789122581482   |    Liver: 0.9091554284095764 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9131985183823841   |   Liver: 0.6067388014199164
+PRED TO GT SCORES:: Spleen: 0.7215455776789534   |   Liver: 0.5623036124392395 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.05087750308673102   |    Liver: 0.8235671917077667 
+
+# Dice Score per structure per volume.
+Spleen: 0.5045989155769348   |    Liver: 0.93986576795578 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5740697154156966   |   Liver: 0.7003322852791851
+PRED TO GT SCORES:: Spleen: 0.3715690640629278   |   Liver: 0.6531604561824806 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8235911651454119   |    Liver: 0.8978612358392953 
+
+# Dice Score per structure per volume.
+Spleen: 0.886221170425415   |    Liver: 0.956571638584137 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9438089745575868   |   Liver: 0.7189742990350358
+PRED TO GT SCORES:: Spleen: 0.8923199597003317   |   Liver: 0.7222905454474006 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8297635802206145   |    Liver: 0.8638635587680434 
+
+# Dice Score per structure per volume.
+Spleen: 0.8723508715629578   |    Liver: 0.8490303754806519 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9354497027177153   |   Liver: 0.3635510653379884
+PRED TO GT SCORES:: Spleen: 0.746043711222868   |   Liver: 0.49344414873795006 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9948055821327   |    Liver: 0.9933376618070747 
+
+# Dice Score per structure per volume.
+Spleen: 0.9414698481559753   |    Liver: 0.9053956270217896 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9823261917873147   |   Liver: 0.5150939590475915
+PRED TO GT SCORES:: Spleen: 0.9615258532774297   |   Liver: 0.44980152196870093 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.993427567045789   |    Liver: 0.9947920810984678 
+
+# Dice Score per structure per volume.
+Spleen: 0.9079292416572571   |    Liver: 0.9537411332130432 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9675761052705047   |   Liver: 0.7230012206244025
+PRED TO GT SCORES:: Spleen: 0.8646252020740323   |   Liver: 0.7110964259373466 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9851072083973945   |    Liver: 0.9936177931327792 
+
+# Dice Score per structure per volume.
+Spleen: 0.8322813510894775   |    Liver: 0.9376507997512817 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9137870361932715   |   Liver: 0.6459803380250676
+PRED TO GT SCORES:: Spleen: 0.6272810657965967   |   Liver: 0.5861682556241731 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.970294401411819   |    Liver: 0.9915047716945311 
+
+# Dice Score per structure per volume.
+Spleen: 0.6889932751655579   |    Liver: 0.9273778200149536 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7064724503421312   |   Liver: 0.6911486057187433
+PRED TO GT SCORES:: Spleen: 0.6933889699835879   |   Liver: 0.5797856210241394 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9911699580339162   |    Liver: 0.9947858671767809 
+
+# Dice Score per structure per volume.
+Spleen: 0.8908325433731079   |    Liver: 0.9594133496284485 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9573946699965779   |   Liver: 0.7334870202888413
+PRED TO GT SCORES:: Spleen: 0.9227896239907567   |   Liver: 0.7253702273054694 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9904938702961772   |    Liver: 0.9931136649216008 
+
+# Dice Score per structure per volume.
+Spleen: 0.8684803247451782   |    Liver: 0.84964519739151 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9247844304680121   |   Liver: 0.3720104219734072
+PRED TO GT SCORES:: Spleen: 0.7027040867262375   |   Liver: 0.48273608296098913 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9399210110918367   |    Liver: 0.95432583301333 
+
+# Dice Score per structure per volume.
+Spleen: 0.9360184669494629   |    Liver: 0.8726860284805298 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9416153357878048   |   Liver: 0.28184600294132767
+PRED TO GT SCORES:: Spleen: 0.9275984118440952   |   Liver: 0.2951333949585361 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9391672415078723   |    Liver: 0.9558831482378857 
+
+# Dice Score per structure per volume.
+Spleen: 0.9314231872558594   |    Liver: 0.9020980000495911 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9873233814045389   |   Liver: 0.4772956299999233
+PRED TO GT SCORES:: Spleen: 0.9697935811802416   |   Liver: 0.5252831131689125 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8589516825985959   |    Liver: 0.9483844730942483 
+
+# Dice Score per structure per volume.
+Spleen: 0.8080693483352661   |    Liver: 0.8872531056404114 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7494340999255942   |   Liver: 0.4193806044258689
+PRED TO GT SCORES:: Spleen: 0.7807935633297702   |   Liver: 0.42015110744489115 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8379994335961013   |    Liver: 0.9172882618878515 
+
+# Dice Score per structure per volume.
+Spleen: 0.7130966186523438   |    Liver: 0.8792172074317932 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6190160002842819   |   Liver: 0.39424448406856405
+PRED TO GT SCORES:: Spleen: 0.69401108538721   |   Liver: 0.38008007296475377 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8985894723105673   |    Liver: 0.9469999050658446 
+
+# Dice Score per structure per volume.
+Spleen: 0.8744367361068726   |    Liver: 0.8819530606269836 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8972057032428107   |   Liver: 0.3971901001159725
+PRED TO GT SCORES:: Spleen: 0.9285460834708736   |   Liver: 0.41400876752080434 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8754840501119444   |    Liver: 0.9526933615887762 
+
+# Dice Score per structure per volume.
+Spleen: 0.8492929935455322   |    Liver: 0.7844107151031494 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8635306322649077   |   Liver: 0.1602921857894478
+PRED TO GT SCORES:: Spleen: 0.7382364343368037   |   Liver: 0.22972902103924225 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9375654246574037   |    Liver: 0.9541225404007532 
+
+# Dice Score per structure per volume.
+Spleen: 0.935878336429596   |    Liver: 0.8718495965003967 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9423074432634782   |   Liver: 0.27808447881498416
+PRED TO GT SCORES:: Spleen: 0.9265863611887815   |   Liver: 0.2920757373637753 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9352974212673044   |    Liver: 0.9563568030702757 
+
+# Dice Score per structure per volume.
+Spleen: 0.9295119047164917   |    Liver: 0.9029069542884827 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9843363919537259   |   Liver: 0.4790571063480491
+PRED TO GT SCORES:: Spleen: 0.9691226264306926   |   Liver: 0.5264235062488599 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8472630710046182   |    Liver: 0.9513778243714575 
+
+# Dice Score per structure per volume.
+Spleen: 0.8072510957717896   |    Liver: 0.8874024152755737 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7438913277381789   |   Liver: 0.41923022450516495
+PRED TO GT SCORES:: Spleen: 0.7753678787475505   |   Liver: 0.41935186726213947 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8327956765377506   |    Liver: 0.9082783313062827 
+
+# Dice Score per structure per volume.
+Spleen: 0.707737922668457   |    Liver: 0.8788241147994995 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6008352152394052   |   Liver: 0.39225532473122954
+PRED TO GT SCORES:: Spleen: 0.683334536428822   |   Liver: 0.375760168625599 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9053427444415041   |    Liver: 0.9460633629605912 
+
+# Dice Score per structure per volume.
+Spleen: 0.875684916973114   |    Liver: 0.8828828930854797 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9022332889027191   |   Liver: 0.40056374340047646
+PRED TO GT SCORES:: Spleen: 0.9295502643348292   |   Liver: 0.4186853752838029 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8716246662901694   |    Liver: 0.9529251417250557 
+
+# Dice Score per structure per volume.
+Spleen: 0.8458253741264343   |    Liver: 0.7839625477790833 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8625758455178305   |   Liver: 0.1595840163316056
+PRED TO GT SCORES:: Spleen: 0.7359776333844297   |   Liver: 0.22800265543318002 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on quicknat_all_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8920949561109917   |    Liver: 0.8688841815271572 
+
+# Dice Score per structure per volume.
+Spleen: 0.9413754940032959   |    Liver: 0.9125420451164246 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9820591628102355   |   Liver: 0.5011995662903664
+PRED TO GT SCORES:: Spleen: 0.9427171230691737   |   Liver: 0.48142244365542136 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8940296659185692   |    Liver: 0.8839599744027289 
+
+# Dice Score per structure per volume.
+Spleen: 0.9064257144927979   |    Liver: 0.9563868641853333 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9673110505818714   |   Liver: 0.7341855690435926
+PRED TO GT SCORES:: Spleen: 0.8772887231035968   |   Liver: 0.7420334759748496 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6976462323010344   |    Liver: 0.8386474514372979 
+
+# Dice Score per structure per volume.
+Spleen: 0.8521021604537964   |    Liver: 0.9111563563346863 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9187113756355184   |   Liver: 0.6131410585123168
+PRED TO GT SCORES:: Spleen: 0.699164558273633   |   Liver: 0.5711443274690304 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.061823028464872046   |    Liver: 0.8071510293989522 
+
+# Dice Score per structure per volume.
+Spleen: 0.4920634925365448   |    Liver: 0.9407978653907776 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5995491158702606   |   Liver: 0.7015492666991576
+PRED TO GT SCORES:: Spleen: 0.37990185130818843   |   Liver: 0.6486529363873631 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.830211999466219   |    Liver: 0.8996658694039793 
+
+# Dice Score per structure per volume.
+Spleen: 0.8862262964248657   |    Liver: 0.9565149545669556 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9430759855722444   |   Liver: 0.7165925393217948
+PRED TO GT SCORES:: Spleen: 0.8944507337492187   |   Liver: 0.7224962746416083 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8057707911320271   |    Liver: 0.8690666057339119 
+
+# Dice Score per structure per volume.
+Spleen: 0.871457576751709   |    Liver: 0.8501798510551453 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9401332937112501   |   Liver: 0.37062321679170024
+PRED TO GT SCORES:: Spleen: 0.7541180256611987   |   Liver: 0.5030053128064954 
+
+------------------------------------------------------------------------------ 
+
+
+############### quicknat_all_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9942794738840108   |    Liver: 0.993194003343452 
+
+# Dice Score per structure per volume.
+Spleen: 0.9412989020347595   |    Liver: 0.9054824709892273 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9809594205919121   |   Liver: 0.5155580596571345
+PRED TO GT SCORES:: Spleen: 0.9614580028328423   |   Liver: 0.45023332517752745 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9933060494197836   |    Liver: 0.9947120361135682 
+
+# Dice Score per structure per volume.
+Spleen: 0.9078071117401123   |    Liver: 0.9537419080734253 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9678372969169531   |   Liver: 0.7236404887712787
+PRED TO GT SCORES:: Spleen: 0.8647771194048677   |   Liver: 0.7116828014641245 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9864918357868129   |    Liver: 0.99377689747328 
+
+# Dice Score per structure per volume.
+Spleen: 0.8321875333786011   |    Liver: 0.9377528429031372 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9144527420878699   |   Liver: 0.6463455982690315
+PRED TO GT SCORES:: Spleen: 0.6278476715737703   |   Liver: 0.5868815257927817 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9703100112898052   |    Liver: 0.9908913451263845 
+
+# Dice Score per structure per volume.
+Spleen: 0.6891905665397644   |    Liver: 0.9272858500480652 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7068108235166851   |   Liver: 0.6905506998264689
+PRED TO GT SCORES:: Spleen: 0.6920014130149287   |   Liver: 0.5792688060863621 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9935678192247674   |    Liver: 0.9950010720450664 
+
+# Dice Score per structure per volume.
+Spleen: 0.8908325433731079   |    Liver: 0.9593849182128906 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9581380019528156   |   Liver: 0.7337648636897737
+PRED TO GT SCORES:: Spleen: 0.9224363891796215   |   Liver: 0.7253426727204363 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9892954561518793   |    Liver: 0.993601830223596 
+
+# Dice Score per structure per volume.
+Spleen: 0.8686020374298096   |    Liver: 0.8497450351715088 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9246142179385304   |   Liver: 0.37255052185600934
+PRED TO GT SCORES:: Spleen: 0.7025501723330736   |   Liver: 0.4830642314047354 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9384105086762227   |    Liver: 0.9542779355073435 
+
+# Dice Score per structure per volume.
+Spleen: 0.9356349110603333   |    Liver: 0.8719993829727173 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9388356544181776   |   Liver: 0.27988851237703466
+PRED TO GT SCORES:: Spleen: 0.9246788131310153   |   Liver: 0.2936753950481242 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9393639443199442   |    Liver: 0.9576571349303193 
+
+# Dice Score per structure per volume.
+Spleen: 0.9306758046150208   |    Liver: 0.9029533267021179 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9864525765723431   |   Liver: 0.4784108610975486
+PRED TO GT SCORES:: Spleen: 0.9713504854886116   |   Liver: 0.5255503371641981 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8557329214591314   |    Liver: 0.9501869664638721 
+
+# Dice Score per structure per volume.
+Spleen: 0.8126410841941833   |    Liver: 0.8881622552871704 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7606538830085291   |   Liver: 0.4195434385458542
+PRED TO GT SCORES:: Spleen: 0.7802952716790935   |   Liver: 0.4207931496087536 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8372596578050457   |    Liver: 0.9103593506640604 
+
+# Dice Score per structure per volume.
+Spleen: 0.7111814618110657   |    Liver: 0.8800809383392334 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6126665217887757   |   Liver: 0.3930453625610617
+PRED TO GT SCORES:: Spleen: 0.6827272753187237   |   Liver: 0.377690582016539 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8991678683512513   |    Liver: 0.9462283184829043 
+
+# Dice Score per structure per volume.
+Spleen: 0.8729133605957031   |    Liver: 0.8814915418624878 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.901853849799164   |   Liver: 0.3973626180811298
+PRED TO GT SCORES:: Spleen: 0.9280119618227515   |   Liver: 0.4155799953639092 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8745321024924075   |    Liver: 0.9528990425019969 
+
+# Dice Score per structure per volume.
+Spleen: 0.8468600511550903   |    Liver: 0.784428596496582 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8667141760398291   |   Liver: 0.1606765336351271
+PRED TO GT SCORES:: Spleen: 0.7319368653578011   |   Liver: 0.22934103341882026 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4_with_dropout model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9026028811023465   |    Liver: 0.8070235473224162 
+
+# Dice Score per structure per volume.
+Spleen: 0.9361265301704407   |    Liver: 0.9245781302452087 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9755378654816368   |   Liver: 0.5735553838656791
+PRED TO GT SCORES:: Spleen: 0.9026418029514426   |   Liver: 0.5214207693099637 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8947245732534695   |    Liver: 0.8975222039212885 
+
+# Dice Score per structure per volume.
+Spleen: 0.90440833568573   |    Liver: 0.9498950242996216 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.96367524411491   |   Liver: 0.6982589844295456
+PRED TO GT SCORES:: Spleen: 0.8726966779875817   |   Liver: 0.6975053007613394 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.5338186560712289   |    Liver: 0.7872844385561404 
+
+# Dice Score per structure per volume.
+Spleen: 0.840305507183075   |    Liver: 0.9323030114173889 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9080836543277298   |   Liver: 0.6639047778621212
+PRED TO GT SCORES:: Spleen: 0.6471310577894572   |   Liver: 0.558945659340632 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.4952727212694216   |    Liver: 0.8145802147014074 
+
+# Dice Score per structure per volume.
+Spleen: 0.8548582792282104   |    Liver: 0.9401244521141052 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9494012754794064   |   Liver: 0.6365561213403724
+PRED TO GT SCORES:: Spleen: 0.6794098067311036   |   Liver: 0.6004500302879809 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8247440729836909   |    Liver: 0.886090524161716 
+
+# Dice Score per structure per volume.
+Spleen: 0.8835486173629761   |    Liver: 0.9502017498016357 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9425346136028748   |   Liver: 0.7024926888002901
+PRED TO GT SCORES:: Spleen: 0.901297425962424   |   Liver: 0.6877136749639344 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.7743770769631443   |    Liver: 0.8509353509263471 
+
+# Dice Score per structure per volume.
+Spleen: 0.8698195815086365   |    Liver: 0.8495162725448608 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9558864257879267   |   Liver: 0.3874419676609131
+PRED TO GT SCORES:: Spleen: 0.7475389728535814   |   Liver: 0.502095644678618 
+
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4_with_dropout on UKB report completed ################### 
+
+########### Evaluating UKB dataset on punet_v4_with_dropout model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9112708950436706   |    Liver: 0.8462755890340833 
+
+# Dice Score per structure per volume.
+Spleen: 0.9389591217041016   |    Liver: 0.9127538800239563 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9834219364929769   |   Liver: 0.5174542873649157
+PRED TO GT SCORES:: Spleen: 0.930637447461921   |   Liver: 0.49241074363542486 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8932526442144921   |    Liver: 0.9024670095013769 
+
+# Dice Score per structure per volume.
+Spleen: 0.8946848511695862   |    Liver: 0.9510743021965027 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9594687323324795   |   Liver: 0.704150358667637
+PRED TO GT SCORES:: Spleen: 0.8576745798995243   |   Liver: 0.7291816542966626 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6277164722882569   |    Liver: 0.7990373033840923 
+
+# Dice Score per structure per volume.
+Spleen: 0.8354401588439941   |    Liver: 0.934985339641571 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.903669600454166   |   Liver: 0.6315146286112512
+PRED TO GT SCORES:: Spleen: 0.6828858067104859   |   Liver: 0.5603966436534223 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.2627345805371674   |    Liver: 0.8146394054258201 
+
+# Dice Score per structure per volume.
+Spleen: 0.7056919932365417   |    Liver: 0.9578325748443604 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8226319096248823   |   Liver: 0.7360271067237969
+PRED TO GT SCORES:: Spleen: 0.5817439781227504   |   Liver: 0.7246894396971959 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8447552299867966   |    Liver: 0.8968626019760803 
+
+# Dice Score per structure per volume.
+Spleen: 0.8800757527351379   |    Liver: 0.9548723697662354 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.945226648272714   |   Liver: 0.6974872433365682
+PRED TO GT SCORES:: Spleen: 0.894643665122231   |   Liver: 0.6884095476278556 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.7569071121460904   |    Liver: 0.826693656776651 
+
+# Dice Score per structure per volume.
+Spleen: 0.85197913646698   |    Liver: 0.8470267057418823 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9206477692664906   |   Liver: 0.35202230835403486
+PRED TO GT SCORES:: Spleen: 0.7041357733839967   |   Liver: 0.4647484593096104 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_with_dropout on UKB report completed ################### 
+
+########### Evaluating UKB dataset on full_bayesian_quicknat model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.44172641972852633   |    Liver: 0.6286390678238813 
+
+# Dice Score per structure per volume.
+Spleen: 0.9102309346199036   |    Liver: 0.8584197163581848 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9061959452247227   |   Liver: 0.37512393637188773
+PRED TO GT SCORES:: Spleen: 0.8735612656539584   |   Liver: 0.31230305526825747 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.5646055376907726   |    Liver: 0.6599138979048065 
+
+# Dice Score per structure per volume.
+Spleen: 0.9126400351524353   |    Liver: 0.9133139848709106 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9663684302134382   |   Liver: 0.5550119305262275
+PRED TO GT SCORES:: Spleen: 0.917822922006112   |   Liver: 0.5584045471093348 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.30751209889876463   |    Liver: 0.571728774899915 
+
+# Dice Score per structure per volume.
+Spleen: 0.7426938414573669   |    Liver: 0.8726925253868103 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8390847186637735   |   Liver: 0.4509998228692032
+PRED TO GT SCORES:: Spleen: 0.595998669603358   |   Liver: 0.34124363962606574 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.05807184355996246   |    Liver: 0.2692589579278986 
+
+# Dice Score per structure per volume.
+Spleen: 0.5322318077087402   |    Liver: 0.6426814198493958 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6264584188346546   |   Liver: 0.14502933960882602
+PRED TO GT SCORES:: Spleen: 0.4811770618642966   |   Liver: 0.1207581404684464 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.5749558998389785   |    Liver: 0.6617244952021325 
+
+# Dice Score per structure per volume.
+Spleen: 0.8517898321151733   |    Liver: 0.8824047446250916 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9132483941605426   |   Liver: 0.3837858250459981
+PRED TO GT SCORES:: Spleen: 0.8265722829292012   |   Liver: 0.4238281015932102 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.19609799139676323   |    Liver: 0.5088803485416836 
+
+# Dice Score per structure per volume.
+Spleen: 0.6704397201538086   |    Liver: 0.649419903755188 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6601617299021831   |   Liver: 0.2839603650860287
+PRED TO GT SCORES:: Spleen: 0.5729365596597619   |   Liver: 0.16219937929380002 
+
+------------------------------------------------------------------------------ 
+
+
+############### full_bayesian_quicknat on UKB report completed ################### 
+
+########### Evaluating UKB dataset on full_bayesian_quicknat_except_classifier model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6312436094335823   |    Liver: 0.6373591031400339 
+
+# Dice Score per structure per volume.
+Spleen: 0.9323837757110596   |    Liver: 0.8148466944694519 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9427598054620074   |   Liver: 0.4060796325825663
+PRED TO GT SCORES:: Spleen: 0.9329256003272204   |   Liver: 0.28571741186691024 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6998746794081592   |    Liver: 0.6927824707249284 
+
+# Dice Score per structure per volume.
+Spleen: 0.9001938700675964   |    Liver: 0.8992812037467957 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.954973320311614   |   Liver: 0.5599264385887534
+PRED TO GT SCORES:: Spleen: 0.8726883277982985   |   Liver: 0.5402859802973207 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.3227763752733998   |    Liver: 0.5997002640736645 
+
+# Dice Score per structure per volume.
+Spleen: 0.7994570136070251   |    Liver: 0.7830614447593689 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8683732320207416   |   Liver: 0.4491415254037851
+PRED TO GT SCORES:: Spleen: 0.5917423946675465   |   Liver: 0.26975400953067064 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.08543843293957898   |    Liver: 0.1297227174279984 
+
+# Dice Score per structure per volume.
+Spleen: 0.60317462682724   |    Liver: 0.5128464102745056 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6060641307897938   |   Liver: 0.11062297242036441
+PRED TO GT SCORES:: Spleen: 0.42808445863176653   |   Liver: 0.08369116352600951 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.6135720921524962   |    Liver: 0.5930306372684335 
+
+# Dice Score per structure per volume.
+Spleen: 0.8604651093482971   |    Liver: 0.8486858010292053 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9226581495211323   |   Liver: 0.3356364043121224
+PRED TO GT SCORES:: Spleen: 0.8516246146904649   |   Liver: 0.28714278314224284 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.5344556420825489   |    Liver: 0.5232197162839856 
+
+# Dice Score per structure per volume.
+Spleen: 0.8488115072250366   |    Liver: 0.7488012909889221 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9466592864916963   |   Liver: 0.3063821992512077
+PRED TO GT SCORES:: Spleen: 0.6779148407220265   |   Liver: 0.21183733259749146 
+
+------------------------------------------------------------------------------ 
+
+
+############### full_bayesian_quicknat_except_classifier on UKB report completed ################### 
+
+########### Evaluating UKB dataset on deep_bayesian_quicknat_all model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.8507447147532223   |    Liver: 0.7904485944114983 
+
+# Dice Score per structure per volume.
+Spleen: 0.9317548871040344   |    Liver: 0.8965383172035217 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9731165661356702   |   Liver: 0.46307483847541026
+PRED TO GT SCORES:: Spleen: 0.871957209454522   |   Liver: 0.42648794188879124 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.0759198870374183   |    Liver: 0.8371994371421058 
+
+# Dice Score per structure per volume.
+Spleen: 0.5797684788703918   |    Liver: 0.9285867810249329 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.587476699914921   |   Liver: 0.6344538661110553
+PRED TO GT SCORES:: Spleen: 0.5044096584926451   |   Liver: 0.6286862570401671 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.29687818206737027   |    Liver: 0.8311538608461464 
+
+# Dice Score per structure per volume.
+Spleen: 0.5746245980262756   |    Liver: 0.8946027159690857 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5869589635123598   |   Liver: 0.5205175178721734
+PRED TO GT SCORES:: Spleen: 0.5093969485829225   |   Liver: 0.48314021572607685 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.26387331468787395   |    Liver: 0.21806964287500838 
+
+# Dice Score per structure per volume.
+Spleen: 0.6576915383338928   |    Liver: 0.6924281120300293 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.740658402794707   |   Liver: 0.4151957270691641
+PRED TO GT SCORES:: Spleen: 0.5357425789288595   |   Liver: 0.2662551794070018 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.33782077539291594   |    Liver: 0.8164180665299057 
+
+# Dice Score per structure per volume.
+Spleen: 0.7494102120399475   |    Liver: 0.94525545835495 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6741869210029732   |   Liver: 0.6557104221333124
+PRED TO GT SCORES:: Spleen: 0.756916587726053   |   Liver: 0.6032669702969948 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.0   |    Liver: 0.6951124170778205 
+
+# Dice Score per structure per volume.
+Spleen: 0.17369788885116577   |    Liver: 0.7664007544517517 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.2448961837266357   |   Liver: 0.34229628328426565
+PRED TO GT SCORES:: Spleen: 0.459163861486834   |   Liver: 0.29461585714824834 
+
+------------------------------------------------------------------------------ 
+
+
+############### deep_bayesian_quicknat_all on UKB report completed ################### 
+
+########### Evaluating UKB dataset on punet_v4_1 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Normalised Cross Correlation score: [0.98881802]
+# Generalised Entropy Distance score: 0.18770529257095026
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9945052839768722   |    Liver: 0.9932707046239873 
+
+# Dice Score per structure per volume.
+Spleen: 0.9414374828338623   |    Liver: 0.9054006338119507 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9813491067852335   |   Liver: 0.5150384944698939
+PRED TO GT SCORES:: Spleen: 0.9614477948907549   |   Liver: 0.45007193206858165 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Normalised Cross Correlation score: [0.76507155]
+# Generalised Entropy Distance score: 0.17029923057594998
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9940483447731141   |    Liver: 0.9944424909859106 
+
+# Dice Score per structure per volume.
+Spleen: 0.9077460765838623   |    Liver: 0.9536974430084229 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9673149136240563   |   Liver: 0.7229275094233468
+PRED TO GT SCORES:: Spleen: 0.864504731607942   |   Liver: 0.7108323346661183 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Normalised Cross Correlation score: [0.9118815]
+# Generalised Entropy Distance score: 0.26769645049689117
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9851160749133543   |    Liver: 0.9933286808619971 
+
+# Dice Score per structure per volume.
+Spleen: 0.8315492868423462   |    Liver: 0.9377716779708862 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9137870361932715   |   Liver: 0.6463810075770582
+PRED TO GT SCORES:: Spleen: 0.6262451776014945   |   Liver: 0.5870316193706151 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Normalised Cross Correlation score: [0.9902022]
+# Generalised Entropy Distance score: 0.40309114827958425
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9791391344299145   |    Liver: 0.991289981826951 
+
+# Dice Score per structure per volume.
+Spleen: 0.6891340017318726   |    Liver: 0.927193820476532 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.706332291584088   |   Liver: 0.6907596010250797
+PRED TO GT SCORES:: Spleen: 0.6930444970974456   |   Liver: 0.5788919858955434 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Normalised Cross Correlation score: [0.93346637]
+# Generalised Entropy Distance score: 0.18174320221254014
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9917620857592508   |    Liver: 0.9941418816384334 
+
+# Dice Score per structure per volume.
+Spleen: 0.8911939263343811   |    Liver: 0.9592625498771667 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9581380019528154   |   Liver: 0.7322609092582896
+PRED TO GT SCORES:: Spleen: 0.924017829905706   |   Liver: 0.7242540487452305 
+
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Normalised Cross Correlation score: [0.86113374]
+# Generalised Entropy Distance score: 0.3273294616124284
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9899464431215558   |    Liver: 0.993650310758004 
+
+# Dice Score per structure per volume.
+Spleen: 0.868533194065094   |    Liver: 0.8496851921081543 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9235789624670305   |   Liver: 0.37247082866597714
+PRED TO GT SCORES:: Spleen: 0.7026359085444299   |   Liver: 0.48323029731358064 
+
+------------------------------------------------------------------------------ 
+
+
+############### punet_v4_1 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9809199318568995   |    Liver: 0.9815638743991  |  <-Mean: 0.9812419031279997 
+
+# Dice Score per structure per volume.
+Spleen: 0.9360167980194092   |    Liver: 0.8718082308769226  |  <-Mean: 0.9039125442504883 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9411511063362913   |   Liver: 0.2806142524079547  |  <-Mean: 0.7101519186073846
+PRED TO GT SCORES::  Spleen: 0.9243602051927362   |   Liver: 0.2932137417054895  |  <-Mean: 0.7095115945164054
+  MEAN TO ABOVE  :: Spleen: 0.9327556557645138   |   Liver: 0.28691399705672205  |  MEAN: 0.7098317565618951 
+
+# Normalised Cross Correlation score: [-0.13941425]
+# Generalised Entropy Distance score: 0.2255316138808402
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.974579922447221   |    Liver: 0.9855995315730728  |  <-Mean: 0.980089727010147 
+
+# Dice Score per structure per volume.
+Spleen: 0.9302020072937012   |    Liver: 0.9028025269508362  |  <-Mean: 0.9165022373199463 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9832340440876586   |   Liver: 0.48061845050294566  |  <-Mean: 0.8057800843358526
+PRED TO GT SCORES::  Spleen: 0.9702204134240924   |   Liver: 0.5235966385398467  |  <-Mean: 0.8171162299117484
+  MEAN TO ABOVE  :: Spleen: 0.9767272287558755   |   Liver: 0.5021075445213962  |  MEAN: 0.8114481571238006 
+
+# Normalised Cross Correlation score: [-0.0270014]
+# Generalised Entropy Distance score: 0.1983587465040556
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9635322483423749   |    Liver: 0.9839620198532585  |  <-Mean: 0.9737471340978168 
+
+# Dice Score per structure per volume.
+Spleen: 0.81630939245224   |    Liver: 0.8868812918663025  |  <-Mean: 0.8515953421592712 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7651121266733776   |   Liver: 0.41547230718398315  |  <-Mean: 0.7069073848486641
+PRED TO GT SCORES::  Spleen: 0.7810960583031337   |   Liver: 0.4171592078910438  |  <-Mean: 0.7123599527944265
+  MEAN TO ABOVE  :: Spleen: 0.7731040924882556   |   Liver: 0.4163157575375135  |  MEAN: 0.7096336688215453 
+
+# Normalised Cross Correlation score: [-0.06521682]
+# Generalised Entropy Distance score: 0.3329832671061933
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9325714285714286   |    Liver: 0.9715923492366785  |  <-Mean: 0.9520818889040535 
+
+# Dice Score per structure per volume.
+Spleen: 0.706605851650238   |    Liver: 0.8772472739219666  |  <-Mean: 0.7919265627861023 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5907041977781969   |   Liver: 0.3893923087964543  |  <-Mean: 0.6414112164043212
+PRED TO GT SCORES::  Spleen: 0.6540120517119887   |   Liver: 0.36516031109234853  |  <-Mean: 0.6517168361122329
+  MEAN TO ABOVE  :: Spleen: 0.6223581247450929   |   Liver: 0.3772763099444014  |  MEAN: 0.646564026258277 
+
+# Normalised Cross Correlation score: [-0.20853526]
+# Generalised Entropy Distance score: 0.43147651517923835
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9713002246069379   |    Liver: 0.9809627285181162  |  <-Mean: 0.9761314765625271 
+
+# Dice Score per structure per volume.
+Spleen: 0.8743487000465393   |    Liver: 0.8805578947067261  |  <-Mean: 0.8774533271789551 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9032668197208455   |   Liver: 0.3944250202719545  |  <-Mean: 0.7504978829229553
+PRED TO GT SCORES::  Spleen: 0.9214432552596921   |   Liver: 0.40602424068340554  |  <-Mean: 0.7605632886931345
+  MEAN TO ABOVE  :: Spleen: 0.9123550374902688   |   Liver: 0.40022463047768  |  MEAN: 0.7555305858080449 
+
+# Normalised Cross Correlation score: [-0.04426338]
+# Generalised Entropy Distance score: 0.2832564303171189
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9769332819788591   |    Liver: 0.9829493087557604  |  <-Mean: 0.9799412953673097 
+
+# Dice Score per structure per volume.
+Spleen: 0.934415876865387   |    Liver: 0.8714819550514221  |  <-Mean: 0.9029489159584045 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9377551129768118   |   Liver: 0.2776220035935872  |  <-Mean: 0.6076885582851995
+PRED TO GT SCORES::  Spleen: 0.9240034059572393   |   Liver: 0.2918597139419364  |  <-Mean: 0.6079315599495878
+  MEAN TO ABOVE  :: Spleen: 0.9308792594670255   |   Liver: 0.2847408587677618  |  MEAN: 0.6078100591173936 
+
+# Normalised Cross Correlation score: [-0.1513046]
+# Generalised Entropy Distance score: 0.22757554612881103
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9776472273964751   |    Liver: 0.9834523155775216  |  <-Mean: 0.9805497714869984 
+
+# Dice Score per structure per volume.
+Spleen: 0.9311800003051758   |    Liver: 0.9021211862564087  |  <-Mean: 0.9166505932807922 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9870446124957744   |   Liver: 0.47910213499876764  |  <-Mean: 0.733073373747271
+PRED TO GT SCORES::  Spleen: 0.971371082247208   |   Liver: 0.526885564415259  |  <-Mean: 0.7491283233312336
+  MEAN TO ABOVE  :: Spleen: 0.9792078473714911   |   Liver: 0.5029938497070133  |  MEAN: 0.7411008485392522 
+
+# Normalised Cross Correlation score: [-0.01754135]
+# Generalised Entropy Distance score: 0.1977882397012687
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9458972046889089   |    Liver: 0.9812151452891107  |  <-Mean: 0.9635561749890098 
+
+# Dice Score per structure per volume.
+Spleen: 0.8126582503318787   |    Liver: 0.8858139514923096  |  <-Mean: 0.8492361307144165 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.768902504677099   |   Liver: 0.4160138584662872  |  <-Mean: 0.592458181571693
+PRED TO GT SCORES::  Spleen: 0.7728684760936674   |   Liver: 0.41749483574948015  |  <-Mean: 0.5951816559215738
+  MEAN TO ABOVE  :: Spleen: 0.7708854903853832   |   Liver: 0.41675434710788367  |  MEAN: 0.5938199187466334 
+
+# Normalised Cross Correlation score: [-0.06378273]
+# Generalised Entropy Distance score: 0.3358706102718565
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9286917462099944   |    Liver: 0.9696148635571898  |  <-Mean: 0.9491533048835921 
+
+# Dice Score per structure per volume.
+Spleen: 0.7139096260070801   |    Liver: 0.8797363042831421  |  <-Mean: 0.7968229651451111 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6220823051358068   |   Liver: 0.3952186641958786  |  <-Mean: 0.5086504846658426
+PRED TO GT SCORES::  Spleen: 0.6802638517670592   |   Liver: 0.3784848119238851  |  <-Mean: 0.5293743318454721
+  MEAN TO ABOVE  :: Spleen: 0.6511730784514329   |   Liver: 0.3868517380598818  |  MEAN: 0.5190124082556574 
+
+# Normalised Cross Correlation score: [-0.22326122]
+# Generalised Entropy Distance score: 0.42301687844489844
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9555777389568255   |    Liver: 0.9819329611570443  |  <-Mean: 0.9687553500569349 
+
+# Dice Score per structure per volume.
+Spleen: 0.8751671314239502   |    Liver: 0.8820657730102539  |  <-Mean: 0.878616452217102 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9032511851945493   |   Liver: 0.4021282772320516  |  <-Mean: 0.6526897312133004
+PRED TO GT SCORES::  Spleen: 0.9288276756038707   |   Liver: 0.4212545494047927  |  <-Mean: 0.6750411125043316
+  MEAN TO ABOVE  :: Spleen: 0.91603943039921   |   Liver: 0.41169141331842213  |  MEAN: 0.663865421858816 
+
+# Normalised Cross Correlation score: [-0.04616861]
+# Generalised Entropy Distance score: 0.2795776726054201
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.95608688857634   |    Liver: 0.9833366161118771  |  <-Mean: 0.9697117523441086 
+
+# Dice Score per structure per volume.
+Spleen: 0.8471159338951111   |    Liver: 0.7854295372962952  |  <-Mean: 0.8162727355957031 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8547778108548726   |   Liver: 0.1621347865961357  |  <-Mean: 0.5084562987255041
+PRED TO GT SCORES::  Spleen: 0.7341375832688724   |   Liver: 0.23404152625012975  |  <-Mean: 0.48408955475950105
+  MEAN TO ABOVE  :: Spleen: 0.7944576970618724   |   Liver: 0.1980881564231327  |  MEAN: 0.49627292674250256 
+
+# Normalised Cross Correlation score: [0.02915705]
+# Generalised Entropy Distance score: 0.40375068651167023
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9751568702778844   |    Liver: 0.9830569205569205  |  <-Mean: 0.9791068954174025 
+
+# Dice Score per structure per volume.
+Spleen: 0.935218870639801   |    Liver: 0.8715227246284485  |  <-Mean: 0.9033707976341248 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.941533283706482   |   Liver: 0.27826537473778984  |  <-Mean: 0.609899329222136
+PRED TO GT SCORES::  Spleen: 0.9254753975316933   |   Liver: 0.29093621576837253  |  <-Mean: 0.6082058066500329
+  MEAN TO ABOVE  :: Spleen: 0.9335043406190877   |   Liver: 0.2846007952530812  |  MEAN: 0.6090525679360844 
+
+# Normalised Cross Correlation score: -0.14602846273217154
+# Generalised Entropy Distance score: 0.22642651630618615
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9784378123661288   |    Liver: 0.9810666228478574  |  <-Mean: 0.979752217606993 
+
+# Dice Score per structure per volume.
+Spleen: 0.9305232763290405   |    Liver: 0.9030416011810303  |  <-Mean: 0.9167824387550354 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9873621748956468   |   Liver: 0.4789636293604033  |  <-Mean: 0.733162902128025
+PRED TO GT SCORES::  Spleen: 0.9699743348253237   |   Liver: 0.5265156109493317  |  <-Mean: 0.7482449728873277
+  MEAN TO ABOVE  :: Spleen: 0.9786682548604853   |   Liver: 0.5027396201548675  |  MEAN: 0.7407039375076764 
+
+# Normalised Cross Correlation score: -0.0001946630322488289
+# Generalised Entropy Distance score: 0.19717748700809978
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9379562043795621   |    Liver: 0.9843961659150534  |  <-Mean: 0.9611761851473077 
+
+# Dice Score per structure per volume.
+Spleen: 0.8084985613822937   |    Liver: 0.8887802958488464  |  <-Mean: 0.8486394286155701 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.751155682082471   |   Liver: 0.4185674729097177  |  <-Mean: 0.5848615774960944
+PRED TO GT SCORES::  Spleen: 0.7698803985693318   |   Liver: 0.4196894468331386  |  <-Mean: 0.5947849227012352
+  MEAN TO ABOVE  :: Spleen: 0.7605180403259013   |   Liver: 0.4191284598714281  |  MEAN: 0.5898232500986648 
+
+# Normalised Cross Correlation score: -0.08713142193436409
+# Generalised Entropy Distance score: 0.33482246974308705
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9312360801781737   |    Liver: 0.9674476906759233  |  <-Mean: 0.9493418854270486 
+
+# Dice Score per structure per volume.
+Spleen: 0.7146610617637634   |    Liver: 0.8817144632339478  |  <-Mean: 0.7981877326965332 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6310123483644756   |   Liver: 0.39995492702029356  |  <-Mean: 0.5154836376923846
+PRED TO GT SCORES::  Spleen: 0.682598077638355   |   Liver: 0.37321767096099295  |  <-Mean: 0.527907874299674
+  MEAN TO ABOVE  :: Spleen: 0.6568052130014153   |   Liver: 0.38658629899064323  |  MEAN: 0.5216957559960292 
+
+# Normalised Cross Correlation score: -0.17490452246037602
+# Generalised Entropy Distance score: 0.42005998074918927
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9661786976274609   |    Liver: 0.9811566105541896  |  <-Mean: 0.9736676540908252 
+
+# Dice Score per structure per volume.
+Spleen: 0.8726518750190735   |    Liver: 0.8801130056381226  |  <-Mean: 0.8763824701309204 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8960418841889325   |   Liver: 0.39559806099178957  |  <-Mean: 0.6458199725903611
+PRED TO GT SCORES::  Spleen: 0.9261801588222338   |   Liver: 0.41111894593610615  |  <-Mean: 0.66864955237917
+  MEAN TO ABOVE  :: Spleen: 0.9111110215055831   |   Liver: 0.40335850346394786  |  MEAN: 0.6572347624847654 
+
+# Normalised Cross Correlation score: -0.05065034429804577
+# Generalised Entropy Distance score: 0.2850649435987941
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9545175169022742   |    Liver: 0.9810625468017183  |  <-Mean: 0.9677900318519963 
+
+# Dice Score per structure per volume.
+Spleen: 0.8491007685661316   |    Liver: 0.7848355770111084  |  <-Mean: 0.8169682025909424 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8606664605998199   |   Liver: 0.16212505112794964  |  <-Mean: 0.5113957558638847
+PRED TO GT SCORES::  Spleen: 0.7399651873333334   |   Liver: 0.2309858183559986  |  <-Mean: 0.485475502844666
+  MEAN TO ABOVE  :: Spleen: 0.8003158239665766   |   Liver: 0.19655543474197412  |  MEAN: 0.4984356293542754 
+
+# Normalised Cross Correlation score: 0.03863031275622933
+# Generalised Entropy Distance score: 0.4003569895242981
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9767451729259495   |    Liver: 0.9842031029619182  |  <-Mean: 0.9804741379439339 
+
+# Dice Score per structure per volume.
+Spleen: 0.9357656240463257   |    Liver: 0.8708853125572205  |  <-Mean: 0.9033254384994507 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9409684397348571   |   Liver: 0.27768295555642636  |  <-Mean: 0.6093256976456417
+PRED TO GT SCORES::  Spleen: 0.9293070472866334   |   Liver: 0.2913544678362128  |  <-Mean: 0.6103307575614231
+  MEAN TO ABOVE  :: Spleen: 0.9351377435107453   |   Liver: 0.2845187116963196  |  MEAN: 0.6098282276035325 
+
+# Normalised Cross Correlation score: 0.16320969640703195
+# Generalised Entropy Distance score: 0.2271967169990916
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9680149168100975   |    Liver: 0.9833805649510924  |  <-Mean: 0.9756977408805949 
+
+# Dice Score per structure per volume.
+Spleen: 0.9298796057701111   |    Liver: 0.9027299284934998  |  <-Mean: 0.9163047671318054 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9865063666948449   |   Liver: 0.4791038911243166  |  <-Mean: 0.7328051289095807
+PRED TO GT SCORES::  Spleen: 0.96981847105922   |   Liver: 0.5253245100291152  |  <-Mean: 0.7475714905441676
+  MEAN TO ABOVE  :: Spleen: 0.9781624188770325   |   Liver: 0.5022142005767158  |  MEAN: 0.7401883097268742 
+
+# Normalised Cross Correlation score: 0.016688883788800964
+# Generalised Entropy Distance score: 0.19755996823252842
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9369479134937557   |    Liver: 0.9784360556023299  |  <-Mean: 0.9576919845480428 
+
+# Dice Score per structure per volume.
+Spleen: 0.8064653277397156   |    Liver: 0.8870741724967957  |  <-Mean: 0.8467697501182556 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7566991406557364   |   Liver: 0.41910829965059976  |  <-Mean: 0.587903720153168
+PRED TO GT SCORES::  Spleen: 0.7653456930861401   |   Liver: 0.4215286846876788  |  <-Mean: 0.5934371888869094
+  MEAN TO ABOVE  :: Spleen: 0.7610224168709383   |   Liver: 0.4203184921691393  |  MEAN: 0.5906704545200387 
+
+# Normalised Cross Correlation score: 0.00033013730351997943
+# Generalised Entropy Distance score: 0.3362170794760909
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9179954441913439   |    Liver: 0.9602347056560215  |  <-Mean: 0.9391150749236827 
+
+# Dice Score per structure per volume.
+Spleen: 0.706605851650238   |    Liver: 0.881055474281311  |  <-Mean: 0.7938306331634521 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.5965721892154153   |   Liver: 0.4000332082089673  |  <-Mean: 0.49830269871219135
+PRED TO GT SCORES::  Spleen: 0.6879755778461756   |   Liver: 0.38722639355522875  |  <-Mean: 0.5376009857007021
+  MEAN TO ABOVE  :: Spleen: 0.6422738835307955   |   Liver: 0.39362980088209804  |  MEAN: 0.5179518422064467 
+
+# Normalised Cross Correlation score: 0.14943757857742815
+# Generalised Entropy Distance score: 0.4253535144855096
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9680798004987531   |    Liver: 0.9777422238953462  |  <-Mean: 0.9729110121970497 
+
+# Dice Score per structure per volume.
+Spleen: 0.8761373162269592   |    Liver: 0.8817190527915955  |  <-Mean: 0.8789281845092773 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9047095078934067   |   Liver: 0.397369101610957  |  <-Mean: 0.6510393047521819
+PRED TO GT SCORES::  Spleen: 0.9269948618016696   |   Liver: 0.40972606283980095  |  <-Mean: 0.6683604623207353
+  MEAN TO ABOVE  :: Spleen: 0.915852184847538   |   Liver: 0.403547582225379  |  MEAN: 0.6596998835364585 
+
+# Normalised Cross Correlation score: 0.019950106471689072
+# Generalised Entropy Distance score: 0.2801474183313468
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.957542071946889   |    Liver: 0.9817524734877658  |  <-Mean: 0.9696472727173274 
+
+# Dice Score per structure per volume.
+Spleen: 0.8498646020889282   |    Liver: 0.7839723229408264  |  <-Mean: 0.8169184923171997 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8750205820404778   |   Liver: 0.15942253693522504  |  <-Mean: 0.5172215594878514
+PRED TO GT SCORES::  Spleen: 0.7404723833645228   |   Liver: 0.22894452440086432  |  <-Mean: 0.48470845388269357
+  MEAN TO ABOVE  :: Spleen: 0.8077464827025003   |   Liver: 0.19418353066804467  |  MEAN: 0.5009650066852724 
+
+# Normalised Cross Correlation score: 0.04064099553702329
+# Generalised Entropy Distance score: 0.40150638682805595
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9756170595029302   |    Liver: 0.9830038066380639  |  <-Mean: 0.979310433070497 
+
+# Dice Score per structure per volume.
+Spleen: 0.9348896145820618   |    Liver: 0.8739033341407776  |  <-Mean: 0.9043964743614197 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9392217029265906   |   Liver: 0.2857648104052371  |  <-Mean: 0.6124932566659138
+PRED TO GT SCORES::  Spleen: 0.9206915734283605   |   Liver: 0.2988724395592113  |  <-Mean: 0.6097820064937859
+  MEAN TO ABOVE  :: Spleen: 0.9299566381774755   |   Liver: 0.29231862498222416  |  MEAN: 0.6111376315798498 
+
+# Normalised Cross Correlation score: 0.14379769145400184
+# Generalised Entropy Distance score: 0.22410765662594578
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.964864477269468   |    Liver: 0.9839122954720159  |  <-Mean: 0.9743883863707419 
+
+# Dice Score per structure per volume.
+Spleen: 0.9303954243659973   |    Liver: 0.9025878310203552  |  <-Mean: 0.9164916276931763 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9863155559820749   |   Liver: 0.47859072977185235  |  <-Mean: 0.7324531428769636
+PRED TO GT SCORES::  Spleen: 0.9696977877531011   |   Liver: 0.5233711156089171  |  <-Mean: 0.7465344516810091
+  MEAN TO ABOVE  :: Spleen: 0.9780066718675879   |   Liver: 0.5009809226903847  |  MEAN: 0.7394937972789863 
+
+# Normalised Cross Correlation score: 0.02197062681307725
+# Generalised Entropy Distance score: 0.19744894440972582
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9522789843988988   |    Liver: 0.9788980271629951  |  <-Mean: 0.965588505780947 
+
+# Dice Score per structure per volume.
+Spleen: 0.8065155744552612   |    Liver: 0.8874382376670837  |  <-Mean: 0.8469768762588501 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7495391342973087   |   Liver: 0.4212351306714881  |  <-Mean: 0.5853871324843984
+PRED TO GT SCORES::  Spleen: 0.7657364927700147   |   Liver: 0.42167464543735805  |  <-Mean: 0.5937055691036863
+  MEAN TO ABOVE  :: Spleen: 0.7576378135336617   |   Liver: 0.4214548880544231  |  MEAN: 0.5895463507940424 
+
+# Normalised Cross Correlation score: 0.029852993100729523
+# Generalised Entropy Distance score: 0.338530002723047
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9218482601254991   |    Liver: 0.9653979238754326  |  <-Mean: 0.9436230920004658 
+
+# Dice Score per structure per volume.
+Spleen: 0.7050085067749023   |    Liver: 0.8794857263565063  |  <-Mean: 0.7922471165657043 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6057234188407582   |   Liver: 0.39213880943868457  |  <-Mean: 0.49893111413972135
+PRED TO GT SCORES::  Spleen: 0.6599212608240568   |   Liver: 0.37441692639406826  |  <-Mean: 0.5171690936090625
+  MEAN TO ABOVE  :: Spleen: 0.6328223398324075   |   Liver: 0.3832778679163764  |  MEAN: 0.508050103874392 
+
+# Normalised Cross Correlation score: 0.14858702320112172
+# Generalised Entropy Distance score: 0.4288155710326417
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9641514163950865   |    Liver: 0.9840067935744109  |  <-Mean: 0.9740791049847487 
+
+# Dice Score per structure per volume.
+Spleen: 0.875942587852478   |    Liver: 0.882047176361084  |  <-Mean: 0.878994882106781 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9003963989883973   |   Liver: 0.3991020489196261  |  <-Mean: 0.6497492239540117
+PRED TO GT SCORES::  Spleen: 0.9286494022932843   |   Liver: 0.4129288898440214  |  <-Mean: 0.6707891460686528
+  MEAN TO ABOVE  :: Spleen: 0.9145229006408409   |   Liver: 0.40601546938182376  |  MEAN: 0.6602691850113324 
+
+# Normalised Cross Correlation score: 0.054822266493234476
+# Generalised Entropy Distance score: 0.2791923567339878
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9618703907108113   |    Liver: 0.9823933920878947  |  <-Mean: 0.972131891399353 
+
+# Dice Score per structure per volume.
+Spleen: 0.8478821516036987   |    Liver: 0.784135639667511  |  <-Mean: 0.8160089254379272 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8617623094866288   |   Liver: 0.1602836883078596  |  <-Mean: 0.5110229988972442
+PRED TO GT SCORES::  Spleen: 0.7401773228380978   |   Liver: 0.227707714067893  |  <-Mean: 0.4839425184529954
+  MEAN TO ABOVE  :: Spleen: 0.8009698161623633   |   Liver: 0.1939957011878763  |  MEAN: 0.49748275867511976 
+
+# Normalised Cross Correlation score: 0.03715848538642777
+# Generalised Entropy Distance score: 0.403858014786862
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9779125902507797   |    Liver: 0.9830482472961571  |  <-Mean: 0.9804804187734684 
+
+# Dice Score per structure per volume.
+Spleen: 0.9349808692932129   |    Liver: 0.8720904588699341  |  <-Mean: 0.9035356640815735 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9427689854010776   |   Liver: 0.2836637099199807  |  <-Mean: 0.6132163476605291
+PRED TO GT SCORES::  Spleen: 0.9252505450510091   |   Liver: 0.29557562245277025  |  <-Mean: 0.6104130837518897
+  MEAN TO ABOVE  :: Spleen: 0.9340097652260433   |   Liver: 0.28961966618637547  |  MEAN: 0.6118147157062094 
+
+# Normalised Cross Correlation score: 0.14335690787976232
+# Generalised Entropy Distance score: 0.22663096110049996
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9830775849706009   |    Liver: 0.9867303609341825  |  <-Mean: 0.9849039729523917 
+
+# Dice Score per structure per volume.
+Spleen: 0.9296000003814697   |    Liver: 0.9029637575149536  |  <-Mean: 0.9162818789482117 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9862737495170226   |   Liver: 0.48172449351277713  |  <-Mean: 0.7339991215148999
+PRED TO GT SCORES::  Spleen: 0.9693534466112333   |   Liver: 0.5266087967691586  |  <-Mean: 0.7479811216901959
+  MEAN TO ABOVE  :: Spleen: 0.977813598064128   |   Liver: 0.5041666451409679  |  MEAN: 0.740990121602548 
+
+# Normalised Cross Correlation score: 0.0251896673014671
+# Generalised Entropy Distance score: 0.20065348707913044
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9361571516267649   |    Liver: 0.9803739122943051  |  <-Mean: 0.9582655319605351 
+
+# Dice Score per structure per volume.
+Spleen: 0.8084743618965149   |    Liver: 0.8865114450454712  |  <-Mean: 0.8474929332733154 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7584655898507559   |   Liver: 0.4134589920648059  |  <-Mean: 0.5859622909577809
+PRED TO GT SCORES::  Spleen: 0.7772925167680288   |   Liver: 0.4161650729651516  |  <-Mean: 0.5967287948665903
+  MEAN TO ABOVE  :: Spleen: 0.7678790533093923   |   Liver: 0.4148120325149788  |  MEAN: 0.5913455429121856 
+
+# Normalised Cross Correlation score: 0.03834925976011341
+# Generalised Entropy Distance score: 0.3376935412374903
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9354838709677419   |    Liver: 0.9650137258337714  |  <-Mean: 0.9502487984007566 
+
+# Dice Score per structure per volume.
+Spleen: 0.7088661193847656   |    Liver: 0.8770023584365845  |  <-Mean: 0.792934238910675 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.610472957517859   |   Liver: 0.3914989330901006  |  <-Mean: 0.5009859453039798
+PRED TO GT SCORES::  Spleen: 0.6711041701526185   |   Liver: 0.36782633414774785  |  <-Mean: 0.5194652521501831
+  MEAN TO ABOVE  :: Spleen: 0.6407885638352387   |   Liver: 0.3796626336189242  |  MEAN: 0.5102255987270815 
+
+# Normalised Cross Correlation score: 0.1716398011876364
+# Generalised Entropy Distance score: 0.4318082730833216
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9750818021646112   |    Liver: 0.9813288240682027  |  <-Mean: 0.9782053131164069 
+
+# Dice Score per structure per volume.
+Spleen: 0.8756231069564819   |    Liver: 0.8833221197128296  |  <-Mean: 0.8794726133346558 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9001785951702893   |   Liver: 0.40188895492649185  |  <-Mean: 0.6510337750483906
+PRED TO GT SCORES::  Spleen: 0.9322796190591202   |   Liver: 0.4216535955112213  |  <-Mean: 0.6769666072851708
+  MEAN TO ABOVE  :: Spleen: 0.9162291071147047   |   Liver: 0.4117712752188566  |  MEAN: 0.6640001911667807 
+
+# Normalised Cross Correlation score: 0.03834777615458521
+# Generalised Entropy Distance score: 0.2799205005788715
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9525434243176178   |    Liver: 0.9827657684335209  |  <-Mean: 0.9676545963755694 
+
+# Dice Score per structure per volume.
+Spleen: 0.8484670519828796   |    Liver: 0.7842210531234741  |  <-Mean: 0.8163440227508545 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8654738658940014   |   Liver: 0.15962922528003806  |  <-Mean: 0.5125515455870198
+PRED TO GT SCORES::  Spleen: 0.7355715083097015   |   Liver: 0.22898027808509475  |  <-Mean: 0.48227589319739816
+  MEAN TO ABOVE  :: Spleen: 0.8005226871018515   |   Liver: 0.1943047516825664  |  MEAN: 0.4974137193922089 
+
+# Normalised Cross Correlation score: 0.02491542447895192
+# Generalised Entropy Distance score: 0.40060202659008026
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.981806534272902   |    Liver: 0.9825808427554171  |  <-Mean: 0.9821936885141596 
+
+# Dice Score per structure per volume.
+Spleen: 0.935516357421875   |    Liver: 0.8728684782981873  |  <-Mean: 0.9041924476623535 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9408053227961655   |   Liver: 0.28284665625710376  |  <-Mean: 0.6118259895266346
+PRED TO GT SCORES::  Spleen: 0.9250300583360698   |   Liver: 0.29532401867412966  |  <-Mean: 0.6101770385050997
+  MEAN TO ABOVE  :: Spleen: 0.9329176905661176   |   Liver: 0.2890853374656167  |  MEAN: 0.6110015140158672 
+
+# Normalised Cross Correlation score: 
+ 0.14934702741322164
+# Generalised Entropy Distance score: 
+ 0.22588952701119025
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9799513103250752   |    Liver: 0.9789868324798829  |  <-Mean: 0.9794690714024791 
+
+# Dice Score per structure per volume.
+Spleen: 0.9297454357147217   |    Liver: 0.9020042419433594  |  <-Mean: 0.9158748388290405 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9840282703925067   |   Liver: 0.4769954231186298  |  <-Mean: 0.7305118467555682
+PRED TO GT SCORES::  Spleen: 0.9683978254602733   |   Liver: 0.5243109421874838  |  <-Mean: 0.7463543838238785
+  MEAN TO ABOVE  :: Spleen: 0.97621304792639   |   Liver: 0.5006531826530568  |  MEAN: 0.7384331152897234 
+
+# Normalised Cross Correlation score: 
+ 0.022198630961267805
+# Generalised Entropy Distance score: 
+ 0.19933562243436276
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9299051117232935   |    Liver: 0.9787718487323027  |  <-Mean: 0.9543384802277981 
+
+# Dice Score per structure per volume.
+Spleen: 0.8064929246902466   |    Liver: 0.8883022665977478  |  <-Mean: 0.8473975658416748 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7537061781459196   |   Liver: 0.4233332777767215  |  <-Mean: 0.5885197279613206
+PRED TO GT SCORES::  Spleen: 0.7776363212345553   |   Liver: 0.42354454757604787  |  <-Mean: 0.6005904344053016
+  MEAN TO ABOVE  :: Spleen: 0.7656712496902374   |   Liver: 0.42343891267638467  |  MEAN: 0.594555081183311 
+
+# Normalised Cross Correlation score: 
+ 0.045108437996638925
+# Generalised Entropy Distance score: 
+ 0.3340429568898823
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9305634604439386   |    Liver: 0.9708363227395241  |  <-Mean: 0.9506998915917313 
+
+# Dice Score per structure per volume.
+Spleen: 0.7111017107963562   |    Liver: 0.8792343735694885  |  <-Mean: 0.7951680421829224 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.615237941925704   |   Liver: 0.39189744376255387  |  <-Mean: 0.503567692844129
+PRED TO GT SCORES::  Spleen: 0.6634274455817998   |   Liver: 0.3735564593232912  |  <-Mean: 0.5184919524525455
+  MEAN TO ABOVE  :: Spleen: 0.6393326937537519   |   Liver: 0.3827269515429225  |  MEAN: 0.5110298226483372 
+
+# Normalised Cross Correlation score: 
+ 0.20274937922834857
+# Generalised Entropy Distance score: 
+ 0.4285593205055819
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9696063776781265   |    Liver: 0.9813956770233083  |  <-Mean: 0.9755010273507174 
+
+# Dice Score per structure per volume.
+Spleen: 0.874591052532196   |    Liver: 0.882800817489624  |  <-Mean: 0.8786959648132324 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9030451471102655   |   Liver: 0.3981378759054853  |  <-Mean: 0.6505915115078754
+PRED TO GT SCORES::  Spleen: 0.9298476119048095   |   Liver: 0.4082164265221896  |  <-Mean: 0.6690320192134995
+  MEAN TO ABOVE  :: Spleen: 0.9164463795075375   |   Liver: 0.40317715121383746  |  MEAN: 0.6598117653606874 
+
+# Normalised Cross Correlation score: 
+ 0.03863464633841962
+# Generalised Entropy Distance score: 
+ 0.2793338229239627
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.95808663134933   |    Liver: 0.9830029448386268  |  <-Mean: 0.9705447880939784 
+
+# Dice Score per structure per volume.
+Spleen: 0.847816526889801   |    Liver: 0.7834135890007019  |  <-Mean: 0.8156150579452515 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8498648097072385   |   Liver: 0.15747528700167818  |  <-Mean: 0.5036700483544584
+PRED TO GT SCORES::  Spleen: 0.7424647818437633   |   Liver: 0.22426909071953635  |  <-Mean: 0.48336693628164984
+  MEAN TO ABOVE  :: Spleen: 0.7961647957755009   |   Liver: 0.19087218886060725  |  MEAN: 0.4935184923180541 
+
+# Normalised Cross Correlation score: 
+ 0.03281110964797865
+# Generalised Entropy Distance score: 
+ 0.4033686080394986
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
+########### Evaluating UKB dataset on hquicknat_v4 model ############## 
+
+# VOLUME:: 1013391_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9769561698683819   |    Liver: 0.9838823243250163  |  <-Mean: 0.980419247096699 
+
+# Dice Score per structure per volume.
+Spleen: 0.9354798197746277   |    Liver: 0.871816098690033  |  <-Mean: 0.9036479592323303 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9441315128155464   |   Liver: 0.28082618819192195  |  <-Mean: 0.6124788505037342
+PRED TO GT SCORES::  Spleen: 0.924998765949443   |   Liver: 0.29556962796103514  |  <-Mean: 0.6102841969552391
+  MEAN TO ABOVE  :: Spleen: 0.9345651393824947   |   Liver: 0.28819790807647855  |  MEAN: 0.6113815237294866 
+
+# Normalised Cross Correlation score: 
+ 0.1447033781370674
+# Generalised Entropy Distance score: 
+ 0.22585219579255467
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1019631_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.979381443298969   |    Liver: 0.9820268316342405  |  <-Mean: 0.9807041374666048 
+
+# Dice Score per structure per volume.
+Spleen: 0.9300566911697388   |    Liver: 0.9026500582695007  |  <-Mean: 0.9163533449172974 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.9854518853140041   |   Liver: 0.47543897687885184  |  <-Mean: 0.7304454310964279
+PRED TO GT SCORES::  Spleen: 0.9687280176522458   |   Liver: 0.5225940215560793  |  <-Mean: 0.7456610196041625
+  MEAN TO ABOVE  :: Spleen: 0.9770899514831249   |   Liver: 0.49901649921746555  |  MEAN: 0.7380532253502953 
+
+# Normalised Cross Correlation score: 
+ 0.0024729874053350375
+# Generalised Entropy Distance score: 
+ 0.200246320030686
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1005379_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9515625   |    Liver: 0.9806035222630368  |  <-Mean: 0.9660830111315184 
+
+# Dice Score per structure per volume.
+Spleen: 0.8071979284286499   |    Liver: 0.8875237107276917  |  <-Mean: 0.8473608493804932 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.7430109271362797   |   Liver: 0.41940874867518907  |  <-Mean: 0.5812098379057344
+PRED TO GT SCORES::  Spleen: 0.7810684472822512   |   Liver: 0.41778641393082233  |  <-Mean: 0.5994274306065368
+  MEAN TO ABOVE  :: Spleen: 0.7620396872092654   |   Liver: 0.41859758130300573  |  MEAN: 0.5903186342561356 
+
+# Normalised Cross Correlation score: 
+ 0.06317899792689202
+# Generalised Entropy Distance score: 
+ 0.33970742420019984
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1942395_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9320636725412166   |    Liver: 0.9677130916512781  |  <-Mean: 0.9498883820962474 
+
+# Dice Score per structure per volume.
+Spleen: 0.7096978425979614   |    Liver: 0.8780249357223511  |  <-Mean: 0.7938613891601562 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.6180847550841311   |   Liver: 0.3880342544063987  |  <-Mean: 0.5030595047452648
+PRED TO GT SCORES::  Spleen: 0.6729107735687145   |   Liver: 0.3733679291383066  |  <-Mean: 0.5231393513535105
+  MEAN TO ABOVE  :: Spleen: 0.6454977643264228   |   Liver: 0.3807010917723527  |  MEAN: 0.5130994280493878 
+
+# Normalised Cross Correlation score: 
+ 0.1871057295660078
+# Generalised Entropy Distance score: 
+ 0.42957870599013137
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1002359_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9658720200752823   |    Liver: 0.9757607135292872  |  <-Mean: 0.9708163668022847 
+
+# Dice Score per structure per volume.
+Spleen: 0.8721566796302795   |    Liver: 0.8811028003692627  |  <-Mean: 0.8766297101974487 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8985613117304884   |   Liver: 0.3950540518953545  |  <-Mean: 0.6468076818129214
+PRED TO GT SCORES::  Spleen: 0.9224133891723795   |   Liver: 0.41515508756471414  |  <-Mean: 0.6687842383685468
+  MEAN TO ABOVE  :: Spleen: 0.9104873504514339   |   Liver: 0.4051045697300343  |  MEAN: 0.6577959600907342 
+
+# Normalised Cross Correlation score: 
+ 0.006387715515369746
+# Generalised Entropy Distance score: 
+ 0.2822386649146973
+------------------------------------------------------------------------------ 
+
+
+# VOLUME:: 1013250_20201_2_0
+
+# Intersection over overlap scores per structure per volume.
+Spleen: 0.9441853233830846   |    Liver: 0.9802249851983422  |  <-Mean: 0.9622051542907134 
+
+# Dice Score per structure per volume.
+Spleen: 0.846476674079895   |    Liver: 0.7838789224624634  |  <-Mean: 0.8151777982711792 
+
+# Surface distance scores per structure per volume.
+GT TO PRED SCORES:: Spleen: 0.8634483848852798   |   Liver: 0.15878390229518827  |  <-Mean: 0.511116143590234
+PRED TO GT SCORES::  Spleen: 0.7397082561233478   |   Liver: 0.22851069855370296  |  <-Mean: 0.4841094773385254
+  MEAN TO ABOVE  :: Spleen: 0.8015783205043138   |   Liver: 0.1936473004244456  |  MEAN: 0.49761281046437966 
+
+# Normalised Cross Correlation score: 
+ 0.03693466125224197
+# Generalised Entropy Distance score: 
+ 0.4029837457584059
+------------------------------------------------------------------------------ 
+
+
+############### hquicknat_v4 on UKB report completed ################### 
+
