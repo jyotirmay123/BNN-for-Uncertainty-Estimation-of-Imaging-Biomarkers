@@ -2,104 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f94a1f65-e7b8-47a0-aac0-0fbe4d29b6be" name="Default Changelist" comment="punet-ready">
-      <change afterPath="$PROJECT_DIR$/aggregated_settings.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/filtered_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/test_test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/LIDC/train_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/brain_datasets/common_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/brain_datasets/convert_h5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/brain_datasets/data_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/brain_datasets/preprocessor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/KORA_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/config_backup.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/filtered_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/train_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/worst_test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/NAKO_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/config_backup.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/filtered_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/train_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO/worst_test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/UKB_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/config_backup.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/filtered_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/train_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/worst_test_volumes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/convert_h5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/data_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset_groups/whole_body_datasets/preprocessor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/master_setting.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multi_proj_multi_data_config_aggregator.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/Visualizer.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/data_preprocess_one_vol.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/dicomtonifti.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/experiments_runner.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/expt_data_visualiser[quality_control].ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/kora_data_processing_full.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/manual_annotation_aggregator.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/weight_distr_and_importlib_poc.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/log_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/parts/quicknat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/settings.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/MC_dropout_quicknat/solver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/log_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/parts/brainnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/parts/deep_bayesian.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/parts/deep_sample_bayesian.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/parts/full_bayesian_quicknat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/settings.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/snapshots/fbayesian/fbayesian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/snapshots/full_bayesian_quicknat/fbq-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/snapshots/full_bayesian_quicknat/full_bayesian1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/full_bayesian/solver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/parts/hquicknat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/parts/multi_input_residual_posterior_quickant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/parts/multi_input_residual_quicknat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/settings.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/snapshots/KORA2452995_hquicknat_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/snapshots/KORA2452995_hquicknat_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/snapshots/KORA2452995_hquicknat_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/snapshots/KORA2452995_hquicknat_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/snapshots/hquicknat_dropout/Screenshot1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/log_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/parts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/parts/encoder_net.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/parts/multi_input_quicknat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/parts/pu_net.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/settings.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/probabilistic_quicknat/solver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Visualizer-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/experiments_runner-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/kora_data_processing_full-checkpoint.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,39 +14,115 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/full_bayesian/.gitignore">
+        <entry file="file://$PROJECT_DIR$/utils/common_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state relative-caret-position="360">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/utils/notifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="52" column="31" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="46" />
+              <folding>
+                <element signature="e#1#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/MC_dropout_quicknat/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="146" column="13" lean-forward="true" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/probabilistic_quicknat/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/projects/probabilistic_quicknat/log_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="145" column="21" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/projects/MC_dropout_quicknat/log_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="145" column="21" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="75">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/full_bayesian/log_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="153" column="101" lean-forward="true" selection-start-line="153" selection-start-column="101" selection-end-line="153" selection-end-column="101" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="170" column="81" selection-start-line="170" selection-start-column="81" selection-end-line="170" selection-end-column="81" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1995">
+              <caret line="457" column="105" selection-start-line="457" selection-start-column="105" selection-end-line="457" selection-end-column="105" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,13 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/full_bayesian_quicknat_parts/deep_sample_bayesian.py" />
-        <option value="$PROJECT_DIR$/punet_parts/encoder_net.py" />
-        <option value="$PROJECT_DIR$/../nn-common-modules/nn_common_modules/losses.py" />
-        <option value="$PROJECT_DIR$/../nn-common-modules/nn_common_modules/modules.py" />
-        <option value="$PROJECT_DIR$/datasets/LIDC_IDRI/config.ini" />
-        <option value="$PROJECT_DIR$/datasets/LIDC/filtered_volumes.txt" />
-        <option value="$PROJECT_DIR$/datasets/LIDC/test_test_volumes.txt" />
         <option value="$PROJECT_DIR$/datasets/KORA/config.ini" />
         <option value="$PROJECT_DIR$/datasets/LIDC/train_volumes.txt" />
         <option value="$PROJECT_DIR$/datasets/LIDC/test_volumes.txt" />
@@ -242,10 +215,7 @@
         <option value="$PROJECT_DIR$/utils/extract_settings.py" />
         <option value="$PROJECT_DIR$/master_setting.ini" />
         <option value="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/config.ini" />
-        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py" />
         <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/parts/hquicknat.py" />
-        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py" />
-        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py" />
         <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/run.py" />
         <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/settings.ini" />
         <option value="$PROJECT_DIR$/dataset_groups/brain_datasets/.gitignore" />
@@ -254,6 +224,16 @@
         <option value="$PROJECT_DIR$/dataset_groups/LIDC/.gitignore" />
         <option value="$PROJECT_DIR$/dataset_groups/whole_body_datasets/KORA/.gitignore" />
         <option value="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB/.gitignore" />
+        <option value="$PROJECT_DIR$/settings_backup.ini" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py" />
+        <option value="$PROJECT_DIR$/utils/common_utils.py" />
+        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py" />
+        <option value="$PROJECT_DIR$/utils/notifier.py" />
+        <option value="$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py" />
+        <option value="$PROJECT_DIR$/projects/probabilistic_quicknat/log_utils.py" />
+        <option value="$PROJECT_DIR$/projects/MC_dropout_quicknat/log_utils.py" />
+        <option value="$PROJECT_DIR$/projects/full_bayesian/log_utils.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -278,6 +258,62 @@
             <path>
               <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
               <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="full_bayesian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="hierarchical_quicknat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="hierarchical_quicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="hierarchical_quicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+              <item name="hquicknat_v4_overrride" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="hierarchical_quicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="MC_dropout_quicknat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="probabilistic_quicknat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hquicknat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hquicknat" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,25 +340,25 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/projects/probabilistic_quicknat" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projects/probabilistic_quicknat" />
-      <recent name="$PROJECT_DIR$/projects/MC_dropout_quicknat" />
-      <recent name="$PROJECT_DIR$/projects/hierarchical_quicknat" />
-      <recent name="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB" />
-      <recent name="$PROJECT_DIR$/dataset_groups/whole_body_datasets/NAKO" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notebooks" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/quicknat_parts" />
       <recent name="$PROJECT_DIR$/old_project_level_reports" />
       <recent name="$PROJECT_DIR$/datasets/UKB/old_reports" />
-      <recent name="$PROJECT_DIR$/datasets/NAKO/old_reports" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projects/probabilistic_quicknat" />
+      <recent name="$PROJECT_DIR$/projects/MC_dropout_quicknat" />
+      <recent name="$PROJECT_DIR$/projects/hierarchical_quicknat" />
+      <recent name="$PROJECT_DIR$/projects/full_bayesian" />
+      <recent name="$PROJECT_DIR$/dataset_groups/whole_body_datasets/UKB" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -454,7 +490,7 @@
       <workItem from="1563812457537" duration="5575000" />
       <workItem from="1564411185890" duration="169401000" />
       <workItem from="1565354395957" duration="30618000" />
-      <workItem from="1565731001034" duration="308000" />
+      <workItem from="1565731001034" duration="5397000" />
     </task>
     <task id="LOCAL-00001" summary="punet-ready">
       <created>1565731108746</created>
@@ -463,11 +499,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565731108746</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="punet-ready">
+      <created>1565731343850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565731343850</updated>
+    </task>
+    <task id="LOCAL-00003" summary="punet-ready">
+      <created>1565736624242</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565736624242</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600957000" />
+    <option name="totallyTimeSpent" value="606046000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -480,6 +530,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2835821" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -539,7 +590,6 @@
     </ignored-roots>
     <MESSAGE value="punet-ready" />
     <option name="LAST_COMMIT_MESSAGE" value="punet-ready" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -591,7 +641,7 @@
     <SUITE FILE_PATH="coverage/punet$train.coverage" NAME="train Coverage Results" MODIFIED="1563197069047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/punet$eval.coverage" NAME="eval Coverage Results" MODIFIED="1563204967838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/hquicknat$convertH5.coverage" NAME="convertH5 Coverage Results" MODIFIED="1565721537804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/hquicknat$train.coverage" NAME="train Coverage Results" MODIFIED="1565729241551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/hierarchical_quicknat" />
+    <SUITE FILE_PATH="coverage/hquicknat$train.coverage" NAME="train Coverage Results" MODIFIED="1565735109280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/hierarchical_quicknat" />
     <SUITE FILE_PATH="coverage/punet$run.coverage" NAME="train Coverage Results" MODIFIED="1562168616923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hquicknat$eval.coverage" NAME="eval Coverage Results" MODIFIED="1565363453924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
@@ -645,16 +695,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hnet_parts/multi_input_residual_posterior_quickant.py" />
-    <entry file="file://$PROJECT_DIR$/solver.py" />
-    <entry file="file://$PROJECT_DIR$/utils/log_utils.py" />
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/worst_test_volumes.txt" />
-    <entry file="file://$PROJECT_DIR$/utils/data_utils.py" />
-    <entry file="file://$PROJECT_DIR$/utils/evaluator.py" />
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/train_volumes.txt" />
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/test_volumes.txt" />
-    <entry file="file://$PROJECT_DIR$/datasets/NAKO/config.ini" />
-    <entry file="file://$PROJECT_DIR$/datasets/UKB/config.ini" />
     <entry file="file://$PROJECT_DIR$/datasets/UKB/train_volumes.txt" />
     <entry file="file://$PROJECT_DIR$/datasets/UKB/test_volumes.txt" />
     <entry file="file://$PROJECT_DIR$/settings.ini" />
@@ -725,25 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/extract_settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -785,16 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/parts/hquicknat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -805,43 +816,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="149" column="73" selection-start-line="149" selection-start-column="73" selection-end-line="149" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/master_setting.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/weight_distr_and_importlib_poc.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dataset_groups/.gitignore" />
     <entry file="file://$PROJECT_DIR$/dataset_groups/brain_datasets/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/multi_proj_multi_data_config_aggregator.ipynb">
+    <entry file="file://$PROJECT_DIR$/notebooks/multi_proj_multi_data_config_aggregator.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/settings.ini">
@@ -898,10 +878,140 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/master_settings_backup.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/full_bayesian/settings_backup.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/settings_backup.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/MC_dropout_quicknat/settings_backup.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/probabilistic_quicknat/settings_backup.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master_setting.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="457" column="105" selection-start-line="457" selection-start-column="105" selection-end-line="457" selection-end-column="105" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="170" column="81" selection-start-line="170" selection-start-column="81" selection-end-line="170" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/notifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/hierarchical_quicknat/log_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="146" column="13" lean-forward="true" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/probabilistic_quicknat/log_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="145" column="21" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/MC_dropout_quicknat/log_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="145" column="21" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/full_bayesian/log_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="153" column="101" lean-forward="true" selection-start-line="153" selection-start-column="101" selection-end-line="153" selection-end-column="101" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="75">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
