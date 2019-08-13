@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='Thesis',
+    name='my_thesis',
     version='3.0.0',
     description='Multi data - multi project structure',
     url='',
