@@ -143,7 +143,7 @@ class LogWriter(object):
         print("Sample Images...", end='', flush=True)
         # Support for multiple segmentation map visualisation for uncertainty.
         if phase == 'val':
-            ncols = 7
+            ncols = 4
         else:
             ncols = 3
         nrows = len(prediction1)

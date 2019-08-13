@@ -73,6 +73,8 @@ class Solver(object):
         self.model_id = self.which_architecture()
 
         print("Solver started with model: {0} and model_id: {1}".format(self.model_name, self.model_id))
+        self.notifier = CommonUtils()
+        self.notifier.setup_notifier()
 
     # TODO:Need to correct the CM and dice score calculation.
     def train(self, train_loader, val_loader):
@@ -166,6 +168,7 @@ class Solver(object):
                         loss.backward()
                         optim.step()
                         if i_batch % self.log_nth == 0:
+                            self.notifier.notify(f'notifier setup, loss: {loss}')
                             self.logWriter.loss_per_iter(loss.item(), i_batch, current_iteration,
                                                          loss_name='loss')
                             self.logWriter.loss_per_iter(dice_loss.item(), i_batch, current_iteration,

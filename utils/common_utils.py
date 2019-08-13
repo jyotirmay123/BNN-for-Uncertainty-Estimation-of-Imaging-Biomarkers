@@ -1,14 +1,13 @@
 import os
 import torch
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-import json
+from utils.notifier import Notifier
+
 
 class CommonUtils(object):
     def __init__(self):
         super().__init__()
-        self.elem1 = None
+        self.notifier_obj = Notifier()
+        self.is_mail_notifier = None
 
     @staticmethod
     def create_if_not(path):
@@ -49,17 +48,17 @@ class CommonUtils(object):
         eps = torch.randn_like(std)
         return mu + eps * std
 
-    def setup_whatsapp_notifier(self, driver_path='/home/abhijit/Jyotirmay/thesis/hquicknat/utils/chromedriver', receiver="Tum Madhu Mathematics"):
-        driver = webdriver.Chrome(driver_path)
-        driver.get('https://web.whatsapp.com')
-        input('click "enter" once whatsapp configured in selenium invoked browser!')
-        print("Success!!!")
-        spans = driver.find_elements_by_tag_name('span')
-        elem_lst = [x for x in spans if x.get_attribute('title') == 'Tum Madhu Mathematics']
-        elem = elem_lst[0]
-        elem.click()
-        self.elem1 = driver.find_element_by_class_name('_3u328')
+    def setup_notifier(self, is_mail_notifier=True):
+        self.is_mail_notifier = is_mail_notifier
+        if is_mail_notifier:
+            self.notifier_obj.setup_mail_notifier()
+        else:
+            self.notifier_obj.setup_whatsapp_notifier()
 
-    def whatsapp_notifier(self, message):
-        self.elem1.send_keys(json.dumps(message) + '\r', Keys.RETURN)
-        print('Notified in whatsapp')
+    def notify(self, message):
+        if self.is_mail_notifier is None:
+            raise Exception('No notifier ready to notify! Please set it up.')
+        elif self.is_mail_notifier:
+            self.notifier_obj.mail_notifier(message)
+        else:
+            self.notifier_obj.whatsapp_notifier(message)

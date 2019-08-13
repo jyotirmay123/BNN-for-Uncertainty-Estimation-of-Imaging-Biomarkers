@@ -394,8 +394,7 @@ class Evaluator(m.DataUtils):
                                                              mode=mode)
                 self.print_report('# Dice Score per structure per volume.')
                 self.print_report(
-                    f'Spleen: {volume_dice_score[1]}   |    Liver: {volume_dice_score[2]}  |  <-Mean: {np.mean(
-                        volume_dice_score[1:])} \n')
+                    f'Spleen: {volume_dice_score[1]}   |    Liver: {volume_dice_score[2]}  |  <-Mean: {np.mean( volume_dice_score[1:])} \n')
 
                 volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
                                                                                    labelmap.cuda(device),
@@ -404,14 +403,11 @@ class Evaluator(m.DataUtils):
                 self.print_report('# Surface distance scores per structure per volume.')
 
                 self.print_report(f'GT TO PRED SCORES:: Spleen: {volume_dice_surface_distance[1, 0]}   |   '
-                                  f'Liver: {volume_dice_surface_distance[2, 0]}  |  <-Mean: {np.mean(
-                                      volume_dice_surface_distance[1:, 0])}')
+                                  f'Liver: {volume_dice_surface_distance[2, 0]}  |  <-Mean: {np.mean(volume_dice_surface_distance[1:, 0])}')
                 self.print_report(f'PRED TO GT SCORES::  Spleen: {volume_dice_surface_distance[1, 1]}   |   '
-                                  f'Liver: {volume_dice_surface_distance[2, 1]}  |  <-Mean: {np.mean(
-                                      volume_dice_surface_distance[1:, 1])}')
+                                  f'Liver: {volume_dice_surface_distance[2, 1]}  |  <-Mean: {np.mean(volume_dice_surface_distance[1:, 1])}')
                 self.print_report(f'  MEAN TO ABOVE  :: Spleen: {np.mean(volume_dice_surface_distance[1, :])}   |   '
-                                  f'Liver: {np.mean(volume_dice_surface_distance[2, :])}  |  MEAN: {np.mean(
-                                      volume_dice_surface_distance[1:])} \n')
+                                  f'Liver: {np.mean(volume_dice_surface_distance[2, :])}  |  MEAN: {np.mean(volume_dice_surface_distance[1:])} \n')
 
                 self.print_report(f'# Normalised Cross Correlation score: \n {s_ncc_list[-1][0]}')
                 self.print_report(f'# Generalised Entropy Distance score: \n {s_ged_list[-1]}')
@@ -457,14 +453,11 @@ class Evaluator(m.DataUtils):
 
             self.print_report('# Mean Surface distance scores.', final=True)
             self.print_report(f' GT TO PRED SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 0])} | '
-                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 0])} | OVERALL MEAN: {np.mean(
-                                  surface_distance_arr[:, 1:, 0])}', final=True)
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 0])} | OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 0])}', final=True)
             self.print_report(f' PRED TO GT SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 1])} | '
-                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 1])} | OVERALL MEAN: {np.mean(
-                                  surface_distance_arr[:, 1:, 1])}', final=True)
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 1])} | OVERALL MEAN: {np.mean( surface_distance_arr[:, 1:, 1])}', final=True)
             self.print_report(f' OVERALL MEAN:: SPLEEN: {np.mean(surface_distance_arr[:, 1])} | '
-                              f'LIVER: {np.mean(surface_distance_arr[:, 2])} | MEAN: {np.mean(
-                                  surface_distance_arr[:, 1:])} \n', final=True)
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2])} | MEAN: {np.mean(surface_distance_arr[:, 1:])} \n', final=True)
 
             self.print_report(f'# Mean Normalised Cross Correlation score:\n {np.mean(s_ncc_arr)}', final=True)
             self.print_report(f'# Mean Generalised Entropy Distance score:\n {np.mean(s_ged_arr)}\n', final=True)
