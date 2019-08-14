@@ -28,8 +28,8 @@ class MultiInputResidualQuickNat(nn.Module):
         """
         super(MultiInputResidualQuickNat, self).__init__()
 
-        params['num_filters'] = 64
-        params['num_channels'] = 1
+        # params['num_filters'] = 64
+        # params['num_channels'] = 1
         self.encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
 
         params['num_channels'] = 64

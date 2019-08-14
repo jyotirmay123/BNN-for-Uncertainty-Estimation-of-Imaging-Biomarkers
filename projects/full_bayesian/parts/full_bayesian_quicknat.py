@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 from nn_common_modules import modules as sm
 from squeeze_and_excitation import squeeze_and_excitation as se
-import random
 
 
 class FullBayesianQuickNat(nn.Module):
@@ -29,38 +28,29 @@ class FullBayesianQuickNat(nn.Module):
         """
         super(FullBayesianQuickNat, self).__init__()
 
-        params['num_channels'] = 4
-        # orig_num_filters = params['num_filters']
-        # params['num_filters'] = 4
-        # self.bayesianConv = sm.BayesianConv(params)
-        # params['num_filters'] = orig_num_filters
-        self.encode1 = sm.BayesianEncoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode1 = sm.FullBayesianEncoderBlock(params, se_block_type=se.SELayer.NONE)
         params['num_channels'] = 64
-        self.encode2 = sm.BayesianEncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.encode3 = sm.BayesianEncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.encode4 = sm.BayesianEncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.bottleneck = sm.BayesianDenseBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode2 = sm.FullBayesianEncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode3 = sm.FullBayesianEncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode4 = sm.FullBayesianEncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.bottleneck = sm.FullBayesianDenseBlock(params, se_block_type=se.SELayer.NONE)
         params['num_channels'] = 128
-        self.decode1 = sm.BayesianDecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode2 = sm.BayesianDecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode3 = sm.BayesianDecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode4 = sm.BayesianDecoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.decode1 = sm.FullBayesianDecoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.decode2 = sm.FullBayesianDecoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.decode3 = sm.FullBayesianDecoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.decode4 = sm.FullBayesianDecoderBlock(params, se_block_type=se.SELayer.NONE)
         params['num_channels'] = 64
-        # self.mode_finder = sm.MultiModeBayesianBlock(params)
+
         self.classifier = sm.ClassifierBlock(params)
 
         self.is_training = True
 
-    def forward(self, input, gt=None, epoch=None):
+    def forward(self, input):
         """
 
         :param input: X
         :return: probabiliy map
         """
-        # if not self.is_training:
-        #    self.enable_test_dropout()
-        # input, kl_in = self.bayesianConv.forward(input, True)
-
         e1, out1, ind1, kl_e1 = self.encode1.forward(input)
         e2, out2, ind2, kl_e2 = self.encode2.forward(e1)
         e3, out3, ind3, kl_e3 = self.encode3.forward(e2)
@@ -73,15 +63,9 @@ class FullBayesianQuickNat(nn.Module):
         d2, kl_d2 = self.decode2.forward(d3, out2, ind2)
         d1, kl_d1 = self.decode1.forward(d2, out1, ind1)
 
-        if epoch is None:
-            epoch = random.randint(1, 3) - 1
-        else:
-            epoch %= 3
-
-        # out, kl_out = self.mode_finder.forward(d1, epoch)
         prob = self.classifier.forward(d1)
 
-        kl_loss = 0.1 * (kl_e1 + kl_e2 + kl_e3 + kl_e4 + kl_bn + kl_d4 + kl_d3 + kl_d2 + kl_d1)  # + kl_out)
+        kl_loss = 0.1 * (kl_e1 + kl_e2 + kl_e3 + kl_e4 + kl_bn + kl_d4 + kl_d3 + kl_d2 + kl_d1)
         return None, kl_loss, prob
         # return None, None, prob
 

@@ -19,7 +19,7 @@ class Notifier(object):
         self.s = None
         self.MY_ADDRESS = None
 
-    def setup_whatsapp_notifier(self, driver_path='/home/abhijit/Jyotirmay/thesis/hquicknat/utils/chromedriver',
+    def setup_whatsapp_notifier(self, driver_path='/home/abhijit/Jyotirmay/thesis/my_thesis/utils/chromedriver',
                                 receiver="Tum Madhu Mathematics"):
         driver = webdriver.Chrome(driver_path)
         driver.get('https://web.whatsapp.com')
@@ -35,9 +35,16 @@ class Notifier(object):
         self.elem1.send_keys(json.dumps(message) + '\r', Keys.RETURN)
         print('Notified in whatsapp')
 
-    def setup_mail_notifier(self ):
-        self.MY_ADDRESS = 'senapati.jyotirmay@gmail.com'
-        PASSWORD = 'Shaan@lostworld1234.'
+    def setup_mail_notifier(self):
+        creds = None
+        with open('/home/abhijit/Jyotirmay/thesis/my_thesis/utils/notifier_creds.txt', mode='r') as cred_file:
+            creds = cred_file.read().splitlines
+
+        if creds is not None:
+            self.MY_ADDRESS = creds[0]
+            PASSWORD = creds[1]
+        else:
+            raise Exception('No mail credentials found!!!')
 
         # set up the SMTP server
         self.s = smtplib.SMTP(host='smtp.gmail.com', port=587)
@@ -58,10 +65,3 @@ class Notifier(object):
         # send the message via the server set up earlier.
         self.s.send_message(msg)
         del msg
-
-    def __del__(self):
-        if self.s is not None:
-            self.s.quit()
-        if self.elem1 is not None:
-            del self.elem1
-        print('Destructor called, Notifier deleted.')

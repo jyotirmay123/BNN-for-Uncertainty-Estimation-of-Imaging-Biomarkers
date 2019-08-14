@@ -1,6 +1,8 @@
 import os
 import torch
 from utils.notifier import Notifier
+import time
+from importlib.util import find_spec
 
 
 class CommonUtils(object):
@@ -37,6 +39,16 @@ class CommonUtils(object):
             file.close()
 
     @staticmethod
+    def current_milli_time():
+        return lambda: int(round(time.time() * 1000))
+
+    @staticmethod
+    def import_module(file, package):
+        spec = find_spec(file, package=package)
+        m = spec.loader.load_module()
+        return m
+
+    @staticmethod
     def reparameterize(mu, logvar):
         """
 
@@ -62,3 +74,5 @@ class CommonUtils(object):
             self.notifier_obj.mail_notifier(message)
         else:
             self.notifier_obj.whatsapp_notifier(message)
+
+

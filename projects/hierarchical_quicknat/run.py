@@ -1,63 +1,27 @@
-import argparse
 import os
-
 import torch
-import torch.nn.init as init
+
+from interfaces.run_interface import ExecutorInterface
+from utils.log_utils import LogWriter
 
 from projects.hierarchical_quicknat.evaluator import Evaluator
 from projects.hierarchical_quicknat.parts.hquicknat import HQuicknat
-# from quicknat_parts.quicknat import QuickNat
-# from punet_parts.pu_net import ProbabilisticUNet
-# from full_bayesian_quicknat_parts.full_bayesian_quicknat import FullBayesianQuickNat
-# from full_bayesian_quicknat_parts.deep_bayesian import DeepBayesianQuickNat
-# from full_bayesian_quicknat_parts.deep_sample_bayesian import DeepSampleBayesianQuickNat
-from settings import compile_config
 from projects.hierarchical_quicknat.solver import Solver
-import torch.nn as nn
-from projects.hierarchical_quicknat.log_utils import LogWriter
-import numpy as np
-import shutil
+
 from nn_common_modules import losses as additional_losses
 
 torch.set_default_tensor_type('torch.FloatTensor')
 
 
-class Executor(Evaluator):
+class Executor(ExecutorInterface, Evaluator):
     def __init__(self, settings):
-        super().__init__(settings)
-
-    @staticmethod
-    def delete_contents(folder):
-        for the_file in os.listdir(folder):
-            file_path = os.path.join(folder, the_file)
-            try:
-                if os.path.isfile(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    shutil.rmtree(file_path)
-            except Exception as e:
-                print(e)
-
-    def init_weights(self, m):
-        if type(m) == nn.Linear or type(m) == nn.Conv2d:
-            torch.nn.init.orthogonal_(m.weight)
-            m.bias.data.fill_(0.01)
-
-    def weights_init_orthogonal(self, m):
-        classname = m.__class__.__name__
-        print(classname)
-        if classname.find('Conv') != -1:
-            init.orthogonal(m.weight.data, gain=1)
-        elif classname.find('Linear') != -1:
-            init.orthogonal(m.weight.data, gain=1)
-        elif classname.find('BatchNorm2d') != -1:
-            init.normal(m.weight.data, 1.0, 0.02)
-            init.constant(m.bias.data, 0.0)
+        ExecutorInterface.__init__(self, settings)
+        Evaluator.__init__(self, settings)
+        # super().__init__(settings)
 
     def train(self, train_params, common_params, data_params, net_params, utils=None):
-        global settings
         print("Loading dataset")
-        train_data, test_data = self.get_imdb_dataset()
+        train_data, test_data = self.dataUtils.get_imdb_dataset()
         print("Train size: %i" % len(train_data))
         print("Test size: %i" % len(test_data))
 
@@ -67,22 +31,13 @@ class Executor(Evaluator):
         val_loader = torch.utils.data.DataLoader(test_data, batch_size=train_params['val_batch_size'], shuffle=False,
                                                  num_workers=4, pin_memory=True)
 
-        # if 'HQUICKNAT' in common_params.model_name.upper():
-        Model = HQuicknat
-        # elif 'QUICKNAT' in common_params.model_name.upper():
-        #    Model = QuickNat
-        # elif 'PUNET' in common_params.model_name.upper():
-        #    Model = ProbabilisticUNet
-        # else:
-        #    raise Exception('Cannot able to locateModel for current {}'.format(common_params.model_name))
-
         if train_params['use_pre_trained']:
             model = torch.load(train_params['pre_trained_path'])
         else:
-            model = Model(net_params)
-            # model.apply(self.init_weights)
+            model = HQuicknat(net_params)
+            #model.apply(self.weights_init_orthogonal)
 
-        solver = Solver(model,
+        solver = Solver(model=model,
                         device=common_params['device'],
                         num_class=net_params['num_class'],
                         optim_args={"lr": train_params['learning_rate'],
@@ -124,58 +79,7 @@ class Executor(Evaluator):
 
         logWriter = LogWriter(num_classes, log_dir, exp_name, labels=labels)
 
-        avg_dice_score, class_dist, dice_score_arr, surface_distance_arr = \
-            self.evaluate_dice_score(prediction_path, True, device, logWriter, False)
-
-        for i in range(num_classes):
-            dice_score_class_mean = np.mean(dice_score_arr[:, i])
-            distance_gt_to_pred_class_mean = np.mean(surface_distance_arr[:, i, 0])
-            distance_pred_to_gt_class_mean = np.mean(surface_distance_arr[:, i, 1])
-            print('\n###' + labels[i] + ' predictions over all Volumes: ')
-            print("\n    mean dice score: " + str(dice_score_class_mean))
-            print("\n    mean relative overlap on ground truth: " + str(distance_gt_to_pred_class_mean))
-            print("\n    mean relative overlap on prediction: " + str(distance_pred_to_gt_class_mean))
-
-        distance_gt_to_pred_mean = np.mean(surface_distance_arr[:, :, 0])
-        distance_pred_to_gt_mean = np.mean(surface_distance_arr[:, :, 1])
-        print('\n \n final mean dice score: ' + str(avg_dice_score))
-        print('\n final mean relative overlap on ground truth: ' + str(distance_gt_to_pred_mean))
-        print("\n final mean relative overlap on prediction: " + str(distance_pred_to_gt_mean))
+        self.evaluate_dice_score(prediction_path, True, device, logWriter, False)
 
         logWriter.close()
 
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', '-m', required=True, help='run mode, valid values are train and eval')
-    parser.add_argument('--settings_file_path', '-cfg', required=True, help='Path to project config file(settings.ini)')
-    args = parser.parse_args()
-
-    settings = compile_config(args.settings_file_path)
-    executor = Executor(settings)
-
-    common_params = executor.common_params
-    data_params = executor.data_params
-    net_params = executor.net_params
-    train_params = executor.train_params
-    eval_params = executor.eval_params
-    data_config_params = executor.data_config_params
-    eval_params.update(data_config_params)
-
-    if args.mode == 'train':
-        executor.train(train_params, common_params, data_params, net_params)
-    elif args.mode == 'eval':
-        executor.evaluate(eval_params, net_params, data_params, common_params, train_params)
-    elif args.mode == 'clear':
-        shutil.rmtree(os.path.join(common_params.exp_dir, train_params.exp_name))
-        print("Cleared current experiment directory successfully!!")
-        shutil.rmtree(os.path.join(common_params.log_dir, train_params.exp_name))
-        print("Cleared current log directory successfully!!")
-
-    elif args.mode == 'clear-all':
-        executor.delete_contents(common_params.exp_dir)
-        print("Cleared experiments directory successfully!!")
-        executor.delete_contents(common_params.log_dir)
-        print("Cleared logs directory successfully!!")
-    else:
-        raise ValueError('Invalid value for mode. only support values are train, eval and clear')

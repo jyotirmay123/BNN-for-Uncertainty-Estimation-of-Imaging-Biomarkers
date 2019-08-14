@@ -6,7 +6,6 @@ class ExtractSettings(CommonUtils):
     def __init__(self, settings):
         super().__init__()
         self.settings = settings
-        print(settings.settings_dict)
         self.ctime = str(time.time())
         self.notifier = None
 
