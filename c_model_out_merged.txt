@@ -1,0 +1,84 @@
+{
+    "0.6506849315068494": [
+        "iou_liver",
+        "iou_spleen",
+        "bmi-numeric",
+        "age",
+        "liver_volume",
+        "sex"
+    ],
+    "0.6712328767123288": [
+        "iou_liver",
+        "iou_spleen",
+        "bmi-numeric"
+    ],
+    "0.684931506849315": [
+        "iou_spleen",
+        "spleen_volume",
+        "bmi-numeric",
+        "age"
+    ],
+    "0.7123287671232876": [
+        "iou_liver",
+        "iou_spleen",
+        "bmi-numeric",
+        "sex"
+    ],
+    "0.6575342465753424": [
+        "iou_liver",
+        "iou_spleen",
+        "age",
+        "sex"
+    ],
+    "0.6986301369863014": [
+        "iou_spleen",
+        "bmi-numeric",
+        "age",
+        "sex"
+    ],
+    "0.6643835616438356": [
+        "iou_liver",
+        "iou_spleen",
+        "spleen_volume",
+        "bmi-numeric",
+        "age",
+        "sex"
+    ],
+    "0.6438356164383562": [
+        "iou_liver",
+        "iou_spleen",
+        "spleen_volume",
+        "age",
+        "liver_volume",
+        "sex"
+    ],
+    "0.6301369863013698": [
+        "spleen_volume",
+        "bmi-numeric",
+        "age",
+        "liver_volume"
+    ],
+    "0.678082191780822": [
+        "iou_liver",
+        "iou_spleen",
+        "spleen_volume",
+        "bmi-numeric",
+        "age"
+    ],
+    "0.6917808219178082": [
+        "iou_liver",
+        "iou_spleen",
+        "bmi-numeric",
+        "age",
+        "sex"
+    ],
+    "0.636986301369863": [
+        "iou_liver",
+        "iou_spleen",
+        "spleen_volume",
+        "bmi-numeric",
+        "age",
+        "liver_volume",
+        "sex"
+    ]
+}

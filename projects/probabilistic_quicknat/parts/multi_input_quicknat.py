@@ -1,4 +1,4 @@
-from quicknat_parts.quicknat import QuickNat
+from projects.probabilistic_quicknat.parts.quicknat import QuickNat
 from nn_common_modules import modules as sm
 import torch
 import torch.nn as nn

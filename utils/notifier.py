@@ -32,13 +32,13 @@ class Notifier(object):
         self.elem1 = driver.find_element_by_class_name('_3u328')
 
     def whatsapp_notifier(self, message):
-        self.elem1.send_keys(json.dumps(message) + '\r', Keys.RETURN)
+        self.elem1.send_keys(json.dumps(message, indent=4) + '\r', Keys.RETURN)
         print('Notified in whatsapp')
 
     def setup_mail_notifier(self):
         creds = None
         with open('/home/abhijit/Jyotirmay/thesis/my_thesis/utils/notifier_creds.txt', mode='r') as cred_file:
-            creds = cred_file.read().splitlines
+            creds = cred_file.read().splitlines()
 
         if creds is not None:
             self.MY_ADDRESS = creds[0]
@@ -52,16 +52,20 @@ class Notifier(object):
         self.s.login(self.MY_ADDRESS, PASSWORD)
 
     def mail_notifier(self, message):
-        msg = MIMEMultipart()  # create a message
+        try:
+            msg = MIMEMultipart()  # create a message
 
-        # setup the parameters of the message
-        msg['From'] = self.MY_ADDRESS
-        msg['To'] = 'j.senapati@tum.de'
-        msg['Subject'] = "project_notification"
+            # setup the parameters of the message
+            msg['From'] = self.MY_ADDRESS
+            msg['To'] = 'j.senapati@tum.de'
+            msg['Subject'] = "project_notification"
 
-        # add in the message body
-        msg.attach(MIMEText(json.dumps(message), 'plain'))
+            # add in the message body
+            msg.attach(MIMEText(json.dumps(message, indent=4), 'plain'))
 
-        # send the message via the server set up earlier.
-        self.s.send_message(msg)
-        del msg
+            # send the message via the server set up earlier.
+            self.s.send_message(msg)
+            del msg
+        except Exception as e:
+            print(e)
+            self.setup_mail_notifier()

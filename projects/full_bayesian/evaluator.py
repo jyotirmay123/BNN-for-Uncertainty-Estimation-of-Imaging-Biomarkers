@@ -33,7 +33,7 @@ class Evaluator(EvaluatorInterface):
         model.eval()
 
         volume_dice_score_list, volume_surface_distance_list, iou_score_per_structure_list = [], [], []
-        s_ncc_list, s_ged_list = [], []
+        s_ncc_list, s_ged_list, u_map_surface_distance_list = [], [], []
 
         print("Evaluating now...")
         file_paths = self.dataUtils.load_file_paths(load_from_txt_file=load_from_txt_file,
@@ -53,7 +53,7 @@ class Evaluator(EvaluatorInterface):
                 labelmap = torch.tensor(np.ascontiguousarray(labelmap)).type(torch.FloatTensor)
 
                 volume_prediction, heat_map_arr = [], []
-                iou_s, s_ncc, s_ged = None, None, None
+                iou_s, s_ncc, s_ged, u_map_surface_distance = None, None, None, None
                 iou_uncertainty = np.zeros(
                     (self.dataUtils.mc_sample, volume.shape[0], volume.shape[2], volume.shape[3]))
 
@@ -67,6 +67,7 @@ class Evaluator(EvaluatorInterface):
                         for mcs in range(self.dataUtils.mc_sample):
                             model.is_training = False
                             out = model.forward(batch_x)
+                            out = out[2]
                             out = F.softmax(out, dim=1)
                             _, batch_class_map = torch.max(out, dim=1)
                             iou_uncertainty[mcs, i: i + batch_size] = batch_class_map.cpu().numpy()
@@ -91,29 +92,32 @@ class Evaluator(EvaluatorInterface):
 
                     volume_prediction.append(batch_output)
 
+                volume_prediction = torch.cat(volume_prediction)
                 volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
                                                              self.dataUtils.num_class, mode=mode)
                 volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
                                                                                    labelmap.cuda(device), mode=mode)
+
                 if self.dataUtils.is_uncertainity_check_enabled:
                     iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
                     s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
                     s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
+                    # u_map_surface_distance = self.uncertainty_map_surface_distance(iou_uncertainty, volume_prediction, mode)
 
                 volume_dice_score_list.append(volume_dice_score)
                 volume_surface_distance_list.append(volume_dice_surface_distance)
                 iou_score_per_structure_list.append(iou_s)
                 s_ncc_list.append(s_ncc)
                 s_ged_list.append(s_ged)
-
-                volume_prediction = torch.cat(volume_prediction)
+                # u_map_surface_distance_list.append(u_map_surface_distance)
 
                 if self.dataUtils.is_uncertainity_check_enabled:
                     self.save_uncertainty_samples(iou_uncertainty, prediction_path, volumes_to_use[vol_idx], header)
                     self.save_uncertainty_heat_map(heat_map_arr, prediction_path, volumes_to_use[vol_idx], header)
 
                 self.save_segmentation_map(volume_prediction, prediction_path, volumes_to_use[vol_idx], header)
-                self.intermediate_report(volume_dice_score, volume_dice_surface_distance, iou_s, s_ncc_list, s_ged_list)
+                self.intermediate_report(volumes_to_use[vol_idx], volume_dice_score, volume_dice_surface_distance,
+                                         iou_s, s_ncc_list, s_ged_list, None)
 
                 if logWriter:
                     logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],
@@ -124,8 +128,10 @@ class Evaluator(EvaluatorInterface):
             iou_score_per_structure_arr = np.asarray(iou_score_per_structure_list)
             s_ncc_arr = np.asarray(s_ncc_list)
             s_ged_arr = np.asarray(s_ged_list)
+            # u_map_surface_distance_arr = np.asarray(u_map_surface_distance_list)
 
-            self.final_report(dice_score_arr, surface_distance_arr, iou_score_per_structure_arr, s_ncc_arr, s_ged_arr)
+            self.final_report(dice_score_arr, surface_distance_arr, iou_score_per_structure_arr, s_ncc_arr,
+                              s_ged_arr, None)
 
             class_dist = [dice_score_arr[:, c] for c in range(self.dataUtils.num_class)]
 

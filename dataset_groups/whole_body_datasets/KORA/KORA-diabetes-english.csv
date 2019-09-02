@@ -1,0 +1,401 @@
+age,alcohol-g/day,blood-pressure-diastolic,blood-pressure-systolic,bmi-numeric,bmi-who,cholesterol-hdl,cholesterol-ldl,cholesterol-total,diabetes_status,hba1c-mmol/mol,hba1c-percentage,height,hypertension,meds-antidiabetic,meds-antihypertensive,meds-incretin-mimetics,meds-insulin-therapy,meds-lipoprotein-lowering,meds-oral-antidiabetic,mri-liver-fat-artifacts,mri-liver-fat-lobus-dexter,mri-liver-fat-lobus-sinister,mri-liver-fat-portal-vein,mrt-image-id,sex,smoker,smoking-packages,triglyceride,weight
+60,2.86,68.5,103.0,23.86,normal,62.0,223,326,normal,34.0,5.2620000000000005,155.9,no,no,no,no,no,no,no,no,3.0,3.2,1.09,2461930,female,regular,22.5,185.0,58.0
+50,45.71,71.0,114.5,23.51,normal,80.8,163,252,normal,32.0,5.079,178.0,no,no,no,no,no,no,no,no,3.39,2.36,2.49,2457719,male,regular,8.2,70.3,74.5
+54,24.14,91.5,142.0,26.95,pre-obisety,60.0,172,250,normal,37.0,5.537000000000001,168.6,yes,no,no,no,no,no,no,no,7.46,5.5,4.85,2453427,male,former,1.3,75.0,76.6
+66,5.71,77.0,126.5,25.75,pre-obisety,49.0,167,218,normal,30.0,4.896,188.1,no,no,no,no,no,no,no,no,5.49,5.81,6.04,2459365,male,non-smoker,0.0,79.0,91.1
+52,10.07,82.5,126.0,28.15,pre-obisety,41.0,86,149,normal,37.0,5.537000000000001,171.8,no,no,no,no,no,no,no,no,18.4,20.1,19.6,2462054,male,regular,36.25,73.0,83.1
+46,2.86,77.5,125.5,30.91,obesity class I,34.88,123,190,normal,30.0,4.896,187.0,no,no,no,no,no,no,no,no,11.23,11.98,8.92,2456715,male,non-smoker,0.0,199.14,108.1
+62,25.93,64.0,117.0,39.23,obesity class II,43.84,122,189,pre-diabetes,36.0,5.445,183.7,yes,no,yes,no,no,no,no,no,23.65,25.14,19.94,2455130,male,former,87.5,145.61,132.4
+72,70.71,76.0,148.0,28.16,pre-obisety,81.0,128,209,pre-diabetes,39.0,5.72,164.5,yes,no,yes,no,no,no,no,no,21.9,15.63,18.93,2459275,male,non-smoker,0.0,79.0,76.2
+51,6.6,61.0,96.0,25.79,pre-obisety,48.0,159,227,normal,38.0,5.627999999999999,182.3,no,no,no,no,no,no,no,no,2.6,3.8,0.91,2461599,male,regular,49.38,142.0,85.7
+63,200.0,80.5,118.0,34.88,obesity class I,61.76,108,225,pre-diabetes,31.0,4.988,179.9,no,no,no,no,no,no,no,no,22.13,46.13,18.67,2457949,male,former,34.0,304.39,112.9
+62,42.86,63.5,93.5,21.22,normal,111.04,111,222,normal,33.0,5.171,165.9,yes,no,yes,no,no,no,no,no,4.94,5.6,2.8,2455443,female,former,18.25,51.24,58.4
+73,0.0,61.5,106.5,28.54,pre-obisety,84.0,199,293,normal,37.0,5.537000000000001,160.6,no,no,no,no,no,no,no,no,4.68,4.64,4.88,2453071,female,non-smoker,0.0,133.0,73.6
+64,17.14,70.0,108.5,24.48,normal,72.96,150,224,normal,37.0,5.537000000000001,189.5,no,no,no,no,no,no,no,no,35.41,33.78,33.4,2456295,male,non-smoker,0.0,73.02,87.9
+50,0.0,78.5,124.5,30.82,obesity class I,43.0,138,204,normal,35.0,5.354,173.8,no,no,no,no,no,no,no,no,5.9,2.0,4.07,2461700,male,regular,42.0,110.0,93.1
+66,0.0,80.0,121.5,29.01,pre-obisety,65.0,185,261,normal,32.0,5.079,164.4,no,no,no,no,no,no,no,no,1.96,1.42,2.43,2453207,female,former,0.2,80.0,78.4
+42,0.0,78.5,129.0,31.25,obesity class I,62.88,160,232,pre-diabetes,36.0,5.445,178.7,no,no,no,no,no,no,no,no,6.84,4.16,5.09,2455764,male,non-smoker,0.0,63.04,99.8
+55,17.14,78.0,130.0,28.9,pre-obisety,40.0,198,278,pre-diabetes,38.0,5.627999999999999,173.9,no,no,no,no,no,no,no,no,14.93,11.36,13.38,2452146,male,former,,330.0,87.4
+62,1.57,89.0,125.0,30.55,obesity class I,78.0,185,275,normal,33.0,5.171,156.9,yes,no,yes,no,no,no,no,no,4.66,3.47,3.78,2453015,female,former,1.0,94.0,75.2
+59,5.71,76.5,115.5,22.93,normal,53.0,157,215,normal,36.0,5.445,168.1,no,no,no,no,no,no,no,no,2.21,0.0,3.26,2459994,male,former,7.8,72.0,64.8
+53,49.2,82.5,124.0,25.96,pre-obisety,75.0,144,224,normal,39.0,5.72,171.1,yes,no,yes,no,no,no,no,no,11.78,8.14,9.52,2452711,male,non-smoker,0.0,51.0,76.0
+65,14.29,93.5,143.5,29.01,pre-obisety,79.0,164,266,normal,39.0,5.72,162.8,yes,no,yes,no,no,no,no,no,5.8,6.1,3.42,2462328,female,non-smoker,0.0,128.0,76.9
+70,0.21,76.0,121.5,25.24,pre-obisety,66.24,153,237,pre-diabetes,38.0,5.627999999999999,164.5,yes,no,yes,no,no,no,no,no,4.19,4.43,4.03,2458169,female,non-smoker,0.0,114.76,68.3
+52,6.6,76.5,109.0,23.31,normal,61.0,95,162,normal,33.0,5.171,185.5,no,no,no,no,no,no,no,no,3.2,2.4,1.66,2462026,male,former,6.04,76.0,80.2
+60,0.0,80.0,112.5,34.69,obesity class I,41.6,104,157,pre-diabetes,39.0,5.72,166.7,no,no,no,no,no,yes,no,,,,,2455792,male,regular,16.56,111.13,96.4
+67,45.71,77.5,127.0,29.48,pre-obisety,45.0,156,210,pre-diabetes,35.0,5.354,178.2,no,no,no,no,no,no,no,no,29.64,27.76,28.34,2459343,male,former,34.0,187.0,93.6
+47,2.86,67.5,101.0,26.75,pre-obisety,83.0,153,238,normal,34.0,5.2620000000000005,161.3,no,no,no,no,no,yes,no,no,2.51,2.43,1.7,2460191,male,non-smoker,0.0,49.0,69.6
+48,40.0,78.5,132.0,23.82,normal,69.6,153,235,pre-diabetes,41.0,5.903,182.9,no,no,no,no,no,no,no,no,11.25,4.92,6.08,2455141,male,former,2.34,84.81,79.7
+46,0.0,70.5,99.0,24.45,normal,51.0,151,217,normal,32.0,5.079,163.8,no,no,no,no,no,no,no,no,1.1,1.62,1.62,2452437,female,former,3.09,102.0,65.6
+46,17.14,79.5,122.5,29.59,pre-obisety,43.0,171,245,normal,31.0,4.988,188.2,no,no,no,no,no,no,no,no,7.75,7.75,6.59,2452566,male,non-smoker,0.0,245.0,104.8
+49,0.0,71.0,120.0,26.78,pre-obisety,49.0,167,229,normal,35.0,5.354,173.7,no,no,no,no,no,no,no,no,1.6,1.6,1.22,2461381,male,non-smoker,0.0,91.0,80.8
+49,0.0,75.0,130.5,43.11,obesity class III,59.0,141,219,normal,39.0,5.72,179.3,no,no,no,no,no,no,no,no,7.1,5.8,5.06,2453822,male,non-smoker,0.0,77.0,138.6
+50,55.17,88.0,153.0,35.73,obesity class II,48.32,202,261,normal,34.0,5.2620000000000005,181.2,yes,no,yes,no,no,no,no,no,7.09,7.26,6.45,2456892,male,former,0.5,135.62,117.3
+60,25.71,66.0,107.0,21.32,normal,92.0,138,240,normal,39.0,5.72,169.0,no,no,no,no,no,no,no,no,2.31,3.53,2.39,2459376,female,regular,34.26,95.0,60.9
+69,41.57,75.5,144.0,24.19,normal,75.0,180,265,normal,34.0,5.2620000000000005,177.0,yes,no,no,no,no,no,no,no,8.13,5.25,6.76,2460205,male,former,1.95,136.0,75.8
+46,0.0,68.0,110.5,24.93,normal,58.0,190,263,normal,36.0,5.445,163.7,no,no,no,no,no,no,no,no,5.2,4.16,4.65,2453391,female,non-smoker,0.0,104.0,66.8
+55,2.86,75.0,120.0,24.38,normal,67.0,120,190,normal,37.0,5.537000000000001,167.5,no,no,no,no,no,no,no,no,3.01,1.88,2.05,2459961,female,non-smoker,0.0,76.0,68.4
+61,0.0,62.5,102.0,23.96,normal,77.0,157,235,normal,38.0,5.627999999999999,166.1,no,no,no,no,no,no,no,no,1.55,1.04,1.73,2452733,female,former,4.25,52.0,66.1
+46,8.57,75.5,114.5,28.44,pre-obisety,48.0,131,202,normal,35.0,5.354,177.2,no,no,no,no,no,no,no,no,7.33,3.89,5.42,2460227,male,former,1.1,196.0,89.3
+59,22.86,77.5,118.0,29.15,pre-obisety,71.84,110,196,pre-diabetes,39.0,5.72,181.1,no,no,no,no,no,no,no,,,,,2455852,male,former,52.5,103.87,95.6
+69,42.86,77.0,139.0,24.75,normal,77.0,108,188,normal,33.0,5.171,177.3,yes,no,yes,no,no,no,no,no,6.17,3.9,4.76,2453218,male,non-smoker,0.0,57.0,77.8
+65,5.71,76.0,142.5,30.47,obesity class I,66.24,150,216,type-2-diabetes,37.0,5.537000000000001,173.3,yes,no,no,no,no,no,no,no,21.19,19.35,20.29,2455375,male,former,1.0,102.96,91.5
+51,7.86,80.5,127.0,26.62,pre-obisety,91.0,108,208,normal,31.0,4.988,168.3,no,no,no,no,no,no,no,no,3.03,1.35,1.9,2459638,female,non-smoker,0.0,64.0,75.4
+64,5.93,75.0,111.0,21.88,normal,96.48,116,229,normal,39.0,5.72,159.7,no,no,no,no,no,no,no,no,2.09,2.84,1.28,2457826,female,non-smoker,0.0,89.35,55.8
+73,20.0,68.0,118.0,25.17,pre-obisety,59.52,140,217,pre-diabetes,43.0,6.086,171.1,no,no,no,no,no,no,no,no,16.35,7.64,11.9,2454944,female,former,43.0,169.2,73.7
+46,54.29,65.0,126.0,35.85,obesity class II,52.0,154,212,pre-diabetes,31.0,4.988,174.3,no,no,no,no,no,no,no,no,9.09,7.88,6.64,2453229,male,former,18.0,183.0,108.9
+53,0.0,84.5,120.5,27.06,pre-obisety,89.0,162,250,normal,32.0,5.079,165.6,no,no,no,no,no,no,no,no,1.89,,1.5,2453147,female,former,,97.0,74.2
+63,15.6,74.5,121.5,28.03,pre-obisety,64.0,135,239,pre-diabetes,38.0,5.627999999999999,157.8,no,no,no,no,no,yes,no,no,15.8,9.8,11.55,2453787,female,non-smoker,0.0,234.0,69.8
+56,11.43,88.5,136.5,26.94,pre-obisety,65.0,133,214,pre-diabetes,38.0,5.627999999999999,184.8,no,no,no,no,no,no,no,no,4.93,2.69,3.89,2452118,male,irregular,1.3,97.0,92.0
+55,20.0,87.5,124.5,23.67,normal,68.0,117,197,pre-diabetes,35.0,5.354,179.9,no,no,no,no,no,no,no,no,10.7,10.6,10.11,2461542,male,former,14.75,150.0,76.6
+66,22.14,67.5,104.5,31.38,obesity class I,74.08,128,201,pre-diabetes,34.0,5.2620000000000005,166.8,no,no,no,no,no,yes,no,no,18.09,16.24,17.93,2456535,female,regular,5.98,77.56,87.3
+64,0.0,68.0,108.0,20.94,normal,57.0,140,210,normal,34.0,5.2620000000000005,154.2,no,no,no,no,no,no,no,no,2.23,3.55,2.18,2453416,female,regular,34.5,79.0,49.8
+53,0.0,68.5,101.0,33.18,obesity class I,53.92,223,302,normal,38.0,5.627999999999999,143.9,no,no,no,no,no,no,no,no,9.38,6.61,6.72,2456230,female,non-smoker,0.0,126.55,68.7
+59,2.57,60.0,95.0,31.56,obesity class I,35.0,124,170,normal,33.0,5.171,164.3,no,no,no,no,no,no,no,no,7.44,5.93,5.03,2460436,male,former,22.5,108.0,85.2
+64,0.0,66.5,96.5,26.88,pre-obisety,81.0,109,202,normal,37.0,5.537000000000001,163.1,no,no,no,no,no,no,no,no,4.5,3.7,2.79,2461801,female,non-smoker,0.0,72.0,71.5
+48,3.07,89.0,130.0,23.46,normal,64.0,84,151,normal,26.0,4.53,175.2,no,no,no,no,no,no,no,no,3.44,2.52,2.61,2452885,male,non-smoker,0.0,62.0,72.0
+51,2.86,70.5,91.5,39.07,obesity class II,81.0,176,263,normal,37.0,5.537000000000001,154.2,no,no,no,no,no,no,no,no,1.66,0.84,1.46,2452995,female,regular,12.28,66.0,92.9
+70,24.63,79.5,123.0,27.3,pre-obisety,59.52,206,295,type-2-diabetes,35.0,5.354,188.6,no,no,no,no,no,no,no,no,12.19,7.25,9.35,2458096,male,non-smoker,0.0,147.42,97.1
+49,0.0,84.5,119.5,24.37,normal,55.0,81,145,normal,36.0,5.445,156.9,no,no,no,no,no,no,no,no,2.7,1.5,0.91,2460675,female,regular,16.85,52.0,60.0
+59,3.74,68.5,99.0,21.4,normal,90.0,147,245,normal,36.0,5.445,161.2,no,no,no,no,no,no,no,no,3.09,2.24,1.99,2452978,female,former,2.41,58.0,55.6
+44,0.0,74.0,105.5,21.2,normal,75.2,119,194,normal,29.0,4.805,184.3,no,no,no,no,no,no,no,no,8.28,6.2,5.4,2455167,male,non-smoker,0.0,72.11,72.0
+47,0.0,63.0,90.5,25.61,pre-obisety,68.0,114,201,normal,33.0,5.171,165.8,yes,no,yes,no,no,no,no,no,2.6,3.3,1.57,2461008,female,former,19.0,85.0,70.4
+58,0.0,87.5,137.5,28.97,pre-obisety,98.0,191,301,normal,28.0,4.713,149.8,yes,no,yes,no,no,no,no,no,6.97,4.77,5.24,2459134,female,non-smoker,0.0,110.0,65.0
+64,18.24,81.5,126.0,26.18,pre-obisety,59.0,170,247,normal,37.0,5.537000000000001,182.2,no,no,no,no,no,no,no,no,6.06,4.6,4.13,2459233,male,former,2.7,177.0,86.9
+52,3.5,70.0,113.5,26.3,pre-obisety,62.0,141,210,normal,39.0,5.72,172.2,no,no,no,no,no,no,no,no,3.8,2.4,3.85,2460955,male,former,37.5,96.0,78.0
+49,20.89,72.5,121.0,25.9,pre-obisety,60.64,172,246,normal,31.0,4.988,189.0,no,no,no,no,no,no,no,no,4.39,3.67,2.96,2455465,male,non-smoker,0.0,106.59,92.5
+51,6.6,79.0,122.0,27.06,pre-obisety,56.16,154,227,pre-diabetes,35.0,5.354,178.7,no,no,no,no,no,no,no,no,26.96,27.47,26.38,2458424,male,non-smoker,0.0,185.53,86.4
+57,17.14,77.5,121.0,27.71,pre-obisety,64.0,146,225,normal,36.0,5.445,166.9,no,no,no,no,no,no,no,no,4.63,1.11,3.35,2452471,male,regular,27.1,92.0,77.2
+51,82.86,85.5,129.5,33.06,obesity class I,58.0,108,183,normal,36.0,5.445,173.4,no,no,no,no,no,no,no,no,24.62,19.08,22.49,2460354,male,former,4.4,186.0,99.4
+62,0.0,76.5,128.0,34.55,obesity class I,40.0,95,168,normal,33.0,5.171,176.4,no,no,no,no,no,no,no,no,21.2,24.9,23.12,2461902,male,regular,17.0,173.0,107.5
+46,5.71,71.5,121.5,23.31,normal,96.48,112,197,normal,37.0,5.537000000000001,169.8,no,no,no,no,no,no,no,no,1.31,1.36,1.94,2454859,female,former,40.45,53.06,67.2
+42,0.0,70.5,100.0,32.01,obesity class I,41.0,125,182,pre-diabetes,33.0,5.171,165.9,yes,no,yes,no,no,yes,no,no,0.8,0.4,0.62,2461135,female,former,12.63,70.0,88.1
+54,27.49,60.5,109.0,23.97,normal,78.0,137,228,pre-diabetes,38.0,5.627999999999999,188.1,no,no,no,no,no,no,no,no,7.5,11.5,6.88,2462147,male,non-smoker,0.0,57.0,84.8
+41,0.21,68.5,124.0,23.68,normal,38.0,115,165,normal,30.0,4.896,188.1,no,no,no,no,no,no,no,no,2.61,1.24,1.57,2452162,male,non-smoker,0.0,97.0,83.8
+57,45.29,61.5,87.5,21.31,normal,107.0,120,224,normal,35.0,5.354,160.8,no,no,no,no,no,no,no,no,2.6,1.72,2.23,2460461,female,non-smoker,0.0,62.0,55.1
+62,82.86,80.5,134.0,33.19,obesity class I,42.72,113,200,type-2-diabetes,40.0,5.811,172.8,no,yes,no,no,no,no,yes,no,22.83,21.98,19.87,2458342,male,former,63.0,277.17,99.1
+64,0.0,67.5,116.5,31.49,obesity class I,84.0,157,250,type-2-diabetes,47.0,6.452000000000001,158.1,no,no,no,no,no,no,no,no,5.28,4.21,4.1,2460734,female,non-smoker,0.0,86.0,78.7
+59,5.71,74.0,123.0,27.53,pre-obisety,55.0,121,198,normal,38.0,5.627999999999999,166.6,no,no,no,no,no,no,no,no,6.2,3.8,3.73,2453541,female,regular,7.34,134.0,76.4
+61,43.74,80.0,127.5,31.79,obesity class I,36.0,169,236,pre-diabetes,36.0,5.445,183.2,no,no,no,no,no,no,no,no,9.09,7.11,5.89,2460450,male,irregular,63.18,255.0,106.7
+70,45.71,74.5,124.5,27.87,pre-obisety,83.0,125,227,normal,37.0,5.537000000000001,159.5,no,no,no,no,no,no,no,no,12.19,5.96,4.85,2452896,female,former,22.2,118.0,70.9
+62,20.89,82.0,129.0,26.35,pre-obisety,74.0,147,226,normal,34.0,5.2620000000000005,178.0,no,no,no,no,no,no,no,no,4.68,5.21,4.44,2460371,male,non-smoker,0.0,66.0,83.5
+41,5.71,80.5,107.0,35.12,obesity class II,61.76,110,182,pre-diabetes,34.0,5.2620000000000005,166.8,no,no,no,no,no,no,no,no,8.72,7.31,7.47,2455020,female,former,5.0,104.78,97.7
+53,82.14,92.5,133.5,27.43,pre-obisety,88.64,156,265,pre-diabetes,38.0,5.627999999999999,186.5,yes,no,no,no,no,no,no,no,9.1,6.47,6.61,2456289,male,non-smoker,0.0,122.02,95.4
+41,2.86,58.5,92.0,24.67,normal,48.0,185,257,normal,31.0,4.988,159.8,no,no,no,no,no,no,no,no,6.5,6.0,3.26,2462194,female,former,2.13,112.0,63.0
+45,2.86,67.5,101.0,28.67,pre-obisety,50.0,109,173,normal,35.0,5.354,173.6,no,no,no,no,no,no,no,no,18.76,17.33,20.05,2452274,female,former,0.09,127.0,86.4
+56,22.86,69.0,104.5,25.23,pre-obisety,48.32,146,236,type-2-diabetes,38.0,5.627999999999999,172.3,no,no,no,no,no,no,no,no,2.53,1.3,3.43,2458314,male,former,0.05,178.27,74.9
+50,22.86,76.5,117.0,27.62,pre-obisety,45.0,124,187,normal,24.0,4.348,179.7,no,no,no,no,no,no,no,no,6.7,8.3,4.2,2462306,male,non-smoker,0.0,121.0,89.2
+54,6.6,62.5,107.0,27.06,pre-obisety,98.72,138,252,normal,35.0,5.354,150.4,no,no,no,no,no,no,no,no,3.8,3.29,3.72,2458057,female,regular,25.88,102.96,61.2
+52,17.14,87.0,129.5,27.96,pre-obisety,33.0,201,257,pre-diabetes,42.0,5.994,185.4,no,no,no,no,no,no,no,no,13.34,11.96,15.25,2452370,male,regular,28.0,139.0,96.1
+70,55.17,67.0,106.5,26.72,pre-obisety,77.44,102,183,pre-diabetes,38.0,5.627999999999999,174.1,yes,no,yes,no,no,yes,no,no,6.8,6.23,5.17,2455432,male,former,40.0,94.8,81.0
+60,0.0,82.5,165.0,28.86,pre-obisety,40.0,113,166,type-2-diabetes,65.0,8.097999999999999,169.6,yes,yes,yes,no,no,yes,yes,no,13.7,11.16,13.5,2452698,male,former,45.0,166.0,83.0
+62,0.21,76.0,127.0,25.39,pre-obisety,34.88,123,182,type-2-diabetes,68.0,8.373,185.2,no,yes,no,no,no,no,yes,no,10.28,11.12,9.07,2456224,male,non-smoker,0.0,176.45,87.1
+54,8.57,73.5,115.0,22.45,normal,76.0,175,263,normal,34.0,5.2620000000000005,172.1,no,no,no,no,no,no,no,no,1.8,1.39,1.86,2452050,female,non-smoker,0.0,66.0,66.5
+70,20.0,82.5,151.5,30.81,obesity class I,72.0,132,218,type-2-diabetes,50.0,6.726,174.3,yes,no,no,no,no,no,no,no,26.2,19.59,24.16,2459112,male,former,54.0,135.0,93.6
+71,20.0,86.5,169.5,32.98,obesity class I,38.0,223,327,type-2-diabetes,50.0,6.726,164.1,yes,no,no,no,no,no,no,no,27.3,21.6,36.05,2461274,male,non-smoker,0.0,402.0,88.8
+46,47.49,91.0,156.5,31.33,obesity class I,39.0,199,276,pre-diabetes,39.0,5.72,179.0,yes,no,no,no,no,no,no,no,25.6,24.7,24.99,2461775,male,former,20.45,193.0,100.4
+63,5.71,80.0,132.0,28.87,pre-obisety,105.0,173,293,normal,42.0,5.994,155.6,yes,no,yes,no,no,no,no,no,14.7,8.0,20.46,2460521,female,non-smoker,0.0,62.0,69.9
+57,45.71,91.5,138.5,26.72,pre-obisety,54.0,138,204,pre-diabetes,38.0,5.627999999999999,182.7,yes,no,no,no,no,no,no,no,3.91,1.68,3.63,2453380,male,non-smoker,0.0,141.0,89.2
+67,0.0,78.0,134.0,43.18,obesity class III,67.0,146,224,pre-diabetes,37.0,5.537000000000001,163.2,no,no,no,no,no,no,no,no,15.49,8.19,13.37,2452744,female,non-smoker,0.0,120.0,115.0
+69,0.0,51.0,131.0,24.05,normal,50.0,76,142,normal,40.0,5.811,172.3,yes,no,yes,no,no,yes,no,no,0.95,0.92,1.59,2460856,male,regular,42.6,98.0,71.4
+45,2.86,62.5,90.0,20.04,normal,54.0,96,162,normal,28.0,4.713,161.7,no,no,no,no,no,no,no,no,1.2,2.5,1.0,2460686,female,non-smoker,0.0,87.0,52.4
+68,14.29,73.0,122.5,26.79,pre-obisety,57.28,165,245,normal,33.0,5.171,165.4,no,no,no,no,no,yes,no,no,4.99,2.92,3.54,2458819,female,regular,20.46,140.16,73.3
+46,1.77,59.5,97.5,20.04,normal,51.0,139,202,normal,40.0,5.811,177.6,no,no,no,no,no,no,no,no,2.1,1.06,1.83,2460270,female,irregular,,74.0,63.2
+64,4.63,67.5,114.0,20.62,normal,84.0,139,231,pre-diabetes,41.0,5.903,164.2,yes,no,yes,no,no,no,no,no,3.47,3.58,2.6,2452520,female,non-smoker,0.0,110.0,55.6
+62,0.0,95.0,121.5,30.93,obesity class I,50.56,127,194,type-2-diabetes,67.0,8.281,158.4,yes,yes,yes,no,no,yes,yes,no,21.01,15.16,19.69,2458926,female,non-smoker,0.0,177.36,77.6
+54,0.89,78.0,114.5,24.4,normal,63.0,203,283,normal,37.0,5.537000000000001,159.8,no,no,no,no,no,no,no,no,2.41,5.32,2.31,2459925,female,former,4.5,156.0,62.3
+42,2.86,71.5,108.0,20.74,normal,78.0,97,183,normal,31.0,4.988,161.2,no,no,no,no,no,no,no,no,1.64,0.89,1.21,2459890,female,former,7.15,47.0,53.9
+63,2.86,71.0,115.5,32.05,obesity class I,51.0,130,196,type-2-diabetes,46.0,6.36,158.2,yes,yes,yes,no,no,no,yes,no,34.2,23.3,52.13,2461588,female,former,15.0,139.0,80.2
+56,3.07,77.0,112.5,28.69,pre-obisety,49.0,193,267,normal,40.0,5.811,167.0,yes,no,yes,no,no,no,no,no,8.56,5.14,4.0,2460701,female,non-smoker,0.0,197.0,80.0
+60,2.86,93.5,145.5,33.44,obesity class I,42.0,160,254,type-2-diabetes,52.0,6.909,156.4,yes,yes,yes,no,no,no,yes,yes,32.6,27.0,,2453666,female,non-smoker,0.0,334.0,81.8
+72,25.71,70.0,125.0,24.57,normal,47.0,121,191,type-2-diabetes,40.0,5.811,182.0,yes,yes,yes,no,no,no,yes,no,21.48,14.13,13.56,2459936,male,former,40.0,208.0,81.4
+64,1.57,69.0,116.0,34.66,obesity class I,51.0,173,250,normal,37.0,5.537000000000001,162.4,no,no,no,no,no,no,no,no,4.0,2.0,2.91,2460977,female,former,16.15,227.0,91.4
+66,0.0,78.0,130.0,25.41,pre-obisety,98.0,128,225,normal,37.0,5.537000000000001,151.6,yes,no,yes,no,no,no,no,no,1.99,3.02,1.81,2453009,female,non-smoker,0.0,71.0,58.4
+63,111.43,57.5,84.5,30.84,obesity class I,74.08,110,199,type-2-diabetes,32.0,5.079,172.8,yes,no,yes,no,no,yes,no,no,31.04,29.2,28.29,2457848,female,former,18.75,118.39,92.1
+52,13.2,91.0,142.0,36.97,obesity class II,35.0,140,211,type-2-diabetes,72.0,8.738999999999999,176.3,yes,no,yes,no,no,yes,no,no,20.47,20.2,16.77,2459321,male,former,0.83,365.0,114.9
+62,100.0,88.5,143.5,28.47,pre-obisety,53.0,164,239,normal,34.0,5.2620000000000005,182.2,yes,no,no,no,no,no,no,no,8.0,4.1,3.96,2453710,male,non-smoker,0.0,126.0,94.5
+39,29.43,75.5,119.0,31.16,obesity class I,64.0,146,217,normal,36.0,5.445,182.7,no,no,no,no,no,no,no,no,4.98,3.21,4.08,2460360,male,regular,12.35,114.0,104.0
+50,4.14,68.5,104.0,29.17,pre-obisety,79.0,104,193,normal,37.0,5.537000000000001,163.2,no,no,no,no,no,no,no,no,4.61,3.01,4.71,2460576,female,non-smoker,0.0,93.0,77.7
+72,0.0,75.5,122.5,20.72,normal,73.0,155,242,normal,36.0,5.445,161.3,no,no,no,no,no,no,no,no,2.83,2.73,2.97,2459670,female,non-smoker,0.0,110.0,53.9
+48,13.86,87.5,127.5,30.88,obesity class I,48.0,154,221,normal,31.0,4.988,190.6,no,no,no,no,no,no,no,no,29.09,25.85,21.22,2452577,male,former,18.0,143.0,112.2
+70,41.07,76.5,146.5,22.7,normal,75.2,83,190,type-2-diabetes,46.0,6.36,167.0,yes,yes,yes,no,no,yes,yes,no,25.36,25.9,21.8,2457468,male,former,29.0,267.19,63.3
+71,5.71,61.0,112.5,32.36,obesity class I,57.28,136,205,type-2-diabetes,45.0,6.269,166.2,yes,no,yes,no,no,no,no,no,10.39,7.52,6.34,2456636,male,former,8.91,112.94,89.4
+45,6.0,79.5,120.0,34.68,obesity class I,48.0,154,220,normal,35.0,5.354,174.5,no,no,no,no,no,no,no,no,7.09,5.67,6.32,2452036,female,former,3.6,162.0,105.6
+61,0.0,89.5,136.5,36.08,obesity class II,50.0,139,202,normal,37.0,5.537000000000001,164.3,no,no,no,no,no,no,no,no,6.73,6.33,6.65,2452415,female,non-smoker,0.0,113.0,97.4
+58,5.71,64.5,104.5,32.15,obesity class I,69.6,101,184,normal,38.0,5.627999999999999,162.5,yes,no,yes,no,no,no,no,no,3.82,3.3,2.81,2456945,female,regular,11.68,58.5,84.9
+49,63.74,78.5,129.0,30.87,obesity class I,46.0,108,173,normal,35.0,5.354,189.8,no,no,no,no,no,yes,no,no,7.84,7.08,5.33,2460712,male,former,12.0,133.0,111.2
+59,0.0,92.5,139.0,27.19,pre-obisety,36.0,187,258,pre-diabetes,34.0,5.2620000000000005,171.3,yes,no,yes,no,no,no,no,no,20.9,23.0,21.64,2462405,male,former,4.25,218.0,79.8
+57,25.71,86.0,144.0,31.96,obesity class I,47.2,197,269,pre-diabetes,36.0,5.445,182.9,yes,no,yes,no,no,no,no,no,6.28,3.57,4.5,2456849,male,former,16.0,163.75,106.9
+42,0.0,78.5,107.5,34.27,obesity class I,53.0,149,225,pre-diabetes,32.0,5.079,166.5,no,no,no,no,no,no,no,no,3.73,2.4,4.07,2452930,female,regular,6.15,170.0,95.0
+73,2.86,68.0,132.0,24.41,normal,52.0,162,212,normal,37.0,5.537000000000001,175.4,no,no,no,no,no,no,no,no,1.23,1.01,2.45,2453093,male,former,46.0,87.0,75.1
+57,12.29,65.5,102.0,21.65,normal,62.0,100,173,normal,34.0,5.2620000000000005,187.5,no,no,no,no,no,no,no,no,1.2,3.3,0.97,2462048,male,non-smoker,0.0,48.0,76.1
+55,22.86,82.0,127.5,26.97,pre-obisety,52.0,186,248,normal,35.0,5.354,183.6,no,no,no,no,no,no,no,no,8.14,7.29,6.4,2452460,male,non-smoker,0.0,104.0,90.9
+69,41.77,94.0,158.5,24.26,normal,58.4,216,299,pre-diabetes,35.0,5.354,176.3,yes,no,yes,no,no,no,no,no,5.1,5.96,3.76,2457938,male,non-smoker,0.0,95.7,75.4
+49,17.14,72.5,108.0,36.99,obesity class II,56.16,104,172,pre-diabetes,38.0,5.627999999999999,172.3,no,no,no,no,no,no,no,no,9.87,6.56,9.99,2455615,male,former,25.0,103.87,109.8
+46,11.43,65.5,107.0,25.96,pre-obisety,46.0,127,191,normal,29.0,4.805,190.1,no,no,no,no,no,no,no,no,2.01,1.19,2.29,2460796,male,non-smoker,0.0,114.0,93.8
+68,2.86,69.0,105.0,35.49,obesity class II,57.28,140,218,pre-diabetes,38.0,5.627999999999999,163.0,yes,no,yes,no,no,no,no,no,22.27,14.84,16.91,2457646,female,former,0.79,153.77,94.3
+72,94.29,76.0,137.5,22.84,normal,79.0,144,235,normal,36.0,5.445,174.8,yes,no,yes,no,no,no,no,no,10.97,10.25,8.58,2452879,male,former,51.0,52.0,69.8
+61,20.0,67.5,108.0,25.61,pre-obisety,55.0,187,242,normal,30.0,4.896,179.6,no,no,no,no,no,no,no,no,14.75,14.11,11.75,2452676,male,non-smoker,0.0,139.0,82.6
+71,42.86,83.5,151.5,25.72,pre-obisety,61.76,103,178,type-2-diabetes,32.0,5.079,182.0,yes,no,no,no,no,no,no,no,5.67,5.82,4.16,2456120,male,non-smoker,0.0,108.41,85.2
+72,12.29,79.0,132.5,37.39,obesity class II,73.0,128,209,pre-diabetes,42.0,5.994,159.9,yes,no,yes,no,no,no,no,no,17.06,17.63,16.73,2452604,female,non-smoker,0.0,72.0,95.6
+69,0.0,69.0,123.0,21.47,normal,71.0,163,241,normal,39.0,5.72,152.0,no,no,no,no,no,no,no,no,1.34,2.87,2.35,2452902,female,non-smoker,0.0,102.0,49.6
+51,20.0,68.0,106.0,23.69,normal,56.0,224,303,pre-diabetes,39.0,5.72,170.3,no,no,no,no,no,no,no,no,3.96,1.84,1.71,2459222,female,regular,18.6,199.0,68.7
+40,75.86,69.0,113.0,25.42,pre-obisety,99.0,134,233,normal,34.0,5.2620000000000005,183.5,no,no,no,no,no,no,no,no,5.49,2.64,3.61,2460408,male,regular,11.25,87.0,85.6
+62,40.0,73.0,121.5,21.1,normal,72.0,154,225,normal,38.0,5.627999999999999,177.4,no,no,no,no,no,no,no,no,3.4,3.06,3.88,2453246,male,regular,35.48,92.0,66.4
+66,1.57,62.5,112.5,26.79,pre-obisety,108.8,83,194,,59.0,7.5489999999999995,162.8,no,yes,no,no,no,yes,yes,no,4.7,2.1,4.3,2456551,female,non-smoker,0.0,73.02,71.0
+43,1.57,65.5,104.0,25.87,pre-obisety,70.0,86,157,normal,30.0,4.896,157.3,no,no,no,no,no,no,no,no,2.65,2.84,2.51,2459582,female,non-smoker,0.0,48.0,64.0
+61,0.0,74.0,119.5,34.08,obesity class I,53.0,130,197,normal,35.0,5.354,165.1,no,no,no,no,no,no,no,no,7.02,3.45,5.83,2452769,female,non-smoker,0.0,143.0,92.9
+64,14.29,80.5,123.0,28.73,pre-obisety,68.0,174,251,normal,36.0,5.445,156.1,no,no,no,no,no,no,no,no,3.5,1.9,2.17,2461460,female,non-smoker,0.0,67.0,70.0
+66,43.34,75.0,130.5,29.37,pre-obisety,54.0,193,260,pre-diabetes,40.0,5.811,173.5,no,no,no,no,no,no,no,no,18.24,18.78,16.76,2452392,male,non-smoker,0.0,207.0,88.4
+62,5.71,79.5,122.5,30.98,obesity class I,46.0,118,176,pre-diabetes,39.0,5.72,178.4,yes,no,yes,no,no,no,no,no,17.4,19.51,11.87,2453251,male,non-smoker,0.0,145.0,98.6
+53,2.86,81.5,121.5,28.56,pre-obisety,61.0,141,223,pre-diabetes,37.0,5.537000000000001,193.0,no,no,no,no,no,no,no,no,23.31,13.11,22.71,2460253,male,non-smoker,0.0,195.0,106.4
+49,5.71,83.5,118.0,31.35,obesity class I,69.6,174,265,pre-diabetes,45.0,6.269,170.1,no,no,no,no,no,no,no,no,15.19,7.63,14.94,2455572,female,regular,22.13,99.33,90.7
+63,0.0,69.0,92.0,24.87,normal,64.0,181,261,normal,34.0,5.2620000000000005,159.9,no,no,no,no,no,no,no,no,3.04,0.7,1.71,2460723,female,former,49.5,98.0,63.6
+44,0.0,72.5,122.5,23.16,normal,36.0,138,187,normal,34.0,5.2620000000000005,182.1,no,no,no,no,no,no,no,no,2.03,0.95,1.83,2453108,male,non-smoker,0.0,111.0,76.8
+68,25.71,80.5,131.0,26.65,pre-obisety,71.0,176,262,normal,35.0,5.354,176.8,no,no,no,no,no,no,no,no,7.42,16.59,12.4,2459780,male,former,2.0,114.0,83.3
+61,53.0,78.5,126.0,32.15,obesity class I,41.0,203,289,normal,41.0,5.903,172.8,yes,no,yes,no,no,no,no,no,22.7,23.5,22.71,2453858,male,former,64.0,254.0,96.0
+55,28.57,75.0,108.5,27.51,pre-obisety,77.44,126,210,normal,38.0,5.627999999999999,176.0,no,no,no,no,no,no,no,no,5.56,5.11,4.23,2458773,male,former,1.0,65.76,85.2
+54,28.57,80.0,138.0,29.32,pre-obisety,70.0,132,206,normal,38.0,5.627999999999999,177.9,no,no,no,no,no,no,no,no,5.12,5.47,4.01,2459818,male,regular,7.25,92.0,92.8
+66,0.0,74.0,132.0,27.4,pre-obisety,40.48,151,217,pre-diabetes,33.0,5.171,171.1,yes,no,yes,no,no,no,no,no,3.24,3.19,3.06,2455727,male,regular,45.96,128.37,80.2
+54,60.0,72.5,116.5,28.15,pre-obisety,52.8,128,239,pre-diabetes,33.0,5.171,179.8,no,no,no,no,no,no,no,no,42.51,33.59,33.21,2457033,male,non-smoker,0.0,204.58,91.0
+42,4.63,69.0,97.0,25.21,pre-obisety,81.0,142,233,normal,35.0,5.354,161.3,no,no,no,no,no,no,no,no,1.94,2.26,1.23,2460543,female,non-smoker,0.0,47.0,65.6
+57,17.14,82.0,118.5,25.95,pre-obisety,74.08,85,174,normal,35.0,5.354,146.1,no,no,no,no,no,no,no,no,3.64,1.09,1.49,2456368,female,non-smoker,0.0,120.2,55.4
+45,28.57,68.0,102.0,28.83,pre-obisety,84.0,114,198,pre-diabetes,36.0,5.445,179.3,no,no,no,no,no,no,no,no,8.13,6.02,4.77,2459420,male,former,20.25,85.0,92.7
+62,40.21,93.5,147.0,26.64,pre-obisety,44.0,148,211,normal,32.0,5.079,173.3,yes,no,yes,no,no,yes,no,no,6.97,4.26,4.53,2459258,male,former,0.15,188.0,80.0
+71,2.86,53.5,101.5,28.44,pre-obisety,76.32,166,250,pre-diabetes,42.0,5.994,148.6,yes,no,yes,no,no,no,no,,,,,2456004,female,non-smoker,0.0,100.24,62.8
+70,51.43,73.5,133.0,24.26,normal,80.8,133,228,type-2-diabetes,49.0,6.635,179.9,yes,yes,yes,no,no,no,yes,no,16.5,13.67,14.92,2457684,male,former,2.5,92.98,78.5
+60,5.71,88.0,139.5,28.93,pre-obisety,57.0,105,176,normal,38.0,5.627999999999999,174.2,yes,no,yes,no,no,yes,no,no,4.39,7.01,5.41,2452252,male,non-smoker,0.0,113.0,87.8
+45,10.34,63.5,98.0,22.7,normal,57.0,116,189,normal,35.0,5.354,167.4,no,no,no,no,no,no,no,no,1.86,1.63,1.52,2459560,female,regular,24.85,58.0,63.6
+72,30.34,89.0,132.5,33.81,obesity class I,67.36,117,203,pre-diabetes,30.0,4.896,173.0,yes,no,yes,no,no,no,no,no,14.79,6.22,12.78,2454887,male,non-smoker,0.0,152.86,101.2
+51,87.49,78.5,121.0,29.71,pre-obisety,46.0,159,234,pre-diabetes,38.0,5.627999999999999,182.0,no,no,no,no,no,no,no,no,15.0,5.0,14.3,2460697,male,regular,53.51,251.0,98.4
+44,24.43,77.5,118.5,23.67,normal,57.0,94,155,normal,36.0,5.445,195.2,no,no,no,no,no,no,no,no,2.24,2.57,2.1,2459431,male,former,14.4,63.0,90.2
+44,20.89,75.5,114.5,35.3,obesity class II,78.0,137,217,pre-diabetes,38.0,5.627999999999999,166.8,no,no,no,no,no,no,no,no,5.8,2.9,5.11,2461050,female,former,18.0,45.0,98.2
+58,0.0,86.5,127.0,33.82,obesity class I,60.64,87,179,pre-diabetes,36.0,5.445,162.5,no,no,no,no,no,no,no,no,29.3,19.58,23.76,2458478,female,former,8.0,168.29,89.3
+63,26.79,69.5,116.0,28.02,pre-obisety,73.0,155,232,normal,36.0,5.445,156.7,no,no,no,no,no,no,no,no,8.52,9.8,6.97,2452786,female,non-smoker,0.0,87.0,68.8
+45,0.0,66.0,109.5,21.65,normal,99.0,126,223,normal,35.0,5.354,169.5,no,no,no,no,no,no,no,no,3.88,1.74,2.41,2460757,female,non-smoker,0.0,55.0,62.2
+47,0.0,66.5,96.0,25.02,pre-obisety,49.0,113,174,normal,33.0,5.171,159.7,no,no,no,no,no,no,no,no,1.96,0.78,1.88,2453352,female,former,18.98,55.0,63.8
+53,65.71,94.5,143.0,28.14,pre-obisety,70.0,134,221,normal,36.0,5.445,181.8,yes,no,no,no,no,no,no,no,24.2,21.6,23.41,2453800,male,former,15.0,80.0,93.0
+47,37.14,69.0,109.0,31.35,obesity class I,47.0,144,205,normal,30.0,4.896,177.8,no,no,no,no,no,no,no,no,25.3,16.48,25.05,2460238,male,former,0.7,131.0,99.1
+71,45.71,78.5,145.0,26.36,pre-obisety,51.68,129,176,normal,39.0,5.72,182.4,yes,no,no,no,no,no,no,no,13.41,5.73,9.59,2456422,male,non-smoker,0.0,66.67,87.7
+53,25.71,66.0,101.5,22.82,normal,71.84,72,162,pre-diabetes,37.0,5.537000000000001,181.9,no,no,no,no,no,no,no,no,3.25,2.25,2.65,2457485,male,former,14.48,69.39,75.5
+54,5.71,72.5,112.5,20.96,normal,97.0,75,165,normal,40.0,5.811,169.2,no,no,no,no,no,no,no,no,0.39,1.22,1.36,2453262,female,former,2.4,40.0,60.0
+50,0.0,59.5,99.5,18.1,underweight,70.0,147,222,type-2-diabetes,46.0,6.36,160.3,no,yes,no,no,no,no,yes,no,7.89,1.59,1.91,2459692,female,non-smoker,0.0,74.0,46.5
+56,23.74,80.0,122.0,25.64,pre-obisety,49.0,186,293,normal,36.0,5.445,179.5,no,no,no,no,no,no,no,no,2.8,1.8,2.32,2462235,male,former,42.0,333.0,82.6
+57,5.71,98.0,152.5,28.68,pre-obisety,42.0,130,191,pre-diabetes,45.0,6.269,185.5,yes,no,no,no,no,no,no,no,21.99,18.78,19.95,2461061,male,former,16.0,152.0,98.7
+43,11.43,72.5,111.5,25.54,pre-obisety,85.0,88,183,normal,33.0,5.171,165.8,no,no,no,no,no,no,no,no,5.54,4.39,5.01,2452291,female,former,6.16,79.0,70.2
+69,0.0,90.0,141.0,28.52,pre-obisety,63.0,132,201,normal,39.0,5.72,160.2,yes,no,yes,no,no,yes,no,no,1.91,2.51,2.83,2453273,female,non-smoker,0.0,107.0,73.2
+41,1.07,64.5,107.5,25.62,pre-obisety,32.0,123,242,normal,33.0,5.171,180.2,no,no,no,no,no,no,no,no,4.39,3.45,4.12,2453284,male,former,,465.0,83.2
+64,0.0,63.5,101.5,29.06,pre-obisety,94.0,93,194,normal,33.0,5.171,161.5,no,no,no,no,no,no,no,no,2.6,2.0,0.97,2461995,female,non-smoker,0.0,51.0,75.8
+44,31.11,64.5,105.0,23.5,normal,64.0,124,196,normal,40.0,5.811,188.4,no,no,no,no,no,no,no,no,1.07,0.01,1.94,2460382,male,regular,39.0,64.0,83.4
+67,0.0,64.5,105.0,30.77,obesity class I,57.28,182,259,pre-diabetes,37.0,5.537000000000001,158.3,no,no,no,no,no,no,no,no,11.49,7.34,8.8,2456816,female,former,10.89,144.7,77.1
+50,16.94,84.5,130.0,30.8,obesity class I,61.76,149,231,pre-diabetes,32.0,5.079,176.0,no,no,no,no,no,no,no,no,16.88,15.55,11.6,2458040,male,regular,15.23,199.14,95.4
+52,0.0,99.5,139.5,28.73,pre-obisety,47.0,178,239,normal,32.0,5.079,177.2,yes,no,no,no,no,no,no,no,7.35,6.42,5.46,2459774,male,non-smoker,0.0,150.0,90.2
+63,3.74,70.0,118.5,36.49,obesity class II,44.0,157,220,normal,39.0,5.72,153.7,no,no,no,no,no,yes,no,no,8.58,3.42,4.23,2453328,female,former,25.5,185.0,86.2
+61,0.0,70.0,117.5,28.06,pre-obisety,64.0,158,234,normal,41.0,5.903,165.0,yes,no,yes,no,no,no,no,no,1.81,2.25,2.31,2452913,female,regular,31.13,93.0,76.4
+51,28.86,87.5,132.5,28.35,pre-obisety,70.0,159,234,normal,34.0,5.2620000000000005,181.5,no,no,no,no,no,no,no,no,5.38,2.57,2.91,2452353,male,non-smoker,0.0,67.0,93.4
+45,42.86,84.0,132.0,33.17,obesity class I,60.64,136,226,normal,31.0,4.988,173.2,no,no,no,no,no,no,no,no,8.63,8.97,8.69,2456928,male,irregular,1.21,137.44,99.5
+61,0.0,90.0,146.0,29.73,pre-obisety,48.0,151,209,type-2-diabetes,47.0,6.452000000000001,178.2,yes,no,no,no,no,no,no,no,24.68,21.54,23.2,2460611,male,former,,89.0,94.4
+44,40.0,86.5,125.5,30.06,obesity class I,47.0,178,260,normal,37.0,5.537000000000001,180.2,no,no,no,no,no,no,no,no,3.2,2.9,2.77,2462380,male,former,8.0,179.0,97.6
+54,37.14,73.5,117.0,24.44,normal,61.0,124,188,normal,37.0,5.537000000000001,180.7,no,no,no,no,no,no,no,no,2.46,0.34,2.05,2459873,male,former,20.0,77.0,79.8
+72,1.29,57.5,93.5,22.24,normal,70.0,204,291,normal,36.0,5.445,154.8,no,no,no,no,no,no,no,no,2.3,1.81,2.02,2453082,female,regular,21.6,107.0,53.3
+66,22.86,77.0,119.0,30.17,obesity class I,74.08,148,234,pre-diabetes,42.0,5.994,161.0,no,no,no,no,no,no,no,no,5.81,3.04,3.12,2456661,female,non-smoker,0.0,154.68,78.2
+50,6.6,70.5,118.5,37.74,obesity class II,28.0,107,172,pre-diabetes,42.0,5.994,180.1,yes,no,yes,no,no,no,no,no,28.85,22.84,24.58,2452659,male,non-smoker,0.0,252.0,122.4
+57,40.0,81.0,115.0,25.85,pre-obisety,83.04,146,246,normal,36.0,5.445,172.7,no,no,no,no,no,yes,no,no,6.39,7.52,6.14,2455268,male,regular,31.0,84.81,77.1
+42,0.0,92.5,130.5,36.64,obesity class II,52.8,145,229,pre-diabetes,,,156.2,yes,no,no,no,no,no,no,no,3.96,1.98,3.39,2457143,female,former,10.13,183.71,89.4
+48,0.0,72.5,112.0,24.12,normal,60.0,109,174,normal,35.0,5.354,163.9,no,no,no,no,no,no,no,no,1.54,3.14,2.08,2452967,female,non-smoker,0.0,56.0,64.8
+51,34.29,73.5,116.0,24.54,normal,90.0,90,176,type-1-diabetes,53.0,7.0,170.1,yes,yes,yes,no,yes,no,no,no,1.18,0.63,1.7,2460658,female,regular,6.35,37.0,71.0
+62,5.71,82.5,124.5,34.59,obesity class I,65.12,115,199,pre-diabetes,38.0,5.627999999999999,159.5,yes,no,yes,no,no,yes,no,no,14.87,13.42,12.31,2458366,female,regular,9.75,90.26,88.0
+65,2.86,66.5,103.0,27.95,pre-obisety,61.76,128,202,pre-diabetes,32.0,5.079,162.7,no,no,no,no,no,yes,no,,,,,2455536,female,non-smoker,0.0,53.06,74.0
+70,0.0,51.5,98.5,28.01,pre-obisety,110.0,109,228,type-2-diabetes,44.0,6.1770000000000005,169.2,yes,yes,yes,no,no,no,yes,no,6.87,3.89,6.7,2452797,male,former,52.5,55.0,80.2
+55,25.43,76.5,132.0,27.85,pre-obisety,38.24,50,155,type-2-diabetes,63.0,7.915,166.7,no,yes,no,no,no,yes,yes,no,34.14,29.19,28.61,2458937,male,former,14.95,576.58,77.4
+65,8.57,64.0,107.0,22.89,normal,112.0,144,255,normal,38.0,5.627999999999999,163.5,no,no,no,no,no,no,no,no,2.57,3.96,2.62,2453048,female,non-smoker,0.0,105.0,61.2
+67,0.0,82.0,130.5,30.63,obesity class I,66.0,140,219,type-2-diabetes,38.0,5.627999999999999,175.0,yes,no,yes,no,no,no,no,no,10.87,14.66,10.74,2460813,male,non-smoker,0.0,98.0,93.8
+42,8.57,88.0,128.5,28.36,pre-obisety,45.0,113,177,normal,31.0,4.988,180.9,no,no,no,no,no,no,no,no,3.0,3.2,1.79,2453677,male,non-smoker,0.0,103.0,92.8
+71,4.36,79.0,123.5,25.47,pre-obisety,56.0,178,250,pre-diabetes,35.0,5.354,177.9,no,no,no,no,no,no,no,no,12.44,11.56,10.96,2452801,male,former,1.5,185.0,80.6
+69,58.91,61.5,110.5,21.34,normal,109.0,90,206,normal,40.0,5.811,167.8,no,no,no,no,no,yes,no,no,1.09,1.67,2.08,2452812,female,non-smoker,0.0,87.0,60.1
+43,8.57,80.0,125.0,42.62,obesity class III,45.0,106,171,normal,32.0,5.079,171.4,no,no,no,no,no,no,no,no,4.2,1.9,2.48,2460903,female,former,0.08,68.0,125.2
+47,20.21,71.0,102.5,24.37,normal,52.0,177,243,normal,36.0,5.445,178.0,no,no,no,no,no,no,no,no,5.39,5.1,4.54,2460152,male,regular,33.26,127.0,77.2
+52,2.86,77.0,109.0,27.93,pre-obisety,82.0,86,174,normal,33.0,5.171,167.1,no,no,no,no,no,no,no,no,3.29,2.32,2.57,2452364,female,non-smoker,0.0,89.0,78.0
+44,11.43,75.5,115.0,29.0,pre-obisety,78.0,184,269,normal,33.0,5.171,171.3,no,no,no,no,no,no,no,no,3.25,3.75,2.75,2460348,male,former,12.25,126.0,85.1
+43,0.0,65.5,105.0,20.2,normal,43.0,123,180,normal,30.0,4.896,167.4,no,no,no,no,no,no,no,no,3.94,2.1,1.98,2453345,female,regular,51.63,104.0,56.6
+60,60.57,86.0,145.0,26.32,pre-obisety,69.6,153,237,pre-diabetes,35.0,5.354,171.6,yes,no,no,no,no,no,no,no,6.51,3.58,4.4,2455285,male,regular,28.3,168.29,77.5
+55,27.49,84.5,125.5,26.88,pre-obisety,58.0,129,196,normal,39.0,5.72,156.7,yes,no,yes,no,no,no,no,no,27.1,20.0,40.81,2461338,female,non-smoker,0.0,115.0,66.0
+72,3.74,84.5,133.5,32.2,obesity class I,64.0,131,198,type-2-diabetes,40.0,5.811,168.1,no,yes,no,no,no,no,yes,yes,4.21,5.54,,2458948,male,former,130.0,63.04,91.0
+61,0.0,78.0,107.0,29.65,pre-obisety,36.0,124,184,pre-diabetes,38.0,5.627999999999999,166.8,yes,no,yes,no,no,no,no,no,2.5,3.6,2.47,2453811,female,irregular,1.78,95.0,82.5
+66,18.43,65.0,106.5,23.79,normal,76.0,156,235,normal,36.0,5.445,180.6,no,no,no,no,no,no,no,no,3.2,1.9,3.14,2460598,male,non-smoker,0.0,75.0,77.6
+66,22.86,64.0,121.5,31.36,obesity class I,76.0,161,266,normal,35.0,5.354,157.5,no,no,no,no,no,no,no,no,,,27.52,2461868,female,non-smoker,0.0,112.0,77.8
+61,88.57,80.5,124.5,25.24,pre-obisety,60.0,166,249,normal,35.0,5.354,171.0,no,no,no,no,no,yes,no,no,18.41,15.1,18.4,2453438,male,former,7.2,151.0,73.8
+66,5.71,73.0,120.5,31.59,obesity class I,58.4,116,199,pre-diabetes,37.0,5.537000000000001,162.0,yes,no,yes,no,no,yes,no,no,15.55,11.29,15.46,2457496,female,non-smoker,0.0,152.86,82.9
+47,0.86,68.0,116.0,26.71,pre-obisety,56.0,137,199,normal,36.0,5.445,181.1,no,no,no,no,no,no,no,no,8.84,9.94,11.7,2460326,male,former,11.0,100.0,87.6
+45,0.0,65.5,100.5,25.95,pre-obisety,45.0,105,153,normal,34.0,5.2620000000000005,167.5,no,no,no,no,no,no,no,no,2.01,0.61,1.84,2453172,female,non-smoker,0.0,76.0,72.8
+47,0.0,76.5,125.5,30.29,obesity class I,35.0,143,229,normal,34.0,5.2620000000000005,177.1,no,no,no,no,no,no,no,no,9.37,6.07,8.81,2453136,male,former,39.0,428.0,95.0
+58,0.0,100.0,141.0,36.51,obesity class II,52.8,110,177,pre-diabetes,38.0,5.627999999999999,182.2,yes,no,no,no,no,no,no,no,30.07,24.54,27.03,2456672,male,non-smoker,0.0,91.17,121.2
+50,60.89,78.5,112.5,30.3,obesity class I,65.12,162,266,pre-diabetes,35.0,5.354,164.0,no,no,no,no,no,no,no,no,9.25,7.01,7.74,2457266,female,non-smoker,0.0,151.96,81.5
+65,0.0,69.5,112.5,35.82,obesity class II,81.0,109,190,normal,34.0,5.2620000000000005,163.7,yes,no,yes,no,no,yes,no,no,9.61,13.93,9.84,2453060,female,former,1.0,132.0,96.0
+41,0.0,69.0,125.0,26.93,pre-obisety,40.0,118,162,normal,30.0,4.896,189.4,no,no,no,no,no,no,no,no,3.02,2.69,2.32,2453339,male,non-smoker,0.0,97.0,96.6
+66,0.0,64.5,92.0,27.25,pre-obisety,59.52,163,235,pre-diabetes,39.0,5.72,176.3,no,no,no,no,no,no,no,no,2.89,0.04,1.95,2455212,male,former,66.0,63.95,84.7
+51,20.0,63.5,93.5,20.99,normal,67.0,146,224,normal,35.0,5.354,160.7,no,no,no,no,no,no,no,no,4.32,5.43,4.16,2452206,female,regular,5.11,132.0,54.2
+42,2.86,68.0,99.0,26.09,pre-obisety,75.0,87,184,pre-diabetes,33.0,5.171,161.8,no,no,no,no,no,no,no,,,,,2461797,female,former,15.0,145.0,68.3
+67,40.0,88.0,141.5,28.67,pre-obisety,49.0,96,165,type-2-diabetes,66.0,8.19,174.1,yes,yes,no,no,no,yes,yes,no,25.75,20.8,20.93,2459095,male,former,112.0,133.0,86.9
+58,0.0,76.5,138.0,36.31,obesity class II,41.0,83,160,type-2-diabetes,44.0,6.1770000000000005,182.1,no,yes,no,no,no,no,yes,no,26.64,23.36,23.1,2461190,male,former,12.75,256.0,120.4
+71,0.0,74.0,126.0,30.06,obesity class I,44.0,130,185,normal,34.0,5.2620000000000005,175.7,no,no,no,no,no,no,no,no,5.23,3.0,3.69,2460878,male,non-smoker,0.0,64.0,92.8
+63,51.43,74.0,118.5,24.86,normal,56.0,136,208,normal,43.0,6.086,171.6,no,no,no,no,no,no,no,no,5.05,2.28,4.09,2452129,male,regular,33.25,110.0,73.2
+51,2.86,74.5,113.5,22.36,normal,99.84,119,213,normal,28.0,4.713,166.1,no,no,no,no,no,no,no,no,1.78,1.37,2.24,2456278,female,non-smoker,0.0,53.06,61.7
+51,0.0,84.5,152.0,40.94,obesity class III,52.8,229,297,type-2-diabetes,77.0,9.196,167.6,yes,yes,yes,no,no,no,yes,no,16.82,12.57,15.01,2456619,female,non-smoker,0.0,116.57,115.0
+52,15.86,93.0,163.0,25.05,pre-obisety,35.0,229,314,type-2-diabetes,44.0,6.1770000000000005,176.9,yes,no,no,no,no,no,no,no,5.07,4.97,3.73,2452542,male,regular,38.0,339.0,78.4
+60,0.0,81.0,166.5,42.63,obesity class III,71.84,140,251,pre-diabetes,40.0,5.811,154.6,yes,no,yes,no,no,no,no,no,11.44,9.82,12.76,2457506,female,former,,100.24,101.9
+46,39.8,84.0,131.0,31.53,obesity class I,32.64,133,194,pre-diabetes,33.0,5.171,177.3,no,no,no,no,no,no,no,no,22.55,17.76,20.55,2457044,male,former,6.75,167.38,99.1
+67,17.14,71.5,143.0,39.51,obesity class II,29.0,189,265,pre-diabetes,39.0,5.72,170.3,yes,no,yes,no,no,no,no,no,12.6,7.3,9.16,2453765,male,non-smoker,0.0,238.0,114.6
+60,2.86,80.5,113.0,26.65,pre-obisety,62.88,160,242,normal,41.0,5.903,155.2,no,no,no,no,no,no,no,no,5.69,6.23,3.86,2456199,female,former,0.2,113.85,64.2
+65,26.57,85.5,138.5,27.11,pre-obisety,88.64,109,213,pre-diabetes,33.0,5.171,168.2,yes,no,yes,no,no,yes,no,no,23.62,18.77,23.55,2458402,male,non-smoker,0.0,88.44,76.7
+69,32.11,85.0,144.0,30.09,obesity class I,55.04,93,177,type-2-diabetes,37.0,5.537000000000001,177.3,yes,no,yes,no,no,yes,no,no,32.57,31.81,33.79,2457288,male,former,27.0,119.29,94.6
+56,0.0,93.5,143.5,32.79,obesity class I,59.0,168,242,pre-diabetes,36.0,5.445,176.9,yes,no,no,no,no,no,no,no,9.6,7.3,8.59,2461349,male,former,52.0,182.0,102.6
+42,5.71,81.5,133.5,28.24,pre-obisety,46.0,87,147,normal,31.0,4.988,173.7,no,no,no,no,no,no,no,no,3.52,2.96,3.17,2460565,male,former,17.0,82.0,85.2
+58,12.8,104.5,172.5,34.19,obesity class I,49.0,140,227,type-2-diabetes,35.0,5.354,174.9,yes,no,yes,no,no,yes,no,no,31.41,22.3,29.6,2459745,male,non-smoker,0.0,281.0,104.6
+66,48.99,82.5,132.0,35.28,obesity class II,62.0,165,232,type-2-diabetes,40.0,5.811,165.9,yes,no,yes,no,no,no,no,no,32.68,36.54,33.73,2453037,male,former,40.0,85.0,97.1
+70,62.86,68.5,135.5,28.59,pre-obisety,50.56,165,249,pre-diabetes,41.0,5.903,171.6,yes,no,yes,no,no,no,no,,,,,2455525,male,former,30.0,229.08,84.2
+65,19.29,66.5,115.0,31.62,obesity class I,83.04,112,214,pre-diabetes,41.0,5.903,170.4,no,no,no,no,no,no,no,no,12.48,10.03,11.76,2458729,female,former,0.4,104.78,91.8
+47,17.36,73.0,103.0,20.68,normal,65.12,172,235,normal,35.0,5.354,172.3,no,no,no,no,no,no,no,no,2.37,3.68,2.51,2454788,female,former,4.0,102.05,61.4
+71,14.09,74.0,127.0,31.95,obesity class I,87.0,149,248,normal,38.0,5.627999999999999,152.6,no,no,no,no,no,no,no,no,4.97,4.41,3.98,2460174,female,non-smoker,0.0,107.0,74.4
+40,37.14,77.0,130.0,41.69,obesity class III,44.96,116,187,type-2-diabetes,66.0,8.19,185.4,yes,yes,yes,no,no,no,yes,no,13.95,21.74,19.04,2458265,male,former,0.6,269.0,143.3
+55,28.17,71.5,108.5,28.7,pre-obisety,87.0,133,226,normal,34.0,5.2620000000000005,168.4,no,no,no,no,no,no,no,no,2.61,0.0,2.44,2453290,female,former,0.15,104.0,81.4
+45,0.0,64.5,93.5,27.38,pre-obisety,42.0,102,157,normal,36.0,5.445,161.7,no,no,no,no,no,no,no,no,9.84,6.68,8.13,2459605,female,non-smoker,0.0,138.0,71.6
+42,22.86,114.5,171.5,26.6,pre-obisety,44.0,154,220,normal,32.0,5.079,177.9,yes,no,no,no,no,no,no,no,6.24,3.43,6.83,2453054,male,former,11.0,246.0,84.2
+69,5.71,83.5,139.0,29.3,pre-obisety,51.0,190,270,normal,35.0,5.354,172.5,no,no,no,no,no,no,no,no,6.28,6.91,7.12,2460768,male,regular,68.03,207.0,87.2
+65,26.57,73.5,115.5,24.31,normal,50.0,161,214,normal,37.0,5.537000000000001,182.2,no,no,no,no,no,no,no,no,1.97,1.88,2.84,2460504,male,irregular,4.1,81.0,80.7
+64,0.0,77.0,137.0,25.78,pre-obisety,84.16,85,183,type-2-diabetes,45.0,6.269,164.2,yes,yes,yes,no,no,yes,yes,no,14.46,12.56,12.09,2457517,female,non-smoker,0.0,89.35,69.5
+42,0.0,66.5,97.5,26.69,pre-obisety,65.0,94,157,normal,29.0,4.805,172.7,no,no,no,no,no,no,no,no,1.58,1.11,2.0,2453194,female,non-smoker,0.0,43.0,79.6
+43,0.0,71.0,122.0,28.31,pre-obisety,55.0,144,215,normal,36.0,5.445,185.1,no,no,no,no,no,no,no,no,8.76,4.9,9.16,2452834,male,former,0.4,186.0,97.0
+62,54.29,88.5,135.5,27.21,pre-obisety,69.0,154,236,normal,35.0,5.354,173.5,no,no,no,no,no,no,no,no,11.54,7.8,9.41,2459123,male,former,20.6,100.0,81.9
+58,3.07,64.5,114.0,24.78,normal,80.0,132,211,normal,41.0,5.903,167.1,no,no,no,no,no,no,no,no,2.75,2.15,1.6,2453150,female,former,1.0,78.0,69.2
+50,111.43,75.0,124.0,25.17,pre-obisety,53.0,169,255,normal,35.0,5.354,179.5,yes,no,yes,no,no,no,no,no,7.0,3.8,3.24,2462345,male,regular,102.0,234.0,81.1
+62,0.0,78.0,113.5,43.22,obesity class III,56.16,121,186,pre-diabetes,43.0,6.086,169.8,yes,no,yes,no,no,no,no,no,16.36,11.13,13.12,2455296,female,former,6.0,118.39,124.6
+43,0.0,74.5,111.5,34.0,obesity class I,68.0,110,186,normal,36.0,5.445,168.9,no,no,no,no,no,no,no,yes,5.9,5.1,,2460830,female,non-smoker,0.0,56.0,97.0
+63,0.0,72.5,124.0,28.21,pre-obisety,69.6,150,248,pre-diabetes,38.0,5.627999999999999,159.2,yes,no,yes,no,no,no,no,no,11.0,10.98,12.2,2458232,female,non-smoker,0.0,102.05,71.5
+44,47.29,69.0,117.5,28.7,pre-obisety,62.0,139,203,normal,30.0,4.896,173.1,yes,no,yes,no,no,no,no,no,8.66,5.87,6.82,2459310,male,former,1.5,95.0,86.0
+73,0.21,62.0,117.5,26.99,pre-obisety,65.12,157,236,pre-diabetes,35.0,5.354,170.0,no,no,no,no,no,no,no,no,5.24,3.85,4.79,2458158,male,former,36.0,90.26,78.0
+48,19.29,69.5,108.5,21.5,normal,79.0,126,211,normal,34.0,5.2620000000000005,160.8,no,no,no,no,no,no,no,no,0.94,0.71,0.98,2459455,female,former,18.0,76.0,55.6
+62,3.71,71.0,118.0,31.06,obesity class I,40.0,161,231,type-2-diabetes,46.0,6.36,168.5,yes,no,yes,no,no,no,no,no,24.16,16.04,24.13,2452868,male,irregular,0.75,282.0,88.2
+46,31.43,67.5,105.0,24.51,normal,42.0,107,172,normal,23.0,4.256,188.5,no,no,no,no,no,no,no,no,5.31,1.5,2.07,2459763,male,former,8.0,149.0,87.1
+48,37.14,81.0,128.0,26.76,pre-obisety,68.0,179,248,normal,31.0,4.988,190.2,no,no,no,no,no,no,no,no,6.6,5.5,4.49,2453620,male,former,22.5,85.0,96.8
+61,11.43,84.0,145.5,32.76,obesity class I,30.0,104,192,type-2-diabetes,38.0,5.627999999999999,179.2,yes,no,yes,no,no,yes,no,no,7.2,6.3,3.67,2462119,male,non-smoker,0.0,346.0,105.2
+67,5.71,68.5,130.0,34.55,obesity class I,64.0,155,230,pre-diabetes,45.0,6.269,162.3,yes,no,yes,no,no,no,no,no,3.49,2.19,3.41,2460447,female,former,4.0,99.0,91.0
+54,18.51,66.0,113.5,29.5,pre-obisety,80.0,94,174,normal,29.0,4.805,188.3,yes,no,yes,no,no,no,no,no,11.6,16.5,11.96,2461392,male,former,42.5,56.0,104.6
+49,42.86,77.5,119.5,25.22,pre-obisety,48.0,103,166,normal,34.0,5.2620000000000005,185.1,no,no,no,no,no,no,no,no,6.3,6.4,4.21,2453578,male,regular,35.76,156.0,86.4
+65,60.0,93.0,138.5,32.38,obesity class I,79.68,132,225,pre-diabetes,35.0,5.354,170.3,yes,no,no,no,no,no,no,no,8.02,8.32,7.35,2455753,male,former,10.5,117.48,93.9
+58,40.21,69.5,107.5,20.83,normal,73.0,130,212,normal,31.0,4.988,178.4,no,no,no,no,no,no,no,no,1.4,1.8,1.34,2453524,male,former,1.24,67.0,66.3
+70,2.86,78.5,120.0,34.0,obesity class I,42.0,133,200,type-2-diabetes,52.0,6.909,160.8,yes,yes,yes,no,no,yes,yes,no,15.08,11.68,12.21,2452381,male,former,60.0,218.0,87.9
+69,20.0,75.5,129.0,20.73,normal,92.0,112,203,normal,32.0,5.079,170.7,no,no,no,no,no,no,no,yes,2.12,0.67,,2452409,male,former,26.0,78.0,60.4
+55,17.14,72.0,112.5,22.05,normal,64.0,121,189,normal,34.0,5.2620000000000005,184.3,yes,no,yes,no,no,no,no,no,1.2,5.5,2.8,2460914,male,former,28.08,57.0,74.9
+44,0.0,61.5,114.5,23.89,normal,93.0,147,240,normal,31.0,4.988,168.2,no,no,no,no,no,no,no,no,1.86,2.21,1.47,2460785,female,former,10.0,48.0,67.6
+61,34.29,73.0,146.0,24.27,normal,59.52,212,316,pre-diabetes,44.0,6.1770000000000005,177.9,yes,no,no,no,no,no,no,no,14.91,11.55,11.67,2455935,male,regular,40.88,308.02,76.8
+49,4.36,59.5,99.0,21.8,normal,57.0,189,268,normal,38.0,5.627999999999999,183.0,no,no,no,no,no,no,no,no,2.3,2.1,3.53,2460867,male,non-smoker,0.0,168.0,73.0
+69,2.86,57.0,86.0,19.71,normal,70.0,117,207,normal,38.0,5.627999999999999,181.6,no,no,no,no,no,no,no,no,3.7,0.0,1.01,2453642,male,former,,64.0,65.0
+46,0.0,83.0,142.5,40.78,obesity class III,25.0,126,189,type-2-diabetes,62.0,7.824,176.9,yes,yes,yes,no,no,no,yes,no,32.06,27.44,26.63,2452094,male,regular,12.13,315.0,127.6
+68,0.0,75.0,140.0,31.7,obesity class I,62.0,120,191,normal,35.0,5.354,161.8,yes,no,yes,no,no,no,no,no,8.95,3.92,6.21,2459972,male,former,15.0,121.0,83.0
+60,7.86,76.5,105.0,30.83,obesity class I,66.24,131,210,normal,29.0,4.805,170.2,yes,no,yes,no,no,no,no,no,16.97,13.78,10.43,2456202,female,former,1.05,83.0,89.3
+71,34.29,73.0,135.5,28.75,pre-obisety,53.92,156,242,type-2-diabetes,51.0,6.817,164.7,yes,yes,yes,no,no,no,yes,no,26.45,25.75,20.51,2458186,female,regular,47.23,185.53,78.0
+56,8.57,83.5,130.5,31.22,obesity class I,39.0,155,216,normal,35.0,5.354,169.6,no,no,no,no,no,no,no,,,,,2459950,male,regular,12.53,174.0,89.8
+40,2.17,84.5,132.5,26.98,pre-obisety,44.96,168,240,normal,33.0,5.171,163.7,no,no,no,no,no,no,no,,,,,2455946,male,irregular,1.29,133.81,72.3
+67,25.71,81.0,140.0,30.56,obesity class I,50.56,160,225,pre-diabetes,42.0,5.994,183.6,yes,no,yes,no,no,no,no,no,35.84,32.05,35.13,2456562,male,former,11.0,169.2,103.0
+51,0.0,70.5,111.0,27.0,pre-obisety,57.28,168,228,normal,35.0,5.354,170.3,no,no,no,no,no,no,no,no,6.76,6.31,5.97,2456805,female,non-smoker,0.0,151.05,78.3
+46,5.71,74.0,120.5,21.93,normal,102.08,73,178,normal,34.0,5.2620000000000005,161.8,no,no,no,no,no,no,no,no,6.09,3.56,4.31,2456917,female,irregular,5.13,65.76,57.4
+48,8.79,73.0,106.5,30.21,obesity class I,45.0,144,208,normal,35.0,5.354,169.9,no,no,no,no,no,no,no,no,5.66,7.51,12.15,2452426,male,former,0.5,159.0,87.2
+50,5.71,77.5,122.5,34.39,obesity class I,57.28,144,219,pre-diabetes,40.0,5.811,159.5,no,no,no,no,no,no,no,no,12.94,8.41,11.45,2458674,female,former,7.5,129.27,87.5
+67,0.0,80.5,131.5,29.58,pre-obisety,37.0,119,182,type-2-diabetes,43.0,6.086,171.6,no,no,no,no,no,no,no,no,5.14,4.84,4.03,2459067,male,regular,47.83,201.0,87.1
+40,0.0,125.5,179.5,41.55,obesity class III,40.0,122,195,type-2-diabetes,45.0,6.269,176.4,yes,no,no,no,no,no,no,no,30.1,26.2,29.64,2462352,male,regular,29.13,202.0,129.3
+44,2.86,59.0,94.0,22.81,normal,43.84,230,322,type-2-diabetes,125.0,13.587,178.3,no,yes,no,yes,no,no,yes,no,6.2,2.3,4.29,2456357,male,non-smoker,0.0,461.35,72.5
+49,49.46,64.0,98.0,23.08,normal,77.0,107,188,normal,35.0,5.354,179.3,no,no,no,no,no,no,no,no,4.1,2.3,3.2,2461184,male,non-smoker,0.0,75.0,74.2
+66,26.6,82.5,135.0,32.28,obesity class I,60.64,188,257,normal,38.0,5.627999999999999,180.6,yes,no,yes,no,no,no,no,no,11.28,6.7,9.05,2458960,male,non-smoker,0.0,83.91,105.3
+68,63.21,77.5,140.5,36.42,obesity class II,41.0,144,232,type-2-diabetes,44.0,6.1770000000000005,166.2,yes,no,no,no,no,yes,no,no,20.98,19.74,4.06,2459244,male,former,,433.0,100.6
+57,0.0,77.0,127.0,32.17,obesity class I,72.96,189,283,normal,43.0,6.086,158.1,no,no,no,no,no,no,no,no,19.67,12.17,16.71,2456379,female,former,15.95,121.11,80.4
+60,20.0,64.0,93.0,23.52,normal,71.84,166,246,normal,35.0,5.354,163.8,no,no,no,no,no,no,no,no,5.38,3.03,3.32,2456241,female,former,19.81,73.02,63.1
+50,14.46,56.0,87.5,20.35,normal,99.84,91,183,normal,34.0,5.2620000000000005,173.4,no,no,no,no,no,no,no,no,2.67,1.48,1.65,2456793,female,former,1.1,44.89,61.2
+57,40.0,76.5,121.0,30.93,obesity class I,43.84,80,192,pre-diabetes,31.0,4.988,178.0,no,no,no,no,no,no,no,no,8.44,6.37,5.58,2458197,male,non-smoker,0.0,388.77,98.0
+56,2.86,65.5,125.5,47.06,obesity class III,42.72,151,225,pre-diabetes,43.0,6.086,171.5,yes,no,yes,no,no,no,no,no,26.02,23.36,23.25,2456507,male,former,11.0,220.01,138.4
+58,0.0,75.0,119.0,30.59,obesity class I,63.0,141,221,normal,30.0,4.896,157.3,yes,no,yes,no,no,no,no,no,5.97,3.66,5.13,2452263,female,non-smoker,0.0,109.0,75.7
+58,8.57,88.5,125.0,29.92,pre-obisety,77.0,122,207,normal,35.0,5.354,159.9,yes,no,yes,no,no,yes,no,no,4.4,4.4,5.39,2460633,female,former,0.75,85.0,76.5
+51,3.07,65.5,102.5,21.11,normal,102.0,110,215,normal,36.0,5.445,169.7,no,no,no,no,no,no,no,no,1.51,3.28,1.58,2452316,female,non-smoker,0.0,47.0,60.8
+63,0.0,52.0,73.0,32.13,obesity class I,66.0,84,163,normal,35.0,5.354,153.4,yes,no,yes,no,no,yes,no,no,8.9,6.8,6.47,2461448,female,regular,33.75,75.0,75.6
+71,54.29,93.0,155.0,29.18,pre-obisety,56.16,155,228,pre-diabetes,35.0,5.354,166.2,yes,no,no,no,no,no,no,no,7.36,4.53,5.55,2458707,male,former,,148.33,80.6
+44,14.86,65.5,117.5,23.35,normal,55.0,128,194,normal,34.0,5.2620000000000005,178.4,no,no,no,no,no,no,no,no,2.0,2.0,2.45,2453844,male,non-smoker,0.0,39.0,74.3
+58,0.0,77.5,120.5,40.72,obesity class III,44.96,146,206,pre-diabetes,36.0,5.445,161.5,yes,no,yes,no,no,no,no,,,,,2455951,female,non-smoker,0.0,171.01,106.2
+62,0.89,60.5,106.0,22.48,normal,46.0,194,276,type-2-diabetes,47.0,6.452000000000001,162.4,no,yes,no,no,no,no,yes,no,2.3,2.5,2.97,2461577,female,regular,3.21,229.0,59.3
+47,26.79,81.5,128.0,26.46,pre-obisety,59.52,129,205,normal,33.0,5.171,183.3,yes,no,yes,no,no,no,no,no,2.78,2.03,2.86,2456974,male,non-smoker,0.0,128.37,88.9
+64,57.14,61.5,94.5,26.72,pre-obisety,65.0,124,211,normal,33.0,5.171,179.7,yes,no,yes,no,no,yes,no,no,6.1,3.6,3.19,2462093,male,former,23.75,131.0,86.3
+64,14.29,79.0,128.5,36.23,obesity class II,63.0,167,248,pre-diabetes,44.0,6.1770000000000005,151.9,yes,no,yes,no,no,no,no,no,21.68,18.71,22.55,2460889,female,former,11.0,122.0,83.6
+45,0.0,72.0,105.0,27.34,pre-obisety,42.72,161,245,pre-diabetes,37.0,5.537000000000001,173.7,no,no,no,no,no,no,no,no,4.23,3.37,3.84,2457574,male,regular,23.45,168.29,82.5
+60,43.14,76.0,114.5,33.62,obesity class I,54.0,87,160,normal,29.0,4.805,167.2,no,no,no,no,no,no,no,no,12.44,8.69,10.36,2459752,male,non-smoker,0.0,106.0,94.0
+61,3.14,72.5,123.5,31.73,obesity class I,44.96,167,244,pre-diabetes,35.0,5.354,158.3,no,no,no,no,no,no,no,no,18.87,17.8,18.68,2455195,female,regular,46.25,197.32,79.5
+43,0.0,66.5,94.0,27.75,pre-obisety,50.0,143,203,pre-diabetes,36.0,5.445,167.0,no,no,no,no,no,no,no,no,2.6,1.5,1.16,2460472,female,regular,18.38,61.0,77.4
+59,20.0,81.0,139.0,28.25,pre-obisety,42.0,106,164,normal,32.0,5.079,185.3,no,no,no,no,no,no,no,no,7.5,4.0,7.94,2461047,male,former,7.5,104.0,97.0
+61,62.86,78.5,130.0,24.28,normal,70.72,146,222,pre-diabetes,38.0,5.627999999999999,169.3,no,no,no,no,no,no,no,no,10.86,9.04,9.0,2456385,male,former,15.38,76.65,69.6
+67,2.86,61.0,102.5,28.8,pre-obisety,48.32,139,200,type-2-diabetes,47.0,6.452000000000001,171.0,no,yes,no,no,no,no,yes,no,21.2,17.6,32.13,2456021,female,former,2.5,117.48,84.2
+73,20.0,56.0,104.0,18.94,normal,81.92,137,223,pre-diabetes,42.0,5.994,166.0,no,no,no,no,no,no,no,yes,2.54,1.37,,2458691,male,non-smoker,0.0,53.06,52.2
+63,8.57,74.5,131.0,42.04,obesity class III,39.0,82,133,normal,39.0,5.72,178.0,yes,no,yes,no,no,no,no,no,9.23,6.42,6.12,2453470,male,former,62.0,116.0,133.2
+45,2.86,77.0,113.0,26.31,pre-obisety,67.0,129,200,normal,30.0,4.896,172.5,no,no,no,no,no,no,no,no,1.31,0.83,2.34,2459477,female,irregular,14.15,138.0,78.3
+56,17.14,96.5,136.5,26.87,pre-obisety,65.0,145,214,normal,34.0,5.2620000000000005,176.8,yes,no,no,no,no,no,no,no,6.5,5.59,4.55,2453306,female,former,2.0,80.0,84.0
+53,0.0,80.5,134.0,22.52,normal,67.0,129,206,normal,40.0,5.811,165.4,no,no,no,no,no,no,no,no,5.5,2.3,4.99,2461409,female,former,23.25,66.0,61.6
+46,0.0,70.0,98.0,24.31,normal,58.0,88,150,normal,36.0,5.445,175.4,no,no,no,no,no,no,no,no,11.24,9.1,2.66,2460779,male,non-smoker,0.0,70.0,74.8
+48,7.49,74.0,107.0,21.63,normal,45.0,163,219,normal,35.0,5.354,159.6,no,no,no,no,no,no,no,no,4.88,3.16,2.28,2459488,female,regular,41.55,155.0,55.1
+63,24.57,59.0,112.5,31.75,obesity class I,40.0,116,175,normal,37.0,5.537000000000001,179.4,yes,no,yes,no,no,yes,no,no,57.5,14.4,12.27,2461621,male,non-smoker,0.0,135.0,102.2
+73,0.0,52.5,110.5,24.16,normal,47.0,123,179,type-2-diabetes,58.0,7.457999999999999,178.4,yes,yes,yes,no,no,yes,yes,no,13.51,14.72,12.28,2459499,male,former,15.27,112.0,76.9
+59,5.71,73.5,121.5,29.19,pre-obisety,69.6,119,195,pre-diabetes,36.0,5.445,160.5,no,no,no,no,no,no,no,no,6.34,2.51,3.9,2455042,female,former,7.0,101.15,75.2
+64,0.0,86.0,134.5,30.65,obesity class I,30.0,95,152,type-2-diabetes,42.0,5.994,177.9,yes,yes,yes,no,no,no,yes,no,17.0,12.2,20.85,2461885,male,former,23.25,189.0,97.0
+61,5.71,71.0,104.0,19.35,normal,86.0,136,225,normal,37.0,5.537000000000001,168.0,no,no,no,no,no,no,no,no,1.84,2.34,1.53,2460309,female,regular,26.78,67.0,54.6
+49,2.86,65.5,106.0,21.75,normal,77.44,104,177,normal,35.0,5.354,172.6,no,no,no,no,no,no,no,no,3.48,2.05,1.96,2456340,female,non-smoker,0.0,67.58,64.8
+68,14.29,72.5,123.0,36.74,obesity class II,71.84,178,250,pre-diabetes,42.0,5.994,162.4,yes,no,yes,no,no,no,no,no,15.88,10.93,12.91,2454975,female,former,11.25,87.54,96.9
+70,2.86,62.0,127.5,25.61,pre-obisety,61.0,150,221,normal,37.0,5.537000000000001,162.0,no,no,no,no,no,no,no,no,4.9,3.6,4.07,2461206,female,non-smoker,0.0,88.0,67.2
+43,13.2,65.5,102.0,26.83,pre-obisety,72.0,172,258,normal,29.0,4.805,159.9,no,no,no,no,no,no,no,no,2.79,1.69,2.16,2460824,female,regular,22.88,77.0,68.6
+63,45.71,62.0,104.5,22.95,normal,56.0,179,257,normal,36.0,5.445,188.1,no,no,no,no,no,no,no,no,5.8,4.0,2.82,2461956,male,regular,40.5,107.0,81.2
+60,46.9,82.5,151.5,27.38,pre-obisety,39.0,224,347,type-2-diabetes,44.0,6.1770000000000005,173.7,yes,no,no,no,no,no,no,no,26.1,12.7,26.81,2461252,male,non-smoker,0.0,492.0,82.6
+46,25.71,71.5,110.5,20.52,normal,95.36,111,205,normal,34.0,5.2620000000000005,168.4,no,no,no,no,no,no,no,no,2.4,1.53,1.77,2456683,female,non-smoker,0.0,65.76,58.2
+54,5.71,104.0,165.5,28.73,pre-obisety,30.0,173,235,pre-diabetes,36.0,5.445,188.6,yes,no,no,no,no,no,no,no,13.11,13.55,17.06,2452632,male,former,2.25,314.0,102.2
+46,58.03,85.0,143.5,23.32,normal,47.0,122,186,normal,36.0,5.445,184.3,yes,no,no,no,no,no,no,no,4.2,1.18,3.26,2459908,male,regular,21.51,191.0,79.2
+47,2.86,74.0,107.0,32.16,obesity class I,50.0,218,284,normal,35.0,5.354,183.0,no,no,no,no,no,no,no,no,12.1,9.49,11.27,2453161,male,regular,6.5,201.0,107.7
+55,0.0,85.0,128.0,25.44,pre-obisety,53.92,131,193,normal,38.0,5.627999999999999,186.4,no,no,no,no,no,no,no,no,2.47,0.6,1.95,2455476,male,regular,51.75,66.67,88.4
+51,0.0,63.0,94.5,38.09,obesity class II,51.0,134,195,normal,34.0,5.2620000000000005,158.6,yes,no,yes,no,no,no,no,no,20.26,16.83,17.11,2460510,female,former,34.5,119.0,95.8
+45,17.14,89.5,133.0,24.96,normal,71.84,117,202,pre-diabetes,30.0,4.896,188.4,no,no,no,no,no,no,no,no,19.84,14.98,12.86,2457837,male,non-smoker,0.0,120.2,88.6
+56,0.0,71.5,98.0,30.38,obesity class I,44.0,112,185,type-2-diabetes,52.0,6.909,163.4,yes,yes,yes,yes,yes,yes,yes,no,10.86,10.01,9.61,2459728,female,former,0.5,201.0,81.1
+64,3.07,83.0,122.5,28.67,pre-obisety,46.0,165,223,normal,34.0,5.2620000000000005,173.7,no,no,no,no,no,no,no,no,3.87,4.17,4.45,2452924,male,non-smoker,0.0,105.0,86.5
+64,5.71,76.5,108.5,23.07,normal,59.0,183,260,normal,42.0,5.994,152.3,yes,no,yes,no,no,no,no,no,10.75,8.16,8.93,2459947,female,former,15.0,163.0,53.5
+45,31.91,65.0,111.0,31.68,obesity class I,60.0,158,237,normal,31.0,4.988,181.7,no,no,no,no,no,no,no,no,8.39,3.95,6.96,2460532,male,former,40.0,69.0,104.6
+43,2.86,61.0,84.5,26.56,pre-obisety,103.0,106,203,normal,34.0,5.2620000000000005,163.5,no,no,no,no,no,no,no,no,2.49,1.44,2.44,2453464,female,non-smoker,0.0,46.0,71.0
+66,53.57,74.5,118.0,23.98,normal,61.76,108,191,pre-diabetes,29.0,4.805,174.1,no,no,no,no,no,no,no,no,4.07,10.18,3.17,2455014,male,non-smoker,0.0,128.37,72.7
+47,0.0,99.0,163.5,31.65,obesity class I,51.0,120,185,normal,31.0,4.988,181.1,yes,no,no,no,no,no,no,no,8.33,6.85,7.74,2460216,male,non-smoker,0.0,153.0,103.8
+64,31.43,72.5,121.5,26.93,pre-obisety,42.0,109,175,type-2-diabetes,49.0,6.635,166.0,no,yes,no,no,no,yes,yes,no,8.03,7.54,6.86,2460145,male,non-smoker,0.0,220.0,74.2
+50,100.0,72.0,107.5,25.28,pre-obisety,103.0,83,187,normal,30.0,4.896,187.0,no,no,no,no,no,no,no,no,14.2,11.3,13.83,2461493,male,former,6.5,50.0,88.4
+48,8.17,72.0,107.5,19.85,normal,84.16,105,194,normal,34.0,5.2620000000000005,172.7,no,no,no,no,no,no,no,no,4.49,1.43,1.61,2456980,female,non-smoker,0.0,63.95,59.2
+51,25.71,72.0,108.0,29.47,pre-obisety,60.0,189,269,normal,34.0,5.2620000000000005,183.3,no,no,no,no,no,no,no,no,5.75,2.85,3.08,2453374,male,non-smoker,0.0,238.0,99.0
+61,11.43,68.0,110.0,26.21,pre-obisety,74.0,101,168,normal,34.0,5.2620000000000005,177.4,yes,no,yes,no,no,no,no,no,3.74,4.26,2.74,2452687,male,non-smoker,0.0,32.0,82.5
+53,4.91,78.5,120.5,29.31,pre-obisety,60.64,146,234,type-2-diabetes,39.0,5.72,176.3,no,yes,no,no,no,no,yes,no,18.36,20.68,23.41,2456906,male,former,3.5,139.25,91.1
+50,85.71,76.0,134.0,25.42,pre-obisety,49.0,141,270,normal,38.0,5.627999999999999,170.4,no,no,no,no,no,no,no,no,3.81,2.28,3.54,2460315,male,former,25.23,593.0,73.8
+46,26.13,83.0,128.0,25.92,pre-obisety,61.0,156,232,normal,35.0,5.354,179.6,no,no,no,no,no,no,no,no,11.9,8.9,13.07,2461146,male,former,10.0,124.0,83.6
+58,36.74,75.0,127.5,34.4,obesity class I,53.0,153,215,pre-diabetes,35.0,5.354,169.3,yes,no,yes,no,no,no,no,no,24.87,29.93,26.43,2452665,male,former,25.25,118.0,98.6
+70,14.29,63.0,121.5,22.0,normal,95.0,122,228,normal,36.0,5.445,151.2,no,no,no,no,no,no,no,no,3.19,13.17,3.2,2460249,female,non-smoker,0.0,89.0,50.3
+64,37.43,76.0,159.5,25.89,pre-obisety,70.0,119,191,normal,38.0,5.627999999999999,171.0,yes,no,yes,no,no,no,no,no,4.16,4.52,3.46,2459286,female,regular,27.61,70.0,75.7
+57,20.0,64.0,89.5,23.01,normal,94.0,118,213,normal,34.0,5.2620000000000005,169.5,no,no,no,no,no,no,no,no,4.68,2.7,2.7,2453317,female,former,29.0,101.0,66.1
+43,5.71,80.0,120.0,31.69,obesity class I,85.28,137,236,normal,33.0,5.171,183.5,no,no,no,no,no,no,no,no,6.24,3.99,3.88,2457815,male,former,12.0,53.06,106.7
+48,0.0,79.5,121.0,27.39,pre-obisety,48.0,157,218,normal,35.0,5.354,190.3,no,no,no,no,no,no,no,no,5.59,7.59,5.21,2452941,male,regular,29.6,98.0,99.2
+42,38.03,70.0,117.5,25.55,pre-obisety,93.0,133,248,normal,30.0,4.896,172.7,no,no,no,no,no,no,no,no,6.3,5.0,3.39,2453732,male,non-smoker,0.0,120.0,76.2
+55,11.23,75.5,115.0,29.99,pre-obisety,39.0,140,201,pre-diabetes,41.0,5.903,186.4,yes,no,yes,no,no,no,no,no,20.98,19.8,20.6,2452190,male,non-smoker,0.0,219.0,104.2
+58,22.86,81.0,141.5,36.73,obesity class II,59.0,94,167,type-2-diabetes,47.0,6.452000000000001,170.2,yes,yes,no,no,no,yes,yes,no,12.0,16.1,9.98,2453589,male,former,17.5,175.0,106.4
+46,74.29,68.5,104.5,28.03,pre-obisety,53.0,111,180,pre-diabetes,39.0,5.72,178.5,no,no,no,no,no,no,no,no,7.8,9.2,5.59,2462161,male,former,24.15,130.0,89.3
+45,0.0,65.0,113.5,25.67,pre-obisety,68.0,127,204,normal,35.0,5.354,180.9,no,no,no,no,no,no,no,no,1.25,0.69,1.94,2452338,female,non-smoker,0.0,67.0,84.0
+63,0.0,67.5,115.0,27.06,pre-obisety,62.0,128,197,normal,29.0,4.805,179.2,no,no,no,no,no,no,no,no,5.23,3.01,1.99,2453363,male,former,18.6,85.0,86.9
+47,20.0,74.5,119.5,22.79,normal,108.0,120,245,normal,34.0,5.2620000000000005,178.0,no,no,no,no,no,no,no,no,1.7,2.5,0.46,2453833,female,former,14.86,62.0,72.2
+50,10.53,71.5,111.5,29.35,pre-obisety,53.0,167,229,normal,35.0,5.354,175.5,no,no,no,no,no,no,no,no,4.55,2.64,2.69,2459526,male,regular,24.58,127.0,90.4
+51,31.43,68.5,106.0,22.99,normal,93.0,106,200,normal,29.0,4.805,165.8,no,no,no,no,no,no,no,no,2.08,1.31,1.77,2459983,female,non-smoker,0.0,67.0,63.2
+50,26.6,82.0,114.0,28.84,pre-obisety,48.0,162,228,normal,35.0,5.354,178.9,no,no,no,no,no,no,no,no,10.3,13.1,10.51,2461632,male,regular,36.43,90.0,92.3
+39,0.0,79.5,123.5,25.14,pre-obisety,52.0,148,202,normal,29.0,4.805,185.5,no,no,no,no,no,no,no,no,6.21,5.07,4.58,2459548,male,irregular,5.85,77.0,86.5
+54,11.43,90.0,141.0,28.1,pre-obisety,57.0,163,229,pre-diabetes,39.0,5.72,189.6,yes,no,yes,no,no,no,no,no,17.5,9.1,24.63,2461151,male,former,6.0,96.0,101.0
+40,0.89,71.0,111.0,24.67,normal,56.16,127,189,normal,35.0,5.354,176.8,no,no,no,no,no,no,no,no,3.35,2.27,3.41,2458808,female,former,5.4,74.83,77.1
+61,42.86,68.0,122.0,28.9,pre-obisety,65.0,170,246,pre-diabetes,31.0,4.988,173.8,no,no,no,no,no,no,no,no,5.25,7.78,4.52,2459681,male,former,1.4,152.0,87.3
+50,71.43,92.5,142.5,28.9,pre-obisety,49.44,136,279,pre-diabetes,36.0,5.445,173.1,yes,no,no,no,no,no,no,no,19.28,17.44,17.92,2458068,male,former,10.8,628.3,86.6
+60,20.0,56.5,101.0,22.19,normal,60.0,109,192,normal,32.0,5.079,159.7,no,no,no,no,no,no,no,no,2.8,2.3,1.69,2462150,female,regular,7.75,81.0,56.6
+45,0.0,80.5,119.5,30.68,obesity class I,41.6,133,213,pre-diabetes,41.0,5.903,178.1,no,no,no,no,no,no,no,no,30.05,26.63,27.24,2457401,male,non-smoker,0.0,219.1,97.3
+49,4.43,72.0,111.5,20.34,normal,57.0,131,199,normal,40.0,5.811,176.0,yes,no,yes,no,no,no,no,no,2.4,2.6,1.15,2461520,female,irregular,23.6,65.0,63.0
+47,20.0,74.5,117.0,25.71,pre-obisety,51.68,197,279,normal,36.0,5.445,170.8,no,no,no,no,no,no,no,no,13.43,7.52,9.34,2458784,male,non-smoker,0.0,100.24,75.0
+57,0.0,85.0,131.0,25.46,pre-obisety,63.0,134,200,normal,38.0,5.627999999999999,172.1,no,no,no,no,no,no,no,no,4.46,3.22,3.68,2459807,female,non-smoker,0.0,69.0,75.4
+63,17.14,80.5,135.0,25.2,pre-obisety,59.0,217,295,pre-diabetes,42.0,5.994,168.8,no,no,no,no,no,no,no,no,9.2,10.0,13.62,2461555,male,former,21.6,134.0,71.8
+52,12.29,88.5,126.5,24.43,normal,71.0,140,224,normal,33.0,5.171,162.1,yes,no,yes,no,no,no,no,no,1.7,1.4,1.47,2462374,female,former,7.0,112.0,64.2

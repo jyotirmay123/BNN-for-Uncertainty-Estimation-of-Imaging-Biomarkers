@@ -21,16 +21,16 @@ class ImdbData(data.Dataset):
         img = torch.from_numpy(self.X[index])
         label = torch.from_numpy(self.y[index])
 
-        if self.cw is not None and self.w is not None:
-            weight = torch.from_numpy(self.w[index])
-            class_weight = torch.from_numpy(self.cw[index])
-            return img, label, weight, class_weight
-        if self.w is not None:
-            weight = torch.from_numpy(self.w[index])
-            return img, label, weight
-        if self.cw is not None:
-            class_weight = torch.from_numpy(self.cw[index])
-            return img, label, class_weight
+        # if self.cw is not None and self.w is not None:
+        #     weight = torch.from_numpy(self.w[index])
+        #     class_weight = torch.from_numpy(self.cw[index])
+        #     return img, label, weight, class_weight
+        # if self.w is not None:
+        #     weight = torch.from_numpy(self.w[index])
+        #     return img, label, weight
+        # if self.cw is not None:
+        #     class_weight = torch.from_numpy(self.cw[index])
+        #     return img, label, class_weight
 
         return img, label
 
@@ -125,31 +125,36 @@ class DataUtils(PreProcess):
         print(' == Pre-processing raw data ==')
 
         steps = header['pixdim'][1:4]
-
+        print('original_shape:', volume.shape)
         volume, labelmap = self.reorient(volume, labelmap, header)
-
+        self.save_nibabel(volume, header, 'after_reorient')
         volume = self.do_interpolate(volume, steps)
         labelmap = self.do_interpolate(labelmap, steps, is_label=True)
-
+        self.save_nibabel(volume, header, 'after_interpolation')
         self.target_dim = self.find_nearest(volume.shape) if self.target_dim is None else self.target_dim
 
         volume, labelmap = self.post_interpolate(volume, labelmap, target_shape=self.target_dim)
-
+        self.save_nibabel(volume, header, 'post_interpolate')
         volume, labelmap = self.rotate_orientation(volume, labelmap)
+
 
         labelmap = np.moveaxis(labelmap, 2, 0)
         volume = np.moveaxis(volume, 2, 0)
-
+        self.save_nibabel(volume, header, 'rotate')
         if self.is_reduce_slices:
             volume, labelmap = self.reduce_slices(volume, labelmap)
+            self.save_nibabel(volume, header, 'reduce_slice')
+            print('reduce_slice:', volume.shape)
 
         if self.is_remove_black:
             volume, labelmap = self.remove_black(volume, labelmap)
-
+            self.save_nibabel(volume, header, 'remove_black')
+            print('remove_black:', volume.shape)
         if self.histogram_matching:
             volume = self.hist_match(volume)
 
         volume = self.normalise_data(volume)
+        self.save_nibabel(volume, header, 'normalise')
         class_weights, _ = self.estimate_weights_mfb(labelmap)
         weights = self.estimate_weights_per_slice(labelmap)
 
@@ -185,9 +190,9 @@ class DataUtils(PreProcess):
         nb.save(mgh, dest_file)
         print('file saved in ' + dest_file)
 
-    def save_nibabel(self, volume, header, filename, vol):
+    def save_nibabel(self, volume, header, filename, vol=None):
         mgh = nb.MGHImage(volume, np.eye(4), header)
-        processed_dest_folder = '/home/abhijit/Jyotirmay/thesis/hquicknat/processeddata/' + vol
+        processed_dest_folder = '/home/abhijit/Jyotirmay/thesis/'
         self.create_if_not(processed_dest_folder)
         dest_file = os.path.join(processed_dest_folder, filename + self.processed_extn)
         nb.save(mgh, dest_file)

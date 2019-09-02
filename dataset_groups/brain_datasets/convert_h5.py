@@ -1,14 +1,11 @@
 """
 Convert to h5 utility.
-python utils/convert_h5.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
+python utils/convert_h5_orig.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
 """
-
-import argparse
 import h5py
 import numpy as np
 
-from utils.data_utils import DataUtils
-from settings import compile_config
+from dataset_groups.whole_body_datasets.data_utils import DataUtils
 
 
 class ConvertH5(DataUtils):
@@ -29,18 +26,15 @@ class ConvertH5(DataUtils):
     # TODO: Dynamise it later.
     def _write_h5(self, data, label, class_weights, weights, f, mode):
         if self.processed_extn == '.npz':
-            # H, W = data[0].shape
             no_labelmap, H, W = label[0].shape
             no_slices = 1
 
             data = np.expand_dims(data, axis=0)
             data = np.concatenate(data)
-            # data = np.squeeze(data[:, :, :, :])
             data = data.reshape((-1, H, W))
 
             label = np.expand_dims(label, axis=0)
             label = np.concatenate(label)
-            # label = np.squeeze(label[:, :, :, :, :])
             label = label.reshape((-1, no_labelmap, H, W))
 
         else:
@@ -88,15 +82,3 @@ class ConvertH5(DataUtils):
         data_test, label_test, weights_test, class_weights_test = self.load_dataset(test_file_paths)
 
         self._write_h5(data_test, label_test, class_weights_test, weights_test, f, mode='test')
-
-
-if __name__ == "__main__":
-    print("* Start *")
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--settings_file_path', '-cfg', required=True, help='Path to project config file(settings.ini)')
-
-    args = parser.parse_args()
-    settings = compile_config(args.settings_file_path)
-    convert_h5_object = ConvertH5(settings)
-    convert_h5_object.convert_h5()
-    print("* Finish *")

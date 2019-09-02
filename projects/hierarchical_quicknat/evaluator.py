@@ -67,6 +67,7 @@ class Evaluator(EvaluatorInterface):
                         for mcs in range(self.dataUtils.mc_sample):
                             model.is_training = False
                             out = model.forward(batch_x)
+                            out = out[2]
                             out = F.softmax(out, dim=1)
                             _, batch_class_map = torch.max(out, dim=1)
                             iou_uncertainty[mcs, i: i + batch_size] = batch_class_map.cpu().numpy()
@@ -91,6 +92,7 @@ class Evaluator(EvaluatorInterface):
 
                     volume_prediction.append(batch_output)
 
+                volume_prediction = torch.cat(volume_prediction)
                 volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
                                                              self.dataUtils.num_class, mode=mode)
                 volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
@@ -106,14 +108,13 @@ class Evaluator(EvaluatorInterface):
                 s_ncc_list.append(s_ncc)
                 s_ged_list.append(s_ged)
 
-                volume_prediction = torch.cat(volume_prediction)
-
                 if self.dataUtils.is_uncertainity_check_enabled:
                     self.save_uncertainty_samples(iou_uncertainty, prediction_path, volumes_to_use[vol_idx], header)
                     self.save_uncertainty_heat_map(heat_map_arr, prediction_path, volumes_to_use[vol_idx], header)
 
                 self.save_segmentation_map(volume_prediction, prediction_path, volumes_to_use[vol_idx], header)
-                self.intermediate_report(volume_dice_score, volume_dice_surface_distance, iou_s, s_ncc_list, s_ged_list)
+                self.intermediate_report(volumes_to_use[vol_idx], volume_dice_score, volume_dice_surface_distance,
+                                         iou_s, s_ncc_list, s_ged_list)
 
                 if logWriter:
                     logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],

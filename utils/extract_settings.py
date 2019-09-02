@@ -18,6 +18,7 @@ class ExtractSettings(CommonUtils):
         self.log_dir = _common_.log_dir
         self.device = _common_.device
         self.exp_dir = _common_.exp_dir
+        self.notify = _common_.notify
 
         # NETWORK SETTING CONFIGURATIONS
         _network_ = self.settings.NETWORK
@@ -76,6 +77,8 @@ class ExtractSettings(CommonUtils):
 
         # DEFAULT PROJECT SETTING CONFIGURATIONS
         self.base_dir = _eval_.base_dir
+        self.project_name = _eval_.project_name
+        self.exp_mixin = _eval_.exp_mixin
         self.exp_name = _eval_.exp_name
         self.final_model_file = _eval_.final_model_file
         self.pre_trained_path = _eval_.pre_trained_path

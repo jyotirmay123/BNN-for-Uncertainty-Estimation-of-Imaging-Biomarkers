@@ -23,11 +23,11 @@ class Solver(SolverInterface):
         - val_loader: val data in torch.utils.data.DataLoader
         """
         model, optim, scheduler = self.model, self.optim, self.scheduler
-        dataloaders = {
-            'train': train_loader,
-            'val': val_loader
-        }
 
+        dataloaders = {
+            'val': val_loader,
+            'train': train_loader
+        }
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
             model.cuda(self.device)

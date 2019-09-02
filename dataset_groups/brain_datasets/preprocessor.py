@@ -59,6 +59,7 @@ class PreProcess(ExtractSettings):
                     print('skipped')
                     continue
                 print(data_['spleen'].shape, data_['liver'].shape)
+
                 merged_annotations = np.add(data_['spleen'], data_['liver'])
                 img = nb.Nifti1Image(merged_annotations, np.eye(4))
                 self.create_if_not(self.label_dir)
@@ -67,6 +68,25 @@ class PreProcess(ExtractSettings):
             except Exception as e:
                 print(e)
                 self.excluded_volumes.append(id_)
+
+                # img = nb.Nifti1Image(data_['spleen'], np.eye(4))
+                # self.create_if_not(self.label_dir+'/nifti')
+                # filename = os.path.join(self.label_dir, 'nifti', 'spleen_' + id_ + self.processed_extn)
+                # nb.save(img, filename)
+                #
+                # img = nb.Nifti1Image(data_['liver'], np.eye(4))
+                # filename = os.path.join(self.label_dir, 'nifti', 'liver_' + id_ + self.processed_extn)
+                # nb.save(img, filename)
+                #
+                # spleen_d = self.do_interpolate(data_['spleen'], [1.40625, 1.40625,3], True)
+                # img = nb.Nifti1Image(spleen_d, np.eye(4))
+                # filename = os.path.join(self.label_dir, 'nifti', 'interpolated_spleen_' + id_ + self.processed_extn)
+                # nb.save(img, filename)
+                #
+                # liver_d = self.do_interpolate(data_['liver'], [1.40625, 1.40625, 3], True)
+                # img = nb.Nifti1Image(liver_d, np.eye(4))
+                # filename = os.path.join(self.label_dir, 'nifti', 'interpolated_liver_' + id_ + self.processed_extn)
+                # nb.save(img, filename)
 
     def reorient(self, volume, labelmap, header):
         target_orientation = self.target_orientation

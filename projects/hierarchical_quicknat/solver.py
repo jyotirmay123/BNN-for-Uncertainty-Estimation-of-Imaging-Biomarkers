@@ -85,7 +85,10 @@ class Solver(SolverInterface):
                         loss.backward()
                         optim.step()
                         if i_batch % self.log_nth == 0:
-                            self.notifier.notify(f'notifier setup, loss: {loss}')
+                            self.notifier.notify(
+                                f'{self.model_name.upper()} NOTIFICATION EPOCH {epoch}, ITERATION: {current_iteration}'
+                                f' :: dice_loss: {dice_loss}, ce_loss: {ce_loss}, kl_loss: {kl_div_loss}, loss: {loss}'
+                            )
                             self.logWriter.loss_per_iter(loss.item(), i_batch, current_iteration,
                                                          loss_name='loss')
                             self.logWriter.loss_per_iter(dice_loss.item(), i_batch, current_iteration,

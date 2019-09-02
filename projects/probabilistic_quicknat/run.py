@@ -15,9 +15,9 @@ torch.set_default_tensor_type('torch.FloatTensor')
 
 class Executor(ExecutorInterface, Evaluator):
     def __init__(self, settings):
-        ExecutorInterface.__init__(self)
-        Evaluator.__init__(self, settings)
-        # super().__init__(settings)
+        # ExecutorInterface.__init__(self)
+        # Evaluator.__init__(self, settings)
+        super().__init__(settings)
 
     def train(self, train_params, common_params, data_params, net_params, utils=None):
         print("Loading dataset")
@@ -26,12 +26,13 @@ class Executor(ExecutorInterface, Evaluator):
         print("Test size: %i" % len(test_data))
 
         train_loader = torch.utils.data.DataLoader(train_data, batch_size=train_params['train_batch_size'],
-                                                   shuffle=False,
+                                                   shuffle=True,
                                                    num_workers=4, pin_memory=True)
         val_loader = torch.utils.data.DataLoader(test_data, batch_size=train_params['val_batch_size'], shuffle=False,
                                                  num_workers=4, pin_memory=True)
 
         if train_params['use_pre_trained']:
+            print(f'Loading pre_trained model from: {train_params["pre_trained_path"]}')
             model = torch.load(train_params['pre_trained_path'])
         else:
             model = ProbabilisticUNet(net_params)

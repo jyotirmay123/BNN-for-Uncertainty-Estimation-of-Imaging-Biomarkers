@@ -30,13 +30,13 @@ class MultiInputResidualQuickNat(nn.Module):
 
         # params['num_filters'] = 64
         # params['num_channels'] = 1
-        self.encode1 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode1 = sm.EncoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
 
         params['num_channels'] = 64
-        self.encode2 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.encode3 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.encode4 = sm.EncoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.bottleneck = sm.DenseBlock(params, se_block_type=se.SELayer.CSSE)
+        self.encode2 = sm.EncoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.encode3 = sm.EncoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.encode4 = sm.EncoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.bottleneck = sm.DenseBlockNoBN(params, se_block_type=se.SELayer.CSSE)
 
         self.resBlock1 = sm.FullyPreActivatedResBlock(params, 1)
         self.resBlock2 = sm.FullyPreActivatedResBlock(params, 2)
@@ -44,10 +44,10 @@ class MultiInputResidualQuickNat(nn.Module):
         self.resBlock4 = sm.FullyPreActivatedResBlock(params, 8)
 
         params['num_channels'] = 128
-        self.decode1 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode2 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode3 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
-        self.decode4 = sm.DecoderBlock(params, se_block_type=se.SELayer.CSSE)
+        self.decode1 = sm.DecoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.decode2 = sm.DecoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.decode3 = sm.DecoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
+        self.decode4 = sm.DecoderBlockNoBN(params, se_block_type=se.SELayer.CSSE)
 
         params['num_channels'] = 64
         self.classifier = sm.ClassifierBlock(params)

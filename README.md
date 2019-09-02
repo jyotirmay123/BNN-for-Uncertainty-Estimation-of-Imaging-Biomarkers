@@ -2,6 +2,7 @@
 
 - To install existing environment to jupyter kernel, follow below link:
 https://ipython.readthedocs.io/en/stable/install/kernel_install.html
+ python -m ipykernel install --user --name other-env --display-name "Python (other-env)"
 
 - conda create -n py36 python=3.6.2 anaconda
 
@@ -15,6 +16,9 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 - git add .
 - git commit -m <coments>
 - git push origin_ master
+- git rm -r --cached .
+// To remove pre-added cached git file (solve pushing large files mistakenly)
+
 
 # Pycharm SSH configurations
 
@@ -27,3 +31,13 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 -- Chnage file locally, but while running, give appropriate server file location for 
    mapped to your file, that you changed. It would have got uploaded to remote server by then,
    or should have, check it once.
+   
+# Port Forwarding and other stuffs
+- https://www.booleanworld.com/guide-ssh-port-forwarding-tunnelling/
+- https://stackoverflow.com/questions/36182380/how-do-display-different-runs-in-tensorboard
+
+# MITK Installation guide
+- https://neurita.github.io/how_to_compile_mitk_on_ubuntu
+
+# Statistical Analysis related
+- https://scipy-lectures.org/packages/statistics/index.html

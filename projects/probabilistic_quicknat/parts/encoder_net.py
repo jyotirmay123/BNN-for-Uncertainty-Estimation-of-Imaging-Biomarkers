@@ -14,11 +14,11 @@ class EncoderNet(nn.Module):
 
         params['broadcasting_needed'] = False
         self.concat = sm.ConcatBlock(params)
-        self.encode1 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode1 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.SSE)
         params['num_channels'] = 64
-        self.encode2 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.encode3 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.NONE)
-        self.encode4 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.NONE)
+        self.encode2 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.SSE)
+        self.encode3 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.SSE)
+        self.encode4 = sm.SDnetEncoderBlock(params, se_block_type=se.SELayer.SSE)
 
         self.fc_mu1 = nn.Linear(64, params['latent_variables'])
         self.fc_sigma1 = nn.Linear(64, params['latent_variables'])
