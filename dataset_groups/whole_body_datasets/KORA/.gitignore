@@ -1,8 +1,10 @@
 h5_data_files_all/**
+h5_data_files/**
 h5_data_files_small/**
 manual_annotations/**
 merged_annotations/**
 old_reports/**
 processed_data_small/**
 processed_data_all/**
+processed_data/**
 __pycache__

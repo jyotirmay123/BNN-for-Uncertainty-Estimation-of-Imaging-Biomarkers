@@ -1,10 +1,12 @@
 import numpy as np
 import nibabel as nb
+from nibabel.affines import from_matvec, to_matvec, apply_affine
 import scipy.interpolate as si
 import operator
 import glob
 import nrrd
 import os
+import numpy.linalg as npl
 from utils.extract_settings import ExtractSettings
 
 
@@ -30,6 +32,12 @@ class PreProcess(ExtractSettings):
         header = _nrrd[1]
         return data, header
 
+    @staticmethod
+    def nibabel_reader(file_path):
+        volume_nifty = nb.load(file_path)
+        volume = volume_nifty.get_fdata()
+        return volume, volume_nifty.header
+
     def merge_annotations(self):
         paths = glob.glob(self.annotations_root + '/*')
         classes = self.labels[1:]  # Excluding background class.
@@ -47,7 +55,11 @@ class PreProcess(ExtractSettings):
                 data_ = {c.lower(): None for c in classes}
 
                 for a in annotations:
-                    data, header = PreProcess.nrrd_reader(a)
+                    ext = a.split('.')[-1]
+                    if ext == "nrrd":
+                        data, header = PreProcess.nrrd_reader(a)
+                    elif ext in ['gz', 'mgz', 'nii']:
+                        data, header = PreProcess.nibabel_reader(a)
 
                     if 'SPLEEN' in a.upper():
                         data_['spleen'] = data
@@ -69,31 +81,144 @@ class PreProcess(ExtractSettings):
                 print(e)
                 self.excluded_volumes.append(id_)
 
-                # img = nb.Nifti1Image(data_['spleen'], np.eye(4))
-                # self.create_if_not(self.label_dir+'/nifti')
-                # filename = os.path.join(self.label_dir, 'nifti', 'spleen_' + id_ + self.processed_extn)
-                # nb.save(img, filename)
-                #
-                # img = nb.Nifti1Image(data_['liver'], np.eye(4))
-                # filename = os.path.join(self.label_dir, 'nifti', 'liver_' + id_ + self.processed_extn)
-                # nb.save(img, filename)
-                #
-                # spleen_d = self.do_interpolate(data_['spleen'], [1.40625, 1.40625,3], True)
-                # img = nb.Nifti1Image(spleen_d, np.eye(4))
-                # filename = os.path.join(self.label_dir, 'nifti', 'interpolated_spleen_' + id_ + self.processed_extn)
-                # nb.save(img, filename)
-                #
-                # liver_d = self.do_interpolate(data_['liver'], [1.40625, 1.40625, 3], True)
-                # img = nb.Nifti1Image(liver_d, np.eye(4))
-                # filename = os.path.join(self.label_dir, 'nifti', 'interpolated_liver_' + id_ + self.processed_extn)
-                # nb.save(img, filename)
-
-    def reorient(self, volume, labelmap, header):
+    def reorient(self, volume, header):
         target_orientation = self.target_orientation
-        source_orientation = nb.orientations.io_orientation(header.get_best_affine())
+        affine = header.get_best_affine()
+        o, l = to_matvec(affine)
+        source_orientation = nb.orientations.io_orientation(affine)
         transformation_mat = nb.orientations.ornt_transform(source_orientation, target_orientation)
         volume = nb.orientations.apply_orientation(volume, transformation_mat)
-        labelmap = nb.orientations.apply_orientation(labelmap, transformation_mat)
+
+        transformation_mat = np.asarray(transformation_mat)
+        l = np.asarray(l)
+        print(l)
+        idxs = transformation_mat[:, 0]
+        idxs = list(map(lambda x: int(x), idxs))
+        invs = transformation_mat[:, 1]
+
+        l = [v * inv for v, inv in zip(l, invs)]
+        fl = [l[i] for i in idxs]
+        print(fl)
+        return volume, fl
+
+    # @staticmethod
+    def axis_centralisation(self, volume, labelmap, header, l_header=None):
+
+        if volume.shape == labelmap.shape:
+            return volume, labelmap
+
+        vha = header.get_best_affine()
+        ov, vl = to_matvec(vha)
+        vl = list(map(lambda x: np.abs(x), vl))
+        vha = from_matvec(ov, vl)
+
+        lha = l_header.get_best_affine()
+        ol, ll = to_matvec(lha)
+        ll = list(map(lambda x: np.abs(x), ll))
+        lha = from_matvec(ol, ll)
+
+        ort = nb.orientations.aff2axcodes(header.get_best_affine())
+        ort_l = nb.orientations.aff2axcodes(l_header.get_best_affine())
+        target_ornt = nb.orientations.ornt2axcodes(self.target_orientation)
+        print(ort, ort_l, target_ornt)
+
+        volume_to_label = npl.inv(lha).dot(vha)
+
+        starts = [0, 0, 0]
+        ls = apply_affine(volume_to_label, starts)
+
+        ends = volume.shape
+        le = apply_affine(volume_to_label, ends)
+
+        ls_f = []
+        le_f = []
+        for s, e in zip(ls, le):
+            e += (-1 * s)
+            ls_f.append(0)
+            if e < 0:
+                raise Exception('ALL Negative. Entirely diff un-processed volume structure detected.')
+
+            le_f.append(e)
+        #
+        ls_f = map(lambda x: int(np.floor(x)), ls_f)
+        le_f = map(lambda x: int(np.ceil(x)), le_f)
+
+        # counter = 0
+        # cut_volume = False
+        # cut_shape = []
+        # for las, les in zip(labelmap.shape, list(le_f)):
+        #     if (les-las) > 5:
+        #         cut_shape.append(las)
+        #         cut_volume = True
+        #         break
+        #
+        # if cut_volume:
+        #     label_to_volume = npl.inv(vha).dot(lha)
+        #     vs = apply_affine(label_to_volume, starts)
+        #     ve = apply_affine(label_to_volume, labelmap.shape)
+        #     vs_f = []
+        #     ve_f = []
+        #     for s, e in zip(vs, ve):
+        #         if s < 0:
+        #             #e += np.abs(s)
+        #             vs_f.append(np.abs(s))
+        #         else:
+        #             vs_f.append(s)
+        #         if e < 0:
+        #             raise Exception('ALL Negative. Entirely diff un-processed volume structure detected.')
+        #
+        #         ve_f.append(e)
+        #         #
+        #     vs = list(map(lambda x: int(np.floor(x)), vs_f))
+        #     ve = list(map(lambda x: int(np.ceil(x)), ve_f))
+        #     slices = tuple(map(slice, tuple(vs), tuple(ve)))
+        #     print(vs, ve, slices)
+        #     volume = volume[slices]
+        #
+        #     ends = volume.shape
+        #     le = apply_affine(volume_to_label, ends)
+        #     le_f = list(map(lambda x: int(np.ceil(x)), le))
+        #     print('updated_lef:', volume.shape, le, le_f)
+
+        slices = tuple(map(slice, tuple(ls_f), tuple(le_f)))
+        labelmap = labelmap[slices]
+        print(ls, le, slices, volume.shape, labelmap.shape)
+
+        return volume, labelmap
+
+    # @staticmethod
+    def shape_equalizer(self, volume, labelmap):
+        if volume.shape is not labelmap.shape:
+            s, h, w = labelmap.shape
+            v_s, v_h, v_w = volume.shape
+            f_s, f_h, f_w = s - v_s, h - v_h, w - v_w
+            print(volume.shape, labelmap.shape, f_s, f_h, f_w)
+
+            if f_s > 0:
+                labelmap = labelmap[f_s // 2:-f_s // 2, :, :]
+            elif f_s < 0:
+                f_s = np.abs(f_s)
+                volume = volume[f_s // 2:-f_s // 2, :, :]
+            else:
+                pass
+
+            if f_h > 0:
+                labelmap = labelmap[:, f_h // 2:-f_h // 2, :]
+            elif f_h < 0:
+                f_h = np.abs(f_h)
+                volume = volume[:, f_h // 2:-f_h // 2, :]
+            else:
+                pass
+
+            if f_w > 0:
+                labelmap = labelmap[:, :, f_w // 2:-f_w // 2]
+            elif f_w < 0:
+                f_w = np.abs(f_w)
+                volume = volume[:, :, f_w // 2:-f_w // 2]
+            else:
+                pass
+            print(volume.shape, labelmap.shape)
+
         return volume, labelmap
 
     def do_interpolate(self, source, steps, is_label=False):
@@ -116,9 +241,10 @@ class PreProcess(ExtractSettings):
         idxs = [(np.abs(array - source_num)).argmin() for source_num in source_num_arr]
         return [array[idx + 1] for idx in idxs]
 
-    def post_interpolate(self, volume, labelmap, target_shape):
+    def post_interpolate(self, volume, labelmap=None, target_shape=None):
         volume = self.do_cropping(volume, target_shape)
-        labelmap = self.do_cropping(labelmap, target_shape)
+        if labelmap is not None:
+            labelmap = self.do_cropping(labelmap, target_shape)
         current_shape = volume.shape
         intended_shape_deficit = target_shape - np.asarray(current_shape)
 
@@ -128,7 +254,8 @@ class PreProcess(ExtractSettings):
         paddings = tuple(paddings)
 
         volume = np.pad(volume, paddings, mode='constant')
-        labelmap = np.pad(labelmap, paddings, mode='constant')
+        if labelmap is not None:
+            labelmap = np.pad(labelmap, paddings, mode='constant')
 
         return volume, labelmap
 

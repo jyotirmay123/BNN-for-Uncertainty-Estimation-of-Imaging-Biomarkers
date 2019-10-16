@@ -102,6 +102,7 @@ class ExtractSettings(CommonUtils):
         self.h5_volume_name_extractor = _data_.h5_volume_name_extractor
         self.labels = _data_.labels
         self.excluded_volumes = []  # _data_.excluded_volumes
+        self.excluded_vol_dict = {}
 
         # DATA CONFIG FROM DATASET CONFIG
         _data_config_ = self.settings.DATA_CONFIG

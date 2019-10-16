@@ -1,6 +1,6 @@
 """
 Convert to h5 utility.
-python utils/convert_h5_orig.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
+python utils/convert_h5.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settings.ini'
 """
 import h5py
 import numpy as np
@@ -66,6 +66,8 @@ class ConvertH5(DataUtils):
         else:
             raise ValueError('You must either provide the split ratio or a train, train dataset list')
 
+        print(len(self.excluded_volumes), self.excluded_vol_dict, list(self.excluded_vol_dict.keys()))
+
         print("Train dataset size: %d, Test dataset size: %d" % (len(train_file_paths), len(test_file_paths)))
 
         # Preparing data files to store data.
@@ -82,3 +84,5 @@ class ConvertH5(DataUtils):
         data_test, label_test, weights_test, class_weights_test = self.load_dataset(test_file_paths)
 
         self._write_h5(data_test, label_test, class_weights_test, weights_test, f, mode='test')
+
+        print(self.excluded_volumes, self.excluded_vol_dict, list(self.excluded_vol_dict.keys()))
