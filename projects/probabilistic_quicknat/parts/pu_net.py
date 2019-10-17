@@ -41,7 +41,7 @@ class ProbabilisticUNet(nn.Module):
         #     self.quickNat.enable_test_dropout()
 
         if ground_truth is not None:  # Training Time
-            y_out = self.quickNat.forward(inp, self.sample)
+            y_out = self.quickNat(inp, self.sample)
             self.sample = None
             return y_out
         else:  # Testing Time
@@ -60,18 +60,19 @@ class ProbabilisticUNet(nn.Module):
 
     def y_out_generator(self, inp):
         # # Prior Encoder network getting trained on input image only.
-        prior_mu1, prior_sigma1, prior_mu2, prior_sigma2, prior_mu3, prior_sigma3 = self.priorNet.forward(inp)
+        # prior_mu1, prior_sigma1, prior_mu2, prior_sigma2, prior_mu3, prior_sigma3 = self.priorNet(inp)
+        prior_mu1, prior_sigma1 = self.priorNet(inp)
         # to_be_picked = [(prior_mu1, prior_sigma1), (prior_mu2, prior_sigma2), (prior_mu3, prior_sigma3)]
         while True:
-            pickid = random.randint(1, 3)
+            # pickid = random.randint(1, 3)
             prior_sample1 = self.priorNet.reparameterize((prior_mu1, prior_sigma1))
-            prior_sample2 = self.priorNet.reparameterize((prior_mu2, prior_sigma2))
-            prior_sample3 = self.priorNet.reparameterize((prior_mu3, prior_sigma3))
-            to_be_picked_prior_ = [prior_sample1, prior_sample2, prior_sample3]
-            prior_sample = to_be_picked_prior_[pickid - 1]
+            # prior_sample2 = self.priorNet.reparameterize((prior_mu2, prior_sigma2))
+            # prior_sample3 = self.priorNet.reparameterize((prior_mu3, prior_sigma3))
+            # to_be_picked_prior_ = [prior_sample1, prior_sample2, prior_sample3]
+            prior_sample = prior_sample1  # to_be_picked_prior_[pickid - 1]
 
             # QuickNAt trained on input image and samples from posterior network.
-            y_out = self.quickNat.forward(inp, prior_sample)
+            y_out = self.quickNat(inp, prior_sample)
             yield y_out
             if not self.uncertainty_check:
                 break
@@ -79,29 +80,29 @@ class ProbabilisticUNet(nn.Module):
     def sample_generator(self, input, ground_truth):
 
         # Prior Encoder network getting trained on input image.
-        prior_mu1, prior_sigma1, prior_mu2, prior_sigma2, prior_mu3, prior_sigma3 = self.priorNet.forward(input)
+        # prior_mu1, prior_sigma1, prior_mu2, prior_sigma2, prior_mu3, prior_sigma3 = self.priorNet(input)
+        prior_mu1, prior_sigma1 = self.priorNet(input)
         # Posterior Encoder network trained with input image conditioned on ground truth.
-        posterior_mu1, posterior_sigma1, posterior_mu2, posterior_sigma2, posterior_mu3, posterior_sigma3 = self.posteriorNet.forward(
-            input, ground_truth)
-
+        # posterior_mu1, posterior_sigma1, posterior_mu2, posterior_sigma2, posterior_mu3, posterior_sigma3 = self.posteriorNet(input, ground_truth)
+        posterior_mu1, posterior_sigma1 = self.posteriorNet(input, ground_truth)
         # QuickNAt trained on input image and samples from posterior network.
         for i in range(self.sampling_time):
             prior_sample1 = self.priorNet.reparameterize((prior_mu1, prior_sigma1))
-            prior_sample2 = self.priorNet.reparameterize((prior_mu2, prior_sigma2))
-            prior_sample3 = self.priorNet.reparameterize((prior_mu3, prior_sigma3))
-            to_be_picked_prior = [prior_sample1, prior_sample2, prior_sample3]
+            # prior_sample2 = self.priorNet.reparameterize((prior_mu2, prior_sigma2))
+            # prior_sample3 = self.priorNet.reparameterize((prior_mu3, prior_sigma3))
+            # to_be_picked_prior = [prior_sample1, prior_sample2, prior_sample3]
 
             posterior_sample1 = self.posteriorNet.reparameterize((posterior_mu1, posterior_sigma1))
-            posterior_sample2 = self.posteriorNet.reparameterize((posterior_mu2, posterior_sigma2))
-            posterior_sample3 = self.posteriorNet.reparameterize((posterior_mu3, posterior_sigma3))
+            # posterior_sample2 = self.posteriorNet.reparameterize((posterior_mu2, posterior_sigma2))
+            # posterior_sample3 = self.posteriorNet.reparameterize((posterior_mu3, posterior_sigma3))
 
-            to_be_picked_posterior = [posterior_sample1, posterior_sample2, posterior_sample3]
-            pickid = random.randint(1, 3)
-            to_pick_from = to_be_picked_posterior if self.alternate_sample_pick else to_be_picked_prior
+            # to_be_picked_posterior = [posterior_sample1, posterior_sample2, posterior_sample3]
+            # pickid = random.randint(1, 3)
+            to_pick_from = posterior_sample1 if self.alternate_sample_pick else prior_sample1
             self.alternate_sample_pick = not self.alternate_sample_pick
-            self.sample = to_pick_from[pickid - 1]
-            yield {'mu_sigma': to_be_picked_prior}, {'mu_sigma': to_be_picked_posterior}
-
+            self.sample = to_pick_from  # [pickid - 1]
+            # yield {'mu_sigma': prior_sample1}, {'mu_sigma': posterior_sample1}
+            yield (prior_mu1, prior_sigma1), (posterior_mu1, posterior_sigma1)
     @staticmethod
     def gaussian(ins, is_training, mean, stddev):
         from torch.autograd import Variable

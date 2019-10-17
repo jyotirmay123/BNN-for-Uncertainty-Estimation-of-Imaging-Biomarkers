@@ -53,18 +53,18 @@ class QuickNat(nn.Module):
         if not self.is_training:
             self.enable_test_dropout()
 
-        e1, out1, ind1 = self.encode1.forward(input)
-        e2, out2, ind2 = self.encode2.forward(e1)
-        e3, out3, ind3 = self.encode3.forward(e2)
-        e4, out4, ind4 = self.encode4.forward(e3)
+        e1, out1, ind1 = self.encode1(input)
+        e2, out2, ind2 = self.encode2(e1)
+        e3, out3, ind3 = self.encode3(e2)
+        e4, out4, ind4 = self.encode4(e3)
 
-        bn = self.bottleneck.forward(e4)
+        bn = self.bottleneck(e4)
 
-        d4 = self.decode4.forward(bn, out4, ind4)
-        d3 = self.decode1.forward(d4, out3, ind3)
-        d2 = self.decode2.forward(d3, out2, ind2)
-        d1 = self.decode3.forward(d2, out1, ind1)
-        prob = self.classifier.forward(d1)
+        d4 = self.decode4(bn, out4, ind4)
+        d3 = self.decode1(d4, out3, ind3)
+        d2 = self.decode2(d3, out2, ind2)
+        d1 = self.decode3(d2, out1, ind1)
+        prob = self.classifier(d1)
 
         return None, None, prob
 

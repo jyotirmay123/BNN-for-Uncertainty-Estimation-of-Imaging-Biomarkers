@@ -72,7 +72,7 @@ class Solver(SolverInterface):
                         intermediate_output = model.forward(X)
 
                     output = intermediate_output[2]
-                    intermediate_loss = self.loss_func(intermediate_output, y, (None, False))
+                    intermediate_loss = self.loss_func(intermediate_output, y, (None, None))
 
                     dice_loss = intermediate_loss[0]
                     ce_loss = intermediate_loss[1]

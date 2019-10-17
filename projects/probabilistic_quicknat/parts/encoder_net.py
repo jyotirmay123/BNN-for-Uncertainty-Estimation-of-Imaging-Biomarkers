@@ -23,11 +23,11 @@ class EncoderNet(nn.Module):
         self.fc_mu1 = nn.Linear(64, params['latent_variables'])
         self.fc_sigma1 = nn.Linear(64, params['latent_variables'])
 
-        self.fc_mu2 = nn.Linear(64, params['latent_variables'])
-        self.fc_sigma2 = nn.Linear(64, params['latent_variables'])
-
-        self.fc_mu3 = nn.Linear(64, params['latent_variables'])
-        self.fc_sigma3 = nn.Linear(64, params['latent_variables'])
+        # self.fc_mu2 = nn.Linear(64, params['latent_variables'])
+        # self.fc_sigma2 = nn.Linear(64, params['latent_variables'])
+        #
+        # self.fc_mu3 = nn.Linear(64, params['latent_variables'])
+        # self.fc_sigma3 = nn.Linear(64, params['latent_variables'])
 
     def reparameterize(self, mu_logvar):
         """
@@ -58,9 +58,9 @@ class EncoderNet(nn.Module):
         e4, out4, ind4 = self.encode4.forward(e3)
         e5 = torch.mean(e4.view(e4.size(0), e4.size(1), -1), dim=2)
         mu1, sigma1 = self.fc_mu1(e5), self.fc_sigma1(e5)
-        mu2, sigma2 = self.fc_mu2(e5), self.fc_sigma2(e5)
-        mu3, sigma3 = self.fc_mu3(e5), self.fc_sigma3(e5)
-        return mu1, sigma1, mu2, sigma2, mu3, sigma3
+        # mu2, sigma2 = self.fc_mu2(e5), self.fc_sigma2(e5)
+        # mu3, sigma3 = self.fc_mu3(e5), self.fc_sigma3(e5)
+        return mu1, sigma1  # , mu2, sigma2, mu3, sigma3
 
     @property
     def is_cuda(self):

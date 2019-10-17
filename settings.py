@@ -58,10 +58,8 @@ class DotDict(dict):
 
 
 def _parse_values(config):
-    print(config)
     config_parsed = {}
     for section in config.sections():
-        print(section)
         config_parsed[section] = DotDict()
         for key, value in config[section].items():
             config_parsed[section][key] = ast.literal_eval(value)
@@ -71,7 +69,6 @@ def _parse_values(config):
                 data_settings_dict = _parse_values(data_config)
                 for data_section in data_config.sections():
                     config_parsed[data_section] = data_settings_dict[data_section]
-    print(config_parsed)
     return config_parsed
 
 

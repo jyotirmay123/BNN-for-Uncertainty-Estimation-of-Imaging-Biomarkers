@@ -45,7 +45,7 @@ class Executor(ExecutorInterface, Evaluator):
                                     "betas": train_params['optim_betas'],
                                     "eps": train_params['optim_eps'],
                                     "weight_decay": train_params['optim_weight_decay']},
-                        loss_func=additional_losses.KLDCEWithTripletLoss(net_params['gamma_value'],
+                        loss_func=additional_losses.KLDCECombinedLoss(net_params['gamma_value'],
                                                                       net_params['beta_value']),
                         model_name=common_params['model_name'],
                         exp_name=train_params['exp_name'],

@@ -8,3 +8,5 @@ processed_data_small/**
 processed_data_all/**
 processed_data/**
 __pycache__
+/processed_data/data/*
+/processed_data/labels/*

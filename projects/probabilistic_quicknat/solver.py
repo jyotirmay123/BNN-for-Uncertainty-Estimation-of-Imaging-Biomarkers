@@ -45,7 +45,7 @@ class Solver(SolverInterface):
                 ce_loss_arr = []
                 kld_loss_arr = []
                 loss_arr = []
-                triplet_loss_arr = []
+                # triplet_loss_arr = []
 
                 out_list = []
                 y_list = []
@@ -82,7 +82,7 @@ class Solver(SolverInterface):
                     ce_loss = intermediate_loss[1]
                     kl_div_loss = intermediate_loss[2]
                     loss = intermediate_loss[3]
-                    triplet_loss = intermediate_loss[4]
+                    # triplet_loss = intermediate_loss[4]
 
                     if phase == 'train':
                         optim.zero_grad()
@@ -92,8 +92,8 @@ class Solver(SolverInterface):
                         if i_batch % self.log_nth == 0:
                             self.notifier.notify(
                                 f'{self.model_name.upper()} NOTIFICATION EPOCH {epoch}, ITERATION: {current_iteration}'
-                                f' :: dice_loss: {dice_loss}, ce_loss: {ce_loss}, kl_loss: {kl_div_loss}, loss: {loss},'
-                                f' triplet_loss: {triplet_loss}'
+                                f' :: dice_loss: {dice_loss}, ce_loss: {ce_loss}, kl_loss: {kl_div_loss}, loss: {loss}'
+                                # f' triplet_loss: {triplet_loss}'
                             )
                             self.logWriter.loss_per_iter(loss.item(), i_batch, current_iteration,
                                                          loss_name='loss')
@@ -103,19 +103,19 @@ class Solver(SolverInterface):
                                                          loss_name='ce_loss')
                             self.logWriter.loss_per_iter(kl_div_loss.item(), i_batch, current_iteration,
                                                          loss_name='kl_div_loss')
-                            self.logWriter.loss_per_iter(triplet_loss.item(), i_batch, current_iteration,
-                                                         loss_name='triplet_loss')
+                            # self.logWriter.loss_per_iter(triplet_loss.item(), i_batch, current_iteration,
+                            #                             loss_name='triplet_loss')
 
                             # self.logWriter.graph(model, (X, y))
                         current_iteration += 1
-                    else:
-                        loss = loss - triplet_loss
+                    # else:
+                    #     loss = loss - triplet_loss
 
                     loss_arr.append(loss.item())
                     ce_loss_arr.append(ce_loss.item())
                     dice_loss_arr.append(dice_loss.item())
                     kld_loss_arr.append(kl_div_loss.item())
-                    triplet_loss_arr.append(triplet_loss.item())
+                    # triplet_loss_arr.append(triplet_loss.item())
 
                     _, batch_output = torch.max(output, dim=1)
                     out_list.append(batch_output.cpu())
@@ -147,7 +147,7 @@ class Solver(SolverInterface):
                     self.logWriter.loss_per_epoch(ce_loss_arr, phase, epoch, loss_name='ce_loss')
                     self.logWriter.loss_per_epoch(dice_loss_arr, phase, epoch, loss_name='dice_loss')
                     self.logWriter.loss_per_epoch(kld_loss_arr, phase, epoch, loss_name='kl_div_loss')
-                    self.logWriter.loss_per_epoch(triplet_loss_arr, phase, epoch, loss_name='triplet_loss')
+                    # self.logWriter.loss_per_epoch(triplet_loss_arr, phase, epoch, loss_name='triplet_loss')
 
                     index = np.random.choice(len(dataloaders[phase].dataset.X), 3, replace=False)
                     if phase == 'val':
