@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='my_thesis',
-    version='5.0.0',
+    version='5.0.1',
     description='Multi data - multi project structure',
     url='',
     author='Jyotirmay Senapati',
