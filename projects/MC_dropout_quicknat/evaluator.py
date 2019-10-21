@@ -8,6 +8,59 @@ from interfaces.evaluator_inteface import EvaluatorInterface
 class Evaluator(EvaluatorInterface):
     def __init__(self, settings):
         super().__init__(settings)
+        self.bad_volumes = ['KORA2456928',
+'KORA2455268',
+'KORA2453172',
+'KORA2456199',
+'KORA2453290',
+'KORA2452834',
+'KORA2453470',
+'KORA2460216',
+'KORA2453374',
+'KORA2456661',
+'KORA2452801',
+'KORA2455935',
+'KORA2455951',
+'KORA2452381',
+'KORA2459499',
+'KORA2452812',
+'KORA2453150',
+'KORA2460830',
+'KORA2459455',
+'KORA2452409',
+'KORA2460785',
+'KORA2453642',
+'KORA2459972',
+'KORA2456202',
+'KORA2456379',
+'KORA2456793',
+'KORA2452316',
+'KORA2462093',
+'KORA2460779',
+'KORA2460309',
+'KORA2452924',
+'KORA2453833',
+'KORA2458040',
+'KORA2458366',
+'KORA2453765',
+'KORA2455296',
+'KORA2455042',
+'KORA2452190',
+'KORA2459681',
+'KORA2458265',
+'KORA2452094',
+'KORA2462352',
+'KORA2459244',
+'KORA2461338',
+'KORA2460830',
+'KORA2452338',
+'KORA2455296',
+'KORA2456562',
+'KORA2453037',
+'KORA2452094',
+'KORA2462352',
+'KORA2460145'
+]
 
     def evaluate_dice_score(self, prediction_path, load_from_txt_file=True, device=0, logWriter=None,
                             is_train_phase=False):
@@ -45,7 +98,11 @@ class Evaluator(EvaluatorInterface):
         with torch.no_grad():
             for vol_idx, file_path in enumerate(file_paths):
                 print(file_path)
-                self.print_report('# VOLUME:: ' + file_path[0].split('/')[-1].split('.')[0] + '\n')
+                vid = file_path[0].split('/')[-1].split('.')[0]
+                if vid in self.bad_volumes:
+                    continue
+
+                self.print_report('# VOLUME:: ' + vid + '\n')
                 volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
 
                 volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
