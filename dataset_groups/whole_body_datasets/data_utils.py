@@ -174,7 +174,10 @@ class DataUtils(PreProcess):
         class_weights, _ = self.estimate_weights_mfb(labelmap)
         weights = self.estimate_weights_per_slice(labelmap)
 
-        print(volume.shape, labelmap.shape, class_weights.shape, weights.shape)
+        # Important for invisible spleen issue, due to wrong interpolation while processing comp_mask file.
+        labelmap = np.round(labelmap)
+
+        print(volume.shape, labelmap.shape, class_weights.shape, weights.shape, np.unique(labelmap))
         return volume, labelmap, header, weights, class_weights
 
     @staticmethod
@@ -202,6 +205,9 @@ class DataUtils(PreProcess):
             image_creator = nb.MGHImage
         else:
             image_creator = nb.Nifti1Image
+
+        # if is_label:
+        #     volume = np.round(volume)
         mgh = image_creator(volume, np.eye(4))
         processed_dest_folder = self.processed_data_dir if not is_label else self.processed_label_dir
         self.create_if_not(processed_dest_folder)
