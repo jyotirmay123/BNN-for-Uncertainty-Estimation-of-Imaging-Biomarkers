@@ -1,0 +1,3 @@
+project,dataset,model_name,volume_id,samples,sncc,ged,iou_spleen,iou_liver,iou_mean,dice_spleen,dice_liver,dice_mean,surface_distance_prtogt_spleen,surface_distance_prtogt_liver,surface_distance_prtogt_mean,surface_distance_gttopr_spleen,surface_distance_gttopr_liver,surface_distance_gttopr_mean,surface_distance_avg_spleen,surface_distance_avg_liver,surface_distance_avg_mean
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,full_bayesian_KORA_v2,0,10,0.604204742967317,0.22399653004254258,0.5246973800269135,0.6686600333200513,0.5966787066734824,0.8287034630775452,0.8947044610977173,0.8617039918899536,0.799156716803458,0.7026174212682178,0.750887069035838,0.8207349410003818,0.7709789774671637,0.7958569592337729,0.8099458289019199,0.7367981993676908,0.7733720141348053

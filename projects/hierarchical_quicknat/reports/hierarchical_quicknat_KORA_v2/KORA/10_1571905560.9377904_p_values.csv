@@ -1,0 +1,33 @@
+feats,0
+age,0.0
+height,0.0
+sex,0.0
+weight,0.0
+smoker_former,0.0
+smoker_irregular,0.2395
+smoker_non-smoker,0.0003
+smoker_regular,0.0036
+bmi-who_normal,0.146
+bmi-who_obesity class I,0.0
+bmi-who_obesity class II,0.0
+bmi-who_obesity class III,0.0003
+bmi-numeric,0.0
+bmi-who_pre-obisety,0.0004
+blood-pressure-diastolic,0.0
+blood-pressure-systolic,0.0
+cholesterol-hdl,0.0
+cholesterol-ldl,0.0
+cholesterol-total,0.0
+alcohol-g/day,0.0
+hba1c-mmol/mol,0.0
+hba1c-percentage,0.0
+meds-antidiabetic,0.0
+meds-antihypertensive,0.0
+meds-incretin-mimetics,0.0178
+meds-insulin-therapy,
+meds-lipoprotein-lowering,0.0
+meds-oral-antidiabetic,0.0
+triglyceride,0.0
+hypertension,0.0
+seg_liver,0.0
+seg_spleen,0.0

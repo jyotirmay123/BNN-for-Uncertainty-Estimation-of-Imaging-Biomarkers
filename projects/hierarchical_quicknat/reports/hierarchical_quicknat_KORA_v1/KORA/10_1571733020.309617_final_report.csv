@@ -1,0 +1,3 @@
+project,dataset,model_name,volume_id,samples,sncc,ged,iou_spleen,iou_liver,iou_mean,dice_spleen,dice_liver,dice_mean,surface_distance_prtogt_spleen,surface_distance_prtogt_liver,surface_distance_prtogt_mean,surface_distance_gttopr_spleen,surface_distance_gttopr_liver,surface_distance_gttopr_mean,surface_distance_avg_spleen,surface_distance_avg_liver,surface_distance_avg_mean
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,hierarchical_quicknat_KORA_v1,0,10,0.17242440560108482,0.2807205066424133,0.9623346402733077,0.9899259142463934,0.9761302772598506,0.7885351777076721,0.9347091913223267,0.861622154712677,0.7783489095888877,0.8521709378548302,0.8152599237218592,,0.8709947524068611,,,0.8615828451308457,
