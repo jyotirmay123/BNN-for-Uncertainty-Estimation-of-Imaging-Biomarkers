@@ -31,6 +31,9 @@ if __name__ == '__main__':
         data_config_params = executor.dataUtils.data_config_params
         eval_params.update(data_config_params)
 
+        print(net_params)
+
+
         if args.mode == 'train':
             executor.train(train_params, common_params, data_params, net_params)
         elif args.mode == 'eval':

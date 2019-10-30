@@ -24,7 +24,7 @@ class Evaluator(EvaluatorInterface):
             volumes_to_use = file_handle.read().splitlines()
 
         model = torch.load(self.dataUtils.eval_model_path)
-
+        # torch.save(model.state_dict(), 'mc_dropout_quicknat.model')
         cuda_available = torch.cuda.is_available()
         if cuda_available:
             torch.cuda.empty_cache()
