@@ -2,6 +2,7 @@ import os
 import h5py
 import torch
 import numpy as np
+import pandas as pd
 import nibabel as nb
 import torch.utils.data as data
 import re
@@ -9,17 +10,22 @@ import glob
 from dataset_groups.whole_body_datasets.preprocessor import PreProcess
 from nibabel.affines import from_matvec, to_matvec, apply_affine
 
+
 class ImdbData(data.Dataset):
-    def __init__(self, X, y, w=None, cw=None, transforms=None):
+    def __init__(self, X, y, w=None, cw=None, ds=None, transforms=None):
         self.X = X if len(X.shape) == 4 else X[:, np.newaxis, :, :]
         self.y = y
         self.w = w
         self.cw = cw
+        self.ds = ds
         self.transforms = transforms
 
     def __getitem__(self, index):
         img = torch.from_numpy(self.X[index])
         label = torch.from_numpy(self.y[index])
+        if self.ds is not None:
+            diabetes_status = torch.Tensor([self.ds[index]]).long()
+            return img, label, diabetes_status
 
         # if self.cw is not None and self.w is not None:
         #     weight = torch.from_numpy(self.w[index])
@@ -45,6 +51,8 @@ class DataUtils(PreProcess):
         self.h5_key_for_label = 'label'
         self.h5_key_for_weights = 'weights'
         self.h5_key_for_class_weights = 'class_weights'
+        self.h5_key_for_diabetes_status = 'diabetes_status'
+        self.diabetes_features = None  # pd.read_csv(self.data_dir_base + '/processsed_csv_.csv')
 
     def prepare_h5_file_dictionary(self):
         self.create_if_not(self.h5_data_dir)
@@ -53,13 +61,15 @@ class DataUtils(PreProcess):
                 "data": os.path.join(self.h5_data_dir, self.h5_train_data_file),
                 "label": os.path.join(self.h5_data_dir, self.h5_train_label_file),
                 "weights": os.path.join(self.h5_data_dir, self.h5_train_weights_file),
-                "class_weights": os.path.join(self.h5_data_dir, self.h5_train_class_weights_file)
+                "class_weights": os.path.join(self.h5_data_dir, self.h5_train_class_weights_file),
+                "diabetes_status": os.path.join(self.h5_data_dir, 'diabetes_status_train.h5')
             },
             'test': {
                 "data": os.path.join(self.h5_data_dir, self.h5_test_data_file),
                 "label": os.path.join(self.h5_data_dir, self.h5_test_label_file),
                 "weights": os.path.join(self.h5_data_dir, self.h5_test_weights_file),
-                "class_weights": os.path.join(self.h5_data_dir, self.h5_test_class_weights_file)
+                "class_weights": os.path.join(self.h5_data_dir, self.h5_test_class_weights_file),
+                "diabetes_status": os.path.join(self.h5_data_dir, 'diabetes_status_test.h5')
             }
         }
         return f
@@ -70,26 +80,51 @@ class DataUtils(PreProcess):
         label_train = h5py.File(f['train']['label'], 'r')
         weight_train = h5py.File(f['train']['weights'], 'r')
         class_weight_train = h5py.File(f['train']['class_weights'], 'r')
+        diabetes_status_train = h5py.File(f['train']['diabetes_status'], 'r')
 
         data_test = h5py.File(f['test']['data'], 'r')
         label_test = h5py.File(f['test']['label'], 'r')
         weight_test = h5py.File(f['test']['weights'], 'r')
         class_weight_test = h5py.File(f['test']['class_weights'], 'r')
+        diabetes_status_test = h5py.File(f['test']['diabetes_status'], 'r')
 
-        return (ImdbData(data_train[self.h5_key_for_data][()], label_train[self.h5_key_for_label][()],
-                         weight_train[self.h5_key_for_weights][()],
-                         class_weight_train[self.h5_key_for_class_weights][()]),
-                ImdbData(data_test[self.h5_key_for_data][()], label_test[self.h5_key_for_label][()],
-                         weight_train[self.h5_key_for_weights][()],
-                         class_weight_test[self.h5_key_for_class_weights][()]))
+        return (
+            ImdbData(data_train[self.h5_key_for_data][()], label_train[self.h5_key_for_label][()],
+                     weight_train[self.h5_key_for_weights][()],
+                     class_weight_train[self.h5_key_for_class_weights][()],
+                     diabetes_status_train[self.h5_key_for_diabetes_status][()]
+                     ),
+            ImdbData(data_test[self.h5_key_for_data][()], label_test[self.h5_key_for_label][()],
+                     weight_test[self.h5_key_for_weights][()],
+                     class_weight_test[self.h5_key_for_class_weights][()],
+                     diabetes_status_test[self.h5_key_for_diabetes_status][()]
+                     )
+        )
+
+    def get_diabetes_status(self, volume_id):
+        return False
+        try:
+            diabetes_status = \
+                self.diabetes_features[self.diabetes_features['volume_id'] == volume_id]['diabetes_status'].values[0]
+        except Exception as e:
+            print(e)
+            diabetes_status = False
+        return diabetes_status
 
     def load_dataset(self, file_paths):
         print("Loading and preprocessing data...")
         volume_list, labelmap_list, weights_list, class_weights_list = [], [], [], []
+        # diabetes_status_list = []
         for file_path in file_paths:
             volume_id = eval(self.h5_volume_name_extractor.format(file_path[0]))
             if volume_id in self.excluded_volumes:
                 continue
+
+            # diabetes_status = self.get_diabetes_status(volume_id)
+            # if diabetes_status is False:
+            #     print('diabetes_status not found for vid:', volume_id, diabetes_status)
+            #     continue
+            # print('diabetes_status:', diabetes_status)
             # try:
             volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
@@ -101,6 +136,8 @@ class DataUtils(PreProcess):
             labelmap_list.append(labelmap)
             class_weights_list.append(class_weights)
             weights_list.append(weights)
+            # diabetes_status_expand = [diabetes_status for i in range(volume.shape[0])]
+            # diabetes_status_list.append(diabetes_status_expand)
             print("#", end='', flush=True)
             # except Exception as e:
             #     print(volume_id, e)
@@ -111,7 +148,7 @@ class DataUtils(PreProcess):
         # Settings.update_system_status_values(self.dataset_config_path, 'DATA_CONFIG', 'is_pre_processed', 'True')
 
         print("100%", flush=True)
-        return volume_list, labelmap_list, weights_list, class_weights_list
+        return volume_list, labelmap_list, weights_list, class_weights_list, None  # diabetes_status_list
 
     def load_and_preprocess(self, file_path):
 
@@ -163,8 +200,6 @@ class DataUtils(PreProcess):
         print('bk', volume.shape, labelmap.shape)
         # if self.is_reduce_slices:
         #     volume, labelmap = self.reduce_slices(volume, labelmap)
-
-
 
         if self.histogram_matching:
             volume = self.hist_match(volume)

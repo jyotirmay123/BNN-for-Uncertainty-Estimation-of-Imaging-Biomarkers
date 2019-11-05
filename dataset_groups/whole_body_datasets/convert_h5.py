@@ -4,6 +4,7 @@ python utils/convert_h5.py -cfg='/home/abhijit/Jyotirmay/thesis/hquicknat/settin
 """
 import h5py
 import numpy as np
+import pandas as pd
 
 from dataset_groups.whole_body_datasets.data_utils import DataUtils
 
@@ -24,7 +25,7 @@ class ConvertH5(DataUtils):
         return train_file_paths, test_file_paths
 
     # TODO: Dynamise it later.
-    def _write_h5(self, data, label, class_weights, weights, f, mode):
+    def _write_h5(self, data, label, class_weights, weights, diabetes_status, f, mode):
         if self.processed_extn == '.npz':
             no_labelmap, H, W = label[0].shape
             no_slices = 1
@@ -51,6 +52,9 @@ class ConvertH5(DataUtils):
         with h5py.File(f[mode][self.h5_key_for_class_weights], "w") as class_weight_handle:
             class_weight_handle.create_dataset(self.h5_key_for_class_weights,
                                                data=np.concatenate(class_weights).reshape((-1, H, W)))
+        if diabetes_status is not None:
+            with h5py.File(f[mode][self.h5_key_for_diabetes_status], "w") as weight_handle:
+                weight_handle.create_dataset(self.h5_key_for_diabetes_status, data=np.concatenate(diabetes_status))
 
     def convert_h5(self):
         if self.annotations_root is not None:
@@ -75,14 +79,14 @@ class ConvertH5(DataUtils):
 
         # loading,pre-processing and writing train data
         print("===Train data===")
-        data_train, label_train, weights_train, class_weights_train = self.load_dataset(train_file_paths)
-
-        self._write_h5(data_train, label_train, class_weights_train, weights_train, f, mode='train')
+        data_train, label_train, weights_train, class_weights_train, diabetes_status = self.load_dataset(train_file_paths)
+        print(diabetes_status)
+        self._write_h5(data_train, label_train, class_weights_train, weights_train, diabetes_status, f, mode='train')
 
         # loading,pre-processing and writing test data
         print("===Test data===")
-        data_test, label_test, weights_test, class_weights_test = self.load_dataset(test_file_paths)
+        data_test, label_test, weights_test, class_weights_test, diabetes_status = self.load_dataset(test_file_paths)
 
-        self._write_h5(data_test, label_test, class_weights_test, weights_test, f, mode='test')
+        self._write_h5(data_test, label_test, class_weights_test, weights_test, diabetes_status, f, mode='test')
 
         print(self.excluded_volumes, self.excluded_vol_dict, list(self.excluded_vol_dict.keys()))

@@ -1,0 +1,6 @@
+experiments/**
+logs/**
+outs/**
+saved_models/**
+saved_good_models/**
+__pycache__

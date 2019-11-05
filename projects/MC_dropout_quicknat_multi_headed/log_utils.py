@@ -8,16 +8,18 @@ from textwrap import wrap
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-
+import torch
 # from tensorboardX import SummaryWriter
 from torch.utils.tensorboard import SummaryWriter
 
-from interfaces.evaluator_inteface import EvaluatorInterface
+from utils.evaluator import Evaluator
+from utils.common_utils import CommonUtils
 
 plt.switch_backend('agg')
 plt.axis('scaled')
 
 
+# TODO: Add custom phase names
 class LogWriter(object):
     def __init__(self, num_class, log_dir_name, exp_name, use_last_checkpoint=False, labels=None,
                  cm_cmap=plt.cm.Blues):
@@ -42,6 +44,9 @@ class LogWriter(object):
         file_handler = logging.FileHandler("{0}/{1}.log".format(os.path.join(log_dir_name, exp_name), "console_logs"))
         self.logger.addHandler(file_handler)
 
+        # self.utill_obj = CommonUtils()
+        # self.utill_obj.setup_whatsapp_notifier()
+
     def log(self, text, phase='train'):
         self.logger.info(text)
 
@@ -54,10 +59,11 @@ class LogWriter(object):
         self.writer[phase].add_scalar(f'{loss_name}/per_epoch', loss, epoch)
         msg = 'epoch ' + phase + ' ' + loss_name + ' = ' + str(loss)
         print(msg)
+        # self.utill_obj.whatsapp_notifier(msg)
 
     def cm_per_epoch(self, phase, output, correct_labels, epoch):
         print("Confusion Matrix...", end='', flush=True)
-        _, cm = EvaluatorInterface.dice_confusion_matrix(output, correct_labels, self.num_class, mode='train')
+        _, cm = Evaluator.dice_confusion_matrix(output, correct_labels, self.num_class, mode='train')
         self.plot_cm('confusion_matrix', phase, cm, epoch)
         print("DONE", flush=True)
 
@@ -92,7 +98,7 @@ class LogWriter(object):
 
     def dice_score_per_epoch(self, phase, output, correct_labels, epoch):
         print("Dice Score...", end='', flush=True)
-        ds = EvaluatorInterface.dice_score_perclass(output, correct_labels, self.num_class)
+        ds = Evaluator.dice_score_perclass(output, correct_labels, self.num_class)
         self.plot_dice_score(phase, 'dice_score_per_epoch', ds, 'Dice Score', epoch)
         ds_mean = np.mean(ds)
         print("DONE", flush=True)
@@ -136,9 +142,8 @@ class LogWriter(object):
     def image_per_epoch(self, prediction1, prediction2, ground_truth, input_image, phase, epoch):
         print("Sample Images...", end='', flush=True)
         # Support for multiple segmentation map visualisation for uncertainty.
-        gt_len = len(ground_truth)
         if phase == 'val':
-            ncols = 3 + gt_len
+            ncols = 4
         else:
             ncols = 3
         nrows = len(prediction1)
@@ -151,61 +156,25 @@ class LogWriter(object):
             ax[i][j].axis('off')
 
             ax[i][j + 1].imshow(ground_truth[0][i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-            ax[i][j + 1].set_title("Ground Truth 0", fontsize=10, color="blue")
+            ax[i][j + 1].set_title("Ground Truth 1", fontsize=10, color="blue")
             ax[i][j + 1].axis('off')
-            if phase == 'val':
-                for gt in range(1, gt_len):
-                    ax[i][j+1+gt].imshow(ground_truth[1][gt], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-                    ax[i][j+1+gt].set_title(f"Ground Truth {gt}", fontsize=10, color="blue")
-                    ax[i][j+1+gt].axis('off')
-                j += (gt_len-1)
+            # if phase == 'val':
+            #     ax[i][j+2].imshow(ground_truth[1][i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
+            #     ax[i][j+2].set_title("Ground Truth 2", fontsize=10, color="blue")
+            #     ax[i][j+2].axis('off')
+            #     ax[i][j+3].imshow(ground_truth[2][i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
+            #     ax[i][j+3].set_title("Ground Truth 3", fontsize=10, color="blue")
+            #     ax[i][j+3].axis('off')
+            #     ax[i][j+4].imshow(ground_truth[3][i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
+            #     ax[i][j+4].set_title("Ground Truth 4", fontsize=10, color="blue")
+            #     ax[i][j+4].axis('off')
+            #     j += 3
             ax[i][j + 2].imshow(prediction1[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
             ax[i][j + 2].set_title("Predicted", fontsize=10, color="blue")
             ax[i][j + 2].axis('off')
             if phase == 'val':
                 ax[i][j + 3].imshow(prediction2[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
                 ax[i][j + 3].set_title("Predicted_with_uncertainty", fontsize=10, color="blue")
-                ax[i][j + 3].axis('off')
-
-        fig.set_tight_layout(True)
-        self.writer[phase].add_figure('sample_prediction/' + phase, fig, epoch)
-        print('DONE', flush=True)
-
-    def image_per_epoch_multi_headed(self, predictions1, predictions2, ground_truths, input_image, phase, epoch):
-        print("Sample Images...", end='', flush=True)
-        # Support for multiple segmentation map visualisation for uncertainty.
-        ground_truth, scalar_truth = ground_truths
-        prediction1, scalar_prediction1 = predictions1
-        prediction2, scalar_prediction2 = predictions2
-        gt_len = len(ground_truth)
-        if phase == 'val':
-            ncols = 3 + gt_len
-        else:
-            ncols = 3
-        nrows = len(prediction1)
-        fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=(10, 20))
-
-        for i in range(nrows):
-            j = 0
-            ax[i][j].imshow(np.squeeze(input_image[i]), cmap='gray', vmin=0, vmax=self.num_class - 1)
-            ax[i][j].set_title("Input Image", fontsize=10, color="blue")
-            ax[i][j].axis('off')
-
-            ax[i][j + 1].imshow(ground_truth[0][i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-            ax[i][j + 1].set_title(f"Ground Truth {scalar_truth[0][i]}", fontsize=10, color="blue")
-            ax[i][j + 1].axis('off')
-            if phase == 'val':
-                for gt in range(1, gt_len):
-                    ax[i][j+1+gt].imshow(ground_truth[1][gt], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-                    ax[i][j+1+gt].set_title(f"Ground Truth {gt} {scalar_truth[1][gt]}", fontsize=10, color="blue")
-                    ax[i][j+1+gt].axis('off')
-                j += (gt_len-1)
-            ax[i][j + 2].imshow(prediction1[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-            ax[i][j + 2].set_title(f"Predicted {scalar_prediction1[i]}", fontsize=10, color="blue")
-            ax[i][j + 2].axis('off')
-            if phase == 'val':
-                ax[i][j + 3].imshow(prediction2[i], cmap='CMRmap', vmin=0, vmax=self.num_class - 1)
-                ax[i][j + 3].set_title(f"Predicted_with_uncertainty {scalar_prediction2[i]}", fontsize=10, color="blue")
                 ax[i][j + 3].axis('off')
 
         fig.set_tight_layout(True)
