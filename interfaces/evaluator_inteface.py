@@ -289,24 +289,36 @@ class EvaluatorInterface(abc.ABC):
         scores_for_csv.extend([self.projects[project_name], self.datasets[dataset], exp_name, volume_id,
                                self.dataUtils.mc_sample])
         if self.dataUtils.is_uncertainity_check_enabled:
-            scores_for_csv.extend([s_ncc_list[-1][0], s_ged_list[-1]])
+            if self.dataUtils.label_dir is not None:
+                scores_for_csv.extend([s_ncc_list[-1][0], s_ged_list[-1]])
+            else:
+                scores_for_csv.extend([None, None])
             scores_for_csv.extend([iou_s[0], iou_s[1], np.mean(iou_s)])
         else:
             scores_for_csv.extend([-1, -1, -1, -1, -1])
 
-        scores_for_csv.extend([volume_dice_score[1], volume_dice_score[2], np.mean(volume_dice_score[1:])])
+        if self.dataUtils.label_dir is not None:
+            scores_for_csv.extend([volume_dice_score[1], volume_dice_score[2], np.mean(volume_dice_score[1:])])
 
-        scores_for_csv.extend([volume_dice_surface_distance[1, 1],
-                               volume_dice_surface_distance[2, 1],
-                               np.mean(volume_dice_surface_distance[1:, 1])])
+            scores_for_csv.extend([volume_dice_surface_distance[1, 1],
+                                   volume_dice_surface_distance[2, 1],
+                                   np.mean(volume_dice_surface_distance[1:, 1])])
 
-        scores_for_csv.extend([volume_dice_surface_distance[1, 0],
-                               volume_dice_surface_distance[2, 0],
-                               np.mean(volume_dice_surface_distance[1:, 0])])
+            scores_for_csv.extend([volume_dice_surface_distance[1, 0],
+                                   volume_dice_surface_distance[2, 0],
+                                   np.mean(volume_dice_surface_distance[1:, 0])])
 
-        scores_for_csv.extend([np.mean(volume_dice_surface_distance[1, :]),
-                               np.mean(volume_dice_surface_distance[2, :]),
-                               np.mean(volume_dice_surface_distance[1:])])
+            scores_for_csv.extend([np.mean(volume_dice_surface_distance[1, :]),
+                                   np.mean(volume_dice_surface_distance[2, :]),
+                                   np.mean(volume_dice_surface_distance[1:])])
+        else:
+            scores_for_csv.extend([None, None, None])
+
+            scores_for_csv.extend([None, None, None])
+
+            scores_for_csv.extend([None, None, None])
+
+            scores_for_csv.extend([None, None, None])
 
         if u_map_dice_surface_distance is not None:
             scores_for_csv.extend([np.mean(u_map_dice_surface_distance[:, 1, 1]),
@@ -326,25 +338,26 @@ class EvaluatorInterface(abc.ABC):
         if self.dataUtils.is_uncertainity_check_enabled:
             self.print_report('# Intersection over overlap scores per structure per volume.')
             self.print_report(f'Spleen: {iou_s[0]}   |    Liver: {iou_s[1]}  |  <-Mean: {np.mean(iou_s)} \n')
+            if self.dataUtils.label_dir is not None:
+                self.print_report(f'# Normalised Cross Correlation score: \n {s_ncc_list[-1][0]}')
+                self.print_report(f'# Generalised Entropy Distance score: \n {s_ged_list[-1]}')
 
-            self.print_report(f'# Normalised Cross Correlation score: \n {s_ncc_list[-1][0]}')
-            self.print_report(f'# Generalised Entropy Distance score: \n {s_ged_list[-1]}')
+        if self.dataUtils.label_dir is not None:
+            self.print_report('# Dice Score per structure per volume.')
+            self.print_report(f'Spleen: {volume_dice_score[1]}   |    Liver: {volume_dice_score[2]}  |  '
+                              f'<-Mean: {np.mean(volume_dice_score[1:])} \n')
 
-        self.print_report('# Dice Score per structure per volume.')
-        self.print_report(f'Spleen: {volume_dice_score[1]}   |    Liver: {volume_dice_score[2]}  |  '
-                          f'<-Mean: {np.mean(volume_dice_score[1:])} \n')
+            self.print_report('# Surface distance scores per structure per volume.')
 
-        self.print_report('# Surface distance scores per structure per volume.')
-
-        self.print_report(f'GT TO PRED SCORES:: Spleen: {volume_dice_surface_distance[1, 0]}   |   '
-                          f'Liver: {volume_dice_surface_distance[2, 0]}  |  '
-                          f'<-Mean: {np.mean(volume_dice_surface_distance[1:, 0])}')
-        self.print_report(f'PRED TO GT SCORES::  Spleen: {volume_dice_surface_distance[1, 1]}   |   '
-                          f'Liver: {volume_dice_surface_distance[2, 1]}  |  '
-                          f'<-Mean: {np.mean(volume_dice_surface_distance[1:, 1])}')
-        self.print_report(f'  MEAN TO ABOVE  :: Spleen: {np.mean(volume_dice_surface_distance[1, :])}   |   '
-                          f'Liver: {np.mean(volume_dice_surface_distance[2, :])}  |  '
-                          f'MEAN: {np.mean(volume_dice_surface_distance[1:])} \n')
+            self.print_report(f'GT TO PRED SCORES:: Spleen: {volume_dice_surface_distance[1, 0]}   |   '
+                              f'Liver: {volume_dice_surface_distance[2, 0]}  |  '
+                              f'<-Mean: {np.mean(volume_dice_surface_distance[1:, 0])}')
+            self.print_report(f'PRED TO GT SCORES::  Spleen: {volume_dice_surface_distance[1, 1]}   |   '
+                              f'Liver: {volume_dice_surface_distance[2, 1]}  |  '
+                              f'<-Mean: {np.mean(volume_dice_surface_distance[1:, 1])}')
+            self.print_report(f'  MEAN TO ABOVE  :: Spleen: {np.mean(volume_dice_surface_distance[1, :])}   |   '
+                              f'Liver: {np.mean(volume_dice_surface_distance[2, :])}  |  '
+                              f'MEAN: {np.mean(volume_dice_surface_distance[1:])} \n')
 
         if u_map_dice_surface_distance is not None:
             self.print_report('# Uncertainty Sample Surface distance scores.', final=True)
@@ -368,22 +381,33 @@ class EvaluatorInterface(abc.ABC):
         scores_for_csv.extend([self.projects[project_name], self.datasets[dataset], exp_name, 0,
                                self.dataUtils.mc_sample])
         if self.dataUtils.is_uncertainity_check_enabled:
-            scores_for_csv.extend([np.mean(s_ncc_arr), np.mean(s_ged_arr)])
+            if self.dataUtils.label_dir is not None:
+                scores_for_csv.extend([np.mean(s_ncc_arr), np.mean(s_ged_arr)])
+            else:
+                scores_for_csv.extend([None, None])
             scores_for_csv.extend([np.mean(iou_score_per_structure_arr[:, 0]),
                                    np.mean(iou_score_per_structure_arr[:, 1]),
                                    np.mean(iou_score_per_structure_arr)])
         else:
             scores_for_csv.extend([-1, -1, -1, -1, -1])
 
-        scores_for_csv.extend([np.mean(dice_score_arr[:, 1]), np.mean(dice_score_arr[:, 2]),
-                               np.mean(dice_score_arr[:, 1:])])
+        if self.dataUtils.label_dir is not None:
+            scores_for_csv.extend([np.mean(dice_score_arr[:, 1]), np.mean(dice_score_arr[:, 2]),
+                                   np.mean(dice_score_arr[:, 1:])])
+            scores_for_csv.extend([np.mean(surface_distance_arr[:, 1, 1]), np.mean(surface_distance_arr[:, 2, 1]),
+                                   np.mean(surface_distance_arr[:, 1:, 1])])
+            scores_for_csv.extend([np.mean(surface_distance_arr[:, 1, 0]), np.mean(surface_distance_arr[:, 2, 0]),
+                                   np.mean(surface_distance_arr[:, 1:, 0])])
+            scores_for_csv.extend([np.mean(surface_distance_arr[:, 1]), np.mean(surface_distance_arr[:, 2]),
+                                   np.mean(surface_distance_arr[:, 1:])])
+        else:
+            scores_for_csv.extend([None, None, None])
 
-        scores_for_csv.extend([np.mean(surface_distance_arr[:, 1, 1]), np.mean(surface_distance_arr[:, 2, 1]),
-                               np.mean(surface_distance_arr[:, 1:, 1])])
-        scores_for_csv.extend([np.mean(surface_distance_arr[:, 1, 0]), np.mean(surface_distance_arr[:, 2, 0]),
-                               np.mean(surface_distance_arr[:, 1:, 0])])
-        scores_for_csv.extend([np.mean(surface_distance_arr[:, 1]), np.mean(surface_distance_arr[:, 2]),
-                               np.mean(surface_distance_arr[:, 1:])])
+            scores_for_csv.extend([None, None, None])
+
+            scores_for_csv.extend([None, None, None])
+
+            scores_for_csv.extend([None, None, None])
 
         if u_map_dice_surface_distance is not None:
             scores_for_csv.extend([np.mean(u_map_dice_surface_distance[:, :, 1, 1]),
@@ -407,25 +431,25 @@ class EvaluatorInterface(abc.ABC):
             self.print_report(f' OVERALL MEAN: {np.mean(iou_score_per_structure_arr)} | '
                               f'SPLEEN: {np.mean(iou_score_per_structure_arr[:, 0])} | '
                               f'LIVER: {np.mean(iou_score_per_structure_arr[:, 1])}', final=True)
+            if self.dataUtils.label_dir is not None:
+                self.print_report(f'# Mean Normalised Cross Correlation score:\n {np.mean(s_ncc_arr)}', final=True)
+                self.print_report(f'# Mean Generalised Entropy Distance score:\n {np.mean(s_ged_arr)}\n', final=True)
+        if self.dataUtils.label_dir is not None:
+            self.print_report('# Mean Dice Score.', final=True)
+            self.print_report(f' SPLEEN: {np.mean(dice_score_arr[:, 1])} | '
+                              f'LIVER: {np.mean(dice_score_arr[:, 2])} | '
+                              f'OVERALL MEAN: {np.mean(dice_score_arr[:, 1:])}\n', final=True)
 
-            self.print_report(f'# Mean Normalised Cross Correlation score:\n {np.mean(s_ncc_arr)}', final=True)
-            self.print_report(f'# Mean Generalised Entropy Distance score:\n {np.mean(s_ged_arr)}\n', final=True)
-
-        self.print_report('# Mean Dice Score.', final=True)
-        self.print_report(f' SPLEEN: {np.mean(dice_score_arr[:, 1])} | '
-                          f'LIVER: {np.mean(dice_score_arr[:, 2])} | '
-                          f'OVERALL MEAN: {np.mean(dice_score_arr[:, 1:])}\n', final=True)
-
-        self.print_report('# Mean Surface distance scores.', final=True)
-        self.print_report(f' GT TO PRED SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 0])} | '
-                          f'LIVER: {np.mean(surface_distance_arr[:, 2, 0])} | '
-                          f'OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 0])}', final=True)
-        self.print_report(f' PRED TO GT SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 1])} | '
-                          f'LIVER: {np.mean(surface_distance_arr[:, 2, 1])} | '
-                          f'OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 1])}', final=True)
-        self.print_report(f' OVERALL MEAN:: SPLEEN: {np.mean(surface_distance_arr[:, 1])} | '
-                          f'LIVER: {np.mean(surface_distance_arr[:, 2])} | '
-                          f'MEAN: {np.mean(surface_distance_arr[:, 1:])} \n', final=True)
+            self.print_report('# Mean Surface distance scores.', final=True)
+            self.print_report(f' GT TO PRED SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 0])} | '
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 0])} | '
+                              f'OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 0])}', final=True)
+            self.print_report(f' PRED TO GT SCORES:: SPLEEN: {np.mean(surface_distance_arr[:, 1, 1])} | '
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2, 1])} | '
+                              f'OVERALL MEAN: {np.mean(surface_distance_arr[:, 1:, 1])}', final=True)
+            self.print_report(f' OVERALL MEAN:: SPLEEN: {np.mean(surface_distance_arr[:, 1])} | '
+                              f'LIVER: {np.mean(surface_distance_arr[:, 2])} | '
+                              f'MEAN: {np.mean(surface_distance_arr[:, 1:])} \n', final=True)
 
         if u_map_dice_surface_distance is not None:
             self.print_report('# Mean Uncertanty sample Surface distance scores.', final=True)

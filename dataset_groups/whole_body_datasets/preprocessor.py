@@ -270,12 +270,14 @@ class PreProcess(ExtractSettings):
         slices = tuple(map(slice, tuple(start), tuple(end)))
         return source_num_arr[slices]
 
-    def rotate_orientation(self, volume, labelmap):
+    def rotate_orientation(self, volume, labelmap=None):
 
         f_orient = self._orientation_transform_fs_.get(self.orientation, 'not found!')
 
         if f_orient == 'not found!':
             raise ValueError("Invalid value for orientation. Pleas see help")
+        if labelmap is None:
+            return f_orient(volume), None
 
         return f_orient(volume), f_orient(labelmap)
 
@@ -300,6 +302,20 @@ class PreProcess(ExtractSettings):
         labels_reduced = np.compress(mask_vector, labelmap, axis=0).reshape(-1, H, W)
 
         return data_reduced, labels_reduced
+
+    def volume_slice_reduce(self, volume):
+        """
+        This function removes the useless black slices from the start and end. And then selects every even numbered frame.
+        """
+        no_slices, H, W = volume.shape
+
+        mask_vector = np.zeros(no_slices, dtype=int)
+        mask_vector[::3], mask_vector[1::3], mask_vector[2::3] = 1, 1, 0
+        mask_vector[:self.skip_Frame], mask_vector[-self.skip_Frame:-1] = 0, 0
+
+        data_reduced = np.compress(mask_vector, volume, axis=0).reshape(-1, H, W)
+
+        return data_reduced
 
     @staticmethod
     def remove_black(volume, labelmap):

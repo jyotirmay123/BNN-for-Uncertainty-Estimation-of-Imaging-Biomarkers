@@ -80,24 +80,24 @@ class DataUtils(PreProcess):
         label_train = h5py.File(f['train']['label'], 'r')
         weight_train = h5py.File(f['train']['weights'], 'r')
         class_weight_train = h5py.File(f['train']['class_weights'], 'r')
-        diabetes_status_train = h5py.File(f['train']['diabetes_status'], 'r')
+        # diabetes_status_train = h5py.File(f['train']['diabetes_status'], 'r')
 
         data_test = h5py.File(f['test']['data'], 'r')
         label_test = h5py.File(f['test']['label'], 'r')
         weight_test = h5py.File(f['test']['weights'], 'r')
         class_weight_test = h5py.File(f['test']['class_weights'], 'r')
-        diabetes_status_test = h5py.File(f['test']['diabetes_status'], 'r')
+        # diabetes_status_test = h5py.File(f['test']['diabetes_status'], 'r')
 
         return (
             ImdbData(data_train[self.h5_key_for_data][()], label_train[self.h5_key_for_label][()],
                      weight_train[self.h5_key_for_weights][()],
-                     class_weight_train[self.h5_key_for_class_weights][()],
-                     diabetes_status_train[self.h5_key_for_diabetes_status][()]
+                     class_weight_train[self.h5_key_for_class_weights][()]  # ,
+                     # diabetes_status_train[self.h5_key_for_diabetes_status][()]
                      ),
             ImdbData(data_test[self.h5_key_for_data][()], label_test[self.h5_key_for_label][()],
                      weight_test[self.h5_key_for_weights][()],
-                     class_weight_test[self.h5_key_for_class_weights][()],
-                     diabetes_status_test[self.h5_key_for_diabetes_status][()]
+                     class_weight_test[self.h5_key_for_class_weights][()]  # ,
+                     # diabetes_status_test[self.h5_key_for_diabetes_status][()]
                      )
         )
 
@@ -126,7 +126,11 @@ class DataUtils(PreProcess):
             #     continue
             # print('diabetes_status:', diabetes_status)
             # try:
-            volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
+            if self.label_dir is None:
+                volume, header = self.volume_load_and_preprocess(file_path)
+                labelmap, weights, class_weights = None, None, None
+            else:
+                volume, labelmap, header, weights, class_weights = self.load_and_preprocess(file_path)
 
             if self.is_h5_processing:
                 self.save_processed_nibabel_file(volume, header, volume_id)
@@ -215,11 +219,85 @@ class DataUtils(PreProcess):
         print(volume.shape, labelmap.shape, class_weights.shape, weights.shape, np.unique(labelmap))
         return volume, labelmap, header, weights, class_weights
 
+    def volume_load_and_preprocess(self, file_path):
+
+        volume, _, header, _ = self.load_data(file_path, False)
+
+        print(volume.shape)
+
+        # if self.is_pre_processed:
+        #     print('== loading pre-processed data ==')
+        #     volume = self.normalise_data(volume)
+        #     class_weights, _ = self.estimate_weights_mfb(labelmap)
+        #     weights = self.estimate_weights_per_slice(labelmap)
+        #     return volume, labelmap, header, weights, class_weights
+
+        print(' == Pre-processing raw data ==')
+
+        steps = header['pixdim'][1:4]
+        # steps_l = label_header['pixdim'][1:4]
+        # print(steps, steps_l)
+        # if volume.shape == labelmap.shape:
+        #     steps_l = steps
+        #     label_header = header
+
+        # volume, labelmap = self.axis_centralisation(volume, labelmap, header, label_header)
+        # print('after axis centralisation,', volume.shape, labelmap.shape)
+        volume, vl = self.reorient(volume, header)
+        # labelmap, ll = self.reorient(labelmap, label_header)
+
+        volume = self.do_interpolate(volume, steps)
+        # labelmap = self.do_interpolate(labelmap, steps_l, is_label=True)
+        # new_affine_v = from_matvec(np.diag(self.target_voxel_dimension), vl)
+        # new_affine_l = from_matvec(np.diag(self.target_voxel_dimension), ll)
+        # print('post_process_shapes b4:', volume.shape, labelmap.shape, new_affine_v, new_affine_l)
+        # volume, labelmap = self.shape_equalizer(volume, labelmap)
+
+        print('post_process_shapes:', volume.shape)
+
+        self.target_dim = self.find_nearest(volume.shape) if self.target_dim is None else self.target_dim
+
+        volume, _ = self.post_interpolate(volume, labelmap=None, target_shape=self.target_dim)
+        # labelmap, _ = self.post_interpolate(labelmap, labelmap=None, target_shape=self.target_dim)
+
+        volume, _ = self.rotate_orientation(volume, None)
+
+        # labelmap = np.moveaxis(labelmap, 2, 0)
+        volume = np.moveaxis(volume, 2, 0)
+        # if self.is_remove_black:
+        # volume, labelmap = self.remove_black(volume, labelmap)
+        print('bk', volume.shape)
+        if self.is_reduce_slices:
+            volume = self.volume_slice_reduce(volume)
+
+        if self.histogram_matching:
+            volume = self.hist_match(volume)
+
+        volume = self.normalise_data(volume)
+
+        # class_weights, _ = self.estimate_weights_mfb(labelmap)
+        # weights = self.estimate_weights_per_slice(labelmap)
+
+        # Important for invisible spleen issue, due to wrong interpolation while processing comp_mask file.
+        # labelmap = np.round(labelmap)
+
+        print(volume.shape)
+        return volume, header
+
     @staticmethod
-    def load_data(file_path):
-        volume_nifty, labelmap_nifty = nb.load(file_path[0]), nb.load(file_path[1])
-        volume, labelmap = volume_nifty.get_fdata(), labelmap_nifty.get_fdata()
-        return volume, labelmap, volume_nifty.header, labelmap_nifty.header
+    def load_data(file_path, is_label_available=True):
+        if is_label_available:
+            labelmap_nifty = nb.load(file_path[1])
+            labelmap = labelmap_nifty.get_fdata()
+            labelmap_header = labelmap_nifty.header
+        else:
+            labelmap = None
+            labelmap_header = None
+
+        volume_nifty = nb.load(file_path[0])
+        volume = volume_nifty.get_fdata()
+
+        return volume, labelmap, volume_nifty.header, labelmap_header
 
     @staticmethod
     def load_image_data(file_path, is_multiple_labels_available=False):
@@ -236,6 +314,8 @@ class DataUtils(PreProcess):
         return volume, labelmap, None
 
     def save_processed_nibabel_file(self, volume, header, filename, is_label=False):
+        if volume is None:
+            return False
         if self.processed_extn in ['.mgz', '.mgh']:
             image_creator = nb.MGHImage
         else:
@@ -276,7 +356,6 @@ class DataUtils(PreProcess):
 
         return file_paths
 
-    # TODO: Reconfigure this function. now, bit dependant on KORA set.
     def load_file_paths(self, load_from_txt_file=False, is_train_phase=False):
         if load_from_txt_file:
             volume_txt_file = self.train_volumes if is_train_phase else self.test_volumes
@@ -306,9 +385,16 @@ class DataUtils(PreProcess):
                         file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn),
                                            os.path.join(self.processed_label_dir, vol + self.processed_extn)])
                 else:
-                    data_file_path = self._data_file_path_.format(self.data_dir, vol,
-                                                                  self.modality_map[str(self.modality)])
-                    label_file_path = self._label_file_path_.format(self.label_dir, vol)
+                    if self.dataset == 'UKB':
+                        data_file_path = self._data_file_path_.format(self.data_dir, vol)
+                    else:
+                        data_file_path = self._data_file_path_.format(self.data_dir, vol,
+                                                                      self.modality_map[str(self.modality)])
+                    if self.label_dir is not None:
+                        label_file_path = self._label_file_path_.format(self.label_dir, vol)
+                        l_file_path = eval(label_file_path)
+                    else:
+                        l_file_path = None
 
                     files = glob.glob(eval(data_file_path))
                     file_filtration_criterion = np.array([re.findall(r'\d+', f)[-1] for f in files], dtype='int')
@@ -317,7 +403,14 @@ class DataUtils(PreProcess):
                     file = [file]
 
                     if len(file) is not 0:
-                        file_paths.append([file[0], eval(label_file_path)])
+                        file_paths.append([file[0], l_file_path])
+                        # To accommodate various modality file of UKB set. We don't know exactly, which one to use.
+                        if self.dataset == 'UKB':
+                            base_f = file[0].split('.')[0]
+                            sa_file = base_f + 'a' + self.processed_extn
+                            sb_file = base_f + 'b' + self.processed_extn
+                            file_paths.append([sa_file, l_file_path])
+                            file_paths.append([sb_file, l_file_path])
                     else:
                         raise Exception('File not found!')
             except Exception as e:
