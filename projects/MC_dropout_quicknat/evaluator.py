@@ -56,6 +56,7 @@ class Evaluator(EvaluatorInterface):
 
                     if self.dataUtils.label_dir is None:
                         volume, header = self.dataUtils.volume_load_and_preprocess(file_path)
+                        vol_to_save = volume.copy()
                     else:
                         volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
 
@@ -121,7 +122,8 @@ class Evaluator(EvaluatorInterface):
                             print('iou:', iou_s)
                             print('skip this vol:', volumes_to_use[vol_idx] + vol_mixin)
                             continue
-
+                        if self.dataUtils.dataset == 'UKB':
+                            self.dataUtils.save_processed_nibabel_file(vol_to_save, header, volumes_to_use[vol_idx]+vol_mixin)
                         if self.dataUtils.label_dir is not None:
                             s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
                             s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
