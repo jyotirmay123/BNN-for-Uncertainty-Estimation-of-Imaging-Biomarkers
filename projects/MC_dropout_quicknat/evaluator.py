@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 import torch.nn.functional as F
+import pandas as pd
 
 from interfaces.evaluator_inteface import EvaluatorInterface
 
@@ -20,24 +21,52 @@ class Evaluator(EvaluatorInterface):
 
         batch_size = self.dataUtils.eval_batch_size
 
-        with open(self.dataUtils.test_volumes) as file_handle:
-            volumes_to_use = file_handle.read().splitlines()
-
-        model = torch.load(self.dataUtils.eval_model_path)
-        # torch.save(model.state_dict(), 'mc_dropout_quicknat.model')
-        cuda_available = torch.cuda.is_available()
-        if cuda_available:
-            torch.cuda.empty_cache()
-            model.cuda(device)
-
-        model.eval()
+        # uncomment here jj
+        # with open(self.dataUtils.test_volumes) as file_handle:
+        #     volumes_to_use = file_handle.read().splitlines()
+        #
+        # model = torch.load(self.dataUtils.eval_model_path)
+        # # torch.save(model.state_dict(), 'mc_dropout_quicknat.model')
+        # cuda_available = torch.cuda.is_available()
+        # if cuda_available:
+        #     torch.cuda.empty_cache()
+        #     model.cuda(device)
+        #
+        # model.eval()
 
         volume_dice_score_list, volume_surface_distance_list, iou_score_per_structure_list = [], [], []
         s_ncc_list, s_ged_list = [], []
 
         print("Evaluating now...")
-        file_paths = self.dataUtils.load_file_paths(load_from_txt_file=load_from_txt_file,
-                                                    is_train_phase=is_train_phase)
+        # uncomment here jj
+        # file_paths = self.dataUtils.load_file_paths(load_from_txt_file=load_from_txt_file,
+        #                                             is_train_phase=is_train_phase)
+
+        df = pd.read_csv(
+            '/home/abhijit/Jyotirmay/my_thesis/projects/MC_dropout_quicknat/reports/MC_dropout_quicknat_UKB_v2/UKB/10_0.0_report.csv',
+            index_col=0)
+        with open(
+                '/home/abhijit/Jyotirmay/my_thesis/dataset_groups/whole_body_datasets/UKB/evaluated_vols.txt') as file_handle:
+            volumes_to_use = file_handle.read().splitlines()
+        file_paths = []
+        for ix, v in enumerate(volumes_to_use):
+            targets = df[df['volume_id'] == v]['target_scan_file'].values
+            i1, i2 = None, None
+            if len(targets) > 1:
+                i1, i2 = df[df['volume_id'] == v]['iou_mean'].values
+                if i1 > i2:
+                    idx = 0
+                else:
+                    idx = 1
+                target = targets[idx]
+            elif len(targets) == 0:
+                continue
+            else:
+                target = targets[0]
+            input_file = '/home/abhijit/nas_drive/Data_WholeBody/UKBiobank/body/body_nifti/' + str(v) + '/' + target
+            gt_file = None
+            file_paths.append([input_file, gt_file])
+        print(len(file_paths))
         self.print_report('########### Evaluating {0} dataset on {1} model ############## \n'
                           .format(self.dataUtils.dataset, self.dataUtils.model_name))
         self.print_report('########### Evaluating {0} dataset on {1} model ############## \n'
@@ -49,16 +78,21 @@ class Evaluator(EvaluatorInterface):
                     volid_or_mixin = file_path[0].split('/')[-1].split('.')[0]
                     self.print_report('# VOLUME:: ' + volid_or_mixin + '\n')
                     vol_mixin = None
-                    if self.dataUtils.dataset == 'UKB':
-                        vol_idx = vol_idx // 3
-                        print(volumes_to_use[vol_idx])
-                        vol_mixin = volid_or_mixin[-1:]
+                    # Uncomment here jj
+                    # if self.dataUtils.dataset == 'UKB':
+                    #     vol_idx = vol_idx // 3
+                    #     print(volumes_to_use[vol_idx])
+                    #     vol_mixin = volid_or_mixin[-1:]
 
                     if self.dataUtils.label_dir is None:
                         volume, header = self.dataUtils.volume_load_and_preprocess(file_path)
-                        vol_to_save = volume.copy()
+                        # vol_to_save = volume.copy()
+                        if self.dataUtils.dataset == 'UKB':
+                            self.dataUtils.save_processed_nibabel_file(volume, header, volumes_to_use[vol_idx])
+
                     else:
                         volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
+                    continue
 
                     volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
                     volume = torch.tensor(np.ascontiguousarray(volume)).type(torch.FloatTensor)
@@ -101,6 +135,7 @@ class Evaluator(EvaluatorInterface):
                         else:
                             model.is_training = False
                             out = model.forward(batch_x)
+                            out = out[2]
                             out = F.softmax(out, dim=1)
                             _, batch_output = torch.max(out, dim=1)
 
@@ -152,13 +187,13 @@ class Evaluator(EvaluatorInterface):
                     print(e)
                     continue
 
-            dice_score_arr = np.asarray(volume_dice_score_list)
-            surface_distance_arr = np.asarray(volume_surface_distance_list)
-            iou_score_per_structure_arr = np.asarray(iou_score_per_structure_list)
-            s_ncc_arr = np.asarray(s_ncc_list)
-            s_ged_arr = np.asarray(s_ged_list)
-
-            self.final_report(dice_score_arr, surface_distance_arr, iou_score_per_structure_arr, s_ncc_arr, s_ged_arr)
+            # dice_score_arr = np.asarray(volume_dice_score_list)
+            # surface_distance_arr = np.asarray(volume_surface_distance_list)
+            # iou_score_per_structure_arr = np.asarray(iou_score_per_structure_list)
+            # s_ncc_arr = np.asarray(s_ncc_list)
+            # s_ged_arr = np.asarray(s_ged_list)
+            #
+            # self.final_report(dice_score_arr, surface_distance_arr, iou_score_per_structure_arr, s_ncc_arr, s_ged_arr)
             if self.dataUtils.label_dir is not None:
                 class_dist = [dice_score_arr[:, c] for c in range(self.dataUtils.num_class)]
 
