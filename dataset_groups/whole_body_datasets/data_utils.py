@@ -225,12 +225,10 @@ class DataUtils(PreProcess):
 
         print(volume.shape)
 
-        # if self.is_pre_processed:
-        #     print('== loading pre-processed data ==')
-        #     volume = self.normalise_data(volume)
-        #     class_weights, _ = self.estimate_weights_mfb(labelmap)
-        #     weights = self.estimate_weights_per_slice(labelmap)
-        #     return volume, labelmap, header, weights, class_weights
+        if self.is_pre_processed:
+            print('== loading pre-processed data ==')
+            volume = self.normalise_data(volume)
+            return volume, header
 
         print(' == Pre-processing raw data ==')
 
@@ -382,8 +380,11 @@ class DataUtils(PreProcess):
                         file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn),
                                            multi_labels])
                     else:
-                        file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn),
-                                           os.path.join(self.processed_label_dir, vol + self.processed_extn)])
+                        if self.label_dir is not None:
+                            file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn),
+                                               os.path.join(self.processed_label_dir, vol + self.processed_extn)])
+                        else:
+                            file_paths.append([os.path.join(self.processed_data_dir, vol + self.processed_extn), None])
                 else:
                     if self.dataset == 'UKB':
                         data_file_path = self._data_file_path_.format(self.data_dir, vol)

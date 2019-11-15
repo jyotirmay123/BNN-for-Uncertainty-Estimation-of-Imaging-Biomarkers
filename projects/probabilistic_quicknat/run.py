@@ -72,11 +72,12 @@ class Executor(ExecutorInterface, Evaluator):
         device = common_params.device
         log_dir = common_params.log_dir
         exp_dir = common_params.exp_dir
-        our_dir = common_params.base_dir
+        out_dir = common_params.base_dir
         exp_name = train_params.exp_name
         save_predictions_dir = eval_params.save_predictions_dir
 
-        prediction_path = os.path.join(our_dir, 'outs', exp_name, save_predictions_dir)
+        out_dir = '/home/abhijit/nas_drive/Abhijit/Jyotirmay/ukb_outs'
+        prediction_path = os.path.join(out_dir, 'outs', exp_name, save_predictions_dir)
 
         logWriter = LogWriter(num_classes, log_dir, exp_name, labels=labels)
 

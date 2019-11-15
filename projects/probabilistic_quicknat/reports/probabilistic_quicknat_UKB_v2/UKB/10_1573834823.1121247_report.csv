@@ -1,0 +1,8 @@
+project,dataset,model_name,volume_id,samples,sncc,ged,iou_spleen,iou_liver,iou_mean,dice_spleen,dice_liver,dice_mean,surface_distance_prtogt_spleen,surface_distance_prtogt_liver,surface_distance_prtogt_mean,surface_distance_gttopr_spleen,surface_distance_gttopr_liver,surface_distance_gttopr_mean,surface_distance_avg_spleen,surface_distance_avg_liver,surface_distance_avg_mean
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+3,2,probabilistic_quicknat_UKB_v2,1000410_20201_2_0,10,,,0.9874735016380806,0.985577198784241,0.9865253502111608,,,,,,,,,,,,
+3,2,probabilistic_quicknat_UKB_v2,1000698_20201_2_0,10,,,0.9886053412462908,0.9811227515319233,0.9848640463891071,,,,,,,,,,,,
+3,2,probabilistic_quicknat_UKB_v2,1000857_20201_2_0,10,,,0.9803359278984023,0.9939819458375125,0.9871589368679574,,,,,,,,,,,,
+3,2,probabilistic_quicknat_UKB_v2,1000870_20201_2_0,10,,,0.9899843037596233,0.9750703372627231,0.9825273205111732,,,,,,,,,,,,
+3,2,probabilistic_quicknat_UKB_v2,1002272_20201_2_0,10,,,0.9936318277310925,0.9893919870546283,0.9915119073928604,,,,,,,,,,,,
+3,2,probabilistic_quicknat_UKB_v2,1002359_20201_2_0,10,,,0.9832565927166178,0.984268686159453,0.9837626394380354,,,,,,,,,,,,

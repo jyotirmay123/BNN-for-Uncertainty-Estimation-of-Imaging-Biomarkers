@@ -87,6 +87,7 @@ class Evaluator(EvaluatorInterface):
                     else:
                         model.is_training = False
                         out = model.forward(batch_x)
+                        out = out[2]
                         out = F.softmax(out, dim=1)
                         _, batch_output = torch.max(out, dim=1)
 
