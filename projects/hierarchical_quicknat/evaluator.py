@@ -46,11 +46,15 @@ class Evaluator(EvaluatorInterface):
             for vol_idx, file_path in enumerate(file_paths):
                 print(file_path)
                 self.print_report('# VOLUME:: ' + file_path[0].split('/')[-1].split('.')[0] + '\n')
-                volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
+                if self.dataUtils.label_dir is None:
+                    volume, header = self.dataUtils.volume_load_and_preprocess(file_path)
+                else:
+                    volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
 
                 volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
                 volume = torch.tensor(np.ascontiguousarray(volume)).type(torch.FloatTensor)
-                labelmap = torch.tensor(np.ascontiguousarray(labelmap)).type(torch.FloatTensor)
+                if self.dataUtils.label_dir is not None:
+                    labelmap = torch.tensor(np.ascontiguousarray(labelmap)).type(torch.FloatTensor)
 
                 volume_prediction, heat_map_arr = [], []
                 iou_s, s_ncc, s_ged = None, None, None
@@ -93,14 +97,21 @@ class Evaluator(EvaluatorInterface):
                     volume_prediction.append(batch_output)
 
                 volume_prediction = torch.cat(volume_prediction)
-                volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
-                                                             self.dataUtils.num_class, mode=mode)
-                volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
-                                                                                   labelmap.cuda(device), mode=mode)
+                if self.dataUtils.label_dir is not None:
+                    volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
+                                                                 self.dataUtils.num_class, mode=mode)
+                    volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
+                                                                                       labelmap.cuda(device), mode=mode)
+                else:
+                    volume_dice_score, volume_dice_surface_distance = None, None
+
                 if self.dataUtils.is_uncertainity_check_enabled:
                     iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
-                    s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
-                    s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
+                    if self.dataUtils.label_dir is not None:
+                        s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
+                        s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
+                    else:
+                        s_ncc, s_ged = None, None
 
                 volume_dice_score_list.append(volume_dice_score)
                 volume_surface_distance_list.append(volume_dice_surface_distance)
@@ -116,7 +127,7 @@ class Evaluator(EvaluatorInterface):
                 self.intermediate_report(volumes_to_use[vol_idx], volume_dice_score, volume_dice_surface_distance,
                                          iou_s, s_ncc_list, s_ged_list)
 
-                if logWriter:
+                if self.dataUtils.label_dir is not None and logWriter:
                     logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],
                                               vol_idx)
 
@@ -128,8 +139,9 @@ class Evaluator(EvaluatorInterface):
 
             self.final_report(dice_score_arr, surface_distance_arr, iou_score_per_structure_arr, s_ncc_arr, s_ged_arr)
 
-            class_dist = [dice_score_arr[:, c] for c in range(self.dataUtils.num_class)]
+            if self.dataUtils.label_dir is not None:
+                class_dist = [dice_score_arr[:, c] for c in range(self.dataUtils.num_class)]
 
-            if logWriter:
-                logWriter.plot_eval_box_plot('eval_dice_score_box_plot', class_dist, 'Box plot Dice Score')
+                if logWriter:
+                    logWriter.plot_eval_box_plot('eval_dice_score_box_plot', class_dist, 'Box plot Dice Score')
             print("DONE")
