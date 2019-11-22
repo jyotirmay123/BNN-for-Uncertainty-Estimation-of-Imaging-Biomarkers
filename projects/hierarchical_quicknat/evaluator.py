@@ -44,92 +44,96 @@ class Evaluator(EvaluatorInterface):
                           .format(self.dataUtils.dataset, self.dataUtils.model_name), final=True)
         with torch.no_grad():
             for vol_idx, file_path in enumerate(file_paths):
-                print(file_path)
-                self.print_report('# VOLUME:: ' + file_path[0].split('/')[-1].split('.')[0] + '\n')
-                if self.dataUtils.label_dir is None:
-                    volume, header = self.dataUtils.volume_load_and_preprocess(file_path)
-                else:
-                    volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
+                try:
+                    print(file_path)
+                    self.print_report('# VOLUME:: ' + file_path[0].split('/')[-1].split('.')[0] + '\n')
+                    if self.dataUtils.label_dir is None:
+                        volume, header = self.dataUtils.volume_load_and_preprocess(file_path)
+                    else:
+                        volume, labelmap, header, weights, class_weights = self.dataUtils.load_and_preprocess(file_path)
 
-                volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
-                volume = torch.tensor(np.ascontiguousarray(volume)).type(torch.FloatTensor)
-                if self.dataUtils.label_dir is not None:
-                    labelmap = torch.tensor(np.ascontiguousarray(labelmap)).type(torch.FloatTensor)
+                    volume = volume if len(volume.shape) == 4 else volume[:, np.newaxis, :, :]
+                    volume = torch.tensor(np.ascontiguousarray(volume)).type(torch.FloatTensor)
+                    if self.dataUtils.label_dir is not None:
+                        labelmap = torch.tensor(np.ascontiguousarray(labelmap)).type(torch.FloatTensor)
 
-                volume_prediction, heat_map_arr = [], []
-                iou_s, s_ncc, s_ged = None, None, None
-                iou_uncertainty = np.zeros(
-                    (self.dataUtils.mc_sample, volume.shape[0], volume.shape[2], volume.shape[3]))
+                    volume_prediction, heat_map_arr = [], []
+                    iou_s, s_ncc, s_ged = None, None, None
+                    iou_uncertainty = np.zeros(
+                        (self.dataUtils.mc_sample, volume.shape[0], volume.shape[2], volume.shape[3]))
 
-                for i in range(0, len(volume), batch_size):
-                    batch_x = volume[i: i + batch_size]
-                    if cuda_available:
-                        batch_x = batch_x.cuda(device)
+                    for i in range(0, len(volume), batch_size):
+                        batch_x = volume[i: i + batch_size]
+                        if cuda_available:
+                            batch_x = batch_x.cuda(device)
 
-                    if self.dataUtils.is_uncertainity_check_enabled:
-                        batch_uncertainty_outputs = []
-                        for mcs in range(self.dataUtils.mc_sample):
+                        if self.dataUtils.is_uncertainity_check_enabled:
+                            batch_uncertainty_outputs = []
+                            for mcs in range(self.dataUtils.mc_sample):
+                                model.is_training = False
+                                out = model.forward(batch_x)
+                                out = out[2]
+                                out = F.softmax(out, dim=1)
+                                _, batch_class_map = torch.max(out, dim=1)
+                                iou_uncertainty[mcs, i: i + batch_size] = batch_class_map.cpu().numpy()
+                                batch_output_ = (out.cpu().numpy()).astype('float32')
+                                batch_uncertainty_outputs.append(batch_output_)
+
+                            batch_uncertainty_outputs = np.array(batch_uncertainty_outputs)
+                            heat_map_over_class = -np.sum(
+                                np.multiply(batch_uncertainty_outputs, np.log(batch_uncertainty_outputs + 0.0001)), axis=0)
+                            heat_map = np.sum(heat_map_over_class, axis=1)
+                            heat_map_output = torch.from_numpy(heat_map).float().to(device)
+                            heat_map_arr.append(heat_map_output)
+
+                            infer = np.mean(batch_uncertainty_outputs, axis=0)
+                            batch_output = np.argmax(infer, axis=1)
+                            batch_output = torch.from_numpy(batch_output).float().to(device)
+                        else:
                             model.is_training = False
                             out = model.forward(batch_x)
-                            out = out[2]
                             out = F.softmax(out, dim=1)
-                            _, batch_class_map = torch.max(out, dim=1)
-                            iou_uncertainty[mcs, i: i + batch_size] = batch_class_map.cpu().numpy()
-                            batch_output_ = (out.cpu().numpy()).astype('float32')
-                            batch_uncertainty_outputs.append(batch_output_)
+                            _, batch_output = torch.max(out, dim=1)
 
-                        batch_uncertainty_outputs = np.array(batch_uncertainty_outputs)
-                        heat_map_over_class = -np.sum(
-                            np.multiply(batch_uncertainty_outputs, np.log(batch_uncertainty_outputs + 0.0001)), axis=0)
-                        heat_map = np.sum(heat_map_over_class, axis=1)
-                        heat_map_output = torch.from_numpy(heat_map).float().to(device)
-                        heat_map_arr.append(heat_map_output)
+                        volume_prediction.append(batch_output)
 
-                        infer = np.mean(batch_uncertainty_outputs, axis=0)
-                        batch_output = np.argmax(infer, axis=1)
-                        batch_output = torch.from_numpy(batch_output).float().to(device)
-                    else:
-                        model.is_training = False
-                        out = model.forward(batch_x)
-                        out = F.softmax(out, dim=1)
-                        _, batch_output = torch.max(out, dim=1)
-
-                    volume_prediction.append(batch_output)
-
-                volume_prediction = torch.cat(volume_prediction)
-                if self.dataUtils.label_dir is not None:
-                    volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
-                                                                 self.dataUtils.num_class, mode=mode)
-                    volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
-                                                                                       labelmap.cuda(device), mode=mode)
-                else:
-                    volume_dice_score, volume_dice_surface_distance = None, None
-
-                if self.dataUtils.is_uncertainity_check_enabled:
-                    iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
+                    volume_prediction = torch.cat(volume_prediction)
                     if self.dataUtils.label_dir is not None:
-                        s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
-                        s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
+                        volume_dice_score = self.dice_score_perclass(volume_prediction, labelmap.cuda(device),
+                                                                     self.dataUtils.num_class, mode=mode)
+                        volume_dice_surface_distance = self.dice_surface_distance_perclass(volume_prediction,
+                                                                                           labelmap.cuda(device), mode=mode)
                     else:
-                        s_ncc, s_ged = None, None
+                        volume_dice_score, volume_dice_surface_distance = None, None
 
-                volume_dice_score_list.append(volume_dice_score)
-                volume_surface_distance_list.append(volume_dice_surface_distance)
-                iou_score_per_structure_list.append(iou_s)
-                s_ncc_list.append(s_ncc)
-                s_ged_list.append(s_ged)
+                    if self.dataUtils.is_uncertainity_check_enabled:
+                        iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
+                        if self.dataUtils.label_dir is not None:
+                            s_ncc = self.variance_ncc_dist(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy())
+                            s_ged = self.generalised_energy_distance(iou_uncertainty, labelmap.unsqueeze(dim=0).numpy(), 3)
+                        else:
+                            s_ncc, s_ged = None, None
 
-                if self.dataUtils.is_uncertainity_check_enabled:
-                    self.save_uncertainty_samples(iou_uncertainty, prediction_path, volumes_to_use[vol_idx], header)
-                    self.save_uncertainty_heat_map(heat_map_arr, prediction_path, volumes_to_use[vol_idx], header)
+                    volume_dice_score_list.append(volume_dice_score)
+                    volume_surface_distance_list.append(volume_dice_surface_distance)
+                    iou_score_per_structure_list.append(iou_s)
+                    s_ncc_list.append(s_ncc)
+                    s_ged_list.append(s_ged)
 
-                self.save_segmentation_map(volume_prediction, prediction_path, volumes_to_use[vol_idx], header)
-                self.intermediate_report(volumes_to_use[vol_idx], volume_dice_score, volume_dice_surface_distance,
-                                         iou_s, s_ncc_list, s_ged_list)
+                    if self.dataUtils.is_uncertainity_check_enabled:
+                        self.save_uncertainty_samples(iou_uncertainty, prediction_path, volumes_to_use[vol_idx], header)
+                        self.save_uncertainty_heat_map(heat_map_arr, prediction_path, volumes_to_use[vol_idx], header)
 
-                if self.dataUtils.label_dir is not None and logWriter:
-                    logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],
-                                              vol_idx)
+                    self.save_segmentation_map(volume_prediction, prediction_path, volumes_to_use[vol_idx], header)
+                    self.intermediate_report(volumes_to_use[vol_idx], volume_dice_score, volume_dice_surface_distance,
+                                             iou_s, s_ncc_list, s_ged_list)
+
+                    if self.dataUtils.label_dir is not None and logWriter:
+                        logWriter.plot_dice_score('val', 'eval_dice_score', volume_dice_score, volumes_to_use[vol_idx],
+                                                  vol_idx)
+                except Exception as e:
+                    print(e)
+                    continue
 
             dice_score_arr = np.asarray(volume_dice_score_list)
             surface_distance_arr = np.asarray(volume_surface_distance_list)
