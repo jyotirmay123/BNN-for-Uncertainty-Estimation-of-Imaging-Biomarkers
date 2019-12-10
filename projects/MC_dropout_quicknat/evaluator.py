@@ -77,7 +77,7 @@ class Evaluator(EvaluatorInterface):
                     print(file_path)
                     volid_or_mixin = file_path[0].split('/')[-1].split('.')[0]
                     self.print_report('# VOLUME:: ' + volid_or_mixin + '\n')
-                    vol_mixin = None
+                    vol_mixin = ''
 
                     if self.dataUtils.dataset == 'UKB':
                         vol_idx = vol_idx // 3
@@ -149,10 +149,10 @@ class Evaluator(EvaluatorInterface):
                     if self.dataUtils.is_uncertainity_check_enabled:
                         iou_s = self.intersection_overlap_per_structure(iou_uncertainty)
 
-                        if iou_s[0] < 0.30 or iou_s[1] < 0.30:
-                            print('iou:', iou_s)
-                            print('skip this vol:', volumes_to_use[vol_idx] + vol_mixin)
-                            continue
+                        # if iou_s[0] < 0.30 or iou_s[1] < 0.30:
+                        #     print('iou:', iou_s)
+                        #     print('skip this vol:', volumes_to_use[vol_idx] + vol_mixin)
+                        #     continue
                         if self.dataUtils.dataset == 'UKB':
                             self.dataUtils.save_processed_nibabel_file(vol_to_save, header, volumes_to_use[vol_idx]+vol_mixin)
                         if self.dataUtils.label_dir is not None:
