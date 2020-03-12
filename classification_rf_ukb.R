@@ -1,5 +1,6 @@
 
 require(caret)
+require(randomForest)
 set.seed(1234)
 recall <- function(matrix) {
   tp <- matrix[2, 2]
@@ -214,7 +215,7 @@ for(i in 1:freq) {
     test_data  <- data[test_ids, ]
     ukb_data <- get_appropriate_ukb_dataset(accidx)
     
-    classifier_base <- glm(diabetes_status ~ age + sex + bmi.numeric, family='binomial', data=train_data)
+    classifier_base <- randomForest(diabetes_status ~ age + sex + bmi.numeric, family='binomial', data=train_data)
     measures <- predictor(classifier_base, test_data)
     acc[i,1, accidx] <- measures$accuracy
     acc[i,2, accidx] <- measures$f1
@@ -223,7 +224,7 @@ for(i in 1:freq) {
     acc[i,17, accidx] <- measures$accuracy
     acc[i,18, accidx] <- measures$f1
     
-    classifier_vol <- glm(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled, family='binomial', data=train_data)
+    classifier_vol <- randomForest(diabetes_status ~ seg_liver_scaled, family='binomial', data=train_data)
     measures <- predictor(classifier_vol, test_data)
     acc[i,3, accidx] <- measures$accuracy
     acc[i,4, accidx] <- measures$f1
@@ -237,7 +238,7 @@ for(i in 1:freq) {
       next
     }
     
-    classifier_iou <- glm(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled + iou_liver, family='binomial', data=train_data)
+    classifier_iou <- randomForest(diabetes_status ~  seg_liver_scaled + iou_liver, family='binomial', data=train_data)
     measures <- predictor(classifier_iou, test_data)
     acc[i,5, accidx] <- measures$accuracy
     acc[i,6, accidx] <- measures$f1
@@ -246,7 +247,7 @@ for(i in 1:freq) {
     acc[i,21, accidx] <- measures$accuracy
     acc[i,22, accidx] <- measures$f1
     
-    classifier_cvinv <- glm(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
+    classifier_cvinv <- randomForest(diabetes_status ~  seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
     measures <- predictor(classifier_cvinv, test_data)
     acc[i,7, accidx] <- measures$accuracy
     acc[i,8, accidx] <- measures$f1
@@ -255,7 +256,7 @@ for(i in 1:freq) {
     acc[i,23, accidx] <- measures$accuracy
     acc[i,24, accidx] <- measures$f1
     
-    classifier_instanceiou <- glm(diabetes_status ~age + sex + bmi.numeric +  seg_liver_scaled, weights = train_data$iou_liver, family='binomial', data=train_data)
+    classifier_instanceiou <- randomForest(diabetes_status ~ seg_liver_scaled, weights = train_data$iou_liver, family='binomial', data=train_data)
     measures <- predictor(classifier_instanceiou, test_data)
     acc[i,9, accidx] <- measures$accuracy
     acc[i,10, accidx] <- measures$f1
@@ -304,7 +305,7 @@ for(i in 1:freq) {
     rec <- recall(cm)
     acc[i,28, accidx] <- 2 * ((prec * rec) / (prec + rec))
     
-    classifier_instancecvinv <- glm(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled, weights = train_data$cvinv_scaled, family='binomial', data=train_data)
+    classifier_instancecvinv <- randomForest(diabetes_status ~  seg_liver_scaled, weights = train_data$cvinv_scaled, family='binomial', data=train_data)
     measures <- predictor(classifier_instancecvinv, test_data)
     acc[i,13, accidx] <- measures$accuracy
     acc[i,14, accidx] <- measures$f1
@@ -364,7 +365,7 @@ final_mean_accs[,5] = colMeans(acc[1:freq,,5])
 
 final_mean_accs <- aperm(final_mean_accs)
 
-write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/classification_glm_ukb_all.csv')
+write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/classification_glm_ukb_volume_only_all.csv')
 
 
 
