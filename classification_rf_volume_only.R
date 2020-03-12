@@ -46,7 +46,7 @@ hqdata <- hqdata[order(hqdata$volume_id),]
 
 datalist = list(mcdata, fbdata, pbdata, hqdata, manualdata)
 
-freq <- 1000
+freq <- 300
 final_mean_accs <- array(0, dim=c(16, 5))
 acc <- array(0, dim=c(freq, 16, 5))
 
@@ -57,7 +57,7 @@ for(i in 1:freq) {
     data$diabetes_status[data$diabetes_status== 2] <- 1
     data$seg_liver_scaled = scale(data$seg_liver)
     
-    data$diabetes_status <- as.factor(data$diabetes_status)
+    #data$diabetes_status <- as.factor(data$diabetes_status)
     
     if(accidx!=5){
       liv_samp <- as.matrix(data[,c("X0_liver","X1_liver","X2_liver","X3_liver","X4_liver","X5_liver","X6_liver","X7_liver","X8_liver","X9_liver")])
@@ -93,53 +93,58 @@ for(i in 1:freq) {
     
     classifier_base <- randomForest(diabetes_status ~ age + sex + bmi.numeric, family='binomial', data=train_data)
     predClass <- predict(classifier_base, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,2, accidx]<- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[i,1, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,2, accidx]<- 2 * ((prec * rec) / (prec + rec))
-
+     #2 * ((prec * rec) / (prec + rec))
+    
     classifier_vol <- randomForest(diabetes_status ~ seg_liver_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_vol, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,4, accidx]<- AUC( predClass, test_data$diabetes_status) 
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[i,3, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,4, accidx]<- 2 * ((prec * rec) / (prec + rec))
-
+    #2 * ((prec * rec) / (prec + rec))
+    
     if(accidx==5){
       accidx = accidx + 1
       next
     }
-
+    
     classifier_iou <- randomForest(diabetes_status ~ seg_liver_scaled + iou_liver, family='binomial', data=train_data)
     predClass <- predict(classifier_iou, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,6, accidx]<- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[i,5, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,6, accidx]<- 2 * ((prec * rec) / (prec + rec))
-
+     # 2 * ((prec * rec) / (prec + rec))
+    
     classifier_cvinv <- randomForest(diabetes_status ~ seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_cvinv, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,8, accidx]<- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[i,7, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,8, accidx]<- 2 * ((prec * rec) / (prec + rec))
-
+    #2 * ((prec * rec) / (prec + rec))
+    
     classifier_instanceiou <- randomForest(diabetes_status ~ seg_liver_scaled, weights = train_data$iou_liver, family='binomial', data=train_data)
     predClass <- predict(classifier_instanceiou, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,10, accidx]<- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[ i,9, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,10, accidx]<- 2 * ((prec * rec) / (prec + rec))
+    # acc[i,10, accidx]<- AUC( predClass, test_data$diabetes_status) #2 * ((prec * rec) / (prec + rec))
     
     pc <- array(0, dim=c(10, nrow(test_data)))
     pc[1,] <- sample_predictor_analyser(test_data$X0_liver_scaled, test_data, classifier_instanceiou)
@@ -153,23 +158,24 @@ for(i in 1:freq) {
     pc[9,] <- sample_predictor_analyser(test_data$X8_liver_scaled, test_data, classifier_instanceiou)
     pc[10,] <- sample_predictor_analyser(test_data$X9_liver_scaled, test_data, classifier_instanceiou)
     
-    predClass <- colMeans(pc) > 1.5
-    
-    cm <- table(test_data$diabetes_status, predClass)
+    predClass <- colMeans(pc)
+    acc[i,12, accidx] <- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[ i,11, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,12, accidx] <- 2 * ((prec * rec) / (prec + rec))
+     # 2 * ((prec * rec) / (prec + rec))
     
     classifier_instancecvinv <- randomForest(diabetes_status ~ seg_liver_scaled, weights = train_data$cvinv_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_instancecvinv, test_data, type = "response")
-    cm <- table(test_data$diabetes_status, predClass)
+    acc[i,14, accidx] <- AUC( predClass, test_data$diabetes_status) 
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[ i,13, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,14, accidx] <- 2 * ((prec * rec) / (prec + rec))
+    #2 * ((prec * rec) / (prec + rec))
     
     pc <- array(0, dim=c(10, nrow(test_data)))
     pc[1,] <- sample_predictor_analyser(test_data$X0_liver_scaled, test_data, classifier_instancecvinv)
@@ -183,15 +189,15 @@ for(i in 1:freq) {
     pc[9,] <- sample_predictor_analyser(test_data$X8_liver_scaled, test_data, classifier_instancecvinv)
     pc[10,] <- sample_predictor_analyser(test_data$X9_liver_scaled, test_data, classifier_instancecvinv)
     
-    predClass <- colMeans(pc) > 1.5
-    
-    cm <- table(test_data$diabetes_status, predClass)
+    predClass <- colMeans(pc)
+    acc[i,16, accidx] <- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
     cm <- cm_sanity_check(cm)
     acc[ i,15, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-    acc[i,16, accidx] <- 2 * ((prec * rec) / (prec + rec))
-
+     # 2 * ((prec * rec) / (prec + rec))
+    
     accidx = accidx + 1
   }
 }
@@ -204,8 +210,8 @@ final_mean_accs[,5] = colMeans(acc[1:freq,,5])
 
 final_mean_accs <- aperm(final_mean_accs)
 
-write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/randomforest_classification_results_mean_only_same_sample_only_volume_with_sample_analyser.csv')
-  
+write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/classification_rf_auc_volume_only_sample_analyzer.csv')
+
 
 
 
