@@ -101,7 +101,7 @@ for(i in 1:freq) {
     rec <- recall(cm)
     acc[i,2, accidx]<- 2 * ((prec * rec) / (prec + rec))
     
-    classifier_vol <- rfsrc(diabetes_status ~ seg_liver_scaled, family='binomial', data=train_data)
+    classifier_vol <- rfsrc(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_vol, test_data, type = "response")$class
     cm <- table(test_data$diabetes_status, predClass)
     cm <- cm_sanity_check(cm)
@@ -115,7 +115,7 @@ for(i in 1:freq) {
       next
     }
     
-    classifier_iou <- rfsrc(diabetes_status ~ seg_liver_scaled + iou_liver, family='binomial', data=train_data)
+    classifier_iou <- rfsrc(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled + iou_liver, family='binomial', data=train_data)
     predClass <- predict(classifier_iou, test_data, type = "response")$class
     cm <- table(test_data$diabetes_status, predClass)
     cm <- cm_sanity_check(cm)
@@ -124,7 +124,7 @@ for(i in 1:freq) {
     rec <- recall(cm)
     acc[i,6, accidx]<- 2 * ((prec * rec) / (prec + rec))
     
-    classifier_cvinv <- rfsrc(diabetes_status ~ seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
+    classifier_cvinv <- rfsrc(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_cvinv, test_data, type = "response")$class
     cm <- table(test_data$diabetes_status, predClass)
     cm <- cm_sanity_check(cm)
@@ -133,7 +133,7 @@ for(i in 1:freq) {
     rec <- recall(cm)
     acc[i,8, accidx]<- 2 * ((prec * rec) / (prec + rec))
     
-    classifier_instanceiou <- rfsrc(diabetes_status ~ seg_liver_scaled, case.wt = train_data$iou_liver, family='binomial', data=train_data)
+    classifier_instanceiou <- rfsrc(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled, case.wt = train_data$iou_liver, family='binomial', data=train_data)
     predClass <- predict(classifier_instanceiou, test_data, type = "response")$class
     cm <- table(test_data$diabetes_status, predClass)
     cm <- cm_sanity_check(cm)
@@ -163,7 +163,7 @@ for(i in 1:freq) {
     rec <- recall(cm)
     acc[i,12, accidx] <- 2 * ((prec * rec) / (prec + rec))
     
-    classifier_instancecvinv <- rfsrc(diabetes_status ~ seg_liver_scaled, case.wt = train_data$cvinv_scaled, family='binomial', data=train_data)
+    classifier_instancecvinv <- rfsrc(diabetes_status ~ age + sex + bmi.numeric + seg_liver_scaled, case.wt = train_data$cvinv_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_instancecvinv, test_data, type = "response")$class
     cm <- table(test_data$diabetes_status, predClass)
     cm <- cm_sanity_check(cm)
@@ -205,7 +205,7 @@ final_mean_accs[,5] = colMeans(acc[1:freq,,5])
 
 final_mean_accs <- aperm(final_mean_accs)
 
-write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/randomforestSRC_classification_results_mean_only_same_sample_with_sample_analyser_only_volume_RFSRC.csv')
+write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/randomforestSRC_classification_results_mean_only_same_sample_with_sample_analyser_RFSRC.csv')
 
 
 
