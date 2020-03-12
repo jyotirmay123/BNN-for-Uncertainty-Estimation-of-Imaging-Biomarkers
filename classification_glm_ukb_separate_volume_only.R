@@ -165,7 +165,7 @@ hqukbdata <- get_optimal_dataset(hqukbdata, matched_volumes)
 
 datalist = list(mcukbdata, fbukbdata, pbukbdata, hqukbdata, manualukbdata)
 
-freq <- 300
+freq <- 1000
 final_mean_accs <- array(0, dim=c(16, 5))
 acc <- array(0, dim=c(freq, 16, 5))
 
