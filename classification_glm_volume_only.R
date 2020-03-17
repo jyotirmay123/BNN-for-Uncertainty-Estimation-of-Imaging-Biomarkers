@@ -46,8 +46,8 @@ hqdata <- hqdata[order(hqdata$volume_id),]
 datalist = list(mcdata, fbdata, pbdata, hqdata, manualdata)
 
 freq <- 1000
-final_mean_accs <- array(0, dim=c(16, 5))
-acc <- array(0, dim=c(freq, 16, 5))
+final_mean_accs <- array(0, dim=c(20, 5))
+acc <- array(0, dim=c(freq, 20, 5))
 
 for(i in 1:freq) {
   accidx = 1
@@ -195,6 +195,25 @@ for(i in 1:freq) {
     rec <- recall(cm)
      #2 * ((prec * rec) / (prec + rec))
     
+    classifier_iou <- glm(diabetes_status ~ seg_liver_scaled * iou_liver, family='binomial', data=train_data)
+    predClass <- predict(classifier_iou, test_data, type = "response")
+    acc[i,18, accidx]<-  AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
+    cm <- cm_sanity_check(cm)
+    acc[i,17, accidx] <- sum(diag(cm)) / sum(cm)
+    prec <- precision(cm)
+    rec <- recall(cm)
+    # 2 * ((prec * rec) / (prec + rec))
+    
+    classifier_cvinv <- glm(diabetes_status ~ seg_liver_scaled * cvinv_scaled, family='binomial', data=train_data)
+    predClass <- predict(classifier_cvinv, test_data, type = "response")
+    acc[i,20, accidx]<- AUC( predClass, test_data$diabetes_status)
+    cm <- table(test_data$diabetes_status, predClass>0.5)
+    cm <- cm_sanity_check(cm)
+    acc[i,19, accidx] <- sum(diag(cm)) / sum(cm)
+    prec <- precision(cm)
+    rec <- recall(cm)
+    
     accidx = accidx + 1
   }
 }
@@ -206,9 +225,84 @@ final_mean_accs[,5] = colMeans(acc[1:freq,,5])
 
 final_mean_accs <- aperm(final_mean_accs)
 
-write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/glm_classification_kora_auc_sample_analyzer.csv')
+write.csv(final_mean_accs, '~/Jyotirmay/my_thesis/glm_classification_kora_auc_sample_analyzer_interactions.csv')
 
 
 
 
+# liv_samp <- as.matrix(mcdata[,c("X0_liver","X1_liver","X2_liver","X3_liver","X4_liver","X5_liver","X6_liver","X7_liver","X8_liver","X9_liver")])
+# cv <- apply(liv_samp,1, sd, na.rm = TRUE) /  rowMeans(liv_samp)
+# mcdata$cvinv = 1/cv
+# 
+# liv_samp <- as.matrix(fbdata[,c("X0_liver","X1_liver","X2_liver","X3_liver","X4_liver","X5_liver","X6_liver","X7_liver","X8_liver","X9_liver")])
+# cv <- apply(liv_samp,1, sd, na.rm = TRUE) /  rowMeans(liv_samp)
+# fbdata$cvinv = 1/cv
+# 
+# liv_samp <- as.matrix(pbdata[,c("X0_liver","X1_liver","X2_liver","X3_liver","X4_liver","X5_liver","X6_liver","X7_liver","X8_liver","X9_liver")])
+# cv <- apply(liv_samp,1, sd, na.rm = TRUE) /  rowMeans(liv_samp)
+# pbdata$cvinv = 1/cv
+# 
+# liv_samp <- as.matrix(hqdata[,c("X0_liver","X1_liver","X2_liver","X3_liver","X4_liver","X5_liver","X6_liver","X7_liver","X8_liver","X9_liver")])
+# cv <- apply(liv_samp,1, sd, na.rm = TRUE) /  rowMeans(liv_samp)
+# hqdata$cvinv = 1/cv
+# 
+# 
+# aa <- cbind(mcdata$iou_liver,rep(1,153))
+# bb <- cbind(fbdata$iou_liver,rep(2,153))
+# cc <- cbind(pbdata$iou_liver,rep(3,153))
+# dd <- cbind(hqdata$iou_liver,rep(4,153))
+# aa <- cbind(rep('Manual', 153), manualdata$diabetes_status, manualdata$seg_liver)
 
+
+# aa <- cbind(mcdata$cvinv,rep(1,153))
+# bb <- cbind(fbdata$cvinv,rep(2,153))
+# cc <- cbind(pbdata$cvinv,rep(3,153))
+# dd <- cbind(hqdata$cvinv,rep(4,153))
+# 
+# comb <- rbind(aa,bb,cc,dd)
+# 
+# comb <- as.data.frame(comb)
+# 
+# colnames(comb) <- c("iou","net")
+# comb$net <- as.factor(comb$net)
+# ggplot(comb, aes(x = iou, fill = net)) + geom_density(alpha = 0.5, adjust=5)
+
+# Plotting liver volume box plot for diabetic and non diabetic across models.
+aa <- cbind(rep('Manual', 153), manualdata$diabetes_status, manualdata$, rep(0, 153))
+bb <- cbind(rep("MC Dropout", 153), mcdata$diabetes_status, mcdata$seg_liver, mcdata$dice_liver)
+cc <- cbind(rep("Bayesian", 153), fbdata$diabetes_status, fbdata$seg_liver, fbdata$dice_liver)
+dd <- cbind(rep("Probabilistic", 153), pbdata$diabetes_status, pbdata$seg_liver, pbda)
+ee <- cbind(rep("Hierarchical", 153), hqdata$diabetes_status, hqdata$seg_liver)
+tmp <- rbind(aa,bb,cc,dd,ee)
+tmp <- as.data.frame(tmp)
+colnames(tmp) <- c('model', 'diabetes_status', 'liver_volume')
+tmp$diabetes_status <- as.numeric(levels(tmp$diabetes_status))[tmp$diabetes_status]
+tmp$diabetes_status[tmp$diabetes_status == 2] <- 1
+tmp$diabetes_status <- as.factor(tmp$diabetes_status)
+tmp$liver_volume <- as.numeric(levels(tmp$liver_volume))[tmp$liver_volume]
+ggplot(tmp, aes(x=model, y=liver_volume, fill=diabetes_status)) +
+geom_boxplot() + theme(legend.position="bottom")
+
+
+aa <- cbind(rep('Manual', 153), manualdata$diabetes_status, manualdata, rep(0, 153))
+bb <- cbind(rep("MC Dropout", 1), rep(mean(mcdata$dice_liver), 1), rep(sd(mcdata$dice_liver), 1))
+cc <- cbind(rep("Bayesian", 1), rep(mean(fbdata$dice_liver), 1), rep(sd(mcdata$dice_liver), 1))
+dd <- cbind(rep("Probabilistic", 1), rep(mean(pbdata$dice_liver), 1), rep(sd(mcdata$dice_liver), 1))
+ee <- cbind(rep("Hierarchical", 1), rep(mean(hqdata$dice_liver), 1), rep(sd(mcdata$dice_liver), 1))
+tmp <- rbind(bb,cc,dd,ee)
+tmp <- as.data.frame(tmp)
+colnames(tmp) <- c('model', 'liver_volume', 'sd')
+# tmp$diabetes_status <- as.numeric(levels(tmp$diabetes_status))[tmp$diabetes_status]
+# tmp$diabetes_status[tmp$diabetes_status == 2] <- 1
+# tmp$diabetes_status <- as.factor(tmp$diabetes_status)
+tmp$liver_volume <- as.numeric(levels(tmp$liver_volume))[tmp$liver_volume]
+tmp$sd <- as.numeric(levels(tmp$sd))[tmp$sd]
+# ggplot(tmp, aes(x=model, y=liver_volume, fill=diabetes_status)) +
+#   geom_boxplot() + theme(legend.position="bottom")
+
+
+ggplot(tmp, aes(x=model, y=liver_volume)) + 
+  geom_bar(stat="identity", color="black", 
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=liver_volume-sd, ymax=liver_volume+sd), width=.2,
+                position=position_dodge(.9)) + ylim(0.8, 1.0)

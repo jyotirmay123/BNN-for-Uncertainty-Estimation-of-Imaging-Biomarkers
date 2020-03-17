@@ -30,7 +30,7 @@ sample_predictor_analyser <- function(c_data, test_data, classifier_instancecvin
   test_data$seg_liver_scaled <- c_data
   return (predict(classifier_instancecvinv, test_data, type = "response"))
 }
-
+  
 mcdata <- read.csv('~/Jyotirmay/my_thesis/projects/MC_dropout_quicknat/reports/MC_dropout_quicknat_KORA_v2/KORA/10_1572006141.7793334_concat_report_final.csv')
 fbdata <- read.csv('~/Jyotirmay/my_thesis/projects/full_bayesian/reports/full_bayesian_KORA_v4/KORA/10_1572514598.527084_concat_report_final.csv')
 pbdata <- read.csv('~/Jyotirmay/my_thesis/projects/probabilistic_quicknat/reports/probabilistic_quicknat_KORA_v2/KORA/10_1571996796.7963011_concat_report_final.csv')
@@ -99,7 +99,7 @@ for(i in 1:freq) {
     acc[i,1, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-     #2 * ((prec * rec) / (prec + rec))
+    #2 * ((prec * rec) / (prec + rec))
     
     classifier_vol <- randomForest(diabetes_status ~ seg_liver_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_vol, test_data, type = "response")
@@ -124,7 +124,7 @@ for(i in 1:freq) {
     acc[i,5, accidx] <- sum(diag(cm)) / sum(cm)
     prec <- precision(cm)
     rec <- recall(cm)
-     # 2 * ((prec * rec) / (prec + rec))
+    # 2 * ((prec * rec) / (prec + rec))
     
     classifier_cvinv <- randomForest(diabetes_status ~ seg_liver_scaled + cvinv_scaled, family='binomial', data=train_data)
     predClass <- predict(classifier_cvinv, test_data, type = "response")
