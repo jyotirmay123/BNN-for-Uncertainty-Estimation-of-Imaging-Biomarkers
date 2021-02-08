@@ -1,43 +1,29 @@
 
 
-- To install existing environment to jupyter kernel, follow below link:
-https://ipython.readthedocs.io/en/stable/install/kernel_install.html
- python -m ipykernel install --user --name other-env --display-name "Python (other-env)"
+# Bayesian Neural Networks for Uncertainty Estimation of Imaging Biomarkers
 
-- conda create -n py36 python=3.6.2 anaconda
+More details here: [MLMI2020](https://arxiv.org/pdf/2008.12680.pdf)
 
-# Project setup
-- Install project using **pip install -e .** or **pip install .** for smooth
+Folder Structures:
+- *dataset_groups:* It holds various datasets with their respective processing code in it.
+- *projects:* It holds various bayesian architectures i.e. 4 that we used for our experiments. Fully Bayesian, Quicknat with dropout, Probabilistic U-Net, Hierarchical U-Net.
+- *interface:* It has all the base class for solver, data processing pipeline, evaluator and run setup. Provides a consistent platform for all projects to train and evaluate.
+- *utils:* To have utility functions like logger & notifier to mention a few.
+- *stat_analysis:* This folder contains post segmentation data analysis with diesease classification and group analysis stuff using python and R toolkit.
 
-# Important Git commands
+if you like the paper, and willing to extend the work, please cite:
 
-- git branch <branch_name>
-- git checkout <branch_name>
-- git add .
-- git commit -m <coments>
-- git push origin_ master
-- git rm -r --cached .
-// To remove pre-added cached git file (solve pushing large files mistakenly)
+```
+@inproceedings{senapati2020bayesian,
+  title={Bayesian Neural Networks for Uncertainty Estimation of Imaging Biomarkers},
+  author={Senapati, Jyotirmay and Roy, Abhijit Guha and P{\"o}lsterl, Sebastian and Gutmann, Daniel and Gatidis, Sergios and Schlett, Christopher and Peters, Anette and Bamberg, Fabian and Wachinger, Christian},
+  booktitle={International Workshop on Machine Learning in Medical Imaging},
+  pages={270--280},
+  year={2020},
+  organization={Springer}
+}
+```
 
+## Code Authors
 
-# Pycharm SSH configurations
-
-- setup ssh interpreter with local and server file mappings.
-- Check if remote python libraries are loading. 
-- It will create a deployment configuration file.
-- Edit it, to include or exclude file from auto upload to server stuff.
-- Change config inputs to server/remote config locations to execute.
-
--- Chnage file locally, but while running, give appropriate server file location for 
-   mapped to your file, that you changed. It would have got uploaded to remote server by then,
-   or should have, check it once.
-   
-# Port Forwarding and other stuffs
-- https://www.booleanworld.com/guide-ssh-port-forwarding-tunnelling/
-- https://stackoverflow.com/questions/36182380/how-do-display-different-runs-in-tensorboard
-
-# MITK Installation guide
-- https://neurita.github.io/how_to_compile_mitk_on_ubuntu
-
-# Statistical Analysis related
-- https://scipy-lectures.org/packages/statistics/index.html
+* **Jyotirmay Senapati**  - [jyotirmay-senapati](https://www.linkedin.com/in/jyotirmay-senapati/)

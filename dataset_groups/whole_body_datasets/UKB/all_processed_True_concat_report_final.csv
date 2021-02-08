@@ -1,8 +1,0 @@
-,volume_id,seg_liver,seg_spleen,Unnamed: 0,age,sex,bmi_numeric,diabetes_status,diabetes_gestational,diabetes_typeI,diabetes_typeII,diabetes_insipidus,q_motion_artifact,q_tall_sub,q_broken_coil,q_complicated_swap,q_complicated_swap_ASAT,q_corrupt_data,q_dogbites,q_metal_artifact,q_minor_metal_artifact,med_cholesterol_lowering,med_blood_pressure,med_insulin,med_none_above,med_do_not_know,med_prefer_no_ans
-0,1004466_20201_2_0,1193112,181488,10,65,1,31.0477,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
-1,1002359_20201_2_0,635820,51648,7,65,0,23.6115,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-2,1005379_20201_2_0,852804,46512,16,65,1,27.2146,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-3,1013250_20201_2_0,925092,87852,47,49,0,26.9776,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-4,1942395_20201_2_0,765912,72672,4086,58,0,22.8928,1.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-5,1019631_20201_2_0,769860,82008,73,71,0,23.9464,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-6,1013391_20201_2_0,1184580,293280,48,70,1,30.9497,0.0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
