@@ -2,7 +2,9 @@
 
 # Bayesian Neural Networks for Uncertainty Estimation of Imaging Biomarkers
 
-More details here: [MLMI2020](https://arxiv.org/pdf/2008.12680.pdf)
+**Accepted in MICCAI-MLMI-2020**
+
+More details here: [MICCAI-MLMI-2020](https://arxiv.org/pdf/2008.12680.pdf)
 
 Folder Structures:
 - *dataset_groups:* It holds various datasets with their respective processing code in it.
